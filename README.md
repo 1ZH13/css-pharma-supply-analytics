@@ -52,13 +52,35 @@ python -m pipeline.extract      # 1. descarga las fuentes a data/raw/
 python -m pipeline.transform    # 2. limpia y unifica → data/processed/
 python -m pipeline.quality      # 3. reporte de calidad → data/processed/reporte_calidad.md
 python -m pipeline.ia_texto     # 4. IA generativa sobre noticias (requiere GEMINI_API_KEY en .env)
-python -m pipeline.load         # 5. carga en MongoDB Atlas (requiere MONGODB_URI en .env)
+python -m pipeline.kpi          # 5. KPI, riesgo y redistribución
+python -m pipeline.preguntas    # 6. las 6 preguntas del proyecto
+python -m pipeline.narrativa    # 7. hallazgos redactados por IA
+python -m pipeline.load         # 8. carga en MongoDB Atlas (requiere MONGODB_URI en .env)
 python -m pytest -q tests       #    pruebas de las reglas de limpieza
 ```
 
 Las tablas limpias también se publican automáticamente en la carpeta `processed/` de la rama `data`, listas para Power BI.
 
-Los dashboards se documentan a medida que se incorporan.
+## Las 6 preguntas y el dashboard
+
+| # | Pregunta | Decisión que habilita |
+|---|---|---|
+| 1 | ¿Qué pasó con el inventario de la CSS en 2025? | ¿Inventario ajustado por política o riesgo a corregir? (con el dinero inmovilizado como apoyo) |
+| 2 | ¿Es real el "90 % de abastecimiento" que anuncia la CSS? | Con qué indicador rendir cuentas |
+| 3 | ¿Quiénes pagan el desabastecimiento? | Priorizar compras y stock de seguridad por grupo de pacientes |
+| 4 | ¿El interior del país está peor abastecido? | Órdenes de traslado entre CDPA, CDDI y CDCH |
+| 5 | ¿Funcionó la Comisión de Desabastecimiento Crítico? | Mantener o ampliar la compra conjunta |
+| 6 | ¿Cuáles son los medicamentos "fantasma"? | Reactivar, sustituir o depurar el catálogo |
+
+`python -m pipeline.preguntas` calcula las tablas de cada pregunta y `python -m pipeline.narrativa` hace que **Gemini redacte el titular y la interpretación usando solo las cifras calculadas** (cada número del texto se valida contra los datos).
+
+**Dashboard (Streamlit):** una página por pregunta + el asistente **"Pregúntale a los datos"** (Gemini responde con las tablas del sistema).
+
+```bash
+streamlit run dashboard/streamlit/app.py
+```
+
+Lee de MongoDB Atlas si encuentra `MONGODB_URI` (en `.streamlit/secrets.toml` o en el entorno); si no, usa las tablas publicadas en la rama `data`. El asistente necesita `GEMINI_API_KEY`.
 
 ## Limpieza y unificación (Etapa 2)
 

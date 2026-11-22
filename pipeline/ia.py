@@ -157,13 +157,24 @@ class ClienteGemini:
         return self.cands[self.i]
 
     def json(self, prompt: str, esquema: dict) -> dict:
+        try:
+            return json.loads(self._llamar(prompt, esquema))
+        except json.JSONDecodeError as e:
+            raise ErrorIA(f"Gemini devolvió JSON inválido: {e}") from e
+
+    def texto(self, prompt: str, temperatura: float = 0.2) -> str:
+        """Respuesta en texto libre (la usa el asistente del dashboard)."""
+        return self._llamar(prompt, None, temperatura)
+
+    def _llamar(self, prompt: str, esquema: dict | None, temperatura: float = 0.1) -> str:
         espera = self.pausa - (time.time() - self._ultima)
         if espera > 0:
             time.sleep(espera)
         while self.i < len(self.cands):
             try:
                 t0 = time.time()
-                texto = generar(prompt, modelo=self.modelo, clave=self.clave, json_schema=esquema, reintentos=3)
+                texto = generar(prompt, modelo=self.modelo, clave=self.clave, json_schema=esquema,
+                                temperatura=temperatura, reintentos=3)
                 self._ultima = time.time()
                 self.llamadas += 1
                 if self._ultima - t0 > LENTO:
@@ -171,7 +182,7 @@ class ClienteGemini:
                     if self._lentas >= 2 and self.i < len(self.cands) - 1:
                         self.i += 1              # modelo saturado: los siguientes pedidos van al próximo
                         self._lentas = 0
-                return json.loads(texto)
+                return texto
             except ErrorIA as e:
                 m = str(e)
                 if any(k in m for k in ("404", "NOT_FOUND", "503", "UNAVAILABLE", "no está disponible")):
@@ -182,8 +193,6 @@ class ClienteGemini:
                     time.sleep(60)
                     continue
                 raise
-            except json.JSONDecodeError as e:
-                raise ErrorIA(f"Gemini devolvió JSON inválido: {e}") from e
         raise ErrorIA("Ningún modelo Gemini disponible respondió.")
 
 

@@ -84,6 +84,12 @@ jobs:
           python -m pipeline.kpi --datos data/processed | tee kpi.json
           { echo "### KPI"; echo '```json'; cat kpi.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Las 6 preguntas y hallazgos redactados por IA
+        run: |
+          python -m pipeline.preguntas --datos data/processed > /dev/null
+          python -m pipeline.narrativa --datos data/processed | tee narrativa.json
+          { echo "### Hallazgos (IA)"; echo '```json'; cat narrativa.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Versionar tablas limpias en la rama data
         run: |
           python -m pipeline.publicar --origen data/processed --destino _data/processed   # sin textos de terceros
