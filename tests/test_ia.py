@@ -37,3 +37,29 @@ def test_seleccion_de_modelo_prefiere_flash_estable_mas_reciente(monkeypatch):
     monkeypatch.delenv("GEMINI_MODEL", raising=False)
     c = candidatos(["gemini-2.5-flash", "gemini-3.6-flash", "gemini-3.6-flash-image", "gemini-flash-latest", "gemini-3-pro"])
     assert c[0] == "gemini-3.6-flash" and "gemini-3.6-flash-image" not in c and "gemini-3-pro" not in c
+
+
+def test_timeout_pasa_al_siguiente_modelo(monkeypatch):
+    import requests
+    import pipeline.ia as ia
+    llamadas = []
+
+    def falso_post(url, **kw):
+        llamadas.append(url)
+        if "gemini-3.8-flash" in url:
+            raise requests.ReadTimeout("lento")
+        class R:
+            status_code = 200
+            @staticmethod
+            def json():
+                return {"candidates": [{"content": {"parts": [{"text": '{"estado": "ok"}'}]}}]}
+        return R()
+
+    monkeypatch.setattr(ia.requests, "post", falso_post)
+    monkeypatch.setattr(ia.time, "sleep", lambda s: None)
+    monkeypatch.setattr(ia, "modelos", lambda clave=None: ["gemini-3.8-flash", "gemini-3.6-flash"])
+    monkeypatch.setenv("GEMINI_API_KEY", "x")
+    monkeypatch.delenv("GEMINI_MODEL", raising=False)
+    cli = ia.ClienteGemini(pausa=0)
+    assert cli.json("hola", {"type": "OBJECT"}) == {"estado": "ok"}
+    assert cli.modelo == "gemini-3.6-flash"

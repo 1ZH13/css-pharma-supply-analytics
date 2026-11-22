@@ -88,8 +88,15 @@ def generar(prompt: str, *, modelo: str, clave: str | None = None, json_schema: 
     if json_schema:
         cuerpo["generationConfig"].update(responseMimeType="application/json", responseSchema=json_schema)
     for intento in range(reintentos):
-        r = requests.post(f"{API}/models/{modelo}:generateContent", headers={"x-goog-api-key": clave},
-                          json=cuerpo, timeout=120)
+        try:
+            r = requests.post(f"{API}/models/{modelo}:generateContent", headers={"x-goog-api-key": clave},
+                              json=cuerpo, timeout=(15, 90))
+        except (requests.Timeout, requests.ConnectionError) as e:
+            if intento < reintentos - 1:
+                time.sleep(10 * (intento + 1))
+                continue
+            # Se trata como saturación (503) para que el cliente pruebe otro modelo
+            raise ErrorIA(f"503 UNAVAILABLE: sin respuesta de {modelo} ({type(e).__name__})") from e
         if r.status_code in (429, 500, 503) and intento < reintentos - 1:
             time.sleep(10 * (intento + 1))           # capa gratuita: respetar el límite por minuto
             continue
