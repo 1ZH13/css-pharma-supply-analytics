@@ -17,7 +17,7 @@ _Generado automáticamente por `pipeline/quality.py` el 2026-11-22._
 | Unicidad (sin duplicados medicamento-mes-centro) | 100.0 % |
 | Renglones-mes atípicos | 111 (0.303 %) |
 | Registros openFDA | 1,581 |
-| Documentos de texto con contenido útil | 2 de 10 |
+| Documentos de texto con contenido útil | 15 de 21 |
 
 ## Exactitud: validación cruzada
 
@@ -41,8 +41,7 @@ Los totales nacionales calculados (suma de CDPA + CDDI + CDCH) se comparan con l
 | `codigo_con_varias_descripciones` | 35 | El mismo código aparece con nombres distintos (variantes de escritura o reutilización). |
 | `sin_precio` | 9 | Ningún archivo informa precio para el medicamento. |
 | `total_no_cuadra` | 7 | La suma de los tres centros no coincide con el total publicado. Se usa la suma de los centros. |
-| `texto_incompleto` | 4 | La noticia se descargó pero el texto útil tiene menos de 500 caracteres. |
-| `texto_sin_descarga` | 4 | La noticia o el informe no se pudo descargar. |
+| `texto_sin_descarga` | 6 | La noticia o el informe no se pudo descargar. |
 | `existencia_negativa` | 2 | Existencia menor que cero en la fuente. |
 | `archivo_excluido` | 1 | Archivo fuera del alcance (insumos médico-quirúrgicos). |
 

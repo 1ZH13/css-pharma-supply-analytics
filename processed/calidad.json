@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-22T17:37:40+00:00",
+  "generado": "2026-11-22T17:40:57+00:00",
   "cobertura": {
     "desde": "2021-01",
     "hasta": "2026-09",
@@ -16,13 +16,13 @@
     "renglones_por_mes_promedio": 546.7,
     "archivos_leidos": 78,
     "fda_registros": 1581,
-    "documentos": 10
+    "documentos": 21
   },
   "completitud": {
     "meses_con_dato_pct": 97.1,
     "precio_imputado_pct": 10.67,
     "medicamentos_con_atc_pct": 87.4,
-    "documentos_texto_ok": 2
+    "documentos_texto_ok": 15
   },
   "validez": {
     "filas_atipicas_pct": 0.303,
@@ -55,8 +55,7 @@
     "codigo_con_varias_descripciones": 35,
     "sin_precio": 9,
     "total_no_cuadra": 7,
-    "texto_incompleto": 4,
-    "texto_sin_descarga": 4,
+    "texto_sin_descarga": 6,
     "existencia_negativa": 2,
     "archivo_excluido": 1
   },
