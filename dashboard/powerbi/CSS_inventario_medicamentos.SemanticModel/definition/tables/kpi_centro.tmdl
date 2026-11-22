@@ -1,0 +1,115 @@
+table kpi_centro
+	lineageTag: 0f19efb5-3ef1-4b55-95c1-422ea35d5f50
+
+	column periodo
+		dataType: string
+		lineageTag: 29c93e6f-4089-4b7f-98a5-50a4cf40c4a7
+		summarizeBy: none
+		sourceColumn: periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	column centro
+		dataType: string
+		lineageTag: 14e8e75a-9f33-480f-9fae-075e3c588918
+		summarizeBy: none
+		sourceColumn: centro
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor_inventario
+		dataType: double
+		lineageTag: a9ee7b1c-7e3e-4cc7-af82-2fab051d3fdd
+		summarizeBy: sum
+		sourceColumn: valor_inventario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unidades
+		dataType: double
+		lineageTag: b2409139-f674-41cd-990b-a20f99b99193
+		summarizeBy: sum
+		sourceColumn: unidades
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column renglones
+		dataType: double
+		lineageTag: 54879981-b734-4660-9cf9-059afe92644f
+		summarizeBy: sum
+		sourceColumn: renglones
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column renglones_en_cero
+		dataType: double
+		lineageTag: db87982e-7910-4b55-aca3-acd8754cd762
+		summarizeBy: sum
+		sourceColumn: renglones_en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pct_en_cero
+		dataType: double
+		lineageTag: 659eee02-3b12-452e-94d9-ed17ec6c1a73
+		summarizeBy: sum
+		sourceColumn: pct_en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column participacion_valor_pct
+		dataType: double
+		lineageTag: f9af4e93-26ce-4c04-801a-9e262dd1e1f0
+		summarizeBy: sum
+		sourceColumn: participacion_valor_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nombre_centro
+		dataType: string
+		lineageTag: d758afae-c62f-43e6-86ef-525fd20e4372
+		summarizeBy: none
+		sourceColumn: nombre_centro
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3b175e8b-9c94-4e01-8a30-1df3c44841a9
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		variation Variation
+			isDefault
+			relationship: ec48cd2a-c645-47f3-8cf1-0e3dc259c005
+			defaultHierarchy: LocalDateTable_726a8cf9-ed44-4381-95f5-62720e7cc2ff.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition kpi_centro = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("kpi_centro")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

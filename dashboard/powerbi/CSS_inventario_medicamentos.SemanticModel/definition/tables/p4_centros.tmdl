@@ -1,0 +1,141 @@
+table p4_centros
+	lineageTag: a80d9f0e-98f8-4dd4-8ecc-b545d0d53466
+
+	column centro
+		dataType: string
+		lineageTag: bc067ba2-1b15-48e4-b358-1dc47c5d9108
+		summarizeBy: none
+		sourceColumn: centro
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		lineageTag: 7a45619c-36a8-4ea6-a4a5-7a35882458f2
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column filas
+		dataType: double
+		lineageTag: 812fe263-7cf3-4891-bcf2-01542caecbdb
+		summarizeBy: sum
+		sourceColumn: filas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column en_cero
+		dataType: double
+		lineageTag: c8c455c5-73fc-409f-9cab-cbc4b2232c51
+		summarizeBy: sum
+		sourceColumn: en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column en_cero_con_stock_en_otro
+		dataType: double
+		lineageTag: 602c8dca-a91d-4097-b27b-0794d545eda5
+		summarizeBy: sum
+		sourceColumn: en_cero_con_stock_en_otro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column participacion_valor_pct
+		dataType: double
+		lineageTag: bb71e9da-688e-475c-8519-c88087fd4074
+		summarizeBy: sum
+		sourceColumn: participacion_valor_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pct_en_cero
+		dataType: double
+		lineageTag: ecfe9b47-f93b-4882-8ee6-3c491c3bf45d
+		summarizeBy: sum
+		sourceColumn: pct_en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pct_en_cero_con_stock_en_otro
+		dataType: double
+		lineageTag: 8f779a65-cfa9-407c-80ad-13635c29117d
+		summarizeBy: sum
+		sourceColumn: pct_en_cero_con_stock_en_otro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nombre
+		dataType: string
+		lineageTag: 4bf128e9-050e-4c88-a5a4-7d2534b11cd2
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column transferencias_recibe
+		dataType: double
+		lineageTag: 72cd98b1-b0c9-4c00-b56b-a30831186e29
+		summarizeBy: sum
+		sourceColumn: transferencias_recibe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valor_recibe
+		dataType: double
+		lineageTag: 89a99e11-8fef-4dfb-b846-26d84dcb57a5
+		summarizeBy: sum
+		sourceColumn: valor_recibe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column transferencias_cede
+		dataType: double
+		lineageTag: 58e74259-5d78-49ed-ac11-622c1ac12ce4
+		summarizeBy: sum
+		sourceColumn: transferencias_cede
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valor_cede
+		dataType: double
+		lineageTag: 26709b5b-f8c4-44cb-80d9-5a6112e26533
+		summarizeBy: sum
+		sourceColumn: valor_cede
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition p4_centros = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("p4_centros")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

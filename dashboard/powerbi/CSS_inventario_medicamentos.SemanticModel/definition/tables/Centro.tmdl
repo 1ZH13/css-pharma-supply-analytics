@@ -1,0 +1,34 @@
+table Centro
+	lineageTag: 26f84c72-3fc7-48b1-9b69-06a25574280f
+
+	column centro
+		lineageTag: 808620b4-6cc5-498d-9271-a403ba55c290
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [centro]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nombre
+		lineageTag: 04c4761b-d645-450a-87d1-5ef5659e69ab
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nombre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden
+		formatString: 0
+		lineageTag: 01455e7f-22e0-4120-9ccb-93b9bc169ee3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orden]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Centro = calculated
+		mode: import
+		source = DATATABLE ( "centro", STRING, "Nombre", STRING, "Orden", INTEGER, { { "CDPA", "Panamá (CDPA)", 1 }, { "CDDI", "Divisa (CDDI)", 2 }, { "CDCH", "Chiriquí (CDCH)", 3 } } )
+
+	annotation PBI_Id = be7cb42b89704c80a8359ada7b124758
+

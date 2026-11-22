@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "CSS_inventario_medicamentos"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c527f9a1-5c3f-46f3-880d-a074b612b639"
+  }
+}

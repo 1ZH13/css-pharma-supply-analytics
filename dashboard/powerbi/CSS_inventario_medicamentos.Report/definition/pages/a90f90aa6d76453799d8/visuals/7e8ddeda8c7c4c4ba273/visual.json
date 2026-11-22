@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "7e8ddeda8c7c4c4ba273",
+  "position": {
+    "x": 40,
+    "y": 1030,
+    "z": 0,
+    "height": 40,
+    "width": 1840,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Fuente: Inventario CSS: renglones publicados en el último corte con 12 meses consecutivos en cero. Datos abiertos de la CSS procesados por el pipeline css-pharma-supply-analytics.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#8A8494"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,73 @@
+table p3_grupos
+	lineageTag: f22edb72-d471-4908-9d61-6c1cda7e475e
+
+	column grupo
+		dataType: string
+		lineageTag: babe4cd3-bc4b-4230-a185-86ac9fbebee7
+		summarizeBy: none
+		sourceColumn: grupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column pct_meses_en_cero
+		dataType: double
+		lineageTag: b27f9892-7c60-4301-9c72-1b0741f23a28
+		summarizeBy: sum
+		sourceColumn: pct_meses_en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column medicamentos
+		dataType: double
+		lineageTag: c0529175-dd13-450b-aece-b9c2a43cb148
+		summarizeBy: sum
+		sourceColumn: medicamentos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column en_riesgo_alto
+		dataType: double
+		lineageTag: 48cf93fe-2414-4fc3-b5c7-419bdbbb6b8f
+		summarizeBy: sum
+		sourceColumn: en_riesgo_alto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sin_existencia_hoy
+		dataType: double
+		lineageTag: 41da0595-b6e5-4bdf-a374-2fc6e1799dff
+		summarizeBy: sum
+		sourceColumn: sin_existencia_hoy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column escasez_eeuu
+		dataType: double
+		lineageTag: 9f72dcdc-8dc5-4504-9d99-78bba56891c4
+		summarizeBy: sum
+		sourceColumn: escasez_eeuu
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition p3_grupos = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("p3_grupos")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

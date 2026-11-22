@@ -1,0 +1,89 @@
+table p1_serie
+	lineageTag: 6c5e1a64-27e1-46d7-8e3e-ec9f11084ba1
+
+	column periodo
+		dataType: string
+		lineageTag: f3c0789f-97de-42f8-85dd-99143d1ca000
+		summarizeBy: none
+		sourceColumn: periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		lineageTag: 05847cbb-fbb6-4911-b702-fd2b82b2fb16
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad
+		dataType: double
+		lineageTag: 10b85260-4e0a-4994-b040-eda555ba2fc6
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valor_canasta
+		dataType: double
+		lineageTag: c32097a4-5962-43d4-b0a4-a1ec86226400
+		summarizeBy: sum
+		sourceColumn: valor_canasta
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad_canasta
+		dataType: double
+		lineageTag: d38e1af3-c95e-482f-9f32-b87d962d4fd1
+		summarizeBy: sum
+		sourceColumn: cantidad_canasta
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column anio
+		dataType: double
+		lineageTag: 06f6113b-d94a-4002-b882-d427247e0d5e
+		summarizeBy: sum
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c9268f40-0c93-4a7b-8c0e-5a0d51742bfe
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		variation Variation
+			isDefault
+			relationship: 9fff37a4-a66b-4ef7-9d33-085b89d1c4f4
+			defaultHierarchy: LocalDateTable_aba82d42-c437-4a51-abae-f34869d47056.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition p1_serie = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("p1_serie")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

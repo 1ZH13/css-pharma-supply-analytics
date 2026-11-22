@@ -1,0 +1,39 @@
+model Model
+	culture: es-PA
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-PA
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["fnCSS","existencias","medicamentos","kpi_mensual","kpi_centro","riesgo_medicamentos","redistribucion","p1_serie","p2_declaraciones","p3_grupos","p4_centros","p5_eventos","p6_fantasmas"]
+
+annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode"]
+
+ref table existencias
+ref table DateTableTemplate_917c90b6-430d-4324-8193-c771c1eb9ef9
+ref table LocalDateTable_dcc4b8c9-c25b-4c8b-802d-2b0ddf99ec3e
+ref table medicamentos
+ref table kpi_mensual
+ref table LocalDateTable_91fe56ec-0a77-464e-b076-b6fa0756cf84
+ref table kpi_centro
+ref table LocalDateTable_726a8cf9-ed44-4381-95f5-62720e7cc2ff
+ref table riesgo_medicamentos
+ref table LocalDateTable_86c37b75-099e-4af3-9ffb-4c5c3aff7cbe
+ref table redistribucion
+ref table p1_serie
+ref table LocalDateTable_aba82d42-c437-4a51-abae-f34869d47056
+ref table p2_declaraciones
+ref table p3_grupos
+ref table p4_centros
+ref table p5_eventos
+ref table p6_fantasmas
+ref table Calendario
+ref table LocalDateTable_16be14e8-c22f-4eb9-80d3-cec8d34f04fa
+ref table Centro
+
+ref cultureInfo es-PA
+
