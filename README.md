@@ -82,6 +82,12 @@ streamlit run dashboard/streamlit/app.py
 
 Lee de MongoDB Atlas si encuentra `MONGODB_URI` (en `.streamlit/secrets.toml` o en el entorno); si no, usa las tablas publicadas en la rama `data`. El asistente necesita `GEMINI_API_KEY`.
 
+Publicado en **https://css-medicamentos-panama.streamlit.app**.
+
+**Dashboard (Power BI):** el reporte `dashboard/powerbi/CSS_inventario_medicamentos.pbip` tiene 7 páginas: resumen y una por pregunta. Lee la rama `data` y no necesita credenciales. Ver [`dashboard/powerbi/README.md`](dashboard/powerbi/README.md).
+
+**Recomendaciones, riesgos y limitaciones (Etapa 6):** ver [`docs/recomendaciones.md`](docs/recomendaciones.md).
+
 ## Limpieza y unificación (Etapa 2)
 
 Los 79 CSV de la CSS (2021–2026) no comparten formato. El pipeline resuelve:
