@@ -12,14 +12,16 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import time
 
 import requests
 
 API = "https://generativelanguage.googleapis.com/v1beta"
-# Orden de preferencia: modelos rápidos y con capa gratuita.
-PREFERIDOS = ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-flash-lite", "gemini-2.0-flash"]
+# Se prefiere el Gemini "Flash" estable más reciente (rápido y con capa gratuita).
+# Google retira versiones para usuarios nuevos, por eso el modelo no se fija en el código.
+RE_FLASH = re.compile(r"^gemini-(\d+(?:\.\d+)?)-flash$")
 
 
 class ErrorIA(RuntimeError):
@@ -63,19 +65,18 @@ def modelos(clave: str | None = None) -> list[str]:
             if "generateContent" in m.get("supportedGenerationMethods", [])]
 
 
-def elegir_modelo(disponibles: list[str]) -> str:
+def candidatos(disponibles: list[str]) -> list[str]:
+    """Modelos en orden de preferencia: GEMINI_MODEL, Flash estables por versión descendente, alias."""
     pedido = os.getenv("GEMINI_MODEL", "").strip()
-    if pedido:
-        if pedido not in disponibles:
-            raise ErrorIA(f"El modelo {pedido} no está disponible para esta clave.")
-        return pedido
-    for m in PREFERIDOS:
-        if m in disponibles:
-            return m
-    flash = [m for m in disponibles if "flash" in m]
-    if not flash:
+    estables = sorted((m for m in disponibles if RE_FLASH.match(m)),
+                      key=lambda m: float(RE_FLASH.match(m).group(1)), reverse=True)
+    alias = [m for m in ("gemini-flash-latest",) if m in disponibles]
+    otros = sorted((m for m in disponibles if "flash" in m and m not in estables + alias
+                    and not any(x in m for x in ("image", "tts", "audio", "live", "embedding"))), reverse=True)
+    orden = ([pedido] if pedido else []) + estables + alias + otros
+    if not orden:
         raise ErrorIA("La clave no tiene acceso a ningún modelo Gemini Flash.")
-    return sorted(flash)[-1]
+    return list(dict.fromkeys(orden))
 
 
 def generar(prompt: str, *, modelo: str, clave: str | None = None, json_schema: dict | None = None,
@@ -107,13 +108,25 @@ def probar() -> dict:
     clave = _clave()
     t0 = time.time()
     disponibles = modelos(clave)
-    modelo = elegir_modelo(disponibles)
     esquema = {"type": "OBJECT", "properties": {"estado": {"type": "STRING"}, "medicamento": {"type": "STRING"}},
                "required": ["estado", "medicamento"]}
-    resp = generar('Devuelve estado="ok" y el principio activo de "GLIBENCLAMIDA, 5MG, TABLETA, V.O".',
-                   modelo=modelo, clave=clave, json_schema=esquema)
-    return {"clave": "válida", "modelo": modelo, "modelos_flash_disponibles": [m for m in disponibles if "flash" in m][:8],
-            "respuesta": json.loads(resp), "segundos": round(time.time() - t0, 1)}
+    descartados = {}
+    for modelo in candidatos(disponibles)[:6]:
+        try:
+            resp = generar('Devuelve estado="ok" y el principio activo de "GLIBENCLAMIDA, 5MG, TABLETA, V.O".',
+                           modelo=modelo, clave=clave, json_schema=esquema, reintentos=2)
+        except ErrorIA as e:
+            descartados[modelo] = str(e)[:120]
+            continue
+        return {"clave": "válida", "modelo": modelo, "respuesta": json.loads(resp),
+                "segundos": round(time.time() - t0, 1), "descartados": descartados,
+                "flash_disponibles": [m for m in disponibles if "flash" in m][:10]}
+    raise ErrorIA(f"La clave es válida pero ningún modelo respondió: {descartados}")
+
+
+def elegir_modelo(clave: str | None = None) -> str:
+    """Primer modelo candidato que responde (lo usa la Etapa 3)."""
+    return probar()["modelo"]
 
 
 def main():
