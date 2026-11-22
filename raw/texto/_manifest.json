@@ -1,0 +1,62 @@
+[
+  {
+    "id": "n01",
+    "tipo": "noticia",
+    "fuente": "La Estrella de Panamá",
+    "fecha": "2025",
+    "titulo": "CSS abre proceso para adquisición de 22 renglones de medicamentos",
+    "url": "https://www.laestrella.com.pa/panama/css-abre-proceso-para-adquisicion-de-22-renglones-de-medicamentos-LN10487837",
+    "caracteres": 13,
+    "descargado": "2026-11-22T15:58:33+00:00"
+  },
+  {
+    "id": "n04",
+    "tipo": "noticia",
+    "fuente": "La Estrella de Panamá",
+    "fecha": "2026",
+    "titulo": "CSS busca frenar vencimiento y pérdidas de medicamentos con MiFarma Digital",
+    "url": "https://www.laestrella.com.pa/panama/nacional/css-busca-frenar-vencimiento-y-perdidas-de-medicamentos-con-mifarma-digital-DL22387411",
+    "caracteres": 24,
+    "descargado": "2026-11-22T15:58:47+00:00"
+  },
+  {
+    "id": "n05",
+    "tipo": "noticia",
+    "fuente": "La Estrella de Panamá",
+    "fecha": "2025",
+    "titulo": "CSS licita más de 91 millones en medicamentos para 15 meses",
+    "url": "https://www.laestrella.com.pa/panama/nacional/caja-de-seguro-social-licita-mas-de-91-millones-en-medicamentos-para-15-meses-de-abastecimiento-HO18075266",
+    "caracteres": 28,
+    "descargado": "2026-11-22T15:58:47+00:00"
+  },
+  {
+    "id": "n06",
+    "tipo": "noticia",
+    "fuente": "Telemetro",
+    "fecha": "2025-02-27",
+    "titulo": "CSS busca mantener abastecimiento encima del 90% de medicamentos",
+    "url": "https://www.telemetro.com/nacionales/css-busca-mantener-abastecimiento-encima-del-90-medicamentos-sus-farmacias-n6030501",
+    "caracteres": 318,
+    "descargado": "2026-11-22T15:58:49+00:00"
+  },
+  {
+    "id": "n08",
+    "tipo": "noticia",
+    "fuente": "Panamá América",
+    "fecha": "2025",
+    "titulo": "Que no falte medicinas se logrará cambiando procesos",
+    "url": "https://www.panamaamerica.com.pa/sociedad/que-no-falte-medicinas-se-lograra-cambiando-procesos-reconoce-funcionario-del-minsa-1246149",
+    "caracteres": 3255,
+    "descargado": "2026-11-22T15:58:56+00:00"
+  },
+  {
+    "id": "i01",
+    "tipo": "informe",
+    "fuente": "Instituto Gorgas (SIGMED)",
+    "fecha": "",
+    "titulo": "Informe de medicamentos: gasto y acceso en Panamá",
+    "url": "https://www.gorgas.gob.pa/wp-content/uploads/external/SIGMED/documentos/InformeMedicamentos.pdf",
+    "caracteres": 0,
+    "descargado": "2026-11-22T15:59:01+00:00"
+  }
+]

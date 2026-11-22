@@ -1,0 +1,11 @@
+[
+  {
+    "archivo": "drug_shortages.json",
+    "url": "https://api.fda.gov/drug/shortages.json",
+    "registros": 1581,
+    "bytes": 2082697,
+    "sha256": "33c2a3a7aee86fc305743693cdd2b31706364a2794e13ba26504484cbf5abe12",
+    "descargado": "2026-11-22T15:58:30+00:00",
+    "licencia": "openFDA — dominio público (CC0)"
+  }
+]
