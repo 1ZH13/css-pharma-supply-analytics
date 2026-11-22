@@ -1,0 +1,130 @@
+"""Carga de las tablas limpias en MongoDB Atlas.
+
+Cada colección se carga primero en una colección temporal y luego se reemplaza de
+forma atómica (`renameCollection` con `dropTarget`), de modo que el dashboard nunca
+lee una colección a medio cargar. Cada ejecución queda registrada en `ejecuciones`.
+
+| Colección | Contenido | Tipo de dato de origen |
+|---|---|---|
+| `existencias` | medicamento × mes × centro | estructurado (CSV CSS) |
+| `medicamentos` | catálogo con ATC y categoría crítica | estructurado (CSV CSS) |
+| `totales_referencia` | totales nacionales publicados | estructurado (CSV CSS) |
+| `fda_escasez` | registros originales de openFDA | semiestructurado (JSON) |
+| `documentos` | noticias e informes con su texto | no estructurado (texto) |
+| `incidencias`, `calidad`, `ejecuciones` | trazabilidad del pipeline | — |
+
+Requiere la variable de entorno MONGODB_URI (archivo `.env` o secreto de GitHub).
+Uso:  python -m pipeline.load  [--datos RUTA] [--raw RUTA]
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import os
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+import pandas as pd
+
+from .config import PROCESSED, RAW
+
+LOTE = 5000
+
+
+def _registros(df: pd.DataFrame) -> list[dict]:
+    out = []
+    for r in df.to_dict("records"):
+        out.append({k: (None if isinstance(v, float) and math.isnan(v) else v) for k, v in r.items()})
+    return out
+
+
+def _reemplazar(db, nombre: str, docs: list[dict], indices: list | None = None) -> int:
+    tmp = db[f"{nombre}__carga"]
+    tmp.drop()
+    for i in range(0, len(docs), LOTE):
+        tmp.insert_many(docs[i:i + LOTE], ordered=False)
+    for idx in indices or []:
+        tmp.create_index(idx)
+    if docs:
+        tmp.rename(nombre, dropTarget=True)
+    return len(docs)
+
+
+def cargar(datos: Path, raw: Path, uri: str, base: str) -> dict:
+    from pymongo import ASCENDING, MongoClient
+
+    cli = MongoClient(uri, serverSelectionTimeoutMS=20000, appname="css-pharma-supply-analytics")
+    cli.admin.command("ping")
+    db = cli[base]
+    inicio = datetime.now(timezone.utc)
+    n = {}
+
+    ex = pd.read_csv(datos / "existencias.csv", dtype={"codigo": str})
+    n["existencias"] = _reemplazar(db, "existencias", _registros(ex), [
+        [("codigo", ASCENDING), ("periodo", ASCENDING)], [("periodo", ASCENDING), ("centro", ASCENDING)]])
+
+    med = pd.read_csv(datos / "medicamentos.csv", dtype={"codigo": str})
+    docs = _registros(med)
+    for d in docs:
+        d["_id"] = d["codigo"]
+    n["medicamentos"] = _reemplazar(db, "medicamentos", docs, [[("atc", ASCENDING)], [("critico", ASCENDING)]])
+
+    ref = datos / "totales_referencia.csv"
+    if ref.exists() and ref.stat().st_size > 5:
+        n["totales_referencia"] = _reemplazar(db, "totales_referencia",
+                                              _registros(pd.read_csv(ref, dtype={"codigo": str})),
+                                              [[("codigo", ASCENDING), ("periodo", ASCENDING)]])
+
+    # openFDA se guarda con su estructura JSON original (documentos anidados)
+    fda_json = raw / "openfda" / "drug_shortages.json"
+    if fda_json.exists():
+        d = json.loads(fda_json.read_text(encoding="utf-8"))
+        fda = d.get("results", d) if isinstance(d, dict) else d
+    else:
+        fda = _registros(pd.read_csv(datos / "fda_escasez.csv"))
+    n["fda_escasez"] = _reemplazar(db, "fda_escasez", fda, [[("generic_name", ASCENDING)], [("status", ASCENDING)]])
+
+    docs = [json.loads(l) for l in (datos / "documentos.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+    for d in docs:
+        d["_id"] = d.get("id")
+    n["documentos"] = _reemplazar(db, "documentos", docs)
+
+    n["incidencias"] = _reemplazar(db, "incidencias",
+                                   _registros(pd.read_csv(datos / "incidencias.csv", dtype={"codigo": str})),
+                                   [[("tipo", ASCENDING)]])
+
+    cal = datos / "calidad.json"
+    if cal.exists():
+        c = json.loads(cal.read_text(encoding="utf-8"))
+        c["_id"] = "ultimo"
+        db["calidad"].replace_one({"_id": "ultimo"}, c, upsert=True)
+
+    reg = {"inicio": inicio, "fin": datetime.now(timezone.utc), "documentos": n,
+           "origen": os.getenv("GITHUB_RUN_ID") and f"github-actions run {os.getenv('GITHUB_RUN_NUMBER')}" or "local"}
+    db["ejecuciones"].insert_one(reg)
+    cli.close()
+    return n
+
+
+def main():
+    ap = argparse.ArgumentParser(description="Carga en MongoDB Atlas")
+    ap.add_argument("--datos", type=Path, default=PROCESSED)
+    ap.add_argument("--raw", type=Path, default=RAW)
+    a = ap.parse_args()
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ImportError:
+        pass
+    uri = os.getenv("MONGODB_URI")
+    if not uri:
+        sys.exit("Falta MONGODB_URI (en .env o como secreto del repositorio).")
+    base = os.getenv("MONGODB_DB", "css_pharma")
+    n = cargar(a.datos, a.raw, uri, base)
+    print(json.dumps({"base": base, "colecciones": n}, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()

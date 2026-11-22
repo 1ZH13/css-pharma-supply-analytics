@@ -1,0 +1,90 @@
+# Orquestación de la Etapa 2: limpieza → transformación → calidad → MongoDB Atlas.
+# Toma los datos crudos de la rama `data`, publica las tablas limpias en `data/processed/`
+# de esa misma rama y, si existe el secreto MONGODB_URI, las carga en MongoDB.
+name: Pipeline de datos
+
+on:
+  workflow_run:                    # después de cada extracción (activo cuando el workflow está en main)
+    workflows: ["Extracción de fuentes"]
+    types: [completed]
+  schedule:
+    - cron: "0 12 3 * *"           # día 3 de cada mes, 07:00 hora de Panamá (1 h después de la extracción)
+  workflow_dispatch:
+    inputs:
+      cargar:
+        description: "Cargar en MongoDB Atlas"
+        type: boolean
+        default: true
+  push:
+    branches: [develop]
+    paths: ["pipeline/**", "requirements.txt", ".github/workflows/pipeline.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: extraccion                # comparte cola con la extracción: ambas escriben en `data`
+  cancel-in-progress: false
+
+jobs:
+  procesar:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      MONGODB_DB: css_pharma
+    steps:
+      - name: Código del pipeline
+        uses: actions/checkout@v4
+
+      - name: Rama de datos
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: _data
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Dependencias
+        run: pip install -r requirements.txt
+
+      - name: Limpieza y transformación
+        run: python -m pipeline.transform --raw _data/raw --salida data/processed
+
+      - name: Reporte de calidad
+        run: python -m pipeline.quality --datos data/processed
+
+      - name: Versionar tablas limpias en la rama data
+        run: |
+          mkdir -p _data/processed
+          rsync -a --delete data/processed/ _data/processed/ --exclude .gitkeep
+          cd _data
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A processed
+          if git diff --cached --quiet; then
+            echo "Tablas limpias sin cambios." >> "$GITHUB_STEP_SUMMARY"
+          else
+            git commit -m "data: tablas limpias $(date -u +%Y-%m-%d) (run ${{ github.run_number }})"
+            git push origin data
+          fi
+
+      - name: Carga en MongoDB Atlas
+        if: github.event_name != 'workflow_dispatch' || inputs.cargar
+        run: |
+          if [ -z "$MONGODB_URI" ]; then
+            echo "::warning::No está configurado el secreto MONGODB_URI; se omite la carga."
+            echo "⚠️ Carga en MongoDB omitida: falta el secreto \`MONGODB_URI\`." >> "$GITHUB_STEP_SUMMARY"
+          else
+            python -m pipeline.load --datos data/processed --raw _data/raw | tee carga.json
+            { echo "### Carga en MongoDB"; echo '```json'; cat carga.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Resumen de calidad
+        if: always()
+        run: |
+          [ -f data/processed/reporte_calidad.md ] && sed -n '1,40p' data/processed/reporte_calidad.md >> "$GITHUB_STEP_SUMMARY" || true
