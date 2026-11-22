@@ -33,6 +33,7 @@ jobs:
     timeout-minutes: 20
     env:
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       MONGODB_DB: css_pharma
     steps:
       - name: Código del pipeline
@@ -53,10 +54,23 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Limpieza y transformación
-        run: python -m pipeline.transform --raw _data/raw --salida data/processed
+        run: |
+          mkdir -p data/processed
+          cp _data/processed/ia_cache.json data/processed/ 2>/dev/null || true   # respuestas previas de Gemini
+          python -m pipeline.transform --raw _data/raw --salida data/processed
 
       - name: Reporte de calidad
         run: python -m pipeline.quality --datos data/processed
+
+      - name: IA generativa sobre noticias (Gemini)
+        timeout-minutes: 15
+        run: |
+          set -o pipefail
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::warning::No está configurado GEMINI_API_KEY; se usa solo la caché."
+          fi
+          python -m pipeline.ia_texto --datos data/processed | tee ia.json
+          { echo "### IA generativa (Gemini)"; echo '```json'; cat ia.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Versionar tablas limpias en la rama data
         run: |

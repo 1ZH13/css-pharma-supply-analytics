@@ -58,6 +58,18 @@ En MongoDB se guarda el documento JSON original de openFDA (con el subdocumento 
 
 Noticias e informes sobre desabastecimiento: metadatos de `fuentes_texto.csv` + `texto` extraído (HTML o PDF), `caracteres` y `estado` (`ok`, `incompleto`, `sin_descarga`). Es la entrada de la Etapa 3 (IA generativa).
 
+## IA generativa (Etapa 3) — `python -m pipeline.ia_texto`
+
+Gemini lee cada noticia o informe y devuelve JSON con un esquema fijo (`pipeline/ia_texto.py`). Las respuestas se guardan en `ia_cache.json` por hash del texto: cada ejecución solo envía a Gemini lo nuevo.
+
+| Tabla | Grano | Campos principales |
+|---|---|---|
+| `ia_documentos.jsonl` | documento | `resumen`, `fecha_evento`, `tipo_evento` (desabastecimiento, compra_o_licitacion, mejora_abastecimiento, robo_o_perdida, queja_pacientes, politica_o_regulacion, informe_tecnico, otro), `causas`, `medicamentos` (nombre, principio activo, situación: faltante / abastecido / en_compra / mencionado), `grupos_afectados`, `instalaciones`, `cifras`, `nivel_abastecimiento_pct`, `medidas_anunciadas`, `tono`, `riesgo` (alto / medio / bajo), `modelo` |
+| `ia_menciones.csv` | medicamento mencionado × código CSS | `documento`, `mencion`, `principio_activo_mencion`, `situacion`, `codigo`, `descripcion_css`, `coincidencia` (exacta / parcial / sin_coincidencia), `riesgo` |
+| `ia_causas.csv` | documento × causa | `causa` (incumplimiento_proveedor, proceso_de_compra, presupuesto_o_pagos, robo_o_perdida, vencimiento, logistica_distribucion, demanda_creciente, escasez_global, gestion_institucional, otra) |
+| `inn_equivalencias.csv` | principio activo | `principio_activo` (español, CSS) → `inn_en` (nombre genérico en inglés usado por la FDA) |
+| `cruce_fda.csv` | medicamento CSS | `inn_en`, `registros_fda`, `registros_fda_vigentes`, `escasez_eeuu_vigente`, `motivos_fda`, `ultima_actualizacion_fda` |
+
 ## Trazabilidad
 
 | Tabla | Contenido |
