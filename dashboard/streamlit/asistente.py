@@ -99,7 +99,7 @@ def _cliente():
     if not clave:
         return None
     os.environ["GEMINI_API_KEY"] = clave
-    return ClienteGemini(pausa=0)
+    return ClienteGemini(pausa=0, timeout=30, reintentos=1, max_modelos=2)
 
 
 def pagina():
@@ -135,6 +135,8 @@ def pagina():
             except ErrorIA as e:
                 _cliente.clear()
                 r = f"No pude consultar a Gemini en este momento ({e}). Intenta de nuevo en un minuto."
+            except Exception as e:  # noqa: BLE001 - la demo no debe quedarse colgada
+                r = f"No pude preparar la respuesta ({type(e).__name__}). Intenta de nuevo."
         st.markdown(r)
         st.caption(f"Modelo: {cli.modelo} · Datos: {datos.origen()}")
     st.session_state.chat.append({"rol": "assistant", "texto": r})

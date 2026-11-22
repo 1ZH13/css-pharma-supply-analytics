@@ -80,7 +80,7 @@ def candidatos(disponibles: list[str]) -> list[str]:
 
 
 def generar(prompt: str, *, modelo: str, clave: str | None = None, json_schema: dict | None = None,
-            temperatura: float = 0.1, reintentos: int = 4) -> str:
+            temperatura: float = 0.1, reintentos: int = 4, timeout: float = 90) -> str:
     """Envía un prompt y devuelve el texto de la respuesta (JSON si se pasa json_schema)."""
     clave = clave or _clave()
     cuerpo = {"contents": [{"role": "user", "parts": [{"text": prompt}]}],
@@ -90,7 +90,7 @@ def generar(prompt: str, *, modelo: str, clave: str | None = None, json_schema: 
     for intento in range(reintentos):
         try:
             r = requests.post(f"{API}/models/{modelo}:generateContent", headers={"x-goog-api-key": clave},
-                              json=cuerpo, timeout=(15, 90))
+                              json=cuerpo, timeout=(15, timeout))
         except (requests.Timeout, requests.ConnectionError) as e:
             if intento < reintentos - 1:
                 time.sleep(10 * (intento + 1))
@@ -143,9 +143,13 @@ class ClienteGemini:
     """Cliente con selección automática de modelo: si uno está retirado (404) o saturado
     (503), pasa al siguiente candidato y lo recuerda para las llamadas siguientes."""
 
-    def __init__(self, pausa: float = 6.0):
+    def __init__(self, pausa: float = 6.0, timeout: float = 90, reintentos: int = 3, max_modelos: int | None = None):
+        """`timeout`, `reintentos` y `max_modelos` acotan la espera: el asistente del dashboard
+        usa valores bajos para responder en segundos o avisar, en vez de esperar minutos."""
         self.clave = _clave()
-        self.cands = candidatos(modelos(self.clave))
+        self.cands = candidatos(modelos(self.clave))[:max_modelos]
+        self.timeout = timeout
+        self.reintentos = reintentos
         self.i = 0
         self.pausa = pausa            # capa gratuita: ~10 solicitudes por minuto
         self.llamadas = 0
@@ -154,7 +158,7 @@ class ClienteGemini:
 
     @property
     def modelo(self) -> str:
-        return self.cands[self.i]
+        return self.cands[min(self.i, len(self.cands) - 1)]
 
     def json(self, prompt: str, esquema: dict) -> dict:
         try:
@@ -174,7 +178,7 @@ class ClienteGemini:
             try:
                 t0 = time.time()
                 texto = generar(prompt, modelo=self.modelo, clave=self.clave, json_schema=esquema,
-                                temperatura=temperatura, reintentos=3)
+                                temperatura=temperatura, reintentos=self.reintentos, timeout=self.timeout)
                 self._ultima = time.time()
                 self.llamadas += 1
                 if self._ultima - t0 > LENTO:
@@ -189,7 +193,7 @@ class ClienteGemini:
                     self.i += 1
                     self._lentas = 0
                     continue
-                if "límite de uso" in m:
+                if "límite de uso" in m and self.reintentos > 1:
                     time.sleep(60)
                     continue
                 raise
