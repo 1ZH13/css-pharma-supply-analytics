@@ -48,10 +48,35 @@ pip install -r requirements.txt
 copy .env.example .env          # y completar las credenciales
 
 python -m pipeline.extract      # 1. descarga las fuentes a data/raw/
-                                # (o usar los datos ya descargados de la rama `data`)
+                                #    (o: git fetch origin data && git checkout origin/data -- raw)
+python -m pipeline.transform    # 2. limpia y unifica → data/processed/
+python -m pipeline.quality      # 3. reporte de calidad → data/processed/reporte_calidad.md
+python -m pipeline.load         # 4. carga en MongoDB Atlas (requiere MONGODB_URI en .env)
+python -m pytest -q tests       #    pruebas de las reglas de limpieza
 ```
 
-Las siguientes etapas (limpieza, carga en MongoDB, IA y dashboards) se documentan a medida que se incorporan.
+Las tablas limpias también se publican automáticamente en la carpeta `processed/` de la rama `data`, listas para Power BI.
+
+Las etapas de IA y dashboards se documentan a medida que se incorporan.
+
+## Limpieza y unificación (Etapa 2)
+
+Los 79 CSV de la CSS (2021–2026) no comparten formato. El pipeline resuelve:
+
+| Problema en la fuente | Tratamiento |
+|---|---|
+| Codificación Windows-1252 o DOS (CP850) según el archivo | Detección por los bytes de las vocales acentuadas |
+| Separador `;` o `,` (y comas dentro de las descripciones) | Mediana de `;` por línea |
+| Archivos sin encabezado, con 1 o 2 filas de encabezado | Lectura por posición validada con la suma de centros |
+| Un mes por archivo, trimestres o varios meses en columnas | Bloques por mes (CDPA, CDDI, CDCH, total, monto) |
+| Plantillas trimestrales con bloques vacíos o repetidos | Por cada mes se toma el bloque con datos |
+| Códigos `101000801` y `1-01-0008-01` (desde 2025) | Mismo código: se unifica en 9 dígitos |
+| Números como texto: `12,440,000`, `B/.0.54`, `0,05` | Conversión con reglas para miles y decimales |
+| Precio publicado redondeado (0.03 vs 0.0271) | Precio efectivo = monto ÷ cantidad |
+| Meses repetidos en dos archivos | Se conserva el archivo más reciente |
+| Cantidades fuera de escala (agosto 2024) | Se marcan como `atipico` y se excluyen de los KPI |
+
+Resultado: **109 893 filas** (673 medicamentos × 67 meses × 3 centros). Los totales calculados coinciden en un **99.95–100 %** con los que la propia CSS publica en sus cuadros comparativos. Detalle en [`docs/reporte_calidad.md`](docs/reporte_calidad.md) y [`docs/diccionario_datos.md`](docs/diccionario_datos.md).
 
 ## Flujo de trabajo y ramas
 
@@ -62,11 +87,12 @@ Las siguientes etapas (limpieza, carga en MongoDB, IA y dashboards) se documenta
 | `develop` | Integración del trabajo terminado. |
 | `feature/<tarea>` | Una rama corta por tarea; se integra a `develop` por pull request. |
 | `hotfix/<arreglo>` | Soporte: corrige algo urgente desde `main` y vuelve a `main` y `develop`. |
-| `data` | Solo datos crudos, escrita por GitHub Actions. Nunca se mezcla. |
+| `data` | Datos crudos (`raw/`) y tablas limpias (`processed/`), escrita solo por GitHub Actions. Nunca se mezcla. |
 
 Automatización (GitHub Actions):
 - **Extracción de fuentes** (`extract.yml`): el día 3 de cada mes, a mano o al cambiar el extractor; descarga las fuentes y las versiona en la rama `data`.
-- **Verificación** (`ci.yml`): en cada pull request comprueba que el pipeline compile y se ejecute.
+- **Pipeline de datos** (`pipeline.yml`): después de cada extracción (y a mano) limpia, transforma, genera el reporte de calidad, publica las tablas en `data/processed/` y las carga en MongoDB Atlas (secreto `MONGODB_URI`).
+- **Verificación** (`ci.yml`): en cada pull request corre las pruebas y el pipeline completo sobre los datos reales.
 
 Commits con prefijo: `feat:`, `fix:`, `data:`, `docs:`, `ci:`.
 
