@@ -99,7 +99,7 @@ def _cliente():
     if not clave:
         return None
     os.environ["GEMINI_API_KEY"] = clave
-    return ClienteGemini(pausa=0, timeout=30, reintentos=1, max_modelos=2)
+    return ClienteGemini(pausa=0, timeout=30, reintentos=1, max_modelos=4)
 
 
 def pagina():

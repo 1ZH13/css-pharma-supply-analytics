@@ -193,8 +193,12 @@ class ClienteGemini:
                     self.i += 1
                     self._lentas = 0
                     continue
-                if "límite de uso" in m and self.reintentos > 1:
-                    time.sleep(60)
+                if "límite de uso" in m:
+                    if self.reintentos > 1:          # pipeline: esperar a que se libere la cuota por minuto
+                        time.sleep(60)
+                        continue
+                    self.i += 1                      # asistente: cada modelo tiene su propia cuota gratuita
+                    self._lentas = 0
                     continue
                 raise
         raise ErrorIA("Ningún modelo Gemini disponible respondió.")
