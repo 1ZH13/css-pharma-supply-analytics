@@ -129,6 +129,46 @@ def elegir_modelo(clave: str | None = None) -> str:
     return probar()["modelo"]
 
 
+class ClienteGemini:
+    """Cliente con selección automática de modelo: si uno está retirado (404) o saturado
+    (503), pasa al siguiente candidato y lo recuerda para las llamadas siguientes."""
+
+    def __init__(self, pausa: float = 6.0):
+        self.clave = _clave()
+        self.cands = candidatos(modelos(self.clave))
+        self.i = 0
+        self.pausa = pausa            # capa gratuita: ~10 solicitudes por minuto
+        self.llamadas = 0
+        self._ultima = 0.0
+
+    @property
+    def modelo(self) -> str:
+        return self.cands[self.i]
+
+    def json(self, prompt: str, esquema: dict) -> dict:
+        espera = self.pausa - (time.time() - self._ultima)
+        if espera > 0:
+            time.sleep(espera)
+        while self.i < len(self.cands):
+            try:
+                texto = generar(prompt, modelo=self.modelo, clave=self.clave, json_schema=esquema, reintentos=3)
+                self._ultima = time.time()
+                self.llamadas += 1
+                return json.loads(texto)
+            except ErrorIA as e:
+                m = str(e)
+                if any(k in m for k in ("404", "NOT_FOUND", "503", "UNAVAILABLE", "no está disponible")):
+                    self.i += 1
+                    continue
+                if "límite de uso" in m:
+                    time.sleep(60)
+                    continue
+                raise
+            except json.JSONDecodeError as e:
+                raise ErrorIA(f"Gemini devolvió JSON inválido: {e}") from e
+        raise ErrorIA("Ningún modelo Gemini disponible respondió.")
+
+
 def main():
     ap = argparse.ArgumentParser(description="Cliente de IA generativa (Gemini)")
     ap.add_argument("--probar", action="store_true", help="verifica la clave y el modelo")
