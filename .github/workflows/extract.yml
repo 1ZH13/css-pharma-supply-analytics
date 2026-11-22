@@ -13,18 +13,17 @@ on:
         options: ["", css, openfda, texto]
   push:
     branches: [develop]
-    paths: ["pipeline/extract.py", "pipeline/config.py", "data/raw/texto/fuentes_texto.csv", ".github/workflows/extract.yml"]
+    paths: ["pipeline/extract.py", "pipeline/texto.py", "pipeline/config.py", "data/raw/texto/fuentes_texto.csv", ".github/workflows/extract.yml"]
 
 permissions:
   contents: write
 
-concurrency:
-  group: extraccion
-  cancel-in-progress: false
-
 jobs:
   extraer:
     runs-on: ubuntu-latest
+    concurrency:
+      group: extraccion
+      cancel-in-progress: false
     timeout-minutes: 30
     steps:
       - name: Código del pipeline
@@ -69,7 +68,7 @@ jobs:
             echo "Sin cambios en las fuentes." >> "$GITHUB_STEP_SUMMARY"
           else
             git commit -m "data: extracción $(date -u +%Y-%m-%d) (run ${{ github.run_number }})"
-            git push origin data
+            for i in 1 2 3; do git pull --rebase -q origin data && git push origin data && break; sleep 5; done
           fi
 
       - name: Resumen
@@ -85,3 +84,9 @@ jobs:
               echo "| $d | $n | ${s:-0} |"
             done
           } >> "$GITHUB_STEP_SUMMARY"
+
+  # Al terminar la extracción: limpieza, calidad y carga en MongoDB con los datos nuevos.
+  procesar:
+    needs: extraer
+    uses: ./.github/workflows/pipeline.yml
+    secrets: inherit

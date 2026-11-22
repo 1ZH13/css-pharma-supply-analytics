@@ -1,14 +1,11 @@
 # Orquestación de la Etapa 2: limpieza → transformación → calidad → MongoDB Atlas.
+# Se ejecuta después de cada extracción (llamado desde extract.yml), al cambiar el pipeline en develop o a mano.
 # Toma los datos crudos de la rama `data`, publica las tablas limpias en `data/processed/`
 # de esa misma rama y, si existe el secreto MONGODB_URI, las carga en MongoDB.
 name: Pipeline de datos
 
 on:
-  workflow_run:                    # después de cada extracción (activo cuando el workflow está en main)
-    workflows: ["Extracción de fuentes"]
-    types: [completed]
-  schedule:
-    - cron: "0 12 3 * *"           # día 3 de cada mes, 07:00 hora de Panamá (1 h después de la extracción)
+  workflow_call:                   # lo llama extract.yml al terminar cada extracción
   workflow_dispatch:
     inputs:
       cargar:
@@ -17,19 +14,22 @@ on:
         default: true
   push:
     branches: [develop]
-    paths: ["pipeline/**", "requirements.txt", ".github/workflows/pipeline.yml"]
+    paths:
+      - "pipeline/**"
+      - "!pipeline/extract.py"     # esos cambios disparan la extracción, que ya llama a este workflow
+      - "!pipeline/texto.py"
+      - "requirements.txt"
+      - ".github/workflows/pipeline.yml"
 
 permissions:
   contents: write
 
-concurrency:
-  group: extraccion                # comparte cola con la extracción: ambas escriben en `data`
-  cancel-in-progress: false
-
 jobs:
   procesar:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    concurrency:
+      group: procesar-datos
+      cancel-in-progress: false
     timeout-minutes: 20
     env:
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
@@ -70,7 +70,7 @@ jobs:
             echo "Tablas limpias sin cambios." >> "$GITHUB_STEP_SUMMARY"
           else
             git commit -m "data: tablas limpias $(date -u +%Y-%m-%d) (run ${{ github.run_number }})"
-            git push origin data
+            for i in 1 2 3; do git pull --rebase -q origin data && git push origin data && break; sleep 5; done
           fi
 
       - name: Carga en MongoDB Atlas
