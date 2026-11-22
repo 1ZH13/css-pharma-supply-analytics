@@ -59,7 +59,10 @@ jobs:
 
       - name: Versionar en la rama data
         run: |
-          rsync -a --delete --exclude .gitkeep data/raw/ _data/raw/
+          # Los textos de noticias e informes NO se versionan (derechos de los medios):
+          # solo su manifiesto (URL, fecha, tamaño, hash). El pipeline los descarga al usarlos.
+          rsync -a --delete --delete-excluded --exclude .gitkeep \
+                --exclude 'texto/*.txt' --exclude 'texto/*.pdf' data/raw/ _data/raw/
           cd _data
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

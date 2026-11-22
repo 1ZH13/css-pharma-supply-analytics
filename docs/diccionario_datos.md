@@ -56,7 +56,7 @@ En MongoDB se guarda el documento JSON original de openFDA (con el subdocumento 
 
 ## `documentos` — texto no estructurado (`documentos.jsonl`)
 
-Noticias e informes sobre desabastecimiento: metadatos de `fuentes_texto.csv` + `texto` extraído (HTML o PDF), `caracteres` y `estado` (`ok`, `incompleto`, `sin_descarga`). Es la entrada de la Etapa 3 (IA generativa).
+Noticias e informes sobre desabastecimiento: metadatos de `fuentes_texto.csv` + `texto` extraído (HTML o PDF), `caracteres` y `estado` (`ok`, `incompleto`, `sin_descarga`). Es la entrada de la Etapa 3 (IA generativa). **El campo `texto` solo existe dentro del runner y en MongoDB Atlas; la versión publicada en la rama `data` lo omite** (`pipeline/publicar.py`).
 
 ## IA generativa (Etapa 3) — `python -m pipeline.ia_texto`
 
