@@ -54,9 +54,18 @@ def _reemplazar(db, nombre: str, docs: list[dict], indices: list | None = None) 
 
 def cargar(datos: Path, raw: Path, uri: str, base: str) -> dict:
     from pymongo import ASCENDING, MongoClient
+    from pymongo.errors import ConfigurationError, OperationFailure, ServerSelectionTimeoutError
 
-    cli = MongoClient(uri, serverSelectionTimeoutMS=20000, appname="css-pharma-supply-analytics")
-    cli.admin.command("ping")
+    try:
+        cli = MongoClient(uri, serverSelectionTimeoutMS=20000, appname="css-pharma-supply-analytics")
+        cli.admin.command("ping")
+    except ServerSelectionTimeoutError:
+        sys.exit("No se pudo conectar con MongoDB Atlas. Revise en Atlas → Network Access que la IP "
+                 "de este equipo esté permitida (para GitHub Actions: 0.0.0.0/0) y que el cluster no esté pausado.")
+    except OperationFailure as e:
+        sys.exit(f"Atlas rechazó las credenciales de MONGODB_URI (usuario o contraseña): {e.code}")
+    except ConfigurationError as e:
+        sys.exit(f"MONGODB_URI mal formada: {e}")
     db = cli[base]
     inicio = datetime.now(timezone.utc)
     n = {}
