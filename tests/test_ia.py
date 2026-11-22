@@ -77,3 +77,21 @@ def test_publicar_no_incluye_textos_de_terceros(tmp_path):
     doc = json.loads((destino / "documentos.jsonl").read_text(encoding="utf-8"))
     assert "texto" not in doc and doc["url"] == "u"
     assert (destino / "ia_documentos.jsonl").exists() and not (destino / "viejo.csv").exists()
+
+
+def test_asistente_cambia_de_modelo_si_se_agota_la_cuota(monkeypatch):
+    import pipeline.ia as ia
+    monkeypatch.setattr(ia, "_clave", lambda: "x")
+    monkeypatch.setattr(ia, "modelos", lambda c=None: ["gemini-9.0-flash", "gemini-8.0-flash"])
+    usados = []
+
+    def generar(prompt, *, modelo, **k):
+        usados.append(modelo)
+        if modelo == "gemini-9.0-flash":
+            raise ia.ErrorIA("Se alcanzó el límite de uso de la capa gratuita (RESOURCE_EXHAUSTED).")
+        return "ok"
+
+    monkeypatch.setattr(ia, "generar", generar)
+    cli = ia.ClienteGemini(pausa=0, timeout=30, reintentos=1, max_modelos=4)
+    assert cli.texto("hola") == "ok"
+    assert usados == ["gemini-9.0-flash", "gemini-8.0-flash"]
