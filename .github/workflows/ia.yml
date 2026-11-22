@@ -1,0 +1,27 @@
+# Etapa 3 — IA generativa (Gemini) sobre las noticias.
+# Por ahora: verificación de la clave GEMINI_API_KEY en cada push a ramas feature/ia-*.
+name: IA generativa
+
+on:
+  push:
+    branches: ["feature/ia-*"]
+    paths: ["pipeline/ia.py", ".github/workflows/ia.yml"]
+  workflow_dispatch:
+
+jobs:
+  probar-gemini:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests python-dotenv
+      - name: Verificar clave y modelo de Gemini
+        run: |
+          set -o pipefail
+          python -m pipeline.ia --probar | tee prueba.json
+          { echo "### Gemini"; echo '```json'; cat prueba.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
