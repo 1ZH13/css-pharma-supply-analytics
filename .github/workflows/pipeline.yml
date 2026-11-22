@@ -76,6 +76,7 @@ jobs:
       - name: Carga en MongoDB Atlas
         if: github.event_name != 'workflow_dispatch' || inputs.cargar
         run: |
+          set -o pipefail
           if [ -z "$MONGODB_URI" ]; then
             echo "::warning::No está configurado el secreto MONGODB_URI; se omite la carga."
             echo "⚠️ Carga en MongoDB omitida: falta el secreto \`MONGODB_URI\`." >> "$GITHUB_STEP_SUMMARY"
