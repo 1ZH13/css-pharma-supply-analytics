@@ -136,6 +136,9 @@ def elegir_modelo(clave: str | None = None) -> str:
     return probar()["modelo"]
 
 
+LENTO = 45.0
+
+
 class ClienteGemini:
     """Cliente con selección automática de modelo: si uno está retirado (404) o saturado
     (503), pasa al siguiente candidato y lo recuerda para las llamadas siguientes."""
@@ -147,6 +150,7 @@ class ClienteGemini:
         self.pausa = pausa            # capa gratuita: ~10 solicitudes por minuto
         self.llamadas = 0
         self._ultima = 0.0
+        self._lentas = 0             # respuestas de más de LENTO segundos con el modelo actual
 
     @property
     def modelo(self) -> str:
@@ -158,14 +162,21 @@ class ClienteGemini:
             time.sleep(espera)
         while self.i < len(self.cands):
             try:
+                t0 = time.time()
                 texto = generar(prompt, modelo=self.modelo, clave=self.clave, json_schema=esquema, reintentos=3)
                 self._ultima = time.time()
                 self.llamadas += 1
+                if self._ultima - t0 > LENTO:
+                    self._lentas += 1
+                    if self._lentas >= 2 and self.i < len(self.cands) - 1:
+                        self.i += 1              # modelo saturado: los siguientes pedidos van al próximo
+                        self._lentas = 0
                 return json.loads(texto)
             except ErrorIA as e:
                 m = str(e)
                 if any(k in m for k in ("404", "NOT_FOUND", "503", "UNAVAILABLE", "no está disponible")):
                     self.i += 1
+                    self._lentas = 0
                     continue
                 if "límite de uso" in m:
                     time.sleep(60)

@@ -13,6 +13,8 @@ lee una colección a medio cargar. Cada ejecución queda registrada en `ejecucio
 | `documentos` | noticias e informes con su texto | no estructurado (texto) |
 | `ia_documentos`, `ia_menciones`, `ia_causas` | análisis de Gemini sobre el texto | IA generativa |
 | `inn_equivalencias`, `cruce_fda` | principio activo ES → EN y escasez en EE. UU. | IA + JSON |
+| `kpi_mensual`, `kpi_centro`, `kpi_resumen` | indicadores gerenciales | Etapa 4 |
+| `riesgo_medicamentos`, `redistribucion` | riesgo por medicamento y transferencias sugeridas | Etapa 4 |
 | `incidencias`, `calidad`, `ejecuciones` | trazabilidad del pipeline | — |
 
 Requiere la variable de entorno MONGODB_URI (archivo `.env` o secreto de GitHub).
@@ -114,6 +116,16 @@ def cargar(datos: Path, raw: Path, uri: str, base: str) -> dict:
         ruta = datos / f"{nombre}.csv"
         if ruta.exists() and ruta.stat().st_size > 5:
             n[nombre] = _reemplazar(db, nombre, _registros(pd.read_csv(ruta, dtype={"codigo": str})), [idx])
+
+    # Etapa 4: indicadores y riesgo
+    for nombre, idx in (("kpi_mensual", [("periodo", ASCENDING)]), ("kpi_centro", [("periodo", ASCENDING), ("centro", ASCENDING)]),
+                        ("riesgo_medicamentos", [("puntaje_riesgo", ASCENDING)]), ("redistribucion", [("codigo", ASCENDING)])):
+        ruta = datos / f"{nombre}.csv"
+        if ruta.exists() and ruta.stat().st_size > 5:
+            n[nombre] = _reemplazar(db, nombre, _registros(pd.read_csv(ruta, dtype={"codigo": str})), [idx])
+    res = datos / "kpi_resumen.json"
+    if res.exists():
+        db["kpi_resumen"].replace_one({"_id": "ultimo"}, {**json.loads(res.read_text(encoding="utf-8")), "_id": "ultimo"}, upsert=True)
 
     n["incidencias"] = _reemplazar(db, "incidencias",
                                    _registros(pd.read_csv(datos / "incidencias.csv", dtype={"codigo": str})),
