@@ -53,6 +53,12 @@ jobs:
       - name: Dependencias
         run: pip install -r requirements.txt
 
+      - name: Textos de noticias (solo en este runner, no se versionan)
+        run: |
+          python -m pipeline.extract --solo texto || echo "::warning::Algunas fuentes de texto no se pudieron descargar."
+          mkdir -p _data/raw/texto
+          cp data/raw/texto/*.txt data/raw/texto/*.pdf data/raw/texto/fuentes_texto.csv _data/raw/texto/ 2>/dev/null || true
+
       - name: Limpieza y transformación
         run: |
           mkdir -p data/processed
@@ -74,8 +80,7 @@ jobs:
 
       - name: Versionar tablas limpias en la rama data
         run: |
-          mkdir -p _data/processed
-          rsync -a --delete data/processed/ _data/processed/ --exclude .gitkeep
+          python -m pipeline.publicar --origen data/processed --destino _data/processed   # sin textos de terceros
           cd _data
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

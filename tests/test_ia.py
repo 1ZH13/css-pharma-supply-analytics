@@ -63,3 +63,17 @@ def test_timeout_pasa_al_siguiente_modelo(monkeypatch):
     cli = ia.ClienteGemini(pausa=0)
     assert cli.json("hola", {"type": "OBJECT"}) == {"estado": "ok"}
     assert cli.modelo == "gemini-3.6-flash"
+
+
+def test_publicar_no_incluye_textos_de_terceros(tmp_path):
+    import json
+    from pipeline.publicar import publicar
+    origen, destino = tmp_path / "o", tmp_path / "d"
+    origen.mkdir(); destino.mkdir()
+    (origen / "documentos.jsonl").write_text(json.dumps({"id": "n01", "url": "u", "texto": "cuerpo completo"}) + "\n", encoding="utf-8")
+    (origen / "ia_documentos.jsonl").write_text(json.dumps({"id": "n01", "resumen": "r"}) + "\n", encoding="utf-8")
+    (destino / "viejo.csv").write_text("x", encoding="utf-8")
+    publicar(origen, destino)
+    doc = json.loads((destino / "documentos.jsonl").read_text(encoding="utf-8"))
+    assert "texto" not in doc and doc["url"] == "u"
+    assert (destino / "ia_documentos.jsonl").exists() and not (destino / "viejo.csv").exists()

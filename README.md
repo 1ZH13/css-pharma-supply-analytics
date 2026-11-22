@@ -98,7 +98,7 @@ Las respuestas se guardan en caché por hash del texto, así cada ejecución men
 | `develop` | Integración del trabajo terminado. |
 | `feature/<tarea>` | Una rama corta por tarea; se integra a `develop` por pull request. |
 | `hotfix/<arreglo>` | Soporte: corrige algo urgente desde `main` y vuelve a `main` y `develop`. |
-| `data` | Datos crudos (`raw/`) y tablas limpias (`processed/`), escrita solo por GitHub Actions. Nunca se mezcla. |
+| `data` | Datos crudos de fuentes abiertas (`raw/`) y tablas limpias (`processed/`), escrita solo por GitHub Actions. No incluye textos de noticias. Nunca se mezcla. |
 
 Automatización (GitHub Actions):
 - **Extracción de fuentes** (`extract.yml`): el día 3 de cada mes, a mano o al cambiar el extractor; descarga las fuentes y las versiona en la rama `data`.
@@ -111,7 +111,7 @@ Commits con prefijo: `feat:`, `fix:`, `data:`, `docs:`, `ci:`.
 
 - **Caja de Seguro Social — Inventario de medicamentos**, Portal de Datos Abiertos de Panamá. Licencia Creative Commons Attribution (CC BY).
 - **openFDA — Drug Shortages**, U.S. Food and Drug Administration. Datos públicos.
-- Noticias e informes: se usan solo para análisis, citando la fuente; el texto completo no se redistribuye en el repositorio.
+- Noticias e informes: se usan solo para análisis, citando la fuente y su enlace. **El texto completo no se publica en el repositorio**: el pipeline lo descarga en cada ejecución dentro del runner de GitHub Actions, lo analiza con IA y lo guarda solo en MongoDB Atlas (base privada). En la rama `data` quedan únicamente los metadatos (URL, fecha, tamaño, hash) y el análisis de la IA.
 
 Detalle en [`docs/fuentes.md`](docs/fuentes.md).
 
