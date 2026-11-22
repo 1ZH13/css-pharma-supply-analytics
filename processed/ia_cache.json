@@ -1,0 +1,1369 @@
+{
+ "2c0b7004e10f1ae5e832d3d3": {
+  "resumen": "La Caja de Seguro Social llevó a cabo una segunda convocatoria por 4.746.316 dólares para adquirir 22 renglones de medicamentos que habían quedado desiertos previamente. La institución reportó un 92% de abastecimiento en sus farmacias gracias a un nuevo sistema de inventario y espera recibir los insumos cotizados entre febrero y marzo. Además, se destacó la adopción del sistema tecnológico SALMI para optimizar la gestión logística institucional.",
+  "tipo_evento": "compra_o_licitacion",
+  "causas": [
+   "proceso_de_compra"
+  ],
+  "medicamentos": [
+   {
+    "nombre": "Azitromicina",
+    "principio_activo": "AZITROMICINA",
+    "situacion": "en_compra"
+   },
+   {
+    "nombre": "Bencilpenicilina Sódica",
+    "principio_activo": "BENCILPENICILINA SÓDICA",
+    "situacion": "en_compra"
+   },
+   {
+    "nombre": "Factor VIII",
+    "principio_activo": "FACTOR VIII",
+    "situacion": "en_compra"
+   },
+   {
+    "nombre": "Zolpidem",
+    "principio_activo": "ZOLPIDEM",
+    "situacion": "en_compra"
+   }
+  ],
+  "grupos_afectados": [
+   "hipertensos",
+   "diabéticos"
+  ],
+  "tono": "positivo",
+  "riesgo": "bajo",
+  "cifras": [
+   {
+    "indicador": "renglones de medicamentos a cotizar",
+    "valor": 22,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "monto de la convocatoria",
+    "valor": 4746316,
+    "unidad": "USD"
+   },
+   {
+    "indicador": "empresas participantes",
+    "valor": 24,
+    "unidad": "empresas"
+   },
+   {
+    "indicador": "abastecimiento real en farmacias",
+    "valor": 92,
+    "unidad": "%"
+   }
+  ],
+  "fecha_evento": "2025-01-31",
+  "instalaciones": [],
+  "medidas_anunciadas": [
+   "Segunda convocatoria para adquisición de 22 renglones de medicamentos",
+   "Implementación del Sistema Informático de Administración Logística de Medicamentos e Insumos (SALMI)"
+  ],
+  "nivel_abastecimiento_pct": 92,
+  "_modelo": "gemini-3.8-flash"
+ },
+ "83a9a10e841cf27dce1d4635": {
+  "resumen": "La Caja de Seguro Social de Panamá implementará la plataforma tecnológica MiFarma Digital para monitorear en tiempo real los inventarios, entradas, salidas y fechas de vencimiento de los medicamentos. El director de la entidad, Dino Mon, destacó un abastecimiento del 93% en el cuadro básico y ahorros por 45 millones de dólares tras realizar licitaciones centralizadas. Aunque se reporta la falta de 27 medicamentos, la institución busca mejorar la transparencia y la atención a los asegurados.",
+  "tipo_evento": "mejora_abastecimiento",
+  "causas": [
+   "gestion_institucional",
+   "proceso_de_compra",
+   "logistica_distribucion"
+  ],
+  "medicamentos": [
+   {
+    "nombre": "mentol",
+    "principio_activo": "MENTOL",
+    "situacion": "faltante"
+   }
+  ],
+  "grupos_afectados": [
+   "pacientes con enfermedades raras",
+   "asegurados"
+  ],
+  "tono": "positivo",
+  "riesgo": "bajo",
+  "cifras": [
+   {
+    "indicador": "Porcentaje de abastecimiento de moléculas del cuadro básico",
+    "valor": 93,
+    "unidad": "%"
+   },
+   {
+    "indicador": "Cantidad de medicamentos faltantes",
+    "valor": 27,
+    "unidad": "medicamentos"
+   },
+   {
+    "indicador": "Ahorro obtenido por compras centralizadas",
+    "valor": 45000000,
+    "unidad": "USD"
+   },
+   {
+    "indicador": "Grandes licitaciones centralizadas realizadas",
+    "valor": 3,
+    "unidad": "licitaciones"
+   }
+  ],
+  "fecha_evento": "2026",
+  "instalaciones": [
+   "hospitales",
+   "policlínicas",
+   "depósitos y áreas de almacenamiento",
+   "unidades ejecutoras"
+  ],
+  "medidas_anunciadas": [
+   "Implementación de la plataforma MiFarma Digital para control de inventario en tiempo real",
+   "Digitalización del registro de medicamentos mediante código de barras y videovigilancia",
+   "Centralización de licitaciones de compra de medicamentos a nivel central",
+   "Reemplazo obligatorio por parte de proveedores de productos próximos a vencer",
+   "Instalación de módulos de asistencia presencial para pacientes sin acceso digital"
+  ],
+  "nivel_abastecimiento_pct": 93,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "2df2acb514aaa1f5663dc13b": {
+  "resumen": "La Caja de Seguro Social de Panamá realizó la Licitación de Precio Único N.° 01-2026 por un monto de B/.91,979,892.00 para la entrega de 348 renglones de medicamentos durante 15 meses. La medida busca asegurar un abastecimiento continuo a nivel nacional con costos homogéneos para todas las unidades ejecutoras. El acto licitatorio abarca tratamientos para diversas condiciones comunes y crónicas y fue transmitido de manera pública.",
+  "tipo_evento": "compra_o_licitacion",
+  "causas": [],
+  "medicamentos": [],
+  "grupos_afectados": [
+   "pacientes con hipertensión",
+   "pacientes con diabetes tipo 2",
+   "pacientes con dislipidemia",
+   "pacientes con asma",
+   "pacientes con depresión",
+   "pacientes con ansiedad",
+   "pacientes con infecciones",
+   "pacientes con alergias"
+  ],
+  "tono": "positivo",
+  "riesgo": "bajo",
+  "cifras": [
+   {
+    "indicador": "monto de la licitación",
+    "valor": 91979892,
+    "unidad": "B/."
+   },
+   {
+    "indicador": "renglones de medicamentos",
+    "valor": 348,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "periodo de suministro",
+    "valor": 15,
+    "unidad": "meses"
+   }
+  ],
+  "fecha_evento": "2026",
+  "instalaciones": [],
+  "medidas_anunciadas": [
+   "Licitación de Precio Único N.° 01-2026 para el suministro de 348 renglones de medicamentos durante 15 meses"
+  ],
+  "nivel_abastecimiento_pct": null,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "be16cbff67d70ce88df8a210": {
+  "resumen": "La Caja de Seguro Social (CSS) implementó una compra masiva de fármacos para garantizar el abastecimiento de sus farmacias por los próximos 18 meses a un nivel superior al 90%. Aunque 22 renglones siguen pendientes de adquisición, se lanzó una licitación para integrar 17 de ellos en un plazo de 30 días. Además, la institución utilizará el sistema Salmi y la caja virtual para monitorear inventarios y consultar faltantes en tiempo real.",
+  "tipo_evento": "compra_o_licitacion",
+  "causas": [
+   "proceso_de_compra"
+  ],
+  "medicamentos": [],
+  "grupos_afectados": [
+   "asegurados"
+  ],
+  "tono": "positivo",
+  "riesgo": "bajo",
+  "cifras": [
+   {
+    "indicador": "porcentaje de abastecimiento actual",
+    "valor": 90,
+    "unidad": "%"
+   },
+   {
+    "indicador": "meses de abastecimiento garantizado",
+    "valor": 18,
+    "unidad": "meses"
+   },
+   {
+    "indicador": "renglones pendientes de adquisición",
+    "valor": 22,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "renglones a suplir en plazo de 30 días",
+    "valor": 17,
+    "unidad": "renglones"
+   }
+  ],
+  "fecha_evento": "2025-02-27",
+  "instalaciones": [
+   "farmacias de la CSS"
+  ],
+  "medidas_anunciadas": [
+   "Compra masiva de fármacos para garantizar abastecimiento por 18 meses",
+   "Lanzamiento de nueva licitación para adquirir 22 renglones pendientes",
+   "Evaluación por la Comisión de Farmacoterapia para incluir fármacos adicionales fuera del listado oficial",
+   "Uso del Sistema Informático de Administración Logística de Medicamentos e Insumos (Salmi) para previsión de inventario",
+   "Habilitación de consulta en la caja virtual para informarse sobre desabastecimiento y disponibilidad"
+  ],
+  "nivel_abastecimiento_pct": 90,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "883e228e499a4e1ef3be8d24": {
+  "resumen": "El Ministerio de Salud (Minsa) y la Caja de Seguro Social (CSS) buscan garantizar el abastecimiento de medicamentos mediante la optimización de los procesos de compra y la adaptación del suministro al perfil epidemiológico de la población. Actualmente, el abastecimiento a nivel nacional en las farmacias del Minsa se ubica en un 85%, aunque existen riesgos de retraso en fármacos de alto consumo como la amlodipina. Para resolver estas deficiencias, las autoridades desarrollan mesas de trabajo con directores regionales y jefes de farmacia.",
+  "tipo_evento": "mejora_abastecimiento",
+  "causas": [
+   "proceso_de_compra",
+   "gestion_institucional",
+   "logistica_distribucion"
+  ],
+  "medicamentos": [
+   {
+    "nombre": "Amlodipina",
+    "principio_activo": "AMLODIPINA",
+    "situacion": "mencionado"
+   }
+  ],
+  "grupos_afectados": [
+   "hipertensos"
+  ],
+  "tono": "neutro",
+  "riesgo": "medio",
+  "cifras": [
+   {
+    "indicador": "medicamentos con reducción de costo",
+    "valor": 20,
+    "unidad": "medicamentos"
+   },
+   {
+    "indicador": "porcentaje de abastecimiento nacional Minsa",
+    "valor": 85,
+    "unidad": "%"
+   },
+   {
+    "indicador": "porcentaje de abastecimiento en regiones de salud (mínimo)",
+    "valor": 80,
+    "unidad": "%"
+   },
+   {
+    "indicador": "porcentaje de abastecimiento en regiones de salud (máximo)",
+    "valor": 85,
+    "unidad": "%"
+   },
+   {
+    "indicador": "porcentaje de abastecimiento en centros, policentros y hospitales (mínimo)",
+    "valor": 85,
+    "unidad": "%"
+   },
+   {
+    "indicador": "porcentaje de abastecimiento en centros, policentros y hospitales (máximo)",
+    "valor": 90,
+    "unidad": "%"
+   }
+  ],
+  "fecha_evento": "2025",
+  "instalaciones": [
+   "Ministerio de Salud (Minsa)",
+   "Caja de Seguro Social (CSS)",
+   "centros de salud",
+   "policentros",
+   "hospitales del Minsa",
+   "regiones de salud"
+  ],
+  "medidas_anunciadas": [
+   "Abaratar el costo de 20 medicamentos",
+   "Realizar consultas internacionales y comparación de precios",
+   "Basar la programación de compra de medicamentos en el perfil epidemiológico de la población",
+   "Maximizar procesos internos y cambiar la metodología de compras y abasto",
+   "Realizar mesas de trabajo con directores regionales, coordinadores y jefes de farmacia"
+  ],
+  "nivel_abastecimiento_pct": null,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "abb55f497200f373cfd9efc1": {
+  "resumen": "El documento presenta un informe diagnóstico elaborado por el Instituto Conmemorativo Gorgas sobre el gasto, acceso y disponibilidad de medicamentos en Panamá entre 2007 y 2012. Se detallan los montos de inversión ejecutados por el Ministerio de Salud y la Caja de Seguro Social, así como las distorsiones de mercado y las dificultades institucionales en la adquisición y gestión del suministro. Además, se plantean estrategias de intervención como la Canasta Básica de Medicamentos (CABAMED) y un índice de precios por tratamiento para mejorar el acceso y reducir asimetrías de información.",
+  "tipo_evento": "informe_tecnico",
+  "causas": [
+   "presupuesto_o_pagos",
+   "proceso_de_compra",
+   "gestion_institucional"
+  ],
+  "medicamentos": [
+   {
+    "nombre": "amoxicilina",
+    "principio_activo": "AMOXICILINA",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "cefalexina",
+    "principio_activo": "CEFALEXINA",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "ceftriaxona",
+    "principio_activo": "CEFTRIAXONA",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "ciprofloxacina",
+    "principio_activo": "CIPROFLOXACINA",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "amlodipina",
+    "principio_activo": "AMLODIPINA",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "atenolol",
+    "principio_activo": "ATENOLOL",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "enalapril",
+    "principio_activo": "ENALAPRIL",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "simvastatina",
+    "principio_activo": "SIMVASTATINA",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "glibenclamida",
+    "principio_activo": "GLIBENCLAMIDA",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "metformina",
+    "principio_activo": "METFORMINA",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "omeprazol",
+    "principio_activo": "OMEPRAZOL",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "paracetamol (acetaminofén)",
+    "principio_activo": "PARACETAMOL",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "salbutamol",
+    "principio_activo": "SALBUTAMOL",
+    "situacion": "mencionado"
+   }
+  ],
+  "grupos_afectados": [
+   "población indígena",
+   "población rural",
+   "pacientes con enfermedades crónicas"
+  ],
+  "tono": "neutro",
+  "riesgo": "medio",
+  "cifras": [
+   {
+    "indicador": "Gasto acumulado de la Caja de Seguro Social en medicamentos (2007-2012)",
+    "valor": 587547335.08,
+    "unidad": "B/."
+   },
+   {
+    "indicador": "Gasto acumulado del Ministerio de Salud en medicamentos (2007-2012)",
+    "valor": 316635720.95,
+    "unidad": "B/."
+   },
+   {
+    "indicador": "Gasto global en el sector público de salud en 2012",
+    "valor": 230736837.73,
+    "unidad": "B/."
+   },
+   {
+    "indicador": "Medicamentos incluidos en la Canasta Básica de Medicamentos (CABAMED)",
+    "valor": 40,
+    "unidad": "medicamentos"
+   }
+  ],
+  "fecha_evento": "2013",
+  "instalaciones": [
+   "Complejo Hospitalario Metropolitano Dr. Arnulfo Arias Madrid",
+   "Hospital de Especialidades Pediátricas",
+   "Hospital Santo Tomás",
+   "Hospital del Niño",
+   "Instituto Oncológico Nacional",
+   "Instituto de Salud Mental"
+  ],
+  "medidas_anunciadas": [
+   "Creación de la Canasta Básica de Medicamentos (CABAMED)",
+   "Construcción de un índice de precios por tipo de tratamiento básico",
+   "Desarrollo y mantenimiento del portal web del Sistema de Información Geográfico de Medicamentos (SIGMED)"
+  ],
+  "nivel_abastecimiento_pct": null,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "d022af5ac03045fa36d0c00a": {
+  "resumen": "El Ministerio de Salud y la Caja de Seguro Social aprobaron la compra conjunta de 300 medicamentos para combatir el desabastecimiento crítico en las farmacias públicas y hospitales patronatos. El listado unificado incluye tratamientos para enfermedades crónicas como hipertensión, colesterol y diabetes, además de fármacos de difícil adquisición. Tras completar la revisión del listado, este será presentado para su publicación en la Gaceta Oficial y la posterior licitación en Panamá Compra.",
+  "tipo_evento": "compra_o_licitacion",
+  "causas": [
+   "proceso_de_compra"
+  ],
+  "medicamentos": [],
+  "grupos_afectados": [
+   "pacientes con hipertensión arterial",
+   "pacientes con colesterol alto",
+   "pacientes con diabetes",
+   "pacientes con enfermedades críticas, crónicas y degenerativas"
+  ],
+  "tono": "neutro",
+  "riesgo": "alto",
+  "cifras": [
+   {
+    "indicador": "medicamentos a adquirir de forma conjunta",
+    "valor": 300,
+    "unidad": "medicamentos"
+   }
+  ],
+  "fecha_evento": "2026-01-08",
+  "instalaciones": [
+   "Ministerio de Salud (MINSA)",
+   "Caja de Seguro Social (CSS)",
+   "Hospitales patronatos"
+  ],
+  "medidas_anunciadas": [
+   "Adquisición coordinada de 300 medicamentos entre el MINSA, la CSS y hospitales patronatos",
+   "Unificación de los listados de medicamentos del sistema público de salud",
+   "Publicación del listado final en la Gaceta Oficial para proceder con los actos de compra en Panamá Compra"
+  ],
+  "nivel_abastecimiento_pct": null,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "0029c41aa3ffeb574709eff7": {
+  "resumen": "El Ministerio de Salud y la Caja de Seguro Social avanzan en el proceso de compra conjunta de 375 renglones de medicamentos para garantizar el abastecimiento público. La medida abarca tratamientos para enfermedades crónicas, antibióticos y fármacos oncológicos bajo el principio de economía de escala. Se prevé realizar las convocatorias a actos públicos a través de Panamá Compra durante el mes de abril.",
+  "tipo_evento": "compra_o_licitacion",
+  "causas": [
+   "robo_o_perdida"
+  ],
+  "medicamentos": [
+   {
+    "nombre": "medicamentos para enfermedades crónicas",
+    "principio_activo": "NO ESPECIFICADO",
+    "situacion": "en_compra"
+   },
+   {
+    "nombre": "antibióticos",
+    "principio_activo": "NO ESPECIFICADO",
+    "situacion": "en_compra"
+   },
+   {
+    "nombre": "tratamientos utilizados para pacientes con cáncer",
+    "principio_activo": "NO ESPECIFICADO",
+    "situacion": "en_compra"
+   }
+  ],
+  "grupos_afectados": [
+   "pacientes con enfermedades crónicas",
+   "pacientes con cáncer"
+  ],
+  "tono": "positivo",
+  "riesgo": "medio",
+  "cifras": [
+   {
+    "indicador": "renglones de medicamentos",
+    "valor": 375,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "plazo mínimo de entrega",
+    "valor": 30,
+    "unidad": "días"
+   },
+   {
+    "indicador": "plazo máximo de entrega",
+    "valor": 60,
+    "unidad": "días"
+   }
+  ],
+  "fecha_evento": "",
+  "instalaciones": [
+   "Hospital del Niño",
+   "Hospital Santo Tomás",
+   "Hospital José Domingo de Obaldía"
+  ],
+  "medidas_anunciadas": [
+   "Compra conjunta de medicamentos entre el Minsa, la CSS y patronatos",
+   "Elaboración de pliegos de cargos y homologación con proveedores",
+   "Convocatoria de actos públicos a través del portal Panamá Compra en el mes de abril",
+   "Oficialización de 375 renglones de medicamentos mediante decreto ejecutivo en Gaceta Oficial"
+  ],
+  "nivel_abastecimiento_pct": null,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "9bc63e5b0aba5703b5ea0fbe": {
+  "resumen": "El director de la Caja de Seguro Social (CSS), Dino Mon, atribuyó el desabastecimiento de ciertos medicamentos en las farmacias de la institución a robos internos en los que estarían involucrados funcionarios. Mon señaló que desde hace más de dos semanas faltan medicamentos básicos como el ácido hialurónico, por lo que se iniciaron denuncias y procesos de corrección. A pesar de que el abastecimiento había subido al 96% en 2025, las pérdidas por hurto han impactado la disponibilidad durante 2026.",
+  "tipo_evento": "desabastecimiento",
+  "causas": [
+   "robo_o_perdida"
+  ],
+  "medicamentos": [
+   {
+    "nombre": "ácido hialurónico",
+    "principio_activo": "ÁCIDO HIALURÓNICO",
+    "situacion": "faltante"
+   }
+  ],
+  "grupos_afectados": [],
+  "tono": "negativo",
+  "riesgo": "alto",
+  "cifras": [
+   {
+    "indicador": "Población asegurada de la CSS en 2025",
+    "valor": 2.8,
+    "unidad": "millones"
+   },
+   {
+    "indicador": "Abastecimiento en farmacias 2024",
+    "valor": 94,
+    "unidad": "%"
+   },
+   {
+    "indicador": "Abastecimiento en farmacias 2025",
+    "valor": 96,
+    "unidad": "%"
+   }
+  ],
+  "fecha_evento": "",
+  "instalaciones": [
+   "Chiriquí",
+   "Asamblea Nacional"
+  ],
+  "medidas_anunciadas": [
+   "Interposición de denuncias ante las autoridades",
+   "Procesos de corrección por alteración de inventarios"
+  ],
+  "nivel_abastecimiento_pct": 96,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "4f9d4bdbb433bc2233c2310e": {
+  "resumen": "El desabastecimiento de medicamentos en la Caja de Seguro Social continúa generando malestar entre los asegurados, quienes enfrentan estantes vacíos y largas filas de espera. Pacientes como la señora Lesbia Vega se ven obligados a viajar desde el interior y gastar de su propio bolsillo en farmacias privadas para cubrir sus tratamientos. Las autoridades de la institución no han brindado información oficial sobre las causas ni las medidas para solucionar la crisis.",
+  "tipo_evento": "desabastecimiento",
+  "causas": [],
+  "medicamentos": [],
+  "grupos_afectados": [
+   "personas de la tercera edad",
+   "asegurados"
+  ],
+  "tono": "negativo",
+  "riesgo": "alto",
+  "cifras": [],
+  "fecha_evento": "2025-04-03",
+  "instalaciones": [
+   "Policlínica Manuel Ferrer Valdés",
+   "Policlínica de Betania"
+  ],
+  "medidas_anunciadas": [],
+  "nivel_abastecimiento_pct": null,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "ec43873ec9bcbf09c3d86514": {
+  "resumen": "La nueva administración de la Caja de Seguro Social inició una compra agresiva de medicamentos con la meta de alcanzar un 95% de abastecimiento a fin de año. A pesar de las mejoras reconocidas por representantes de pacientes, persisten graves nudos críticos como procesos de compra retrasados, burocracia y falta de un sistema informático adecuado. Para resolver el problema a largo plazo, se proponen soluciones estructurales y la creación de un ente fiscalizador dentro de la institución.",
+  "tipo_evento": "mejora_abastecimiento",
+  "causas": [
+   "proceso_de_compra",
+   "incumplimiento_proveedor",
+   "gestion_institucional"
+  ],
+  "medicamentos": [],
+  "grupos_afectados": [
+   "asegurados",
+   "pacientes"
+  ],
+  "tono": "neutro",
+  "riesgo": "medio",
+  "cifras": [
+   {
+    "indicador": "porcentaje de abastecimiento esperado al finalizar el año",
+    "valor": 95,
+    "unidad": "%"
+   },
+   {
+    "indicador": "tiempo para emisión de paz y salvo",
+    "valor": 1,
+    "unidad": "semana"
+   }
+  ],
+  "fecha_evento": "",
+  "instalaciones": [
+   "farmacias de la CSS"
+  ],
+  "medidas_anunciadas": [
+   "agresiva compra de medicamentos para abastecer farmacias",
+   "creación de un ente fiscalizador dentro de la CSS"
+  ],
+  "nivel_abastecimiento_pct": null,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "d955392ffcb75d12b4b7171b": {
+  "resumen": "Representantes de asociaciones de pacientes denuncian que la falta de entre 40 y 50 medicamentos especiales y de alta demanda en la Caja de Seguro Social (CSS) está perjudicando gravemente su salud, desmintiendo el impacto del 90% de abastecimiento reportado por las autoridades. La crisis podría agravarse debido a la devolución de 144 contratos por parte de la Contraloría General para su revisión, sumado a fallas de gestión administrativa y una deuda con proveedores de $48 millones. La ineficacia del mecanismo de compra por cotización en línea ya ha causado consecuencias lamentables en pacientes renales y con enfermedades crónicas.",
+  "tipo_evento": "desabastecimiento",
+  "causas": [
+   "proceso_de_compra",
+   "presupuesto_o_pagos",
+   "gestion_institucional"
+  ],
+  "medicamentos": [
+   {
+    "nombre": "acetaminofén",
+    "principio_activo": "ACETAMINOFÉN",
+    "situacion": "mencionado"
+   },
+   {
+    "nombre": "ácido fólico",
+    "principio_activo": "ÁCIDO FÓLICO",
+    "situacion": "mencionado"
+   }
+  ],
+  "grupos_afectados": [
+   "pacientes con enfermedades crónicas",
+   "pacientes renales",
+   "pacientes oncológicos",
+   "pacientes con síndrome hemolítico urémico atípico"
+  ],
+  "tono": "negativo",
+  "riesgo": "alto",
+  "cifras": [
+   {
+    "indicador": "porcentaje de abastecimiento reportado por autoridades",
+    "valor": 90,
+    "unidad": "%"
+   },
+   {
+    "indicador": "porcentaje restante que genera desabastecimiento",
+    "valor": 10,
+    "unidad": "%"
+   },
+   {
+    "indicador": "contratos devueltos por Contraloría a la CSS",
+    "valor": 144,
+    "unidad": "contratos"
+   },
+   {
+    "indicador": "renglones en asesoría legal",
+    "valor": 72,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "renglones faltantes de endoso del proveedor",
+    "valor": 37,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "renglones por firma del director general",
+    "valor": 3,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "renglones en planificación",
+    "valor": 9,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "renglones en fiscalización de Contraloría",
+    "valor": 5,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "renglones pendientes de firmas de entrega",
+    "valor": 14,
+    "unidad": "renglones"
+   },
+   {
+    "indicador": "deuda total a proveedores",
+    "valor": 48000000,
+    "unidad": "USD"
+   },
+   {
+    "indicador": "deuda en vigencia expirada",
+    "valor": 19000000,
+    "unidad": "USD"
+   },
+   {
+    "indicador": "lista de productos en desabastecimiento crítico",
+    "valor": 132,
+    "unidad": "productos"
+   }
+  ],
+  "fecha_evento": "",
+  "instalaciones": [
+   "Caja de Seguro Social (CSS)",
+   "farmacias de la institución"
+  ],
+  "medidas_anunciadas": [
+   "compra de medicamentos en desabastecimiento crítico mediante cotización en línea",
+   "revisión de 144 contratos de medicamentos devueltos por Contraloría"
+  ],
+  "nivel_abastecimiento_pct": 90,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "9b4f05dee7bf991dd5de3d39": {
+  "resumen": "Emma Pinzón, representante de la Asociación de Pacientes con Enfermedades Crónicas, denunció que el 10% de desabastecimiento de medicamentos en la Caja de Seguro Social afecta a entre 48 y 50 productos críticos. La falta de fármacos ha provocado un grave deterioro en la calidad de vida de pacientes de enfermedades mentales, diálisis e insuficiencia cardíaca, atribuido a deficiencias presupuestarias, fallas en la distribución y procesos de compra lentos. A pesar de iniciativas como MedicSol y mesas técnicas, persisten serios retrasos en la adquisición de medicamentos clave.",
+  "tipo_evento": "desabastecimiento",
+  "causas": [
+   "incumplimiento_proveedor",
+   "proceso_de_compra",
+   "presupuesto_o_pagos",
+   "logistica_distribucion",
+   "gestion_institucional"
+  ],
+  "medicamentos": [
+   {
+    "nombre": "Olanzapina",
+    "principio_activo": "OLANZAPINA",
+    "situacion": "faltante"
+   }
+  ],
+  "grupos_afectados": [
+   "pacientes con enfermedades crónicas",
+   "pacientes de enfermedades mentales",
+   "pacientes con insuficiencia cardiaca",
+   "pacientes en diálisis",
+   "pacientes con leucemias agudas"
+  ],
+  "tono": "negativo",
+  "riesgo": "alto",
+  "cifras": [
+   {
+    "indicador": "porcentaje de desabastecimiento en la CSS",
+    "valor": 10,
+    "unidad": "%"
+   },
+   {
+    "indicador": "porcentaje de abastecimiento en la CSS",
+    "valor": 90,
+    "unidad": "%"
+   },
+   {
+    "indicador": "moléculas en el cuadro básico de la CSS",
+    "valor": 480,
+    "unidad": "moléculas"
+   },
+   {
+    "indicador": "productos desabastecidos",
+    "valor": 50,
+    "unidad": "productos"
+   },
+   {
+    "indicador": "meses de desabastecimiento de medicamentos para enfermedades mentales",
+    "valor": 6,
+    "unidad": "meses"
+   },
+   {
+    "indicador": "defunciones de leucemias agudas el año pasado",
+    "valor": 2,
+    "unidad": "pacientes"
+   },
+   {
+    "indicador": "pacientes que usan medicamento innovador",
+    "valor": 900,
+    "unidad": "pacientes"
+   }
+  ],
+  "fecha_evento": "",
+  "instalaciones": [
+   "Caja de Seguro Social (CSS)",
+   "Centros de Salud"
+  ],
+  "medidas_anunciadas": [
+   "Modificación a la Ley 1 a través de la Mesa Técnica de Medicamentos",
+   "Implementación del sistema MedicSol",
+   "Propuesta de extensión de horario en farmacias de Centros de Salud hasta las 5:00 p.m. o 6:00 p.m."
+  ],
+  "nivel_abastecimiento_pct": 90,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "a860ae9f880265af33a7320d": {
+  "resumen": "El Ministerio de Salud instaló la Comisión de Desabastecimiento Crítico para revisar y coordinar la adquisición conjunta de medicamentos entre instituciones de salud públicas. En el proceso participan la CSS, el Minsa y hospitales patronatos como el Hospital Santo Tomás, el Hospital del Niño y el Hospital José Domingo de Obaldía. Las compras se realizarán conforme a la Ley 419 a través de la plataforma Panamá Compra.",
+  "tipo_evento": "politica_o_regulacion",
+  "causas": [],
+  "medicamentos": [],
+  "grupos_afectados": [
+   "pacientes con enfermedades críticas, crónicas y degenerativas"
+  ],
+  "tono": "neutro",
+  "riesgo": "medio",
+  "cifras": [],
+  "fecha_evento": "2026-01-08",
+  "instalaciones": [
+   "Hospital Santo Tomás",
+   "Hospital del Niño",
+   "Hospital José Domingo de Obaldía"
+  ],
+  "medidas_anunciadas": [
+   "Revisión de la lista de medicamentos a adquirir mediante el proceso de Desabastecimiento Crítico",
+   "Adquisición conjunta de medicamentos por instituciones públicas",
+   "Presentación del listado al Ministro de Salud y al Presidente para publicación en Gaceta Oficial",
+   "Celebración de actos de adquisición a través de la plataforma Panamá Compra"
+  ],
+  "nivel_abastecimiento_pct": null,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "c6464a02010eaa72a9490bbb": {
+  "resumen": "El Gobierno de Panamá promulgó el Decreto Ejecutivo N.° 3 del 19 de enero de 2023, mediante el cual se reglamenta la Ley 109 de 2019 sobre la Política Nacional de Medicamentos. La norma establece estrategias para garantizar la disponibilidad, accesibilidad, calidad y uso racional de medicamentos a nivel nacional. Asimismo, crea organismos técnicos multidisciplinarios e incentivos para fortalecer la producción local de medicamentos esenciales y especializados.",
+  "tipo_evento": "politica_o_regulacion",
+  "causas": [],
+  "medicamentos": [],
+  "grupos_afectados": [
+   "pacientes con enfermedades críticas, crónicas y degenerativas",
+   "población general"
+  ],
+  "tono": "neutro",
+  "riesgo": "bajo",
+  "cifras": [
+   {
+    "indicador": "Ventaja de precio diferencial para productor local en licitaciones públicas",
+    "valor": 5,
+    "unidad": "%"
+   },
+   {
+    "indicador": "Ventaja de precio diferencial para productor global que realice transferencia tecnológica",
+    "valor": 5,
+    "unidad": "%"
+   }
+  ],
+  "fecha_evento": "2023-01-19",
+  "instalaciones": [
+   "Ministerio de Salud",
+   "Caja del Seguro Social",
+   "Dirección Nacional de Farmacia y Drogas",
+   "Instituto Especializado de Análisis",
+   "Universidad de Panamá",
+   "Universidad Tecnológica de Panamá"
+  ],
+  "medidas_anunciadas": [
+   "Reglamentar la Ley 109 de 2019 que adopta la Política Nacional de Medicamentos en Panamá",
+   "Crear el Organismo Nacional Multidisciplinario para mantener comunicación continua entre las autoridades y los sectores público y privado",
+   "Crear un Sistema Nacional Integral de Receta Electrónica",
+   "Crear la Comisión de Fomento a la Industria Local de Medicamentos Esenciales y Especializados",
+   "Otorgar una ventaja de precio diferencial de hasta 5% a productores locales y globales con transferencia tecnológica en licitaciones del Estado"
+  ],
+  "nivel_abastecimiento_pct": null,
+  "_modelo": "gemini-3.6-flash"
+ },
+ "75749564120afa123bb8ffaa": "abacavir",
+ "70b2e5f6b417179d2e895929": "abacavir sulfate",
+ "5269849e4a5e224577f87bcc": "abiraterone",
+ "9702cd1f6bd377876fbf6987": "acalabrutinib",
+ "384f5de7b8c78da1eb8d1b6d": "acetazolamide",
+ "6f05befb03d5a8b636f08742": "aspirin",
+ "e3c5e3cb227f5f981001a501": "acetylcholine chloride",
+ "4f915e41749f504969ceee40": "acyclovir",
+ "0b41cde95576ae5cd0274242": "alendronic acid",
+ "db8ec305f4a4658e0b87cf0e": "salicylic acid",
+ "ebfadecefc0f029e77f0cbe9": "acitretin",
+ "6bab578ff362be1883242b0c": "adalimumab",
+ "2a124377abf01acd52b0848b": "adenosine",
+ "4a4a477ad0e27e75c0f4e98d": "epinephrine hydrochloride",
+ "47c8c8b13e69031472fb0418": "sterile water",
+ "551b3ff88c37ac0ece62506a": "albendazole",
+ "3f0e65321e2771f69a43fe6a": "albumin human",
+ "a419831cb7ef96ace0950595": "alcohol",
+ "301cff478c07f70ed940c09e": "alemtuzumab",
+ "d77dbbbdab6fc778427edfb6": "alfacalcidol",
+ "1baab9b386f8d27d7fa78b2a": "allopurinol",
+ "9d304ee1059e7cd2c3eda135": "alteplase",
+ "596bd712c3c3f715ff569448": "aluminum acetate",
+ "be90c8aa14ffbbaf947f4935": "aluminum acetate and acetic acid",
+ "a377a61efed9a6a36e2d8846": "aluminum hydroxide and magnesium hydroxide",
+ "253568039bafb9fd9072be9d": "amantadine",
+ "b3576f4c5b2c750e216a5240": "amikacin sulfate",
+ "b6f65eb3c0846cd65ed40602": "amino acids",
+ "8aff067bf079e083ebf5a53a": "amino acids",
+ "68e4abd38919e8cd801954e2": "crystalline amino acids",
+ "982c312f792a8ef871ccb025": "aminocaproic acid",
+ "034779e3ed780644d0390c32": "aminophylline",
+ "7aa0387d2ac1c493fe3c0882": "amiodarone",
+ "ac3302889b585e99e3a9af19": "amiodarone hydrochloride",
+ "7af0a58a44417167df4ac76d": "amitriptyline",
+ "cedba274d00d73e3d900559a": "amlodipine",
+ "6488570974c974007b554a42": "amoxicillin",
+ "19523fbb3949e4f66f4c7f1f": "amoxicillin",
+ "c5755db4463bf981d4a0b7da": "ampicillin sodium",
+ "ffd65d8cd6dd23b73d90a1f1": "amphotericin b",
+ "f566fbc4d6813f258f96f966": "",
+ "6883c4dae0e8bd876aac0aa3": "",
+ "aa0e0967bf874750aeee56d4": "",
+ "7244d70c4eb48f32be033915": "",
+ "6952739438301475f9ac1d06": "brompheniramine",
+ "ef718dfb5ec92be219c977d7": "apalutamide",
+ "86db4cb57865b2e05bee7e07": "ascorbic acid",
+ "3d9f59dcb24aea7ae5876e73": "asparaginase",
+ "db9ffeeacb781e700d6fdf7d": "atenolol",
+ "8485840c0c5e8f35a3bf8ad8": "atracurium besylate",
+ "1f2c79d7d06c412b6f3959ef": "atropine sulfate",
+ "eb64cd4e4cb533e4d58d6024": "azacitidine",
+ "baa8564b8d3c42e08fdaccd1": "azathioprine",
+ "c85c450b9dfb298cd02b1d46": "azelastine hydrochloride",
+ "7ed8d43558ca9cffc454fe5f": "azithromycin",
+ "0d500c32a7d05e17d44011d2": "basiliximab",
+ "971c36f98af72de7fbf73959": "beclomethasone dipropionate",
+ "7276930b6bec6f4e5a608194": "benzyl benzoate",
+ "b4b0c2bbd0169b4b43e2d128": "penicillin g benzathine",
+ "f9be5488e483832bd0cdea4a": "penicillin g procaine",
+ "2ede65fd3967d25407cb6aed": "penicillin g sodium",
+ "43ff4a1a658ec192f3a30965": "bendamustine",
+ "a3ff4ecd41850365b0fcd3ea": "benzocaine",
+ "f790ef4dd75e8a4e10b943c3": "benzoyl peroxide",
+ "64aa599fad5b46348ae78218": "betamethasone valerate",
+ "ceae4b1a4110563e76d6e8ab": "bicalutamide",
+ "3eb137181a974e2987ee167d": "bictegravir",
+ "d9dc06b487a468f8dfae5627": "biperiden hydrochloride",
+ "8febcdf66ef893957203e9dc": "biperiden lactate",
+ "a7d1fa5ac84d57f9b0a54a02": "bleomycin sulfate",
+ "d840d87ccce2cefaca04aa8c": "",
+ "8f89198c6e4705f219c84ec3": "bortezomib",
+ "0603ff43094198a9221bbc52": "brimonidine tartrate",
+ "5dc98d49da8acbf9d91f9733": "budesonide",
+ "4a4f476d6cac55c6a847b625": "bupivacaine hydrochloride",
+ "ed2080b2f78cf701b8af7d7b": "busulfan",
+ "7174074ca82dcff82dccaa1c": "cabergoline",
+ "ec352312fa263b7506abc36d": "calamine",
+ "37dcf62c5b0968ddd1e89e5b": "calcium carbonate",
+ "87d4968196bb62315414958f": "calcium gluconate",
+ "422554323fcf52c5ccf4c216": "calcipotriene",
+ "06b8559f1c902ab50f6ffd4e": "capecitabine",
+ "41d1306c9ddbfd064e09ac14": "captopril",
+ "996af5e13b7a833bf13054a1": "carbamazepine",
+ "9125e0b14ecf6f5181125e41": "imipenem",
+ "599522a6b7a4d92165405f40": "carboplatin",
+ "e8a717f4ba808b5ef6fcaf8a": "ferric carboxymaltose",
+ "6848a20342828eb4ca2948b9": "cardioplegic solution",
+ "11e1e71228cfb71975f23c30": "carmustine",
+ "7e8ba5127f40af4be1fdcb23": "carvedilol",
+ "660c0f2dae731b5c3b485c01": "caspofungin",
+ "005c6ea5c49c4858c2c3e368": "cephalexin",
+ "0dfad0b3b774e124aa229e80": "cephalothin sodium",
+ "bc462303eb7187d76b2132ba": "cefepime",
+ "53960529858e2038242f75f4": "cefotaxime",
+ "2df968aee27fe18e0b2dd889": "cefoxitin sodium",
+ "a6418dbf02a285852c35a4c4": "ceftazidime",
+ "adb578afb09f3c3de7f11998": "ceftazidime/avibactam",
+ "f898ef29fbc412f697ea10c9": "ceftriaxone sodium",
+ "7ea407b26b53a7e854c9bbd5": "cefuroxime",
+ "79fb0768995fba1d60e5bd62": "cyanocobalamin",
+ "e6239c7b9360c9c6a8bacd71": "cyclophosphamide",
+ "b1465cefa9ce8032ff7876fb": "cyclosporine",
+ "13c7c6d58886f713e5b16197": "cinacalcet hydrochloride",
+ "2a00d49a90d009367b57929e": "ciprofloxacin",
+ "fb13ba2361bd8a5f6426a613": "ciprofloxacin lactate",
+ "ffc4c33e088652bf14e201ab": "cisplatin",
+ "9beb727e9974617b0d00e2a6": "cytarabine",
+ "93aeb115bac40635a0fe40f5": "cladribine",
+ "11d3a6ffcf0d0a337539e74a": "clarithromycin",
+ "80565747c183d4734a97c8b5": "clindamycin hydrochloride",
+ "2372cabd6db569a81433339b": "clindamycin phosphate",
+ "c7119f36ee51cc5ae3217746": "clindamycin palmitate",
+ "cf551c4488f10ea0b1e4a686": "clobetasol propionate",
+ "d85f8e3a99a0dd3d33e11761": "clomiphene citrate",
+ "0138bb8fc2e0facc6881af44": "clonazepam",
+ "d52ec94442c6ba5a86e33cb0": "clopidogrel bisulfate",
+ "84e5565c52d35f650c500380": "chlorambucil",
+ "3ee463a25dd103b1ef19c774": "chloramphenicol",
+ "677778accd57cc99d9e7bbe2": "chlorpheniramine maleate",
+ "e2ba1112d1b3b1922a4bf5ec": "chlorpromazine",
+ "dc5def42a9a8bd303f3a6a39": "clostridiopeptidase and chloramphenicol",
+ "71122cd04c18360ebd357354": "clotrimazole",
+ "a4b1e93f49f4c28743580a51": "clozapine",
+ "e16385861ab4f47c955f8f3c": "colchicine",
+ "fd2153d62febcf86f2dcfbb6": "cholestyramine resin",
+ "2fcde86c10daf14ea3309c97": "",
+ "785227adc80f953ad654a1c5": "prothrombin complex concentrate",
+ "461873e1c58a6df757218fb0": "desonide",
+ "d3129c555bdb576947d71895": "amcinonide",
+ "fdfef5f19d52743ad47f91ab": "hydroxychloroquine sulfate",
+ "3a9eed449dcd484fd7d11d4c": "cromolyn sodium",
+ "3fd97d86feb1287f60ebf9b8": "dacarbazine citrate",
+ "4c4f62623b74c84f794e015e": "danazol",
+ "1e4ae97e202e4226e95188be": "dapagliflozin",
+ "71b0dd12f945e51aba9c9935": "dapsone",
+ "5c3ab3121f28c25bc2fa01b2": "daratumumab",
+ "c6b76e31c89a43047709e1ef": "darunavir ethanolate",
+ "527554b381c9240533672a07": "darunavir and cobicistat",
+ "972c23903ac7da8f6d9fa16b": "dasatinib",
+ "a7a9d35c63bed64101a7d791": "daunorubicin hydrochloride",
+ "06bde6cbfcd7a8933c4bfe2b": "deferasirox",
+ "943c69d056c796d95b1aa982": "deferoxamine mesylate",
+ "0abbca2843c7c1fc6d9c3170": "deflazacort",
+ "947dd61abd0dccc44111a47b": "",
+ "bb187f97986b1061669ec610": "desmopressin acetate",
+ "97b363ec716f063c1a7bd2c5": "dexamethasone",
+ "555c030ec8c1f2c2631c04df": "dexamethasone sodium phosphate",
+ "1449c05c92119b8a062d6815": "dexketoprofen",
+ "9a8ff677241a62c5978642f6": "dexmedetomidine hydrochloride",
+ "7f24798649a1ca3e45538078": "dextromethorphan hydrobromide",
+ "bcbb64375b829897604185f7": "dextrose",
+ "b8f4031679710558d42bd4b4": "dextrose",
+ "a202a638ec0f03da26015db8": "dextrose",
+ "20451f79d9a43a38dd044228": "dextrose",
+ "ff9ac2ca78180dbc809ac88f": "dextrose",
+ "0de2dc3a8e9b11b0907f2ca2": "diazepam",
+ "81e4ccebed1923d21de26654": "diclofenac",
+ "670d971bfea68ff8cb465d1a": "diclofenac sodium",
+ "701e2656da3594cc9b6a800b": "dicloxacillin",
+ "05ab4c9e355bceecdeda37e9": "diphenhydramine",
+ "8c219c0f1d95078f8480968d": "digoxin",
+ "4bfb33711b1beba5158fe56d": "diltiazem",
+ "b94928669114f150f8a692f5": "dimenhydrinate",
+ "8e48706bef889902357d1df0": "dinoprostone",
+ "1956e5e03a2f4ae3f4355775": "alanyl-glutamine",
+ "dc428de38af792aed4d041b6": "metamizole",
+ "2643d99303af6c23edbe11cb": "dobutamine",
+ "d0bbaa751a24124c94ba06a9": "dolutegravir",
+ "fb4d18d5661081710d550d43": "dopamine hydrochloride",
+ "ef0cf339b24085fd90ad4128": "dornase alfa",
+ "46fba37bdc249cc6d236de21": "dorzolamide hydrochloride",
+ "c0e5ade6720281481eae4df4": "doxycycline",
+ "82dbedeeaf97416e4efe4d0c": "doxorubicin hydrochloride",
+ "9216fa2b8f35b84eecec877b": "duloxetine",
+ "c60d80ecfca1fb8e3a22bc54": "dupilumab",
+ "909e923d8975dc4c95ba9594": "edetate",
+ "412c07831ca2bd34eebacaae": "efavirenz",
+ "41be1f94e9ae5897c9d6560e": "ephedrine sulfate",
+ "54d70d9f7f3deca5fa3c7b41": "eltrombopag olamine",
+ "746c4c056d35bccf06b4efb5": "emicizumab",
+ "d4bb276ee04c9fdd98a90b7a": "emtricitabine",
+ "21dfb279269ee0d369c3d246": "",
+ "9ffd329c6c8b6118b46f5c2a": "epoetin",
+ "2f44134da51635e473347700": "erythromycin",
+ "ce617231a874fc9ab52dc849": "erythropoietin",
+ "469970f62158f66aecfb0f80": "ertapenem",
+ "73007f48f4ebc94b256712f7": "escitalopram",
+ "119f895eaa23eba4d41757a4": "scopolamine butylbromide",
+ "90b277bd9760ddb952aa5adf": "spiramycin",
+ "99c5d3343f20200f78624ac0": "spironolactone",
+ "ac864835e9746c2af09f8325": "streptomycin sulfate",
+ "c245e548ce9dab069fd2ab49": "conjugated estrogens",
+ "c73a57fb47668cd89bd05dfc": "conjugated estrogens",
+ "b3fd839d428312b5fab8e6a1": "ethambutol",
+ "5bc6497b67ee927add60e485": "etanercept",
+ "3dcfba58153e92fc2d4ef21a": "etonogestrel",
+ "d96840d588ba82c550e4281c": "etoposide",
+ "f72c8d08a051d0b1b201d59b": "everolimus",
+ "dc969dfc7b15280bcaff2feb": "",
+ "4662ea1cc0242a0d05359762": "granulocyte colony-stimulating factor",
+ "ade9f04fae0ce1420f7313a2": "factor ix",
+ "479406fe5c25282ac5d87051": "eptacog alfa",
+ "f01bd8ecd41042a4123f8b99": "antihemophilic factor (human)",
+ "24cc625a798c53af77f1ed78": "antihemophilic factor / von willebrand factor complex",
+ "8c38769818e7dbeb84a5c4bc": "faricimab",
+ "f4645a3aad3566f59e2e49be": "phenytoin",
+ "3e8902aec344a004eaa6f5fa": "phenytoin sodium",
+ "495d2ee7e2da8b3fa22587c6": "phenobarbital",
+ "765a93b427b06efbbab4d3af": "fenofibrate",
+ "c7078a2bf4f11b01b06ba1d5": "fentanyl",
+ "551d484dc80c353d51b147ae": "ferrous fumarate",
+ "9f40f42b18cf79d5d42cd67d": "finasteride",
+ "3033438ebb28acdb4d5c4263": "fingolimod",
+ "e2ccab870003c1712a962c71": "phytonadione",
+ "1f7687463d54469322cab3ca": "fluconazole",
+ "84562d7e2c02b4d98f6e764d": "fludarabine phosphate",
+ "ec6326e0f0f11e9b53c75cc0": "fludrocortisone acetate",
+ "6622f5c105f5ee4ba5a836f3": "fluphenazine decanoate",
+ "cafab1af8495822153974bc4": "flumazenil",
+ "1223c5ca4ab37b7b723506d4": "fluorouracil",
+ "5e02d1afa81a727921e807e8": "fluorouracil",
+ "0de73ff2c88f839ae219296e": "fluoxetine",
+ "f5b6209c230e45a53d8a4d7f": "fluoxetine hydrochloride",
+ "8cf9b5f1c3174d7096b431ee": "folic acid",
+ "1449d0f7e90e364b3230a592": "formoterol fumarate",
+ "1d460e4401a120f93e091247": "",
+ "721c17a24aca5856f180bf4d": "furosemide",
+ "c48ad94e735111292ec800a5": "sodium fusidate",
+ "313897d90678684ae7fff4a7": "gabapentin",
+ "bf124d9a45c869c830f958b8": "ganciclovir",
+ "f0e796688d30376a95e9304f": "gemcitabine hydrochloride",
+ "b6fb73a7b81b894f941fd9d7": "gentamicin sulfate",
+ "a16986c1d574f821ba393362": "gestrinone",
+ "4998194ee101ce57dc289e13": "glyburide",
+ "19e20e1362c094f8b6b82450": "nitroglycerin",
+ "4ba7a99775ea44e562134016": "gliclazide",
+ "87de5b3669b99579f142b143": "chlorhexidine gluconate",
+ "be75fbe7b49da6d1507d517c": "goserelin",
+ "abbad86d6ead423c92f67a02": "guaifenesin",
+ "305fc59174b9523494c06db9": "guselkumab",
+ "c57866d3fe0609c421529697": "haloperidol",
+ "f38a99c27765e31a43b0f5d2": "low molecular weight heparin",
+ "9876ec2fc3dc954c32ac5043": "low molecular weight heparin",
+ "d84f4f613533a765db90b2fe": "heparin sodium",
+ "2ebec3965c692d0af5dfdde8": "hyaluronidase",
+ "4f8d3ad28cca4c6a20efaa23": "hydralazine hydrochloride",
+ "4ae62c96562bb530336964df": "chloral hydrate",
+ "dd96863c0b95bbbd586bed3e": "hydrochlorothiazide",
+ "9ec6e650c3afbbfb73d90b02": "hydrocortisone",
+ "a07a95be4787fc05e06c7561": "hydrocortisone sodium succinate",
+ "208d565248a55fc144aa7a8c": "hydroxyurea",
+ "f1b469afb8c03958b99e3405": "hydroxyzine",
+ "95a44e62d80d5a03b89f1307": "hydroxychloroquine sulfate",
+ "f47d93456e217bc4d2e7237f": "iron",
+ "6deea9b1d253994a7f8a5fab": "iron sucrose",
+ "a0e1e15ea9712871c292d2a0": "homatropine methylbromide",
+ "58350ada163584142d304fab": "somatropin",
+ "951b72ae09fbeb837567573d": "ibuprofen",
+ "ff987c4f35f299a926518193": "icodextrin",
+ "985e63985c7a175b9a15a0a6": "idarubicin",
+ "e84d8c3b602cdd6dfa1c3bf2": "ifosfamide",
+ "230859272fd680499636136c": "imatinib mesylate",
+ "9079e1e023da921db0fc2c01": "clotrimazole",
+ "3214a49d40a58c15ec4169cd": "imipramine",
+ "d37b988f0b0528c59c64e5ad": "indapamide",
+ "aad3a1c8536e3dd24af59bd3": "indomethacin sodium",
+ "b31f7ef17d79079114bcd0df": "infliximab",
+ "bb2cbcc9490d8770da063abc": "immunoglobulin",
+ "cd9440a2b871f6fb65d0f7ad": "rho(d) immune globulin",
+ "dca54ad0685b6b54e90ab1c0": "tetanus immune globulin",
+ "5305671c79c1d61abf0b9729": "anti-thymocyte globulin",
+ "84780d651a4d7915c7d1333e": "insulin glargine",
+ "6e34aa7b916dc31fb366f701": "insulin lispro",
+ "9238f0c893a916c9f02453ad": "insulin nph",
+ "b77c59f00dfe04ac007f573a": "insulin regular",
+ "dab2ecbf14814836b59b359e": "interferon alfa",
+ "965987fa4e94f1f449aa4251": "interferon beta",
+ "46de7d8a66dadcda81fb869b": "peginterferon alfa",
+ "aee817c552775934530e9d4f": "ipratropium bromide",
+ "f177a5a9b449267998318064": "irbesartan",
+ "26a20c6d3881749bbb950f22": "irinotecan hydrochloride",
+ "cfb71707855272a3db33de19": "isoflurane",
+ "a4c03e7999c4c00302ec58f9": "isoniazid",
+ "ae9d9e6778d0bc5c522fc1e2": "isoproterenol",
+ "1a4f07323205b321a449e64a": "isosorbide dinitrate",
+ "581867eaff3be7648b4d23c8": "itraconazole",
+ "adfefbc861eea81ea1288459": "ivermectin",
+ "127d3bb53addc7b3434291d4": "ketamine",
+ "732e7ae9037b1d24c8f965aa": "ketoconazole",
+ "8141bb1513c64e32a84ecbc4": "labetalol hydrochloride",
+ "5eb7dba41da68dcc62a84ef4": "lactulose",
+ "dfc464d1b0f197d19759638e": "artificial tears",
+ "f7eea90d74358cbe4b21886d": "lamivudine",
+ "b75ead52327d908dd3ba6af0": "lamotrigine",
+ "cc5768ef04fdb8297e3edb44": "latanoprost",
+ "361b74c8d3f3b2a62315fd4e": "leflunomide",
+ "c288b2b77357b4c9199c8bb0": "lenalidomide",
+ "d2dc5d21834091244510ba58": "letrozole",
+ "b621f5733ec02f798b0254e8": "leucovorin calcium",
+ "d3cb6799f41aa0c9fdfe6252": "leuprolide",
+ "564654be4b6b88ff837c8294": "levetiracetam",
+ "efc6f0211779f7ace4fd1308": "levobupivacaine hydrochloride",
+ "adbc234e2e5b136a01d50064": "carbidopa and levodopa",
+ "97eb2ce32f64b8f5c312cebc": "levofloxacin",
+ "ae972238f391eb7a51a06ace": "methotrimeprazine",
+ "3a950dba989d9a24cb464f1b": "levonorgestrel",
+ "df5041e29bfd4efb94afa313": "levosimendan",
+ "953bb4bab3ed61781d64e2a6": "levothyroxine sodium",
+ "5ceb4e1f1e935b487b62b4c0": "lidocaine",
+ "a345866334d80c1ea7ce71fa": "lidocaine hydrochloride",
+ "3409c8b441cd4a39dda61b1b": "lidocaine",
+ "686bfe9904ba8c7161cf1044": "linagliptin",
+ "a893deb57a561e1179734252": "linezolid",
+ "7c6d8eb3664efbf8defb2032": "lisinopril",
+ "7a322882f39f994feeff8cad": "lithium carbonate",
+ "95cc0c31853cac7ccd91c1e1": "loperamide hydrochloride",
+ "f0cf0998680c453f1682e39c": "lopinavir",
+ "7be7a3276da9fe82a649ec52": "loprazolam",
+ "d273c73e88489915ae4f25e5": "loratadine",
+ "970f3d3a9f1252b56075c827": "lorazepam",
+ "fc05abc64184372b5f780e92": "magnesium sulfate",
+ "ab90ae019000fb952337d170": "mannitol",
+ "bd5ddb278033bb6110515026": "maprotiline hydrochloride",
+ "5b42b500d0a66ab9f75dc90c": "alcohol",
+ "a2f7c6a5ebe2c465219fe5cb": "mebendazole",
+ "9b8ee36c5e7c7463d6aa4d07": "medroxyprogesterone",
+ "e4dae76b75a1d564ab10867b": "meglumine antimoniate",
+ "6a70d8f7bdff883ee69f9970": "melphalan",
+ "2163c7935fb2f56ff630cca3": "melphalan hydrochloride",
+ "17fa876d60bff34c0f8508e2": "menthol compound",
+ "ccd065706110cc8df799f129": "mepivacaine hydrochloride",
+ "795e1771ec03e689c1de7de7": "mercaptopurine",
+ "ad4ecaba724a58dc3f8d9461": "meropenem",
+ "0a644729183b1933a1bd8068": "mesna",
+ "906d8000da8a097412412c6e": "metacresolsulfonic acid and formaldehyde",
+ "ad5e2baf56fa45da4091efb1": "metformin hydrochloride",
+ "24297896acf3075a875f6a77": "methyldopa",
+ "649ca42e7fec437fc20e2b17": "methylergonovine",
+ "3a35404a2d05ad8ac4363c17": "methylphenidate",
+ "e2ecd7a9c75b5d70f10e5bc5": "methylprednisolone acetate or triamcinolone acetonide or diacetate",
+ "8f0d8883559f96cabc8353f0": "methylprednisolone sodium succinate",
+ "ec16d9cab73872c11bc69075": "metoclopramide",
+ "1710696edfe88583ce6d9122": "methotrexate",
+ "353d72fd49b7d5265ef58451": "methoxy polyethylene glycol-epoetin beta",
+ "ba3c1582dd027ed4bed5ac46": "metronidazole",
+ "ee31ef8e71167cc4423f2a70": "mycophenolate mofetil",
+ "bd08a3a1aadee513e129988c": "midazolam",
+ "82b9364218cdf22909494366": "milrinone",
+ "4655c12d27336f5ef9f99eef": "minoxidil",
+ "0de0f1e9f2eba73dd5ea4c0a": "mitomycin",
+ "e54f5d1f518c58b0508c959b": "mitoxantrone",
+ "dbe89e722dd6045703af56a5": "pentoxifylline",
+ "d5ca5f424e73dcd9abd945a8": "mometasone",
+ "8b52f4922979430e4a08cd1c": "mometasone furoate",
+ "79d343243ef984aeb1ab9707": "montelukast",
+ "c9704cc76c7b0cdb3c804430": "morphine hydrochloride or sulfate",
+ "a59d77676bd1a9352e92a72b": "morphine sulfate",
+ "8ba4e91d5eb368c5ec5f0d0a": "psyllium hydrophilic mucilloid",
+ "8ad17ff27156d07f3681b4bc": "multivitamins",
+ "f6f34149e1c6bf8988bd28b8": "multivitamins",
+ "1352bddf32f1a12bb04f81db": "multivitamins",
+ "46d2a49712535a29472805f3": "multivitamins and minerals",
+ "cdedf1715eb854b4ccdf8358": "naphazoline hydrochloride",
+ "c3239a1b2e6163e0c4857bbe": "naloxone",
+ "f04fe6cb1bf9985bd95f9da4": "natalizumab",
+ "3f5f812b86e1b99a2a87a6fc": "neostigmine methylsulfate",
+ "2ffa7ea9004b4c35a516d474": "nilotinib",
+ "ed31f471fd4ecbc69a07c124": "nimodipine",
+ "c87478d0a2e46bc903fd562c": "nystatin",
+ "f87038263641f80ac51e4d62": "nitrofurantoin",
+ "2a6bd28091de5877ae55faa3": "sodium nitroprusside",
+ "0ad7f5c42dbf52b383f3bd56": "norepinephrine bitartrate",
+ "9800429d7ed127e662c0e520": "obinutuzumab",
+ "022a3bb07933dc39612c8c1f": "ocrelizumab",
+ "46b39a4e33fdb4696d1278f7": "octreotide",
+ "94c23db3fecf62c83f77b3f2": "olanzapine",
+ "39f82116770cb1d872b66fb8": "trace elements",
+ "68fcded854121c8b5a8706ae": "trace elements",
+ "91311d54656bb911890d4aaf": "omalizumab",
+ "9f15eb430a839e8fbafcdcda": "omeprazole",
+ "d1227cc317eec2b2225b844c": "oseltamivir",
+ "cd630bb052e47eb180761f85": "oxacillin sodium",
+ "4049ee89382969179358633b": "oxybutynin",
+ "1f9e7211d01310cf6de48820": "oxycodone hydrochloride",
+ "80d218ab54bca6863097a1bf": "oxytocin",
+ "d176a39f46cfc2a58a107701": "paliperidone palmitate",
+ "d55c349d5345aa4456c125e4": "palivizumab",
+ "d06c6b3cf2bf494502b895ab": "pancreatin",
+ "30470e6d08b59859bf40b6e9": "papaverine",
+ "69d21bf2f67772530119635b": "acetaminophen",
+ "94230f8a59449170e5f334f4": "paricalcitol",
+ "5a9feb10feb32e5b6e36951f": "passiflora",
+ "07b96e11139b17f9310d0c82": "perindopril",
+ "bde26db058f554181f086d12": "meperidine",
+ "e8a424a348850ab0197b7f44": "pipazethate",
+ "c0a0b656dd40b88fc885904f": "piperacillin",
+ "e23ee418622f59e6cce8e1ea": "piperazine",
+ "f128167944de58cf72484d32": "pyrantel pamoate",
+ "0ae6258b70f1c0231c179fa3": "pyrazinamide",
+ "6bebe91598700e4c75fe81af": "pyridostigmine bromide",
+ "65c1d567bbff6e15d803c531": "pyridoxine",
+ "ea496db8ccb629d8d86d916c": "pyrimethamine",
+ "c9b7bc94b2cbc9cd0413049b": "polystyrene sulfonate",
+ "1feaee1732ca0101e90826e6": "polyethylene glycol",
+ "5fc2fbdf626b12a5890a6c35": "polymyxin b",
+ "4303d90ad6cf68a3ea454db3": "polymyxin b sulfate",
+ "5347fcbba2c752dad33d6bc2": "potassium chloride",
+ "9a43905626a14e980a09d6ac": "potassium phosphate",
+ "eb5562ea8d8df27851b7df1d": "potassium gluconate",
+ "83aa9a17d455a40fd54c1de6": "pramipexole",
+ "1d7cc7106c0410eb8261ebe4": "prasterone enanthate",
+ "06dada144548bba7e55aa212": "prazosin",
+ "28fe82f1437977a843d741c4": "prednisolone acetate",
+ "86ebe426ba93519199847b44": "prednisone",
+ "c436c49e81f4a290835ab51d": "prednisone",
+ "2c565a9088648792db6767ce": "procarbazine hydrochloride",
+ "c3a9c966d47237aed4d77c91": "propafenone",
+ "542d5ce0ff5a25431e645248": "propofol",
+ "8f051ae8b2ed50668cdcff8c": "propranolol hydrochloride",
+ "45a58948497c95d758bfa20c": "protamine sulfate",
+ "d8c9921c0e49e093265c8a20": "proparacaine",
+ "a570f7d0cf8bdbdde58efd47": "quetiapine fumarate",
+ "dca42538e31621c8f3f22ab4": "raltegravir",
+ "559c5e8d1ca4fbf0f0d75de7": "ranitidine hydrochloride",
+ "e776f2f81b9231e537f3c84d": "ranitidine hydrochloride",
+ "e637a05b6aa4031eed286ecb": "obidoxime",
+ "7233ade25cc64ee9874dea49": "remifentanil",
+ "948be3ef1715d487640a1194": "rifampin",
+ "f0379950bee840273be08f7b": "ringer's lactate",
+ "de3a2e204221a4b80d22c29d": "ritonavir",
+ "920ea9a5bad60220a2d656e7": "rituximab",
+ "21325d54c5f0bdc1406b504d": "rivastigmine",
+ "8d5ff442ed5ac43a3bf38fe2": "rocuronium bromide",
+ "3d05e9cb5f028218e8b9581d": "rosuvastatin",
+ "db6c57727f6190c2a0b8e231": "rhubarb",
+ "ba3d366c95ff661fe03ccd51": "albuterol",
+ "ceb098541b798f4b53bb2784": "albuterol sulfate",
+ "0d622bc197879ef25f8fc1d7": "oral rehydration salts",
+ "7327483c7fa34ad1aaad2c44": "balanced salt solution",
+ "5759077fd29412f8fc28f7fe": "sevelamer carbonate",
+ "6bd992a977ec0bc33e8e60e6": "sevoflurane",
+ "dc98e6d3775f18b126aad6d2": "simvastatin",
+ "5274160f6284eeb9ed670d3c": "sirolimus",
+ "83a698eeceb399e2d2fbaa0a": "sodium bicarbonate",
+ "3a261db609a0d1afc08ac406": "sodium biphosphate",
+ "664efae2eeb7020d118756fb": "sodium chloride",
+ "4bc341fccc3444a24c117830": "sodium chloride",
+ "7e3eaabf429597ac9c029e3c": "sucralfate",
+ "be8dccef4b763c09897350bf": "scorpion antivenom",
+ "cb9cce2e785aad3f85641de5": "antivenin",
+ "1ac4f098665b2b4a7b9159ba": "coral snake antivenin",
+ "860a2bc03f65b62fc670a165": "sulfadiazine",
+ "9c1dafc76f62710310ecc6a5": "silver sulfadiazine",
+ "2be00eec82b0c472af4762d4": "sulfasalazine",
+ "c0d2e32ee66f53c2a2a05886": "sulpiride",
+ "3f53d555545362c2a05a9353": "colfosceril palmitate",
+ "8bbdd94c5317168028b6717f": "succinylcholine",
+ "8595dff328dd6593c9dd4182": "tacrolimus",
+ "b36712272213da1fbc6f0cfd": "thalidomide",
+ "3e163da5fcf988d751bb654d": "tamoxifen citrate",
+ "8eeecce20e8f5d59e47b2910": "tapentadol",
+ "899b742a55eaa56f3867dc90": "teicoplanin",
+ "9c45340a6bcfb8f0f2b4efe2": "tenecteplase",
+ "56403886ad705fc6a018ca2d": "tenofovir",
+ "420b2210a4d31853321af97f": "tenofovir disoproxil fumarate",
+ "628d2192a2dbc8ffd017b99c": "theophylline",
+ "feb2531b2ec7c3263c5f9dc3": "theophylline anhydrous",
+ "62b8b34cf5526e731f46d2d1": "testosterone",
+ "a63c742d68e2a94c0db8c1a3": "testosterone undecanoate",
+ "1cdb9dc5b7c449f25208c705": "methimazole",
+ "d557d2f79c24e56acea305b9": "thiamine",
+ "f1b0f43a10fde7202c10a4c3": "tigecycline hydrochloride",
+ "2979333f316ef1d994b5b28c": "timolol maleate",
+ "416522c5ffd644051911b196": "thiopental sodium",
+ "cadbb9ecb8e8fdcd521b9a94": "tiotropium bromide",
+ "020183a9e87cabb2923e6f09": "tirofiban hydrochloride",
+ "bef4d45e4b9655197d1923ae": "tizanidine hydrochloride",
+ "aaa672bb5ce22cb96a255c2f": "tobramycin",
+ "04c0ef4f24d78f09cefee6ea": "tocilizumab",
+ "deabf41792c8e38bc4d13fe6": "topiramate",
+ "18f9e9c337c024aa263c7312": "botulinum toxin type a",
+ "9ccc8f7aebe45e3b07d44a1f": "tetanus toxoid",
+ "7a0bbe27fcf075d80af0d642": "tramadol",
+ "67add83a6c1055ac0065f2e6": "tramadol hydrochloride",
+ "6130c45bf1ce4dfc533e6fcb": "tretinoin",
+ "30c72acc0feca97ca6276d9f": "trimetazidine",
+ "6e107d4c42bfca253ff7117a": "trimethoprim",
+ "ef217a71ad8c8a2a4f2885d4": "trimethoprim",
+ "9a2e4571421f122c821bbe42": "diphtheria, tetanus, and pertussis vaccine",
+ "35740f1ad612b4fcf28c2e72": "vitamins a, d and c",
+ "90e169f04dea5b732d3289ec": "tropicamide",
+ "1334b2b4550444af41a2de08": "upadacitinib",
+ "e199ff7befd51a98e526ee23": "urea",
+ "fce93a50f21186ef6512bb3f": "ustekinumab",
+ "095d3ec1b1803c8db1677363": "measles virus vaccine live",
+ "7df48c1a819a19163bb8a087": "pneumococcal vaccine",
+ "d57e827d3a2e1c385d0d03ac": "valganciclovir",
+ "06654987928197fa4c817026": "magnesium valproate",
+ "88f013275a529951aaa77f09": "valproic acid",
+ "045e767bee9cfa8db1149625": "vancomycin",
+ "f77629a7a2601d073eedb606": "vasopressin",
+ "69a62f727e937d5969939595": "venetoclax",
+ "ae7969be8a4b190e7b3a1c45": "verapamil hydrochloride",
+ "540960ffef21d235d58686e3": "vinblastine sulfate",
+ "08f239f211972057146c143f": "vincristine sulfate",
+ "08b8cac2fc7d6918906ff3c0": "voriconazole",
+ "2c974eab8f16581255a98b74": "warfarin sodium",
+ "ca694866615253ee1f69cad7": "zidovudine",
+ "ee9e73d8058bc847ded0da8d": "zinc oxide",
+ "e9b7de3843200273a5864ff1": "ziprasidone",
+ "b59564db4ae5751e19140790": "zoledronic acid",
+ "0107d446501d973cc0e5637f": "zolpidem"
+}

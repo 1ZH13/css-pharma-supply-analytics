@@ -1,0 +1,48 @@
+﻿documento,fuente,fecha_evento,tipo_evento,riesgo,mencion,principio_activo_mencion,situacion,codigo,descripcion_css,coincidencia
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,bajo,Azitromicina,AZITROMICINA,en_compra,101083401,"AZITROMICINA 500mg, cápsula o tableta, V.O.",exacta
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,bajo,Azitromicina,AZITROMICINA,en_compra,103058301,"AZITROMICINA, 200MG/5ML, POLVO PARA SUSPENSIÓN, 15-30ML, FRASCO, V.O.",exacta
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,bajo,Bencilpenicilina Sódica,BENCILPENICILINA SODICA,en_compra,102014001,"BENCILPENICILINA SÓDICA 1,000,000UI, polvo liofilizado, I.V.",exacta
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,bajo,Factor VIII,FACTOR VIII,en_compra,102074201,"FACTOR VIII ANTIHEMOFÍLICO HUMANO DE ORIGEN PLASMÁTICO CON O SIN FACTOR DE VON WILLEBRAND, con doble inactivación viral o inactivación viral y eliminación viral 250-1,000UI, solución o polvo, vial, I.V.",parcial
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,bajo,Factor VIII,FACTOR VIII,en_compra,102074202,"FACTOR VIII ANTIHEMOFÍLICO HUMANO DE ORIGEN PLASMÁTICO CON O SIN FACTOR DE VON WILLEBRAND, con doble inactivación viral o inactivación viral y eliminación viral 250-1,000UI, solución o polvo, vial, I.V.",parcial
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,bajo,Factor VIII,FACTOR VIII,en_compra,102091801,"Factor VIII rico en Factor Von Willebrand, 250-500UI, polvo liofilizado, vial, I.V.",parcial
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,bajo,Zolpidem,ZOLPIDEM,en_compra,101082801,"ZOLPIDEM 10mg, tableta ranurada, V.O.",exacta
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,bajo,Zolpidem,ZOLPIDEM,en_compra,101101301,"ZOLPIDEM, 6.25mg, tableta de liberacion prolongada, V.O.",exacta
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,bajo,Zolpidem,ZOLPIDEM,en_compra,101101401,"ZOLPIDEM 12.5mg, tableta de liberación prolongada, V.O.",exacta
+n04,La Estrella de Panamá,2026,mejora_abastecimiento,bajo,mentol,MENTOL,faltante,104017301,"MENTOL COMPUESTO 10-20%, ungüento, tubo, Vía Tópica.",parcial
+n08,Panamá América,2025,mejora_abastecimiento,medio,Amlodipina,AMLODIPINA,mencionado,101086601,"AMLODIPINA 5mg, tableta, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,amoxicilina,AMOXICILINA,mencionado,101092801,"AMOXICILINA 500mg con ACIDO CLAVULÁNICO 125mg, tableta, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,amoxicilina,AMOXICILINA,mencionado,103057801,"AMOXICILINA 400MG CON ACIDO CLAVULÁNICO 57MG (CLAVULONATO POTÁSICO), SUSPENSIÓN, FRASCO, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,cefalexina,CEFALEXINA,mencionado,101061301,"CEFALEXINA, 500MG, CÁPSULA O TABLETA, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,cefalexina,CEFALEXINA,mencionado,103032801,"CEFALEXINA, 250MG/5ML, GRÁNULO O POLVO PARA SUSPENSIÓN O JARABE, 60- 100ML, FRASCO, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,ceftriaxona,CEFTRIAXONA,mencionado,102062501,"CEFTRIAXONA SÓDICA 500mg, polvo liofilizado, con diluyente lidocaína 1%, I.M.",parcial
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,ceftriaxona,CEFTRIAXONA,mencionado,102062701,"CEFTRIAXONA SÓDICA 1g, polvo liofilizado, I.V.",parcial
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,ciprofloxacina,CIPROFLOXACINA,mencionado,101010101,"CIPROFLOXACINA, 500MG, CÁPSULA O TABLETA, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,amlodipina,AMLODIPINA,mencionado,101086601,"AMLODIPINA 5mg, tableta, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,atenolol,ATENOLOL,mencionado,101016301,"ATENOLOL, 100MG, TABLETA RANURADA, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,enalapril,ENALAPRIL,mencionado,,,sin_coincidencia
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,simvastatina,SIMVASTATINA,mencionado,101003801,"SIMVASTATINA, 10MG, CÁPSULA O TABLETA, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,glibenclamida,GLIBENCLAMIDA,mencionado,101000801,"GLIBENCLAMIDA, 5MG, TABLETA, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,metformina,METFORMINA,mencionado,101074801,"METFORMINA CLORHIDRATO 850mg, tableta ranurada, V.O.",parcial
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,omeprazol,OMEPRAZOL,mencionado,101059401,"OMEPRAZOL, 20mg, CÁPSULA CON MICROESFERAS GASTRORRESISTENTES, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,omeprazol,OMEPRAZOL,mencionado,101093701,"OMEPRAZOL, 10MG, CÁPSULA O TABLETA, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,omeprazol,OMEPRAZOL,mencionado,102078701,"OMEPRAZOL, 40MG, POLVO LIOFILIZADO, I.V.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,paracetamol (acetaminofén),PARACETAMOL,mencionado,101001101,"PARACETAMOL (ACETAMINOFÉN), 500MG, TABLETA, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,paracetamol (acetaminofén),PARACETAMOL,mencionado,101077501,"PARACETAMOL (ACETAMINOFEN) 300-325mg con CODEINA FOSFATO 30mg, tableta, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,paracetamol (acetaminofén),PARACETAMOL,mencionado,102100101,"PARACETAMOL 10mg/ml, solución para perfusión, I.V.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,paracetamol (acetaminofén),PARACETAMOL,mencionado,103019701,"PARACETAMOL (ACETAMINOFÉN), 90-100MG/ML, GOTAS, SOLUCIÓN, FRASCO CON CUENTAGOTAS O GOTERO CALIBRADO, 15-30ML, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,paracetamol (acetaminofén),PARACETAMOL,mencionado,103019801,"PARACETAMOL (ACETAMINOFÉN), 120-160MG/5ML, JARABE O SOLUCIÓN, FRASCO, V.O.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,paracetamol (acetaminofén),PARACETAMOL,mencionado,105004901,"PARACETAMOL (ACETAMINOFEN), 250-300MG. SUPOSITORIOS PEDIÁTRICOS, VIA RECTAL.",exacta
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,salbutamol,SALBUTAMOL,mencionado,103043301,"SALBUTAMOL SULFATO, 2MG/5ML, JARABE, FRASCO, 150-180ML, V.O.",parcial
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,salbutamol,SALBUTAMOL,mencionado,103043401,"SALBUTAMOL BASE O SULFATO, 100MCG/INHALACIÓN, SUSPENSIÓN EN AEROSOL LIBRE DE CFC, INHALADOR CON 200-250 DOSIS, VÍA BUCAL.",parcial
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,salbutamol,SALBUTAMOL,mencionado,103048901,"SALBUTAMOL SULFATO, 0.5%, SOLUCIÓN, FRASCO, 20-30ML, NEBULIZACIÓN.",parcial
+n10,TVN,,compra_o_licitacion,medio,medicamentos para enfermedades crónicas,NO ESPECIFICADO,en_compra,,,sin_coincidencia
+n10,TVN,,compra_o_licitacion,medio,antibióticos,NO ESPECIFICADO,en_compra,,,sin_coincidencia
+n10,TVN,,compra_o_licitacion,medio,tratamientos utilizados para pacientes con cáncer,NO ESPECIFICADO,en_compra,,,sin_coincidencia
+n11,TVN,,desabastecimiento,alto,ácido hialurónico,ACIDO HIALURONICO,faltante,102096001,"Derivados de Acido Hialurónico de alto peso molecular (mayor de 4 millones de Daltons), solución, uso via intra-articular.",parcial
+n16,Panamá América,,desabastecimiento,alto,acetaminofén,ACETAMINOFEN,mencionado,101001101,"PARACETAMOL (ACETAMINOFÉN), 500MG, TABLETA, V.O.",parcial
+n16,Panamá América,,desabastecimiento,alto,acetaminofén,ACETAMINOFEN,mencionado,101077501,"PARACETAMOL (ACETAMINOFEN) 300-325mg con CODEINA FOSFATO 30mg, tableta, V.O.",parcial
+n16,Panamá América,,desabastecimiento,alto,acetaminofén,ACETAMINOFEN,mencionado,103019701,"PARACETAMOL (ACETAMINOFÉN), 90-100MG/ML, GOTAS, SOLUCIÓN, FRASCO CON CUENTAGOTAS O GOTERO CALIBRADO, 15-30ML, V.O.",parcial
+n16,Panamá América,,desabastecimiento,alto,acetaminofén,ACETAMINOFEN,mencionado,103019801,"PARACETAMOL (ACETAMINOFÉN), 120-160MG/5ML, JARABE O SOLUCIÓN, FRASCO, V.O.",parcial
+n16,Panamá América,,desabastecimiento,alto,acetaminofén,ACETAMINOFEN,mencionado,105004901,"PARACETAMOL (ACETAMINOFEN), 250-300MG. SUPOSITORIOS PEDIÁTRICOS, VIA RECTAL.",parcial
+n16,Panamá América,,desabastecimiento,alto,ácido fólico,ACIDO FOLICO,mencionado,,,sin_coincidencia
+n17,Panamá América,,desabastecimiento,alto,Olanzapina,OLANZAPINA,faltante,101091401,"OLANZAPINA 10mg, tableta o tableta dispersable, V.O.",exacta

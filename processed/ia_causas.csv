@@ -1,0 +1,26 @@
+﻿documento,fuente,fecha_evento,tipo_evento,causa,riesgo
+n01,La Estrella de Panamá,2025-01-31,compra_o_licitacion,proceso_de_compra,bajo
+n04,La Estrella de Panamá,2026,mejora_abastecimiento,gestion_institucional,bajo
+n04,La Estrella de Panamá,2026,mejora_abastecimiento,proceso_de_compra,bajo
+n04,La Estrella de Panamá,2026,mejora_abastecimiento,logistica_distribucion,bajo
+n06,Telemetro,2025-02-27,compra_o_licitacion,proceso_de_compra,bajo
+n08,Panamá América,2025,mejora_abastecimiento,proceso_de_compra,medio
+n08,Panamá América,2025,mejora_abastecimiento,gestion_institucional,medio
+n08,Panamá América,2025,mejora_abastecimiento,logistica_distribucion,medio
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,presupuesto_o_pagos,medio
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,proceso_de_compra,medio
+i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,gestion_institucional,medio
+n09,Telemetro,2026-01-08,compra_o_licitacion,proceso_de_compra,alto
+n10,TVN,,compra_o_licitacion,robo_o_perdida,medio
+n11,TVN,,desabastecimiento,robo_o_perdida,alto
+n15,Panamá América,,mejora_abastecimiento,proceso_de_compra,medio
+n15,Panamá América,,mejora_abastecimiento,incumplimiento_proveedor,medio
+n15,Panamá América,,mejora_abastecimiento,gestion_institucional,medio
+n16,Panamá América,,desabastecimiento,proceso_de_compra,alto
+n16,Panamá América,,desabastecimiento,presupuesto_o_pagos,alto
+n16,Panamá América,,desabastecimiento,gestion_institucional,alto
+n17,Panamá América,,desabastecimiento,incumplimiento_proveedor,alto
+n17,Panamá América,,desabastecimiento,proceso_de_compra,alto
+n17,Panamá América,,desabastecimiento,presupuesto_o_pagos,alto
+n17,Panamá América,,desabastecimiento,logistica_distribucion,alto
+n17,Panamá América,,desabastecimiento,gestion_institucional,alto

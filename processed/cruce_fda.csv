@@ -1,0 +1,663 @@
+﻿codigo,principio_activo,inn_en,registros_fda,registros_fda_vigentes,escasez_eeuu_vigente,motivos_fda,ultima_actualizacion_fda
+101000201,ROSUVASTATINA,rosuvastatin,0,0,False,,
+101000301,DARUNAVIR/ COBICISTAT,darunavir and cobicistat,0,0,False,,
+101000401,DAPAGLIFLOZINA,dapagliflozin,0,0,False,,
+101000501,LEVETIRACETAM,levetiracetam,0,0,False,,
+101000601,ELTROMBOPAG OLAMINA,eltrombopag olamine,0,0,False,,
+101000801,GLIBENCLAMIDA,glyburide,4,0,False,,2026-08-10
+101000901,ACALABRUTINIB,acalabrutinib,0,0,False,,
+101001101,PARACETAMOL,acetaminophen,0,0,False,,
+101001201,ELTROMBOPAG OLAMINA,eltrombopag olamine,0,0,False,,
+101001301,CLADRIBINA,cladribine,0,0,False,,
+101001501,DOLUTEGRAVIR,dolutegravir,0,0,False,,
+101001601,LEUCOVORINA CALCICA,leucovorin calcium,0,0,False,,
+101001801,FINASTERIDA,finasteride,0,0,False,,
+101001901,TAPENTADOL,tapentadol,0,0,False,,
+101002001,HIDRALAZINA CLORHIDRATO,hydralazine hydrochloride,1,1,True,,2026-08-27
+101002301,HIDROXICINA,hydroxyzine,0,0,False,,
+101002401,ALFACALCIDOL,alfacalcidol,0,0,False,,
+101002601,ESCOPOLAMINA BUTILBROMURO,scopolamine butylbromide,0,0,False,,
+101002701,CEFUROXIMA,cefuroxime,0,0,False,,
+101003001,FLUCONAZOL,fluconazole,0,0,False,,
+101003101,DIFENHIDRAMINA,diphenhydramine,0,0,False,,
+101003201,LOPRAZOLAM,loprazolam,0,0,False,,
+101003301,VENETOCLAX,venetoclax,0,0,False,,
+101003401,OSELTAMIVIR,oseltamivir,1,0,False,,2026-11-20
+101003501,LINAGLIPTINA,linagliptin,0,0,False,,
+101003601,APALUTAMIDA,apalutamide,0,0,False,,
+101003801,SIMVASTATINA,simvastatin,0,0,False,,
+101003901,FORMOTEROL FUMARATO,formoterol fumarate,0,0,False,,
+101004401,ZIDOVUDINA,zidovudine,0,0,False,,
+101004501,CALCIO CARBONATO,calcium carbonate,0,0,False,,
+101005101,MODULADOR HEMORREOLOGICO TIPO PENTOXIFILINA,pentoxifylline,0,0,False,,
+101007801,ACETAZOLAMIDA,acetazolamide,0,0,False,,
+101008501,DIGOXINA,digoxin,0,0,False,,
+101008601,FENITOINA SODICA,phenytoin sodium,0,0,False,,
+101008801,CLORFENIRAMINA MALEATO,chlorpheniramine maleate,0,0,False,,
+101009501,DIMENHIDRINATO,dimenhydrinate,0,0,False,,
+101010101,CIPROFLOXACINA,ciprofloxacin,1,0,False,,2026-10-30
+101010601,ISOSORBIDE DINITRATO,isosorbide dinitrate,0,0,False,,
+101010701,ERITROMICINA,erythromycin,0,0,False,,
+101010801,ISOSORBIDE DINITRATO,isosorbide dinitrate,0,0,False,,
+101011401,ESTROGENOS CONJUGADOS NATURALES DE ORIGEN EQUINO,conjugated estrogens,0,0,False,,
+101012201,FENOBARBITAL,phenobarbital,0,0,False,,
+101012301,FENOBARBITAL,phenobarbital,0,0,False,,
+101012901,METRONIDAZOL,metronidazole,4,4,True,Discontinuation of the manufacture of the drug; Other,2026-11-18
+101013101,FOLICO ACIDO,folic acid,0,0,False,,
+101013701,NITROFURANTOINA,nitrofurantoin,1,0,False,,2026-04-10
+101015901,AZATIOPRINA,azathioprine,0,0,False,,
+101016301,ATENOLOL,atenolol,0,0,False,,
+101017101,PROCARBAZINA CLORHIDRATO,procarbazine hydrochloride,0,0,False,,
+101018301,PIRIDOSTIGMINA BROMURO,pyridostigmine bromide,0,0,False,,
+101018401,METILDOPA,methyldopa,0,0,False,,
+101018501,MELFALANO,melphalan,1,0,False,,2026-09-16
+101020401,GLICERIL TRINITRATO,nitroglycerin,1,0,False,,2026-04-14
+101021901,PIRIMETAMINA,pyrimethamine,0,0,False,,
+101022301,METOTREXATE,methotrexate,15,15,True,Demand increase for the drug; Other,2026-11-18
+101023201,HIDROXICLOROQUINA SULFATO,hydroxychloroquine sulfate,1,0,False,,2026-01-05
+101024201,PREDNISONA O PREDNISOLONA,prednisone,0,0,False,,
+101024501,TAMOXIFENO CITRATO,tamoxifen citrate,0,0,False,,
+101027201,METILFENIDATO,methylphenidate,38,38,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-19
+101027701,CARBAMAZEPINA,carbamazepine,3,0,False,,2025-12-19
+101028501,LEVOMEPROMAZINA,methotrimeprazine,0,0,False,,
+101029601,SULFADIAZINA,sulfadiazine,0,0,False,,
+101030201,TIAMAZOL,methimazole,0,0,False,,
+101030701,HIDROCLOROTIAZIDA,hydrochlorothiazide,6,6,True,Discontinuation of the manufacture of the drug,2026-11-16
+101031601,IMIPRAMINA,imipramine,0,0,False,,
+101032001,FLUOXETINA,fluoxetine,0,0,False,,
+101032901,AMITRIPTILINA,amitriptyline,0,0,False,,
+101034201,TIAMINA,thiamine,0,0,False,,
+101034401,PIRIDOXINA,pyridoxine,1,0,False,,2026-01-12
+101034801,ASCORBICO ACIDO,ascorbic acid,1,0,False,,2026-08-13
+101034901,LITIO CARBONATO,lithium carbonate,0,0,False,,
+101035701,BIPERIDENO CLORHIDRATO,biperiden hydrochloride,0,0,False,,
+101036301,HIERRO,iron,1,0,False,,2026-05-21
+101037601,GESTRINONA,gestrinone,0,0,False,,
+101037701,ESPIRONOLACTONA,spironolactone,3,0,False,,2026-11-20
+101037901,TRAMADOL CLORHIDRATO,tramadol hydrochloride,0,0,False,,
+101038201,ACETIL SALICILICO ACIDO,aspirin,1,0,False,,2026-07-23
+101038801,TRIMETROPIN,trimethoprim,0,0,False,,
+101042601,CICLOSPORINA,cyclosporine,0,0,False,,
+101042701,CICLOSPORINA,cyclosporine,0,0,False,,
+101042801,CLORAMBUCIL,chlorambucil,0,0,False,,
+101042901,BUSULFANO,busulfan,0,0,False,,
+101043001,MERCAPTOPURINA,mercaptopurine,0,0,False,,
+101043101,LORAZEPAM,lorazepam,11,11,True,Demand increase for the drug; Other,2026-11-18
+101043501,DIAZEPAM,diazepam,0,0,False,,
+101044101,MEDROXIPROGESTERONA,medroxyprogesterone,3,0,False,,2026-11-19
+101047001,RIFAMPICINA,rifampin,14,13,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+101048601,MULTIVITAMINAS Y MINERALES,multivitamins and minerals,0,0,False,,
+101051101,FUROSEMIDA,furosemide,33,30,True,Delay in shipping of the drug; Demand increase for the drug; Discontinuation of the manufacture of the drug; Other; Requirements related to complying with good manufacturing practices,2026-11-19
+101052301,AMITRIPTILINA,amitriptyline,0,0,False,,
+101053901,PROPRANOLOL CLORHIDRATO,propranolol hydrochloride,6,2,True,Delay in shipping of the drug; Shortage of an active ingredient,2026-11-13
+101054001,PROPRANOLOL CLORHIDRATO,propranolol hydrochloride,6,2,True,Delay in shipping of the drug; Shortage of an active ingredient,2026-11-13
+101058301,WARFARINA SODICA,warfarin sodium,0,0,False,,
+101059201,SULFASALAZINA,sulfasalazine,0,0,False,,
+101059301,ISONIAZIDA,isoniazid,0,0,False,,
+101059401,OMEPRAZOL,omeprazole,0,0,False,,
+101059501,RANITIDINA CLORHIDRATO,ranitidine hydrochloride,0,0,False,,
+101059801,CLORPROMACINA,chlorpromazine,0,0,False,,
+101059901,LORATADINA,loratadine,0,0,False,,
+101060601,ETAMBUTOL,ethambutol,0,0,False,,
+101061101,AMOXICILINA BASE O TRIHIDRATADA,amoxicillin,0,0,False,,
+101061301,CEFALEXINA,cephalexin,0,0,False,,
+101061701,DICLOXACILINA,dicloxacillin,0,0,False,,
+101062501,PRAZOSINA,prazosin,3,0,False,,2023-04-28
+101063301,LEVODOPA CON CARBIDOPA,carbidopa and levodopa,0,0,False,,
+101063701,MAPROTILINA CLORHIDRATO,maprotiline hydrochloride,0,0,False,,
+101064601,ALOPURINOL,allopurinol,4,0,False,,2026-02-19
+101065301,MEBENDAZOL,mebendazole,0,0,False,,
+101065401,DICLOFENACO SODICO,diclofenac sodium,6,0,False,,2026-08-13
+101066201,CLOMIFENO CITRATO,clomiphene citrate,0,0,False,,
+101066401,CLONAZEPAM,clonazepam,40,0,False,,2026-11-04
+101068201,IBUPROFENO,ibuprofen,0,0,False,,
+101068401,ESPIRAMICINA,spiramycin,0,0,False,,
+101068701,LOPERAMIDA CLORHIDRATO,loperamide hydrochloride,0,0,False,,
+101068801,RIFAMPICINA,rifampin,14,13,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+101070101,SULPIRIDA,sulpiride,0,0,False,,
+101070201,SULPIRIDA,sulpiride,0,0,False,,
+101070401,HALOPERIDOL,haloperidol,2,0,False,,2026-01-09
+101070501,CLINDAMICINA CLORHIDRATO,clindamycin hydrochloride,3,0,False,,2026-02-25
+101070901,AMANTADINA,amantadine,0,0,False,,
+101071301,VERAPAMILO CLORHIDRATO,verapamil hydrochloride,1,0,False,,2025-11-21
+101071701,HIDROXICARBAMIDA,hydroxyurea,0,0,False,,
+101071801,FLUDROCORTISONA ACETATO,fludrocortisone acetate,0,0,False,,
+101072401,PIRAZINAMIDA,pyrazinamide,0,0,False,,
+101072701,GLICLAZIDA,gliclazide,0,0,False,,
+101073401,PREDNISONA,prednisone,0,0,False,,
+101073501,VERAPAMILO CLORHIDRATO,verapamil hydrochloride,1,0,False,,2025-11-21
+101073801,VALPROATO DE MAGNESIO,magnesium valproate,0,0,False,,
+101074101,DANAZOL,danazol,0,0,False,,
+101074201,CAPTOPRIL,captopril,0,0,False,,
+101074301,COLCHICINA,colchicine,0,0,False,,
+101074801,METFORMINA CLORHIDRATO,metformin hydrochloride,2,0,False,,2026-10-22
+101075001,SUCRALFATO,sucralfate,0,0,False,,
+101075501,AMIODARONA CLORHIDRATO,amiodarone hydrochloride,0,0,False,,
+101076101,TEOFILINA ANHIDRA,theophylline anhydrous,0,0,False,,
+101077501,PARACETAMOL,acetaminophen,0,0,False,,
+101079701,LEVOTIROXINA SAL SODICA,levothyroxine sodium,0,0,False,,
+101079801,OXIBUTININA,oxybutynin,0,0,False,,
+101079901,LAMOTRIGINA,lamotrigine,6,0,False,,2026-04-29
+101080001,CLOZAPINA,clozapine,0,0,False,,
+101082801,ZOLPIDEM,zolpidem,0,0,False,,
+101082901,TRIMETAZIDINA,trimetazidine,0,0,False,,
+101083201,CLARITROMICINA,clarithromycin,0,0,False,,
+101083401,AZITROMICINA,azithromycin,3,0,False,,2026-04-09
+101083601,LEVOFLOXACINA,levofloxacin,0,0,False,,
+101083801,LEFLUNOMIDA,leflunomide,5,0,False,,2026-06-08
+101084001,MORFINA SULFATO,morphine sulfate,30,24,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+101085001,MONTELUKAST,montelukast,0,0,False,,
+101085101,MONTELUKAST,montelukast,0,0,False,,
+101085201,ACICLOVIR,acyclovir,0,0,False,,
+101085801,DOXICICLINA,doxycycline,4,0,False,,2026-07-30
+101086001,CLOPIDOGREL DISULFATO,clopidogrel bisulfate,0,0,False,,
+101086201,FENOFIBRATO,fenofibrate,0,0,False,,
+101086401,CARVEDILOL,carvedilol,0,0,False,,
+101086601,AMLODIPINA,amlodipine,0,0,False,,
+101087001,DILTIAZEM,diltiazem,1,0,False,,2026-01-05
+101087201,DILTIAZEM,diltiazem,1,0,False,,2026-01-05
+101087401,MICOFENOLATO MOFETILO,mycophenolate mofetil,0,0,False,,
+101090101,LAMIVUDINA,lamivudine,3,0,False,,2026-11-16
+101090501,ITRACONAZOL,itraconazole,3,0,False,,2026-02-27
+101090801,RITONAVIR,ritonavir,7,0,False,,2026-07-24
+101091001,INDAPAMIDA,indapamide,0,0,False,,
+101091101,DEXAMETASONA,dexamethasone,19,19,True,Demand increase for the drug,2026-11-19
+101091201,RIFAMPICINA,rifampin,14,13,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+101091401,OLANZAPINA,olanzapine,0,0,False,,
+101091601,IMATINIB MESILATO,imatinib mesylate,0,0,False,,
+101091701,LOPINAVIR,lopinavir,5,0,False,,2026-07-24
+101091901,CAPECITABINA,capecitabine,0,0,False,,
+101092001,LETROZOL,letrozole,0,0,False,,
+101092101,LISINOPRIL,lisinopril,0,0,False,,
+101092201,LAMIVUDINA,lamivudine,3,0,False,,2026-11-16
+101092301,IMATINIB MESILATO,imatinib mesylate,0,0,False,,
+101092701,ACITRETINA,acitretin,0,0,False,,
+101092801,AMOXICILINA,amoxicillin,0,0,False,,
+101092901,BICALUTAMIDA,bicalutamide,0,0,False,,
+101093001,DEFLAZACORT,deflazacort,0,0,False,,
+101093101,EFAVIRENZ,efavirenz,0,0,False,,
+101093201,FLUDARABINA FOSFATO,fludarabine phosphate,0,0,False,,
+101093301,GABAPENTINA,gabapentin,0,0,False,,
+101093390,GABAPENTINA,gabapentin,0,0,False,,
+101093401,IRBESARTAN,irbesartan,0,0,False,,
+101093501,LINEZOLID,linezolid,0,0,False,,
+101093601,MINOXIDIL,minoxidil,0,0,False,,
+101093701,OMEPRAZOL,omeprazole,0,0,False,,
+101093801,PROPAFENONA,propafenone,0,0,False,,
+101094001,SIROLIMUS,sirolimus,0,0,False,,
+101094101,TACROLIMUS,tacrolimus,0,0,False,,
+101094201,TALIDOMIDA,thalidomide,0,0,False,,
+101094301,TOPIRAMATO,topiramate,0,0,False,,
+101094401,TRETINOINA,tretinoin,0,0,False,,
+101094501,VALGANCICLOVIR,valganciclovir,0,0,False,,
+101094601,ZIDOVUDINA,zidovudine,0,0,False,,
+101094701,CINACALCET HIDROCLORURO,cinacalcet hydrochloride,0,0,False,,
+101095601,DEFERASIROX,deferasirox,0,0,False,,
+101095701,DEFERASIROX,deferasirox,0,0,False,,
+101095801,DEFERASIROX,deferasirox,0,0,False,,
+101096001,NILOTINIB,nilotinib,0,0,False,,
+101096101,DASATINIB,dasatinib,0,0,False,,
+101096201,TENOFOVIR,tenofovir,0,0,False,,
+101096301,PERINDOPRIL,perindopril,0,0,False,,
+101096401,MONTELUKAST,montelukast,0,0,False,,
+101096501,QUETIAPINA FUMARATO,quetiapine fumarate,0,0,False,,
+101096601,IVERMECTINA,ivermectin,1,0,False,,2026-09-29
+101096602,IVERMECTINA,ivermectin,1,0,False,,2026-09-29
+101096801,TENOFOVIR DISOPROXIL FUMARATO,tenofovir disoproxil fumarate,0,0,False,,
+101096901,RALTEGRAVIR,raltegravir,0,0,False,,
+101097001,EMTRICITABINA,emtricitabine,2,0,False,,2026-06-17
+101097101,SEVELAMER CARBONATO,sevelamer carbonate,0,0,False,,
+101097201,OXICODONA CLORHIDRATO,oxycodone hydrochloride,0,0,False,,
+101097301,OXICODONA CLORHIDRATO,oxycodone hydrochloride,0,0,False,,
+101097401,VORICONAZOL,voriconazole,0,0,False,,
+101097501,ABACAVIR,abacavir,1,0,False,,2026-11-16
+101097601,TIZANIDINA CLORHIDRATO,tizanidine hydrochloride,0,0,False,,
+101097701,PANCREATINA,pancreatin,0,0,False,,
+101097801,PRAMIPEXOL,pramipexole,0,0,False,,
+101097901,PRAMIPEXOL,pramipexole,0,0,False,,
+101098001,ACIDO ALENDRONICO,alendronic acid,0,0,False,,
+101098901,FINGOLIMOD,fingolimod,0,0,False,,
+101099501,EVEROLIMUS,everolimus,12,0,False,,2026-10-14
+101099601,CABERGOLINA,cabergoline,0,0,False,,
+101099901,ABIRATERONA,abiraterone,0,0,False,,
+101100001,LENALIDOMIDA,lenalidomide,0,0,False,,
+101100101,LENALIDOMIDA,lenalidomide,0,0,False,,
+101100201,DAPSONA,dapsone,1,0,False,,2026-03-27
+101100401,DARUNAVIR ETANOLATO,darunavir ethanolate,0,0,False,,
+101100901,DULOXETINA,duloxetine,0,0,False,,
+101101001,ESCITALOPRAM,escitalopram,0,0,False,,
+101101101,NILOTINIB,nilotinib,0,0,False,,
+101101201,PARICALCITOL,paricalcitol,0,0,False,,
+101101301,ZOLPIDEM,zolpidem,0,0,False,,
+101101401,ZOLPIDEM,zolpidem,0,0,False,,
+101104301,BICTEGRAVIR,bictegravir,0,0,False,,
+101104501,COV HIDROXICLOROQUINA SULF,hydroxychloroquine sulfate,1,0,False,,2026-01-05
+101104601,FLUCONAZOL,fluconazole,0,0,False,,
+101104701,UPADACITINIB,upadacitinib,0,0,False,,
+102000501,GUSELKUMAB,guselkumab,0,0,False,,
+102000601,USTEKINUMAB,ustekinumab,0,0,False,,
+102000701,USTEKINUMAB,ustekinumab,0,0,False,,
+102000702,METOCLOPRAMIDA,metoclopramide,0,0,False,,
+102000801,DUPILUMAB,dupilumab,0,0,False,,
+102000901,AGUA ESTERIL,sterile water,22,22,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102001001,CARBOXIMALTOSA DE HIERRO SOLUCION,ferric carboxymaltose,0,0,False,,
+102001201,TENECTEPLASA,tenecteplase,0,0,False,,
+102001301,REMIFENTANILO,remifentanil,9,9,True,Delay in shipping of the drug; Demand increase for the drug,2026-11-18
+102001302,FLUFENAZINA DECANOATO,fluphenazine decanoate,0,0,False,,
+102001401,FARICIMAB,faricimab,0,0,False,,
+102001501,REMIFENTANILO,remifentanil,9,9,True,Delay in shipping of the drug; Demand increase for the drug,2026-11-18
+102001901,INMUNOGLOBULINA ANTID HUMANA,rho(d) immune globulin,0,0,False,,
+102002101,DIFENHIDRAMINA,diphenhydramine,0,0,False,,
+102002701,ESCOPOLAMINA BUTILBROMURO,scopolamine butylbromide,0,0,False,,
+102003001,CALCIO GLUCONATO,calcium gluconate,0,0,False,,
+102003801,CLORFENIRAMINA MALEATO,chlorpheniramine maleate,0,0,False,,
+102004401,DEXAMETASONA FOSFATO SODICO,dexamethasone sodium phosphate,19,19,True,Demand increase for the drug,2026-11-19
+102004402,DEXAMETASONA FOSFATO SODICO,dexamethasone sodium phosphate,19,19,True,Demand increase for the drug,2026-11-19
+102004601,DEXTROSA EN AGUA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102004701,DEXTROSA EN AGUA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102004801,DEXTROSA EN AGUA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102004901,DEXTROSA EN AGUA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102005001,DEXTROSA EN AGUA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102005301,DEXTROSA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102005302,DEXTROSA AL,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102005901,EFEDRINA SULFATO,ephedrine sulfate,0,0,False,,
+102006701,ESTREPTOMICINA SULFATO,streptomycin sulfate,0,0,False,,
+102007401,NALOXONA,naloxone,0,0,False,,
+102007701,INMUNOGLOBULINA ANTITETANICA,tetanus immune globulin,0,0,False,,
+102008501,BLEOMICINA SULFATO,bleomycin sulfate,0,0,False,,
+102008901,DOXORUBICINA CLORHIDRATO,doxorubicin hydrochloride,0,0,False,,
+102009401,RINGER LACTATO,ringer's lactate,0,0,False,,
+102009501,MULTIVITAMINAS,multivitamins,0,0,False,,
+102010701,RINGER LACTATO,ringer's lactate,0,0,False,,
+102011701,MAGNESIO SULFATO,magnesium sulfate,0,0,False,,
+102011801,PETIDINA,meperidine,6,6,True,,2026-11-09
+102012401,METILERGONOVINA,methylergonovine,0,0,False,,
+102013301,PAPAVERINA,papaverine,0,0,False,,
+102013401,NOREPINEFRINA BITARTRATO,norepinephrine bitartrate,0,0,False,,
+102013601,BENCILPENICILINA BENZATINICA,penicillin g benzathine,4,4,True,Other,2026-11-06
+102013801,OLIGOELEMENTOS O ELEMENTOS TRAZAS PARA PEDIATRIA CON ZINC,trace elements,0,0,False,,
+102013901,ATRACURIO BESILATO,atracurium besylate,0,0,False,,
+102014001,BENCILPENICILINA SODICA,penicillin g sodium,0,0,False,,
+102014101,BENCILPENICILINA PROCAINICA,penicillin g procaine,0,0,False,,
+102014301,TIOPENTAL SODICO,thiopental sodium,0,0,False,,
+102014501,VASOPRESINA ACUOSA,vasopressin,0,0,False,,
+102014701,RANITIDINA HCL,ranitidine hydrochloride,0,0,False,,
+102014901,POTASIO CLORURO,potassium chloride,6,0,False,,2026-08-31
+102016401,NEOSTIGMINA METILSULFATO,neostigmine methylsulfate,1,0,False,,2026-01-12
+102017101,METILPREDNISOLONA ACETATO O TRIAMCINOLONA ACETONIDO O DIACETATO:,methylprednisolone acetate or triamcinolone acetonide or diacetate,0,0,False,,
+102017401,SODIO CLORURO,sodium chloride,30,0,False,,2026-09-10
+102017602,SODIO CLORURO,sodium chloride,30,0,False,,2026-09-10
+102018101,SODIO BICARBONATO,sodium bicarbonate,11,11,True,Demand increase for the drug; Other,2026-11-18
+102019001,SODIO CLORURO,sodium chloride,30,0,False,,2026-09-10
+102019101,HIDROCORTISONA SUCCINATO SODICO,hydrocortisone sodium succinate,0,0,False,,
+102020101,OXITOCINA SINTETICA,oxytocin,0,0,False,,
+102020401,TESTOSTERONA CIPIONATO O ENANTATO O PROPIONATO,testosterone,0,0,False,,
+102022701,CIANOCOBALAMINA,cyanocobalamin,0,0,False,,
+102023801,AMPICILINA SODICA,ampicillin sodium,5,0,False,,2025-12-08
+102023901,BIPERIDENO LACTATO,biperiden lactate,0,0,False,,
+102025001,VINBLASTINA SULFATO,vinblastine sulfate,0,0,False,,
+102026001,CITARABINA,cytarabine,0,0,False,,
+102026801,LIGNOCAINA,lidocaine,87,87,True,Demand increase for the drug; Other,2026-11-19
+102027801,MEDROXIPROGESTERONA,medroxyprogesterone,3,0,False,,2026-11-19
+102030001,FLUOROURACILO,fluorouracil,0,0,False,,
+102030701,FENTANILO,fentanyl,20,20,True,Demand increase for the drug; Other,2026-11-18
+102030702,FENTANILO,fentanyl,20,20,True,Demand increase for the drug; Other,2026-11-18
+102031702,FUROSEMIDA,furosemide,33,30,True,Delay in shipping of the drug; Demand increase for the drug; Discontinuation of the manufacture of the drug; Other; Requirements related to complying with good manufacturing practices,2026-11-19
+102032401,ATROPINA SULFATO,atropine sulfate,17,17,True,Discontinuation of the manufacture of the drug; Other; Requirements related to complying with good manufacturing practices,2026-11-18
+102033301,GENTAMICINA SULFATO,gentamicin sulfate,0,0,False,,
+102037201,KETAMINA,ketamine,0,0,False,,
+102037401,CICLOFOSFAMIDA,cyclophosphamide,0,0,False,,
+102037601,MANITOL,mannitol,0,0,False,,
+102040101,HALOPERIDOL,haloperidol,2,0,False,,2026-01-09
+102040801,NITROPRUSIATO SODICO,sodium nitroprusside,0,0,False,,
+102041301,HIDRALAZINA CLORHIDRATO,hydralazine hydrochloride,1,1,True,,2026-08-27
+102041901,OXACILINA SODICA,oxacillin sodium,0,0,False,,
+102042601,DACARBAZINA CITRATO,dacarbazine citrate,0,0,False,,
+102043901,AMIKACINA SULFATO,amikacin sulfate,0,0,False,,
+102044201,BUPIVACAINA CLORHIDRATO,bupivacaine hydrochloride,88,83,True,Delay in shipping of the drug; Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-19
+102044501,DICLOFENACO SODICO,diclofenac sodium,6,0,False,,2026-08-13
+102044701,PRASTERONA ENANTATO,prasterone enanthate,0,0,False,,
+102045001,AMINOACIDOS CRISTALINOS AL,crystalline amino acids,0,0,False,,
+102045101,DOPAMINA CLORHIDRATO,dopamine hydrochloride,11,11,True,Demand increase for the drug; Other,2026-11-18
+102045401,VERAPAMILO CLORHIDRATO,verapamil hydrochloride,1,0,False,,2025-11-21
+102045801,MITOMICINA,mitomycin,0,0,False,,
+102045901,CARMUSTINA,carmustine,0,0,False,,
+102046401,FENOBARBITAL,phenobarbital,0,0,False,,
+102047001,DIPIRONA CON SALES MAGNESICAS,metamizole,0,0,False,,
+102047601,FENITOINA SODICA,phenytoin sodium,0,0,False,,
+102048101,AMINOFILINA,aminophylline,0,0,False,,
+102048201,ADRENALINA CLORURO,epinephrine hydrochloride,0,0,False,,
+102048301,ISOPROTERENOL,isoproterenol,0,0,False,,
+102048601,PROPRANOLOL CLORHIDRATO,propranolol hydrochloride,6,2,True,Delay in shipping of the drug; Shortage of an active ingredient,2026-11-13
+102048801,ACETILCOLINA CLORURO,acetylcholine chloride,0,0,False,,
+102049301,DIGOXINA,digoxin,0,0,False,,
+102051901,ALBUMINA HUMANA POBRE EN SODIO,albumin human,0,0,False,,
+102052401,DIMENHIDRINATO,dimenhydrinate,0,0,False,,
+102052601,FITOMENADIONA,phytonadione,0,0,False,,
+102053001,AMINOCAPROICO ACIDO,aminocaproic acid,0,0,False,,
+102053201,HEPARINA SODICA,heparin sodium,8,8,True,Demand increase for the drug; Other,2026-11-18
+102053501,PROTAMINA CLORHIDRATO O SULFATO,protamine sulfate,0,0,False,,
+102053901,METOTREXATE,methotrexate,15,15,True,Demand increase for the drug; Other,2026-11-18
+102054201,VACUNA ANTI-SARAMPION VIVA ATENUADA,measles virus vaccine live,0,0,False,,
+102054301,VINCRISTINA SULFATO,vincristine sulfate,0,0,False,,
+102055201,TRIPLE VACUNA DPT,"diphtheria, tetanus, and pertussis vaccine",0,0,False,,
+102055301,ANFOTERICINA B,amphotericin b,0,0,False,,
+102055501,CEFALOTINA SODICA,cephalothin sodium,0,0,False,,
+102057301,TOXOIDE TETANICO,tetanus toxoid,0,0,False,,
+102059001,SUERO ANTIOFIDICO,antivenin,0,0,False,,
+102059401,DIAZEPAM,diazepam,0,0,False,,
+102059601,SUXAMETONIO,succinylcholine,1,0,False,,2026-07-23
+102060101,CISPLATINO,cisplatin,0,0,False,,
+102060301,CLINDAMICINA FOSFATO,clindamycin phosphate,23,17,True,Discontinuation of the manufacture of the drug; Other,2026-11-18
+102061601,METILPREDNISOLONA SUCCINATO SODICO,methylprednisolone sodium succinate,0,0,False,,
+102061901,IDARUBICINA,idarubicin,0,0,False,,
+102062401,SALINA BALANCEADA,balanced salt solution,0,0,False,,
+102062501,CEFTRIAXONA SODICA,ceftriaxone sodium,2,0,False,,2026-10-30
+102062701,CEFTRIAXONA SODICA,ceftriaxone sodium,2,0,False,,2026-10-30
+102062801,CEFOXITINA SODICA,cefoxitin sodium,0,0,False,,
+102063001,DOBUTAMINA,dobutamine,10,10,True,Other,2026-11-18
+102063201,VANCOMICINA,vancomycin,0,0,False,,
+102063501,HIALURONIDASA,hyaluronidase,0,0,False,,
+102064001,ASPARAGINASA,asparaginase,0,0,False,,
+102064101,VACUNA ANTINEUMOCOCCICA,pneumococcal vaccine,0,0,False,,
+102064701,ETOPOSIDO,etoposide,0,0,False,,
+102066301,CEFOTAXIMA,cefotaxime,6,6,True,Demand increase for the drug,2026-10-14
+102066801,MORFINA CLORHIDRATO O SULFATO,morphine hydrochloride or sulfate,0,0,False,,
+102067601,DEFEROXAMINA MESILATO,deferoxamine mesylate,0,0,False,,
+102068101,EDETATO,edetate,0,0,False,,
+102069001,METRONIDAZOL,metronidazole,4,4,True,Discontinuation of the manufacture of the drug; Other,2026-11-18
+102069501,INDOMETACINA SODICA,indomethacin sodium,0,0,False,,
+102072101,CEFTAZIDIMA,ceftazidime,0,0,False,,
+102072301,INSULINA NPH,insulin nph,0,0,False,,
+102072401,INSULINA REGULAR,insulin regular,0,0,False,,
+102072601,INMUNOGLOBULINA,immunoglobulin,0,0,False,,
+102073001,PROPOFOL,propofol,0,0,False,,
+102073301,ACICLOVIR,acyclovir,0,0,False,,
+102073401,ERITROPOYETINA,erythropoietin,0,0,False,,
+102073501,IFOSFAMIDA,ifosfamide,8,8,True,Demand increase for the drug,2026-11-18
+102073601,MESNA,mesna,0,0,False,,
+102073701,MIDAZOLAM,midazolam,30,30,True,Delay in shipping of the drug; Demand increase for the drug; Other,2026-11-18
+102074001,LEUCOVORINA CALCICA,leucovorin calcium,0,0,False,,
+102074101,INTERFERON ALFA,interferon alfa,0,0,False,,
+102074201,FACTOR VIII ANTIHEMOFILICO HUMANO DE ORIGEN PLASMATICO CON O SIN FACTOR DE VON WILLEBRAND,antihemophilic factor (human),0,0,False,,
+102074202,FACTOR VIII ANTIHEMOFILICO HUMANO DE ORIGEN PLASMATICO CON O SIN FACTOR DE VON WILLEBRAND,antihemophilic factor (human),0,0,False,,
+102074301,GLICERIL TRINITRATO,nitroglycerin,1,0,False,,2026-04-14
+102074401,COMPLEJO PROTROMBINICO CON UN MINIMO DE,prothrombin complex concentrate,0,0,False,,
+102074501,REACTIVADORES DE LA ACETILCOLINESTERASA: OBIDOXIMA,obidoxime,0,0,False,,
+102075001,CARBAPENEM: IMIPENEM,imipenem,2,0,False,,2026-09-09
+102075301,GANCICLOVIR,ganciclovir,0,0,False,,
+102075401,SURFACTANTE PULMONAR: COLPOSFERIL PALMITATO O FOSFOLIPIDO,colfosceril palmitate,0,0,False,,
+102075501,NIMODIPINA,nimodipine,0,0,False,,
+102075601,OCTREOTIDE,octreotide,0,0,False,,
+102075701,SODIO CLORURO,sodium chloride,30,0,False,,2026-09-10
+102075901,FLUMAZENIL,flumazenil,0,0,False,,
+102076101,CARBOPLATINO,carboplatin,35,29,True,Delay in shipping of the drug; Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-19
+102076201,SUERO ANTIALACRAN,scorpion antivenom,0,0,False,,
+102076401,INMUNOGLOBULINA,immunoglobulin,0,0,False,,
+102076501,INMUNOGLOBULINA,immunoglobulin,0,0,False,,
+102077101,CIPROFLOXACINA LACTATO,ciprofloxacin lactate,0,0,False,,
+102077201,FLUCONAZOL,fluconazole,0,0,False,,
+102077301,HEPARINA DE BAJO PESO MOLECULAR,low molecular weight heparin,0,0,False,,
+102077401,MULTIVITAMINAS PEDIATRICAS,multivitamins,0,0,False,,
+102077501,CEFEPIME,cefepime,4,0,False,,2026-10-30
+102077801,FACTOR ESTIMULANTE DE COLONIAS DE GRANULOCITOS,granulocyte colony-stimulating factor,0,0,False,,
+102077901,MEROPENEM,meropenem,0,0,False,,
+102078001,PIPERACILINA,piperacillin,1,0,False,,2026-01-20
+102078101,AMINOACIDOS CRISTALINOS AL,crystalline amino acids,0,0,False,,
+102078201,DEXTROSA HIPERTONICA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102078301,OLIGOELEMENTOS O ELEMENTOS TRAZAS PARA ADULTOS CON ZINC,trace elements,0,0,False,,
+102078401,POTASIO FOSFATO,potassium phosphate,0,0,False,,
+102078501,AGUA ESTERIL,sterile water,22,22,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102078701,OMEPRAZOL,omeprazole,0,0,False,,
+102079001,HIERRO NO DEXTRAN,iron sucrose,1,0,False,,2026-05-21
+102079101,TIROFIBAN CLORHIDRATO,tirofiban hydrochloride,0,0,False,,
+102079201,DEXTROSA EN AGUA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102079301,AMIODARONA,amiodarone,0,0,False,,
+102079401,ADENOSINA,adenosine,0,0,False,,
+102079501,LEVOFLOXACINA,levofloxacin,0,0,False,,
+102079601,METOTREXATE,methotrexate,15,15,True,Demand increase for the drug; Other,2026-11-18
+102079701,CITARABINA,cytarabine,0,0,False,,
+102079801,GEMCITABINA CLORHIDRATO,gemcitabine hydrochloride,0,0,False,,
+102079901,MITOXANTRONA,mitoxantrone,0,0,False,,
+102080001,ROCURONIO BROMURO,rocuronium bromide,26,26,True,Delay in shipping of the drug,2026-11-19
+102080101,CEFTAZIDIMA/AVIBACTAM,ceftazidime/avibactam,0,0,False,,
+102080201,DEXTROSA EN AGUA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102080301,BASILIXIMAB,basiliximab,0,0,False,,
+102080401,LEUPRORELINA,leuprolide,1,0,False,,2026-10-20
+102080801,RITUXIMAB,rituximab,0,0,False,,
+102080901,EPOETINA,epoetin,0,0,False,,
+102081101,ZOLEDRONICO ACIDO,zoledronic acid,0,0,False,,
+102081201,INMUNOGLOBULINA ANTITIMOCITICA,anti-thymocyte globulin,0,0,False,,
+102081301,INTERFERON BETA,interferon beta,0,0,False,,
+102081401,INTERFERON BETA,interferon beta,0,0,False,,
+102081501,INTERFERON BETA,interferon beta,0,0,False,,
+102081601,IRINOTECAN CLORHIDRATO,irinotecan hydrochloride,2,0,False,,2026-02-24
+102081701,RITUXIMAB,rituximab,0,0,False,,
+102081801,MEGLUMINA ANTIMONIATO,meglumine antimoniate,0,0,False,,
+102081901,OBINUTUZUMAB,obinutuzumab,0,0,False,,
+102082001,ZIPRASIDONA,ziprasidone,0,0,False,,
+102082101,INSULINA ANALOGA DE ACCION PROLONGADA GLARGINA,insulin glargine,1,0,False,,2026-09-01
+102082201,TOCILIZUMAB,tocilizumab,0,0,False,,
+102082301,TIGECICLINA CLORHIDRATO,tigecycline hydrochloride,0,0,False,,
+102082401,ERTAPENEM,ertapenem,0,0,False,,
+102082601,OCRELIZUMAB,ocrelizumab,0,0,False,,
+102083001,DARATUMUMAB,daratumumab,0,0,False,,
+102083101,LEVETIRACETAM,levetiracetam,0,0,False,,
+102083401,DARATUMUMAB,daratumumab,0,0,False,,
+102083501,EMICIZUMAB,emicizumab,0,0,False,,
+102083601,EMICIZUMAB,emicizumab,0,0,False,,
+102090601,TRIMETOPRIN,trimethoprim,0,0,False,,
+102090701,OCTREOTIDE,octreotide,0,0,False,,
+102090801,LABETALOL HIDROCLORURO,labetalol hydrochloride,0,0,False,,
+102091001,ALEMTUZUMAB,alemtuzumab,0,0,False,,
+102091201,BUSULFANO,busulfan,0,0,False,,
+102091301,CASPOFUNGINA,caspofungin,3,0,False,,2026-06-30
+102091401,CICLOSPORINA,cyclosporine,0,0,False,,
+102091501,CLADRIBINA,cladribine,0,0,False,,
+102091601,DAUNORUBICINA HIDROCLORURO,daunorubicin hydrochloride,0,0,False,,
+102091701,ETANERCEPT,etanercept,0,0,False,,
+102091801,FACTOR VIII RICO EN FACTOR VON WILLEBRAND,antihemophilic factor / von willebrand factor complex,0,0,False,,
+102091901,FLUDARABINA FOSFATO,fludarabine phosphate,0,0,False,,
+102092101,HEPARINA BAJO PESO MOLECULAR,low molecular weight heparin,0,0,False,,
+102092301,INFLIXIMAB,infliximab,0,0,False,,
+102092501,LEVOBUPIVACAINA CLORHIDRATO,levobupivacaine hydrochloride,0,0,False,,
+102092601,LINEZOLID,linezolid,0,0,False,,
+102092701,MELFALANO CLORHIDRATO,melphalan hydrochloride,1,0,False,,2026-09-16
+102092801,MILRINONA,milrinone,0,0,False,,
+102092901,PARICALCITOL,paricalcitol,0,0,False,,
+102093001,POLIMIXINA B SULFATO,polymyxin b sulfate,0,0,False,,
+102093101,CARDIOPLEJICA,cardioplegic solution,0,0,False,,
+102093201,TEICOPLANINA,teicoplanin,0,0,False,,
+102093301,TOXINA BOTULINICA TIPO A,botulinum toxin type a,0,0,False,,
+102093401,TRAMADOL CLORHIDRATO,tramadol hydrochloride,0,0,False,,
+102093501,ZIDOVUDINA,zidovudine,0,0,False,,
+102093601,LEVOSIMENDAN,levosimendan,0,0,False,,
+102093701,INTERFERON PEGILADO ALFA,peginterferon alfa,2,0,False,,2026-08-27
+102093901,BORTEZOMIB,bortezomib,0,0,False,,
+102094001,AMINOACIDOS AL,amino acids,0,0,False,,
+102094101,AMINOACIDOS,amino acids,0,0,False,,
+102094201,DIPEPTIDO ALANINA-GLUTAMINA,alanyl-glutamine,0,0,False,,
+102094401,AMINOACIDOS AL,amino acids,0,0,False,,
+102094501,DORNASE ALFA,dornase alfa,0,0,False,,
+102094601,DEXTROSA EN AGUA AL,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102094701,DEXTROSA EN AGUA AL,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+102094901,LIDOCAINA,lidocaine,87,87,True,Demand increase for the drug; Other,2026-11-19
+102095001,DESMOPRESINA ACETATO,desmopressin acetate,4,4,True,Delay in shipping of the drug; Requirements related to complying with good manufacturing practices,2026-11-17
+102095101,INSULINA ANALOGA LISPRO,insulin lispro,2,0,False,,2026-09-01
+102095201,SUERO ANTIOFIDICO ANTI-CORAL,coral snake antivenin,0,0,False,,
+102095301,ICODEXTRINA,icodextrin,0,0,False,,
+102095501,TESTOSTERONA UNDECANOATO,testosterone undecanoate,0,0,False,,
+102095601,HORMONA DE CRECIMIENTO,somatropin,1,0,False,,2026-11-13
+102095701,PALIVIZUMAB,palivizumab,0,0,False,,
+102096101,FACTOR IX,factor ix,0,0,False,,
+102096301,AZACITIDINA,azacitidine,9,9,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-19
+102096401,NATALIZUMAB,natalizumab,0,0,False,,
+102096501,ADALIMUMAB,adalimumab,5,0,False,,2026-01-13
+102097801,ALTEPLASA,alteplase,1,0,False,,2026-05-21
+102098401,LIDOCAINA CLORHIDRATO,lidocaine hydrochloride,87,87,True,Demand increase for the drug; Other,2026-11-19
+102098501,MEPIVACAINA CLORHIDRATO,mepivacaine hydrochloride,0,0,False,,
+102098901,DEXMEDETOMIDINA CLORHIDRATO,dexmedetomidine hydrochloride,60,56,True,Delay in shipping of the drug; Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-20
+102099001,BENDAMUSTINA,bendamustine,2,0,False,,2026-11-13
+102099101,BENDAMUSTINA,bendamustine,2,0,False,,2026-11-13
+102099201,GOSERELINA,goserelin,0,0,False,,
+102099301,FACTOR VII A RECOMBINANTE HUMANO,eptacog alfa,0,0,False,,
+102099401,SODIO CLORURO AL,sodium chloride,30,0,False,,2026-09-10
+102099901,VORICONAZOL,voriconazole,0,0,False,,
+102100001,DEXKETOPROFENO,dexketoprofen,0,0,False,,
+102100101,PARACETAMOL,acetaminophen,0,0,False,,
+102101601,METOXIPOLIETILENGLICOL ERITROPOYETINA BETA,methoxy polyethylene glycol-epoetin beta,0,0,False,,
+102101701,METOXIPOLIETILENGLICOL ERITROPOYETINA BETA,methoxy polyethylene glycol-epoetin beta,0,0,False,,
+102102601,OMALIZUMAB,omalizumab,0,0,False,,
+102105901,PALIPERIDONA PALMITATO,paliperidone palmitate,0,0,False,,
+102106001,PALIPERIDONA PALMITATO,paliperidone palmitate,0,0,False,,
+103000101,BUDESONIDA,budesonide,0,0,False,,
+103000201,PALIPERIDONA PALMITATO,paliperidone palmitate,0,0,False,,
+103000401,ALUMINIO ACETATO ACIDO,aluminum acetate,0,0,False,,
+103000501,METOCLOPRAMIDA,metoclopramide,0,0,False,,
+103000601,DEXTROMETORFANO BROMHIDRATO,dextromethorphan hydrobromide,0,0,False,,
+103000602,DEXTROMETORFANO BROMHIDRATO,dextromethorphan hydrobromide,0,0,False,,
+103000701,RUIBARBO,rhubarb,0,0,False,,
+103000901,TRAMADOL,tramadol,0,0,False,,
+103001301,LEVETIRACETAM,levetiracetam,0,0,False,,
+103001401,TROPICAMIDA,tropicamide,0,0,False,,
+103001801,HALOPERIDOL,haloperidol,2,0,False,,2026-01-09
+103002901,CLORANFENICOL,chloramphenicol,0,0,False,,
+103002903,CLORANFENICOL,chloramphenicol,0,0,False,,
+103003201,HIDROCORTISONA,hydrocortisone,3,0,False,,2026-10-30
+103003401,POLIMIXINA B,polymyxin b,0,0,False,,
+103003901,RIFAMPICINA,rifampin,14,13,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+103004201,SODIO BIFOSFATO,sodium biphosphate,0,0,False,,
+103005501,METACRESOLSULFONICO ACIDO CON FORMALDEHIDO,metacresolsulfonic acid and formaldehyde,0,0,False,,
+103005802,HOMATROPINA METILBROMURO,homatropine methylbromide,0,0,False,,
+103006801,POTASIO GLUCONATO,potassium gluconate,0,0,False,,
+103007501,MUCILOIDES HIDROFILICOS DERIVADOS DE PLANTAGINACEAE,psyllium hydrophilic mucilloid,0,0,False,,
+103007502,MUCILOIDES HIDROFILICOS DERIVADOS DE PLANTAGINACEAE,psyllium hydrophilic mucilloid,0,0,False,,
+103007901,ALUMINIO Y MAGNESIO HIDROXIDO,aluminum hydroxide and magnesium hydroxide,0,0,False,,
+103009501,PASIFLORA,passiflora,0,0,False,,
+103009901,GUAYACOLATO DE GLICERILO,guaifenesin,0,0,False,,
+103010301,ALUMINIO ACETATO ACIDO,aluminum acetate,0,0,False,,
+103012801,TRIMETROPIN,trimethoprim,0,0,False,,
+103013101,ATROPINA SULFATO,atropine sulfate,17,17,True,Discontinuation of the manufacture of the drug; Other; Requirements related to complying with good manufacturing practices,2026-11-18
+103013102,ATROPINA SULFATO,atropine sulfate,17,17,True,Discontinuation of the manufacture of the drug; Other; Requirements related to complying with good manufacturing practices,2026-11-18
+103015001,ANTIHISTAMINICO CON DESCONGESTIONANTE NASAL: ANTIHISTAMINICO: BROMFENIRAMINA,brompheniramine,0,0,False,,
+103015801,HIDROXICINA,hydroxyzine,0,0,False,,
+103016601,CLORFENIRAMINA MALEATO,chlorpheniramine maleate,0,0,False,,
+103017501,FENITOINA,phenytoin,0,0,False,,
+103018801,HIERRO,iron,1,0,False,,2026-05-21
+103019701,PARACETAMOL,acetaminophen,0,0,False,,
+103019801,PARACETAMOL,acetaminophen,0,0,False,,
+103020001,NISTATINA,nystatin,0,0,False,,
+103022101,DICLOXACILINA,dicloxacillin,0,0,False,,
+103025101,FERROSO FUMARATO,ferrous fumarate,0,0,False,,
+103025201,LAGRIMAS ARTIFICIALES QUE CONTENGAN POLIMEROS DE ESTERES DE CELULOSA,artificial tears,0,0,False,,
+103027401,PIPACETATO,pipazethate,0,0,False,,
+103029101,DIGOXINA,digoxin,0,0,False,,
+103029201,TROPICAMIDA,tropicamide,0,0,False,,
+103030501,POLIESTIRENO SULFONATO,polystyrene sulfonate,0,0,False,,
+103032801,CEFALEXINA,cephalexin,0,0,False,,
+103033401,TRIVITAMINAS ADC,"vitamins a, d and c",0,0,False,,
+103035301,MULTIVITAMINAS GOTAS,multivitamins,0,0,False,,
+103035901,DIAZEPAM,diazepam,0,0,False,,
+103036001,DIFENHIDRAMINA,diphenhydramine,0,0,False,,
+103037001,METRONIDAZOL,metronidazole,4,4,True,Discontinuation of the manufacture of the drug; Other,2026-11-18
+103039201,PROXIMETACAINA,proparacaine,0,0,False,,
+103039801,COLESTIRAMINA RESINA,cholestyramine resin,0,0,False,,
+103040801,SEVOFLURANO,sevoflurane,0,0,False,,
+103041201,CLOTRIMAZOL,clotrimazole,0,0,False,,
+103041301,BECLOMETASONA DIPROPIONATO,beclomethasone dipropionate,0,0,False,,
+103042901,CLONAZEPAM,clonazepam,40,0,False,,2026-11-04
+103043201,ERITROMICINA,erythromycin,0,0,False,,
+103043301,SALBUTAMOL SULFATO,albuterol sulfate,3,0,False,,2026-08-27
+103043401,SALBUTAMOL BASE O SULFATO,albuterol,3,0,False,,2026-08-27
+103044101,ALUMINIO ACETATO CON ACETICO ACIDO,aluminum acetate and acetic acid,0,0,False,,
+103047001,PIRANTEL PAMOATO,pyrantel pamoate,0,0,False,,
+103047601,TIMOLOL MALEATO O BETAXOLOL CLORHIDRATO O LEVOBUNOLOL CLORHIDRATO,timolol maleate,0,0,False,,
+103047701,BETAMETASONA VALERATO,betamethasone valerate,0,0,False,,
+103048601,SALES DE REHIDRATACION ORAL,oral rehydration salts,0,0,False,,
+103048701,VALPROICO ACIDO,valproic acid,0,0,False,,
+103048901,SALBUTAMOL SULFATO,albuterol sulfate,3,0,False,,2026-08-27
+103049101,LACTULOSA LIQUIDO,lactulose,0,0,False,,
+103049301,NAFAZOLINA CLORHIDRATO,naphazoline hydrochloride,0,0,False,,
+103049901,PREDNISOLONA ACETATO,prednisolone acetate,0,0,False,,
+103051001,DESMOPRESINA ACETATO,desmopressin acetate,4,4,True,Delay in shipping of the drug; Requirements related to complying with good manufacturing practices,2026-11-17
+103051201,ISOFLURANO,isoflurane,0,0,False,,
+103053701,CARBAMAZEPINA,carbamazepine,3,0,False,,2025-12-19
+103053901,CLINDAMICINA PALMITATO,clindamycin palmitate,2,0,False,,2026-03-26
+103054201,NITROFURANTOINA,nitrofurantoin,1,0,False,,2026-04-10
+103054701,IPRATROPIO BROMURO,ipratropium bromide,0,0,False,,
+103054801,DICLOFENACO,diclofenac,6,0,False,,2026-08-13
+103055001,CROMOGLICATO SODICO,cromolyn sodium,6,6,True,Other,2026-11-18
+103055201,AMOXICILINA BASE O TRIHIDRATADA,amoxicillin,0,0,False,,
+103056801,PREDNISONA O PREDNISOLONA,prednisone,0,0,False,,
+103056901,ALBENDAZOL,albendazole,0,0,False,,
+103057101,IPRATROPIO BROMURO,ipratropium bromide,0,0,False,,
+103057301,LATANOPROST,latanoprost,0,0,False,,
+103057401,DORZOLAMIDA CLORHIDRATO,dorzolamide hydrochloride,0,0,False,,
+103057501,LOPINAVIR,lopinavir,5,0,False,,2026-07-24
+103057801,AMOXICILINA,amoxicillin,0,0,False,,
+103057901,BENCILO BENZOATO,benzyl benzoate,0,0,False,,
+103058001,CALAMINA,calamine,0,0,False,,
+103058201,AZELASTINA HIDROCLORURO,azelastine hydrochloride,0,0,False,,
+103058301,AZITROMICINA,azithromycin,3,0,False,,2026-04-09
+103058801,ZINC OXIDO,zinc oxide,0,0,False,,
+103058901,PIPERAZINA,piperazine,0,0,False,,
+103059001,TEOFILINA,theophylline,0,0,False,,
+103059101,HIDRATO DE CLORAL,chloral hydrate,0,0,False,,
+103059201,TIAMINA,thiamine,0,0,False,,
+103059301,BRIMONIDINA TARTRATO,brimonidine tartrate,0,0,False,,
+103059401,CICLOSPORINA,cyclosporine,0,0,False,,
+103059601,FLUOXETINA HIDROCLORURO,fluoxetine hydrochloride,0,0,False,,
+103059701,IBUPROFENO,ibuprofen,0,0,False,,
+103060001,RANITIDINA CLORHIDRATO,ranitidine hydrochloride,0,0,False,,
+103060201,MOMETASONA FUROATO,mometasone furoate,0,0,False,,
+103060301,ABACAVIR SULFATO,abacavir sulfate,1,0,False,,2026-11-16
+103060401,LAMIVUDINA,lamivudine,3,0,False,,2026-11-16
+103060501,ZIDOVUDINA,zidovudine,0,0,False,,
+103060601,FENTANILO,fentanyl,20,20,True,Demand increase for the drug; Other,2026-11-18
+103060801,TIOTROPIO BROMURO,tiotropium bromide,0,0,False,,
+103060901,GLUCONATO DE CLORHEXIDINA AL,chlorhexidine gluconate,0,0,False,,
+103061001,SODIO CLORURO,sodium chloride,30,0,False,,2026-09-10
+103061101,CALCIPOTRIOL,calcipotriene,0,0,False,,
+103061201,RIVASTIGMINA,rivastigmine,1,0,False,,2026-09-18
+103061301,RIVASTIGMINA,rivastigmine,1,0,False,,2026-09-18
+103061401,TOBRAMICINA,tobramycin,1,0,False,,2026-07-17
+103061701,MOMETASONA,mometasone,0,0,False,,
+103061801,TOBRAMICINA,tobramycin,1,0,False,,2026-07-17
+103061901,TOBRAMICINA,tobramycin,1,0,False,,2026-07-17
+103062001,DEXTROSA,dextrose,87,59,True,Demand increase for the drug; Discontinuation of the manufacture of the drug; Other,2026-11-18
+103062101,POLIETILENGLICOL,polyethylene glycol,1,0,False,,2026-08-13
+103064601,FLUCONAZOL,fluconazole,0,0,False,,
+104000101,ERITROMICINA,erythromycin,0,0,False,,
+104000201,CLOSTRIDIOPEPTIDASA CON CLORANFENICOL,clostridiopeptidase and chloramphenicol,0,0,False,,
+104006501,CORTICOIDE DE BAJA POTENCIA NO FLUORINADO: DESONIDE,desonide,0,0,False,,
+104009001,ALUMINIO ACETATO ACIDO,aluminum acetate,0,0,False,,
+104009801,FUSIDATO SODICO,sodium fusidate,0,0,False,,
+104009901,FUSIDATO SODICO,sodium fusidate,0,0,False,,
+104011901,BETAMETASONA VALERATO,betamethasone valerate,0,0,False,,
+104013601,KETOCONAZOL,ketoconazole,0,0,False,,
+104014101,GENTAMICINA SULFATO,gentamicin sulfate,0,0,False,,
+104014701,SULFADIAZINA DE PLATA,silver sulfadiazine,0,0,False,,
+104014801,CORTICOIDE POTENCIA ALTA: AMCINONIDE,amcinonide,0,0,False,,
+104014901,CLORANFENICOL,chloramphenicol,0,0,False,,
+104015301,BENZOILO PEROXIDO,benzoyl peroxide,0,0,False,,
+104016801,ACICLOVIR,acyclovir,0,0,False,,
+104017001,CLOBETASOL PROPIONATO,clobetasol propionate,0,0,False,,
+104017301,MENTOL COMPUESTO,menthol compound,0,0,False,,
+104017601,UREA,urea,0,0,False,,
+104017701,FLUORACILO,fluorouracil,0,0,False,,
+104017801,ACIDO SALICILICO,salicylic acid,0,0,False,,
+104018001,BENZOCAINA,benzocaine,0,0,False,,
+104018501,SULFADIAZINA DE PLATA,silver sulfadiazine,0,0,False,,
+105000101,ETONOGESTREL,etonogestrel,0,0,False,,
+105001401,ESTROGENO CONJUGADOS NATURALES DE ORIGEN EQUINO,conjugated estrogens,0,0,False,,
+105001801,METRONIDAZOL,metronidazole,4,4,True,Discontinuation of the manufacture of the drug; Other,2026-11-18
+105002901,LIGNOCAINA,lidocaine,87,87,True,Demand increase for the drug; Other,2026-11-19
+105004901,PARACETAMOL,acetaminophen,0,0,False,,
+105006201,METACRESOLSULFONICO ACIDO CON FORMALDEHIDO,metacresolsulfonic acid and formaldehyde,0,0,False,,
+105007201,DICLOFENACO SODICO,diclofenac sodium,6,0,False,,2026-08-13
+105007701,IMIDAZOLES: CLOTRIMAZOL,clotrimazole,0,0,False,,
+105007801,DINOPROSTONE,dinoprostone,0,0,False,,
+105008101,LEVONORGESTREL,levonorgestrel,0,0,False,,
+105008201,LIDOCAINA,lidocaine,87,87,True,Demand increase for the drug; Other,2026-11-19
+110012901,ALCOHOL PURO AL,alcohol,1,0,False,,2026-05-27
+110013001,MATERIA PRIMA ALCOHOL PURO CALIDAD USP MINIMO DE,alcohol,1,0,False,,2026-05-27
