@@ -1,2 +1,45 @@
-1
-Caja del seguro social
+El director general de la Caja de Seguro Social, Dino Mon , aseguró que la institución implementa nuevos mecanismos tecnológicos para evitar el vencimiento, pérdida y posible descontrol de medicamentos dentro de hospitales y policlínicas del país.
+
+Durante una entrevista en Radio Panamá , el funcionario reconoció que por años la CSS enfrentó problemas relacionados con inventarios, compras fragmentadas y falta de fiscalización en el manejo de medicinas.
+
+Mon explicó que uno de los principales cambios será la puesta en marcha de “MiFarma Digital” , plataforma que permitirá monitorear en tiempo real la disponibilidad de medicamentos, fechas de vencimiento, entradas y salidas de inventario y ubicación de los productos dentro del sistema de salud.
+
+“El sistema ya hoy nos avisa que va a vencer y que tú hagas el cambio con el proveedor ”, afirmó.
+
+El director explicó que anteriormente no existía una única plataforma centralizada para supervisar los inventarios, situación que dificultaba el seguimiento de medicamentos dentro de la institución.
+
+Indicó que ahora los medicamentos ingresan al sistema mediante códigos de barras y que las entradas y salidas quedan registradas digitalmente, mientras cámaras de vigilancia monitorean los depósitos y áreas de almacenamiento.
+
+“Hoy las entradas y las salidas de medicamentos están debidamente registradas en los sistemas. Hay cámaras que de alguna manera están filmando la entrada y salida de tal manera que se sabe ya cuando hay un medicamento que han sacado y que de alguna forma no está registrado en el inventario”, sostuvo.
+
+También reconoció que aún se presentan inconsistencias cuando algunos medicamentos son trasladados de urgencia entre unidades médicas sin actualizar inmediatamente el sistema, lo que provoca diferencias entre el inventario digital y la existencia física.
+
+“ Nos hemos dado cuenta que con todo y la herramienta han fallado algunas extracciones de medicamentos que no es que hagan falta, simplemente se llevaron con urgencia a una unidad, allá se registró que de alguna manera se dio la salida del medicamento y se acabó, pero aquí a nivel central en los depósitos el medicamento salió y no lo postearon en el sistema ”, explicó.
+
+Mon aseguró que los contratos de suministro establecen que los medicamentos no deben vencer dentro de las instalaciones de salud y que, cuando un producto está próximo a expirar, el proveedor debe reemplazarlo.
+
+“No deben de vencer medicamentos”, enfatizó.
+
+Explicó que el sistema genera alertas automáticas para identificar productos cercanos a su fecha de vencimiento y activar el proceso de reposición.
+
+Además, señaló que anteriormente muchas compras se realizaban de manera descentralizada y urgente en distintas unidades ejecutoras, lo que ocasionaba diferencias de precios y menor control administrativo.
+
+El director reveló que la CSS realizó este año tres grandes licitaciones centralizadas de medicamentos, lo que permitió ahorrar alrededor de 45 millones de dólares.
+
+“Este año estamos haciendo compras a nivel central porque no podíamos permitir que la gente comprara en las unidades ejecutoras que teníamos a un precio dos veces más caro que efectivamente la unidad central compraba, porque todo era urgente”, manifestó.
+
+Según explicó, la centralización de compras busca evitar adquisiciones improvisadas y mejorar la transparencia en el manejo de fondos públicos.
+
+Durante la entrevista, Mon defendió además el nivel actual de abastecimiento de medicamentos dentro de la CSS, asegurando que la institución mantiene un inventario del 93% de las moléculas incluidas en el cuadro básico.
+
+Sin embargo, reconoció que todavía existen alrededor de 27 medicamentos faltantes, principalmente relacionados con enfermedades raras, registros sanitarios vencidos o proveedores únicos.
+
+También recordó la escasez temporal de productos populares como el mentol, atribuida a problemas del fabricante y pérdida de registro sanitario.
+
+Con “MiFarma Digital”, los asegurados podrán verificar desde el celular o computadora qué medicamentos tiene disponible la CSS, en qué instalación se encuentran y cuánto tiempo de inventario queda.
+
+La herramienta también permitirá identificar cuáles medicamentos forman parte del cuadro básico institucional, luego de que la CSS detectara casos de pacientes que recibían recetas privadas de productos que la entidad no cubre.
+
+“ Ya no vamos a tener al asegurado yendo y viniendo como pelota de ping pong (...) Eso ya no va a pasar porque efectivamente el médico va a tener la posibilidad de decirle dónde hay y cuánto hay y para cuánto tiempo ”, afirmó Mon.
+
+Añadió que la institución instalará módulos y asistencia presencial para personas que no manejen herramientas digitales o no tengan acceso a internet.
