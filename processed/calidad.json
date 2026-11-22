@@ -1,0 +1,797 @@
+{
+  "generado": "2026-11-22T16:48:27+00:00",
+  "cobertura": {
+    "desde": "2021-01",
+    "hasta": "2026-09",
+    "meses_esperados": 69,
+    "meses_con_datos": 67,
+    "meses_faltantes": [
+      "2024-11",
+      "2024-12"
+    ]
+  },
+  "volumen": {
+    "filas_existencias": 109893,
+    "medicamentos": 673,
+    "renglones_por_mes_promedio": 546.7,
+    "archivos_leidos": 78,
+    "fda_registros": 1581,
+    "documentos": 10
+  },
+  "completitud": {
+    "meses_con_dato_pct": 97.1,
+    "precio_imputado_pct": 10.67,
+    "medicamentos_con_atc_pct": 87.4,
+    "documentos_texto_ok": 2
+  },
+  "validez": {
+    "filas_atipicas_pct": 0.303,
+    "renglones_atipicos": 111
+  },
+  "unicidad_pct": 100.0,
+  "exactitud_vs_cuadros_comparativos": {
+    "2021": {
+      "comparaciones": 6382,
+      "coinciden": 100.0
+    },
+    "2022": {
+      "comparaciones": 6399,
+      "coinciden": 99.98
+    },
+    "2023": {
+      "comparaciones": 6640,
+      "coinciden": 99.95
+    },
+    "2024": {
+      "comparaciones": 5228,
+      "coinciden": 100.0
+    }
+  },
+  "incidencias_por_tipo": {
+    "precio_publicado_redondeado": 1292,
+    "cantidad_atipica": 111,
+    "sin_codigo_atc": 85,
+    "monto_no_cuadra": 37,
+    "codigo_con_varias_descripciones": 35,
+    "sin_precio": 9,
+    "total_no_cuadra": 7,
+    "texto_incompleto": 4,
+    "texto_sin_descarga": 4,
+    "existencia_negativa": 2,
+    "archivo_excluido": 1
+  },
+  "archivos": [
+    {
+      "archivo": "css-inventario-medicamentos-abril-2021.csv",
+      "familia": "inventario",
+      "filas": 527,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-04']"
+    },
+    {
+      "archivo": "css-inventario-medicamentos-enero-2021.csv",
+      "familia": "inventario",
+      "filas": 529,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-01']"
+    },
+    {
+      "archivo": "css-inventario-medicamentos-febrero-2021.csv",
+      "familia": "inventario",
+      "filas": 529,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-02']"
+    },
+    {
+      "archivo": "css-inventario-medicamentos-julio-2021.csv",
+      "familia": "inventario",
+      "filas": 538,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-07']"
+    },
+    {
+      "archivo": "css-inventario-medicamentos-junio-2021.csv",
+      "familia": "inventario",
+      "filas": 528,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-06']"
+    },
+    {
+      "archivo": "css-inventario-medicamentos-marzo-2021.csv",
+      "familia": "inventario",
+      "filas": 533,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-03']"
+    },
+    {
+      "archivo": "css-inventario-medicamentos-mayo-2021.csv",
+      "familia": "inventario",
+      "filas": 528,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-05']"
+    },
+    {
+      "archivo": "cuadro-ccomparativo-de-medicamentos-julio-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-existencias-de-enero-a-diciembre-ano-2021.csv",
+      "familia": "comparativo",
+      "filas": 13080,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-existencias-de-enero-a-noviembre-ano-2021.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-existencias-enero-a-septiembre-ano-2021.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-abril-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-abril-2023.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-abril-2024.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-agosto-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-agosto-2023.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-de-marzo-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-dic.-2022.csv",
+      "familia": "comparativo",
+      "filas": 6624,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-dic.-2023.csv",
+      "familia": "comparativo",
+      "filas": 7212,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-enero-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-enero-2024.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-feb.-2024.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-febrero-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-junio-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-marzo-2024.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-mayo-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-mayo-a-septiembre-2024.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-nov.-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-nov.-2023.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-octubre-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-octubre-2023.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-octubre-2024.csv",
+      "familia": "comparativo",
+      "filas": 6631,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-septiembre-2022.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comparativo-de-medicamentos-septiembre-2023.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-comporativo-de-existencias-medicamentos-enero-a-octubre-ano-2021.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-corporativo-de-medicamentos-de-mayo-junio-julio-2023.csv",
+      "familia": "comparativo",
+      "filas": 0,
+      "codificacion": NaN,
+      "separador": NaN,
+      "encabezado": NaN,
+      "periodos": NaN
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-abril-2023.csv",
+      "familia": "inventario",
+      "filas": 588,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2023-04']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-agosto-2023.csv",
+      "familia": "inventario",
+      "filas": 522,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2023-08']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-dic.-2023.csv",
+      "familia": "inventario",
+      "filas": 512,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2023-12']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-enero-2023.csv",
+      "familia": "inventario",
+      "filas": 600,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2023-01']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-feb.-2024.csv",
+      "familia": "inventario",
+      "filas": 517,
+      "codificacion": "cp1252",
+      "separador": ",",
+      "encabezado": false,
+      "periodos": "['2024-02']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-febrero-2023.csv",
+      "familia": "inventario",
+      "filas": 594,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2023-02']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-julio-2023.csv",
+      "familia": "inventario",
+      "filas": 581,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2023-07']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-junio-2023.csv",
+      "familia": "inventario",
+      "filas": 581,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2023-06']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-marzo-2023.csv",
+      "familia": "inventario",
+      "filas": 586,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2023-03']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-mayo-2023.csv",
+      "familia": "inventario",
+      "filas": 581,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2023-05']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-nov.-2023.csv",
+      "familia": "inventario",
+      "filas": 509,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2023-11']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-octubre-2023.csv",
+      "familia": "inventario",
+      "filas": 509,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2023-10']"
+    },
+    {
+      "archivo": "cuadro-de-inventario-de-medicamentos-septiembre-2023.csv",
+      "familia": "inventario",
+      "filas": 503,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2023-09']"
+    },
+    {
+      "archivo": "cuadro-de-medicamentos-diciembre-2021.csv",
+      "familia": "inventario",
+      "filas": 535,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-12']"
+    },
+    {
+      "archivo": "cuadro-de-medicamentos-enero-2022.csv",
+      "familia": "inventario",
+      "filas": 532,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2022-01']"
+    },
+    {
+      "archivo": "cuadro-de-medicamentos-iii-trim-2026.csv",
+      "familia": "inventario",
+      "filas": 1665,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2026-07', '2026-08', '2026-09']"
+    },
+    {
+      "archivo": "cuadro-inventario-de-medicamentos-enero-2024.csv",
+      "familia": "inventario",
+      "filas": 512,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2024-01']"
+    },
+    {
+      "archivo": "informe-de-medicamentos-ii-trim-2026.csv",
+      "familia": "inventario",
+      "filas": 1662,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2026-04', '2026-05', '2026-06']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-3er-trim-2025.csv",
+      "familia": "inventario",
+      "filas": 1749,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2025-07', '2025-08', '2025-09']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-4to-trim-2025.csv",
+      "familia": "inventario",
+      "filas": 1758,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2025-10', '2025-11', '2025-12']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-abril-2022.csv",
+      "familia": "inventario",
+      "filas": 531,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2022-04']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-abril-2024.csv",
+      "familia": "inventario",
+      "filas": 517,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2024-04']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-de-mayo-2022.csv",
+      "familia": "inventario",
+      "filas": 531,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2022-05']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-dic.-2022.csv",
+      "familia": "inventario",
+      "filas": 594,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2022-12']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-febrero-2022.csv",
+      "familia": "inventario",
+      "filas": 532,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2022-02']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-i-trim-2025.csv",
+      "familia": "inventario",
+      "filas": 1614,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2025-01', '2025-02', '2025-03']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-i-trim-2026.csv",
+      "familia": "inventario",
+      "filas": 1668,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2026-01', '2026-02', '2026-03']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-ii-trim-2025.csv",
+      "familia": "inventario",
+      "filas": 1614,
+      "codificacion": "cp850",
+      "separador": ",",
+      "encabezado": true,
+      "periodos": "['2025-04', '2025-05', '2025-06']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-julio-2022.csv",
+      "familia": "inventario",
+      "filas": 530,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2022-07']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-marzo-2022.csv",
+      "familia": "inventario",
+      "filas": 532,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2022-03']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-marzo-2024.csv",
+      "familia": "inventario",
+      "filas": 518,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2024-03']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-mayo-a-septiembre-2024.csv",
+      "familia": "inventario",
+      "filas": 2645,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2024-05', '2024-06', '2024-07', '2024-08', '2024-09']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-nov.-2022.csv",
+      "familia": "inventario",
+      "filas": 594,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2022-11']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-noviembre-2021.csv",
+      "familia": "inventario",
+      "filas": 535,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-11']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-octubre-2021.csv",
+      "familia": "inventario",
+      "filas": 535,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-10']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-octubre-2022.csv",
+      "familia": "inventario",
+      "filas": 577,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2022-10']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-octubre-2024.csv",
+      "familia": "inventario",
+      "filas": 531,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2024-10']"
+    },
+    {
+      "archivo": "inventario-de-medicamentos-septiembre-2022.csv",
+      "familia": "inventario",
+      "filas": 531,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2022-09']"
+    },
+    {
+      "archivo": "inventario-medicamentos-agosto-2021.csv",
+      "familia": "inventario",
+      "filas": 534,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-08']"
+    },
+    {
+      "archivo": "inventario-medicamentos-junio-2022.csv",
+      "familia": "inventario",
+      "filas": 530,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2022-06']"
+    },
+    {
+      "archivo": "inventario-medicamentos-septiembre-2021.csv",
+      "familia": "inventario",
+      "filas": 534,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": true,
+      "periodos": "['2021-09']"
+    },
+    {
+      "archivo": "invetario-de-medicamentos-agosto-2022.csv",
+      "familia": "inventario",
+      "filas": 596,
+      "codificacion": "cp1252",
+      "separador": ";",
+      "encabezado": false,
+      "periodos": "['2022-08']"
+    }
+  ],
+  "atipicos_por_mes": {
+    "2021-02": 1,
+    "2021-03": 4,
+    "2021-04": 5,
+    "2021-05": 2,
+    "2021-06": 2,
+    "2021-07": 1,
+    "2021-08": 3,
+    "2021-09": 2,
+    "2021-10": 1,
+    "2021-11": 1,
+    "2021-12": 2,
+    "2022-01": 2,
+    "2022-05": 1,
+    "2022-06": 1,
+    "2023-01": 2,
+    "2023-02": 1,
+    "2023-07": 1,
+    "2023-08": 1,
+    "2023-09": 1,
+    "2023-10": 1,
+    "2023-12": 2,
+    "2024-01": 1,
+    "2024-03": 1,
+    "2024-05": 1,
+    "2024-08": 68,
+    "2024-10": 1,
+    "2025-01": 1,
+    "2026-05": 1
+  }
+}

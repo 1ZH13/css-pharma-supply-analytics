@@ -1,0 +1,79 @@
+﻿archivo,familia,filas,codificacion,separador,encabezado,periodos
+css-inventario-medicamentos-abril-2021.csv,inventario,527,cp1252,;,True,['2021-04']
+css-inventario-medicamentos-enero-2021.csv,inventario,529,cp1252,;,True,['2021-01']
+css-inventario-medicamentos-febrero-2021.csv,inventario,529,cp1252,;,True,['2021-02']
+css-inventario-medicamentos-julio-2021.csv,inventario,538,cp1252,;,True,['2021-07']
+css-inventario-medicamentos-junio-2021.csv,inventario,528,cp1252,;,True,['2021-06']
+css-inventario-medicamentos-marzo-2021.csv,inventario,533,cp1252,;,True,['2021-03']
+css-inventario-medicamentos-mayo-2021.csv,inventario,528,cp1252,;,True,['2021-05']
+cuadro-ccomparativo-de-medicamentos-julio-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-existencias-de-enero-a-diciembre-ano-2021.csv,comparativo,13080,,,,
+cuadro-comparativo-de-existencias-de-enero-a-noviembre-ano-2021.csv,comparativo,0,,,,
+cuadro-comparativo-de-existencias-enero-a-septiembre-ano-2021.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-abril-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-abril-2023.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-abril-2024.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-agosto-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-agosto-2023.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-de-marzo-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-dic.-2022.csv,comparativo,6624,,,,
+cuadro-comparativo-de-medicamentos-dic.-2023.csv,comparativo,7212,,,,
+cuadro-comparativo-de-medicamentos-enero-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-enero-2024.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-feb.-2024.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-febrero-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-junio-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-marzo-2024.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-mayo-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-mayo-a-septiembre-2024.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-nov.-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-nov.-2023.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-octubre-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-octubre-2023.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-octubre-2024.csv,comparativo,6631,,,,
+cuadro-comparativo-de-medicamentos-septiembre-2022.csv,comparativo,0,,,,
+cuadro-comparativo-de-medicamentos-septiembre-2023.csv,comparativo,0,,,,
+cuadro-comporativo-de-existencias-medicamentos-enero-a-octubre-ano-2021.csv,comparativo,0,,,,
+cuadro-corporativo-de-medicamentos-de-mayo-junio-julio-2023.csv,comparativo,0,,,,
+cuadro-de-inventario-de-medicamentos-abril-2023.csv,inventario,588,cp1252,;,False,['2023-04']
+cuadro-de-inventario-de-medicamentos-agosto-2023.csv,inventario,522,cp1252,;,False,['2023-08']
+cuadro-de-inventario-de-medicamentos-dic.-2023.csv,inventario,512,cp850,",",True,['2023-12']
+cuadro-de-inventario-de-medicamentos-enero-2023.csv,inventario,600,cp1252,;,False,['2023-01']
+cuadro-de-inventario-de-medicamentos-feb.-2024.csv,inventario,517,cp1252,",",False,['2024-02']
+cuadro-de-inventario-de-medicamentos-febrero-2023.csv,inventario,594,cp1252,;,False,['2023-02']
+cuadro-de-inventario-de-medicamentos-julio-2023.csv,inventario,581,cp850,",",True,['2023-07']
+cuadro-de-inventario-de-medicamentos-junio-2023.csv,inventario,581,cp850,",",True,['2023-06']
+cuadro-de-inventario-de-medicamentos-marzo-2023.csv,inventario,586,cp1252,;,False,['2023-03']
+cuadro-de-inventario-de-medicamentos-mayo-2023.csv,inventario,581,cp850,",",True,['2023-05']
+cuadro-de-inventario-de-medicamentos-nov.-2023.csv,inventario,509,cp1252,;,False,['2023-11']
+cuadro-de-inventario-de-medicamentos-octubre-2023.csv,inventario,509,cp850,",",True,['2023-10']
+cuadro-de-inventario-de-medicamentos-septiembre-2023.csv,inventario,503,cp1252,;,False,['2023-09']
+cuadro-de-medicamentos-diciembre-2021.csv,inventario,535,cp1252,;,True,['2021-12']
+cuadro-de-medicamentos-enero-2022.csv,inventario,532,cp1252,;,True,['2022-01']
+cuadro-de-medicamentos-iii-trim-2026.csv,inventario,1665,cp850,",",True,"['2026-07', '2026-08', '2026-09']"
+cuadro-inventario-de-medicamentos-enero-2024.csv,inventario,512,cp1252,;,True,['2024-01']
+informe-de-medicamentos-ii-trim-2026.csv,inventario,1662,cp1252,;,True,"['2026-04', '2026-05', '2026-06']"
+inventario-de-medicamentos-3er-trim-2025.csv,inventario,1749,cp850,",",True,"['2025-07', '2025-08', '2025-09']"
+inventario-de-medicamentos-4to-trim-2025.csv,inventario,1758,cp850,",",True,"['2025-10', '2025-11', '2025-12']"
+inventario-de-medicamentos-abril-2022.csv,inventario,531,cp1252,;,False,['2022-04']
+inventario-de-medicamentos-abril-2024.csv,inventario,517,cp1252,;,True,['2024-04']
+inventario-de-medicamentos-de-mayo-2022.csv,inventario,531,cp1252,;,False,['2022-05']
+inventario-de-medicamentos-dic.-2022.csv,inventario,594,cp1252,;,False,['2022-12']
+inventario-de-medicamentos-febrero-2022.csv,inventario,532,cp1252,;,True,['2022-02']
+inventario-de-medicamentos-i-trim-2025.csv,inventario,1614,cp850,",",True,"['2025-01', '2025-02', '2025-03']"
+inventario-de-medicamentos-i-trim-2026.csv,inventario,1668,cp850,",",True,"['2026-01', '2026-02', '2026-03']"
+inventario-de-medicamentos-ii-trim-2025.csv,inventario,1614,cp850,",",True,"['2025-04', '2025-05', '2025-06']"
+inventario-de-medicamentos-julio-2022.csv,inventario,530,cp1252,;,False,['2022-07']
+inventario-de-medicamentos-marzo-2022.csv,inventario,532,cp1252,;,True,['2022-03']
+inventario-de-medicamentos-marzo-2024.csv,inventario,518,cp1252,;,False,['2024-03']
+inventario-de-medicamentos-mayo-a-septiembre-2024.csv,inventario,2645,cp1252,;,False,"['2024-05', '2024-06', '2024-07', '2024-08', '2024-09']"
+inventario-de-medicamentos-nov.-2022.csv,inventario,594,cp1252,;,False,['2022-11']
+inventario-de-medicamentos-noviembre-2021.csv,inventario,535,cp1252,;,True,['2021-11']
+inventario-de-medicamentos-octubre-2021.csv,inventario,535,cp1252,;,True,['2021-10']
+inventario-de-medicamentos-octubre-2022.csv,inventario,577,cp1252,;,False,['2022-10']
+inventario-de-medicamentos-octubre-2024.csv,inventario,531,cp1252,;,False,['2024-10']
+inventario-de-medicamentos-septiembre-2022.csv,inventario,531,cp1252,;,False,['2022-09']
+inventario-medicamentos-agosto-2021.csv,inventario,534,cp1252,;,True,['2021-08']
+inventario-medicamentos-junio-2022.csv,inventario,530,cp1252,;,False,['2022-06']
+inventario-medicamentos-septiembre-2021.csv,inventario,534,cp1252,;,True,['2021-09']
+invetario-de-medicamentos-agosto-2022.csv,inventario,596,cp1252,;,False,['2022-08']
