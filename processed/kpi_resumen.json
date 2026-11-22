@@ -1,0 +1,20 @@
+{
+  "periodo": "2026-09",
+  "valor_inventario": 42929829.5,
+  "variacion_valor_12m_pct": 2.6,
+  "renglones": 555,
+  "pct_abastecimiento": 86.31,
+  "renglones_en_cero": 76,
+  "criticos_en_cero": 20,
+  "riesgo_alto": 81,
+  "riesgo_medio": 175,
+  "criticos_riesgo_alto": 50,
+  "cobertura_mediana_meses": 2.16,
+  "transferencias_sugeridas": 143,
+  "valor_transferencias": 1691545.46,
+  "centros_en_cero": {
+    "CDCH": 30.81,
+    "CDDI": 46.67,
+    "CDPA": 29.01
+  }
+}
