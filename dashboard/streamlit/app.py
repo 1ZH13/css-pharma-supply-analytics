@@ -33,6 +33,12 @@ paginas = {
     ],
     "IA generativa": [st.Page(asistente.pagina, title="Pregúntale a los datos", icon="✨", url_path="asistente")],
 }
-st.navigation(paginas).run()
+try:
+    st.navigation(paginas).run()
+except Exception as e:  # datos aún no publicados o fuente caída: aviso en lugar de error técnico
+    st.warning("Los datos de esta página todavía se están generando o la fuente no responde. "
+                "Intenta de nuevo en unos minutos.")
+    with st.expander("Detalle técnico"):
+        st.code(f"{type(e).__name__}: {e}")
 st.sidebar.caption("Proyecto final · Sistemas de Información Gerencial · UTP 2026")
 st.sidebar.caption("[Código en GitHub](https://github.com/1ZH13/css-pharma-supply-analytics)")
