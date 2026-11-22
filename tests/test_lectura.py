@@ -46,3 +46,29 @@ def test_codificacion_y_separador():
 def test_principio_activo():
     assert principio_activo("GLIBENCLAMIDA, 5MG, TABLETA, V.O") == "GLIBENCLAMIDA"
     assert principio_activo("LIDOCAÍNA CLORHIDRATO 2% con EPINEFRINA") == "LIDOCAINA CLORHIDRATO"
+
+
+# ---------------------------------------------------------------- noticias
+from pipeline.texto import extraer_articulo  # noqa: E402
+
+CUERPO = ("La Caja de Seguro Social anunció la compra de 22 renglones de medicamentos "
+          "para reducir el desabastecimiento en sus farmacias. ") * 3
+
+
+def test_noticia_desde_jsonld():
+    html = ('<html><head><script type="application/ld+json">'
+            '{"@type":"NewsArticle","articleBody":"' + CUERPO * 3 + '"}</script></head>'
+            '<body><nav><p>' + "Menú principal del sitio con muchas secciones y enlaces." + '</p></nav></body></html>')
+    texto, metodo = extraer_articulo(html)
+    assert metodo == "jsonld" and texto.startswith("La Caja de Seguro Social")
+
+
+def test_noticia_por_densidad_de_parrafos():
+    html = ("<html><body><header><p>Suscríbase a nuestro boletín para recibir noticias diarias.</p></header>"
+            "<article><h3>Relacionada</h3></article>"
+            "<div class='nota'>" + "".join(f"<div class='paragraph'><p>{CUERPO}</p></div>" for _ in range(4)) + "</div>"
+            "<footer><p>Todos los derechos reservados, Editora Panamá América, 2026.</p></footer></body></html>")
+    texto, metodo = extraer_articulo(html)
+    assert metodo == "parrafos"
+    assert "Suscríbase" not in texto and "derechos reservados" not in texto
+    assert texto.count("Caja de Seguro Social") == 12
