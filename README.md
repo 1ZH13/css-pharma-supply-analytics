@@ -51,13 +51,14 @@ python -m pipeline.extract      # 1. descarga las fuentes a data/raw/
                                 #    (o: git fetch origin data && git checkout origin/data -- raw)
 python -m pipeline.transform    # 2. limpia y unifica → data/processed/
 python -m pipeline.quality      # 3. reporte de calidad → data/processed/reporte_calidad.md
-python -m pipeline.load         # 4. carga en MongoDB Atlas (requiere MONGODB_URI en .env)
+python -m pipeline.ia_texto     # 4. IA generativa sobre noticias (requiere GEMINI_API_KEY en .env)
+python -m pipeline.load         # 5. carga en MongoDB Atlas (requiere MONGODB_URI en .env)
 python -m pytest -q tests       #    pruebas de las reglas de limpieza
 ```
 
 Las tablas limpias también se publican automáticamente en la carpeta `processed/` de la rama `data`, listas para Power BI.
 
-Las etapas de IA y dashboards se documentan a medida que se incorporan.
+Los dashboards se documentan a medida que se incorporan.
 
 ## Limpieza y unificación (Etapa 2)
 
@@ -77,6 +78,16 @@ Los 79 CSV de la CSS (2021–2026) no comparten formato. El pipeline resuelve:
 | Cantidades fuera de escala (agosto 2024) | Se marcan como `atipico` y se excluyen de los KPI |
 
 Resultado: **109 893 filas** (673 medicamentos × 67 meses × 3 centros). Los totales calculados coinciden en un **99.95–100 %** con los que la propia CSS publica en sus cuadros comparativos. Detalle en [`docs/reporte_calidad.md`](docs/reporte_calidad.md) y [`docs/diccionario_datos.md`](docs/diccionario_datos.md).
+
+## IA generativa (Etapa 3)
+
+Las noticias e informes sobre desabastecimiento (21 fuentes: La Prensa, La Estrella, TVN, Telemetro, Panamá América, MINSA, Instituto Gorgas, OPS) se procesan con **Google Gemini** (modelo Flash; se elige automáticamente el más reciente disponible):
+
+1. **Extracción estructurada**: Gemini devuelve JSON con un esquema fijo (tipo de evento, causas, medicamentos y su situación, grupos de pacientes, instalaciones, cifras, tono y riesgo). Se le pide no inventar: solo lo que dice el texto.
+2. **Cruce con el inventario**: cada medicamento mencionado se enlaza con los códigos CSS por principio activo, para comparar lo que reporta la prensa con las existencias reales.
+3. **Cruce internacional**: Gemini traduce los principios activos al nombre genérico en inglés (GLIBENCLAMIDA → glyburide) y se cruzan con openFDA para saber qué medicamentos de la CSS también están en escasez en EE. UU. (causa de proveedor global frente a problema local).
+
+Las respuestas se guardan en caché por hash del texto, así cada ejecución mensual solo consulta lo nuevo y se mantiene dentro de la capa gratuita.
 
 ## Flujo de trabajo y ramas
 

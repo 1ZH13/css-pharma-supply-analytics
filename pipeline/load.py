@@ -11,6 +11,8 @@ lee una colección a medio cargar. Cada ejecución queda registrada en `ejecucio
 | `totales_referencia` | totales nacionales publicados | estructurado (CSV CSS) |
 | `fda_escasez` | registros originales de openFDA | semiestructurado (JSON) |
 | `documentos` | noticias e informes con su texto | no estructurado (texto) |
+| `ia_documentos`, `ia_menciones`, `ia_causas` | análisis de Gemini sobre el texto | IA generativa |
+| `inn_equivalencias`, `cruce_fda` | principio activo ES → EN y escasez en EE. UU. | IA + JSON |
 | `incidencias`, `calidad`, `ejecuciones` | trazabilidad del pipeline | — |
 
 Requiere la variable de entorno MONGODB_URI (archivo `.env` o secreto de GitHub).
@@ -99,6 +101,19 @@ def cargar(datos: Path, raw: Path, uri: str, base: str) -> dict:
     for d in docs:
         d["_id"] = d.get("id")
     n["documentos"] = _reemplazar(db, "documentos", docs)
+
+    # Etapa 3: resultados de la IA generativa (si existen)
+    ia = datos / "ia_documentos.jsonl"
+    if ia.exists():
+        docs = [json.loads(l) for l in ia.read_text(encoding="utf-8").splitlines() if l.strip()]
+        for d in docs:
+            d["_id"] = d.get("id")
+        n["ia_documentos"] = _reemplazar(db, "ia_documentos", docs, [[("tipo_evento", ASCENDING)], [("riesgo", ASCENDING)]])
+    for nombre, idx in (("ia_menciones", [("codigo", ASCENDING)]), ("ia_causas", [("causa", ASCENDING)]),
+                        ("inn_equivalencias", [("principio_activo", ASCENDING)]), ("cruce_fda", [("codigo", ASCENDING)])):
+        ruta = datos / f"{nombre}.csv"
+        if ruta.exists() and ruta.stat().st_size > 5:
+            n[nombre] = _reemplazar(db, nombre, _registros(pd.read_csv(ruta, dtype={"codigo": str})), [idx])
 
     n["incidencias"] = _reemplazar(db, "incidencias",
                                    _registros(pd.read_csv(datos / "incidencias.csv", dtype={"codigo": str})),
