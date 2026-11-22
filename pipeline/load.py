@@ -123,6 +123,15 @@ def cargar(datos: Path, raw: Path, uri: str, base: str) -> dict:
         ruta = datos / f"{nombre}.csv"
         if ruta.exists() and ruta.stat().st_size > 5:
             n[nombre] = _reemplazar(db, nombre, _registros(pd.read_csv(ruta, dtype={"codigo": str})), [idx])
+    # Las 6 preguntas y su narrativa
+    for nombre in ("p1_serie", "p2_declaraciones", "p3_grupos", "p4_centros", "p4_rutas", "p5_eventos", "p6_fantasmas"):
+        ruta = datos / f"{nombre}.csv"
+        if ruta.exists() and ruta.stat().st_size > 5:
+            n[nombre] = _reemplazar(db, nombre, _registros(pd.read_csv(ruta, dtype={"codigo": str})))
+    for nombre in ("preguntas_resumen", "narrativa"):
+        ruta = datos / f"{nombre}.json"
+        if ruta.exists():
+            db[nombre].replace_one({"_id": "ultimo"}, {**json.loads(ruta.read_text(encoding="utf-8")), "_id": "ultimo"}, upsert=True)
     res = datos / "kpi_resumen.json"
     if res.exists():
         db["kpi_resumen"].replace_one({"_id": "ultimo"}, {**json.loads(res.read_text(encoding="utf-8")), "_id": "ultimo"}, upsert=True)

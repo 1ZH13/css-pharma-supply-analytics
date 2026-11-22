@@ -188,7 +188,7 @@ def menciones(analisis: list[dict], catalogo: pd.DataFrame) -> pd.DataFrame:
     for a in analisis:
         for m in a.get("medicamentos") or []:
             pa = _norm(m.get("principio_activo") or m.get("nombre"))
-            if not pa:
+            if not pa or pa in {"NO ESPECIFICADO", "NO ESPECIFICADA", "N/A", "NINGUNO", "VARIOS", "MEDICAMENTOS"}:
                 continue
             exacto = cat[cat["pa"] == pa]
             parcial = cat[cat["pa"].str.startswith(pa + " ") | cat["desc"].str.contains(rf"\b{re.escape(pa)}\b", regex=True)]

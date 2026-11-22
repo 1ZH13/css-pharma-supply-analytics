@@ -26,3 +26,12 @@ def test_redistribucion_lleva_el_deficit_a_dos_meses_sin_dejar_al_origen_bajo_do
     fila = t.iloc[0]
     assert (fila["desde"], fila["hacia"], fila["cantidad"]) == ("CDPA", "CDDI", 90)
     assert fila["cobertura_destino_despues"] == 2.0 and fila["valor"] == 180.0
+
+
+def test_narrativa_detecta_cifras_inventadas():
+    from pipeline.narrativa import _validar
+    cifras = '{"P1": {"cambio_valor_pct": -64.3, "valor": 42.9}}'
+    ok = {"titular": "El inventario cayó 64.3 % en 2025", "hallazgo": "Hoy vale B/. 42.9 M.", "implicacion": "", "cautela": ""}
+    malo = {"titular": "El inventario cayó 71 %", "hallazgo": "", "implicacion": "", "cautela": ""}
+    assert _validar(ok, cifras) == []
+    assert _validar(malo, cifras) == ["71"]
