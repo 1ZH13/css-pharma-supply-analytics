@@ -1,0 +1,93 @@
+table p2_declaraciones
+	lineageTag: 22ae9858-a177-4385-b53d-bacaee57e85b
+
+	column documento
+		dataType: string
+		lineageTag: e2f78950-125a-4cd5-a90e-3abe7a7e3ca8
+		summarizeBy: none
+		sourceColumn: documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column fuente
+		dataType: string
+		lineageTag: 55e9469f-47a4-4373-8ff3-eed3f2a0d2ac
+		summarizeBy: none
+		sourceColumn: fuente
+
+		annotation SummarizationSetBy = Automatic
+
+	column titulo
+		dataType: string
+		lineageTag: e2a3d062-4057-4e67-a4c4-6d91ab75860f
+		summarizeBy: none
+		sourceColumn: titulo
+
+		annotation SummarizationSetBy = Automatic
+
+	column url
+		dataType: string
+		lineageTag: 170a0a01-f36b-4979-b390-9ff1c44b6141
+		summarizeBy: none
+		sourceColumn: url
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: string
+		lineageTag: 5a545269-5440-4c8d-a066-b5f3b308ad25
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation SummarizationSetBy = Automatic
+
+	column pct_declarado
+		dataType: double
+		lineageTag: 674dc361-7fd6-444d-a887-9c3352fe9219
+		summarizeBy: sum
+		sourceColumn: pct_declarado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pct_datos_mismo_mes
+		dataType: double
+		lineageTag: 13436dab-81bb-4d3e-8c6e-8fa272f244bb
+		summarizeBy: sum
+		sourceColumn: pct_datos_mismo_mes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column brecha_pp
+		dataType: double
+		lineageTag: 19fac3b4-3c68-4fcf-b528-6dde6953ea7a
+		summarizeBy: sum
+		sourceColumn: brecha_pp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column resumen_ia
+		dataType: string
+		lineageTag: e3cc150c-66ac-4d14-a51c-b174d4fb314c
+		summarizeBy: none
+		sourceColumn: resumen_ia
+
+		annotation SummarizationSetBy = Automatic
+
+	partition p2_declaraciones = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("p2_declaraciones")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

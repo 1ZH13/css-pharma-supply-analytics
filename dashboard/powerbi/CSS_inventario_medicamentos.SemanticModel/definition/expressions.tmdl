@@ -1,0 +1,32 @@
+expression fnCSS =
+		(nombre as text) as table =>
+		let
+		    url     = "https://raw.githubusercontent.com/1ZH13/css-pharma-supply-analytics/data/processed/" & nombre & ".csv",
+		    csv     = Csv.Document(Web.Contents(url), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    tabla   = Table.PromoteHeaders(csv, [PromoteAllScalars = true]),
+		    texto   = {"codigo", "codigo_guiones", "periodo", "centro", "desde", "hacia", "atc", "atc_nivel1", "fecha"},
+		    otras   = List.Difference(Table.ColumnNames(tabla), texto),
+		    convertir = (v) =>
+		        if v = null or v = "" then null
+		        else if v = "True" then true
+		        else if v = "False" then false
+		        else try Number.From(v, "en-US") otherwise v,
+		    valores = Table.TransformColumns(tabla, List.Transform(otras, each {_, convertir})),
+		    tipoDe  = (c) =>
+		        let muestra = List.RemoveNulls(List.FirstN(Table.Column(valores, c), 3000)) in
+		        if List.Contains(texto, c) or List.IsEmpty(muestra) then type text
+		        else if List.AllTrue(List.Transform(muestra, each Value.Is(_, type number))) then type number
+		        else if List.AllTrue(List.Transform(muestra, each Value.Is(_, type logical))) then type logical
+		        else type text,
+		    tipado  = Table.TransformColumnTypes(valores, List.Transform(Table.ColumnNames(valores), each {_, tipoDe(_)})),
+		    final   = if List.Contains(Table.ColumnNames(tipado), "periodo")
+		              then Table.AddColumn(tipado, "Fecha", each #date(Number.From(Text.Start([periodo], 4)), Number.From(Text.End([periodo], 2)), 1), type date)
+		              else tipado
+		in
+		    final
+	lineageTag: c16a738c-99f1-4d8d-9b53-d2da0ba04d27
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Function
+

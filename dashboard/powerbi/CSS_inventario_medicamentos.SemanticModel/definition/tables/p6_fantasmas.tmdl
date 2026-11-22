@@ -1,0 +1,117 @@
+table p6_fantasmas
+	lineageTag: 128270f2-c819-4fbc-ac01-cb892375268a
+
+	column codigo
+		dataType: string
+		lineageTag: 8d193be1-5430-4cac-879f-56c0e8ea7320
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_guiones
+		dataType: string
+		lineageTag: 99a42500-d3b5-4c08-ae56-c7c45240f046
+		summarizeBy: none
+		sourceColumn: codigo_guiones
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion
+		dataType: string
+		lineageTag: bf92e8e2-2980-4aca-8666-dbfbb90ee9f5
+		summarizeBy: none
+		sourceColumn: descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column principio_activo
+		dataType: string
+		lineageTag: bbf04eb2-4f7b-49f2-91e9-dbd9bdc98d7d
+		summarizeBy: none
+		sourceColumn: principio_activo
+
+		annotation SummarizationSetBy = Automatic
+
+	column atc
+		dataType: string
+		lineageTag: f16d8aea-1a6e-4448-a40b-1237893fec20
+		summarizeBy: none
+		sourceColumn: atc
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_terapeutico
+		dataType: string
+		lineageTag: 6f82049c-4bce-42f7-8a67-55e657692b77
+		summarizeBy: none
+		sourceColumn: grupo_terapeutico
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria_critica
+		dataType: string
+		lineageTag: a4c2740e-7f70-46f0-a671-f7760fb96ea9
+		summarizeBy: none
+		sourceColumn: categoria_critica
+
+		annotation SummarizationSetBy = Automatic
+
+	column critico
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 209224c3-36d9-43a9-988c-9b56102cf22e
+		summarizeBy: none
+		sourceColumn: critico
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_ultimo
+		dataType: double
+		lineageTag: cb5a0965-108c-40b9-afb6-f5b4e0a43c17
+		summarizeBy: sum
+		sourceColumn: precio_ultimo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ultimo_mes_con_existencia
+		dataType: string
+		lineageTag: 9dde4821-655c-4104-9c59-41b41c0da73a
+		summarizeBy: none
+		sourceColumn: ultimo_mes_con_existencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column menciones_en_prensa
+		dataType: double
+		lineageTag: 62e5360f-bf2e-440b-a5f1-761fbc211c86
+		summarizeBy: sum
+		sourceColumn: menciones_en_prensa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column escasez_eeuu
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9a0ba3ff-0c3d-4f11-9863-29d7710658f4
+		summarizeBy: none
+		sourceColumn: escasez_eeuu
+
+		annotation SummarizationSetBy = Automatic
+
+	partition p6_fantasmas = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("p6_fantasmas")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

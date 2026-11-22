@@ -31,3 +31,9 @@ data/processed/*
 Thumbs.db
 desktop.ini
 ~$*
+
+# Power BI (el proyecto se versiona como PBIP; el .pbix y la caché no)
+*.pbix
+dashboard/powerbi/**/.pbi/cache.abf
+dashboard/powerbi/**/.pbi/localSettings.json
+dashboard/powerbi/_respaldo*/

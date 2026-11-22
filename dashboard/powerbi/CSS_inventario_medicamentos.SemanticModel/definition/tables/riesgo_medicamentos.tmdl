@@ -1,0 +1,311 @@
+table riesgo_medicamentos
+	lineageTag: e904db00-dbc1-42a1-9fd7-96551533fabb
+
+	column codigo
+		dataType: string
+		lineageTag: a88ce4d7-8395-4243-a073-3c15b625eadd
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column periodo
+		dataType: string
+		lineageTag: bcafb031-72f0-4062-b3b6-4c7684c374b5
+		summarizeBy: none
+		sourceColumn: periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	column existencia_total
+		dataType: double
+		lineageTag: 6ba14d54-3cfb-4d8d-924c-3591f9a13ec9
+		summarizeBy: sum
+		sourceColumn: existencia_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column consumo_mensual_est
+		dataType: double
+		lineageTag: 40c2ac16-13bb-494d-82a4-2950af32bde1
+		summarizeBy: sum
+		sourceColumn: consumo_mensual_est
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cobertura_meses
+		dataType: double
+		lineageTag: 63c6a001-ff8d-4e0d-aa66-a002211f7c1c
+		summarizeBy: sum
+		sourceColumn: cobertura_meses
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column meses_en_cero_12m
+		dataType: double
+		lineageTag: 43bb88f4-c71b-4bcb-8b15-1a1c1245c55b
+		summarizeBy: sum
+		sourceColumn: meses_en_cero_12m
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column racha_meses_en_cero
+		dataType: double
+		lineageTag: 5e827bbf-0ac5-4aef-8763-be2499b87f71
+		summarizeBy: sum
+		sourceColumn: racha_meses_en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tendencia_6m_pct
+		dataType: double
+		lineageTag: d20cd028-6dca-4ac2-9b47-ee87a6b572e8
+		summarizeBy: sum
+		sourceColumn: tendencia_6m_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column critico
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d49f37f8-ad3f-4e7b-8424-9ad37bc8900b
+		summarizeBy: none
+		sourceColumn: critico
+
+		annotation SummarizationSetBy = Automatic
+
+	column faltante_en_prensa
+		dataType: double
+		lineageTag: 0c0653ef-815e-4bb4-973e-99c16d221fa6
+		summarizeBy: sum
+		sourceColumn: faltante_en_prensa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column escasez_eeuu
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 76c71bfd-8fea-4de8-9b62-5ec3e518674e
+		summarizeBy: none
+		sourceColumn: escasez_eeuu
+
+		annotation SummarizationSetBy = Automatic
+
+	column puntaje_riesgo
+		dataType: double
+		lineageTag: 8e276682-1dc0-4b1f-acb8-2cce8c2994db
+		summarizeBy: sum
+		sourceColumn: puntaje_riesgo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nivel_riesgo
+		dataType: string
+		lineageTag: 63f38339-6511-4af8-b487-f2e57d45ea96
+		summarizeBy: none
+		sourceColumn: nivel_riesgo
+
+		annotation SummarizationSetBy = Automatic
+
+	column motivos
+		dataType: string
+		lineageTag: 36d27a99-d019-4c84-885e-9394d9d92540
+		summarizeBy: none
+		sourceColumn: motivos
+
+		annotation SummarizationSetBy = Automatic
+
+	column existencia_CDPA
+		dataType: double
+		lineageTag: f4f8b376-a3f3-466a-879a-891fb62b21d1
+		summarizeBy: sum
+		sourceColumn: existencia_CDPA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column consumo_CDPA
+		dataType: double
+		lineageTag: cfba9b0e-0ef2-486c-bff3-8eb1f82dc3bb
+		summarizeBy: sum
+		sourceColumn: consumo_CDPA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cobertura_CDPA
+		dataType: double
+		lineageTag: 53b7f5ba-6744-48c6-9a8c-76182a55e2b9
+		summarizeBy: sum
+		sourceColumn: cobertura_CDPA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column existencia_CDDI
+		dataType: double
+		lineageTag: 1b36efd1-f113-44c4-8eb9-6a4099bc04ad
+		summarizeBy: sum
+		sourceColumn: existencia_CDDI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column consumo_CDDI
+		dataType: double
+		lineageTag: 08d7ebb4-54bc-4ca2-8a87-194fd5661349
+		summarizeBy: sum
+		sourceColumn: consumo_CDDI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cobertura_CDDI
+		dataType: double
+		lineageTag: 5316d92f-17b6-4366-9c34-184741b54daf
+		summarizeBy: sum
+		sourceColumn: cobertura_CDDI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column existencia_CDCH
+		dataType: double
+		lineageTag: 4b4ab8f1-bef3-4e15-906c-0e7c3354773d
+		summarizeBy: sum
+		sourceColumn: existencia_CDCH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column consumo_CDCH
+		dataType: double
+		lineageTag: e958bf82-50a2-4066-99df-39abf1dcd70f
+		summarizeBy: sum
+		sourceColumn: consumo_CDCH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cobertura_CDCH
+		dataType: double
+		lineageTag: 4bda134c-209a-4ac0-a3dc-ac8c74d9b5f5
+		summarizeBy: sum
+		sourceColumn: cobertura_CDCH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column descripcion
+		dataType: string
+		lineageTag: 16dac515-baf3-4d6d-8759-5d378a706f01
+		summarizeBy: none
+		sourceColumn: descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column principio_activo
+		dataType: string
+		lineageTag: bdcd4e15-fc72-4d00-830b-65db28f788ee
+		summarizeBy: none
+		sourceColumn: principio_activo
+
+		annotation SummarizationSetBy = Automatic
+
+	column atc
+		dataType: string
+		lineageTag: 41347ae2-1c72-4dad-9672-57f9210e5566
+		summarizeBy: none
+		sourceColumn: atc
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_terapeutico
+		dataType: string
+		lineageTag: 862da578-df7a-4183-aa12-b9e1b77f62e4
+		summarizeBy: none
+		sourceColumn: grupo_terapeutico
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria_critica
+		dataType: string
+		lineageTag: 6b92e9e2-25b6-4062-8aa6-724f335448ab
+		summarizeBy: none
+		sourceColumn: categoria_critica
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_ultimo
+		dataType: double
+		lineageTag: 1e52ef5a-947a-4a65-bae5-1c5dfee9461c
+		summarizeBy: sum
+		sourceColumn: precio_ultimo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valor_existencia
+		dataType: double
+		lineageTag: 7ca711b4-df03-42b1-8a55-f4ea7119bff3
+		summarizeBy: sum
+		sourceColumn: valor_existencia
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 065aa0d6-d153-48c1-bb70-475aa38cd7c3
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		variation Variation
+			isDefault
+			relationship: 17e85f7d-ea2a-4789-9864-3aaff2a414bc
+			defaultHierarchy: LocalDateTable_86c37b75-099e-4af3-9ffb-4c5c3aff7cbe.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition riesgo_medicamentos = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("riesgo_medicamentos")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

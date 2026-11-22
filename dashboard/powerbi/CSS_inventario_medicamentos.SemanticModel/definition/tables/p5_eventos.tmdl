@@ -1,0 +1,79 @@
+table p5_eventos
+	lineageTag: 900b23e3-2cce-47bc-8cc1-7b58085d6c5a
+
+	column fecha
+		dataType: string
+		lineageTag: 81160a4a-2bf5-489a-830e-1f019c9826ba
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation SummarizationSetBy = Automatic
+
+	column documento
+		dataType: string
+		lineageTag: 88392058-81f7-401f-9b7f-eb99f0c4254d
+		summarizeBy: none
+		sourceColumn: documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column fuente
+		dataType: string
+		lineageTag: 1e74ce89-2db0-463c-a0dc-663eea738d64
+		summarizeBy: none
+		sourceColumn: fuente
+
+		annotation SummarizationSetBy = Automatic
+
+	column titulo
+		dataType: string
+		lineageTag: 82696f00-4557-4d65-bca2-1c68e9efad37
+		summarizeBy: none
+		sourceColumn: titulo
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_evento
+		dataType: string
+		lineageTag: 7523c4b5-26fe-4732-a139-087d98e2ba89
+		summarizeBy: none
+		sourceColumn: tipo_evento
+
+		annotation SummarizationSetBy = Automatic
+
+	column riesgo
+		dataType: string
+		lineageTag: 35c5b3b0-7820-4119-b56b-16ef28b606d5
+		summarizeBy: none
+		sourceColumn: riesgo
+
+		annotation SummarizationSetBy = Automatic
+
+	column resumen
+		dataType: string
+		lineageTag: d09d5475-94a6-47e8-85d9-aff3147a8503
+		summarizeBy: none
+		sourceColumn: resumen
+
+		annotation SummarizationSetBy = Automatic
+
+	column url
+		dataType: string
+		lineageTag: 10ff7d68-fa52-4e8e-96f6-323758732dea
+		summarizeBy: none
+		sourceColumn: url
+
+		annotation SummarizationSetBy = Automatic
+
+	partition p5_eventos = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("p5_eventos")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,197 @@
+table existencias
+	lineageTag: 9ebd92a6-c78d-4185-b565-91402f52f788
+
+	measure 'Valor inventario' = CALCULATE ( SUM ( existencias[valor] ), existencias[atipico] = FALSE () )
+		formatString: #,0
+		lineageTag: 6c31d0d0-7fa2-4703-bcba-81aa29461000
+
+	measure Unidades = CALCULATE ( SUM ( existencias[cantidad] ), existencias[atipico] = FALSE () )
+		formatString: #,0
+		lineageTag: 05208229-e703-47a5-b06a-ff9415513372
+
+	measure 'Valor promedio mensual' = AVERAGEX ( SUMMARIZE ( existencias, Calendario[Date] ), [Valor inventario] )
+		formatString: #,0
+		lineageTag: 66fd7e05-77ed-485a-9557-685330ad85ba
+
+	measure 'Valor año anterior' = CALCULATE ( [Valor inventario], DATEADD ( Calendario[Date], -12, MONTH ) )
+		formatString: #,0
+		lineageTag: 773ad94b-fc22-46fa-8e90-53dcd2ee9412
+
+	measure 'Variación 12 meses %' = DIVIDE ( [Valor inventario] - [Valor año anterior], [Valor año anterior] )
+		formatString: +0.0%;-0.0%
+		lineageTag: 65f44838-6008-459f-94b2-2e443f02b912
+
+	measure 'Dinero inmovilizado' = CALCULATE ( SUM ( riesgo_medicamentos[valor_existencia] ), riesgo_medicamentos[cobertura_meses] > 12 )
+		formatString: #,0
+		lineageTag: 9364d859-a191-4424-bdfe-338a5d3a99cf
+
+	measure Renglones-mes = COUNTROWS ( SUMMARIZE ( existencias, Calendario[Date], existencias[codigo] ) )
+		formatString: #,0
+		lineageTag: 836a102e-d668-492a-89f2-14e4553d03cc
+
+	measure 'Renglones en cero' = VAR t = ADDCOLUMNS ( SUMMARIZE ( existencias, Calendario[Date], existencias[codigo] ), "@q", CALCULATE ( SUM ( existencias[cantidad] ) ) ) RETURN COUNTROWS ( FILTER ( t, [@q] <= 0 ) )
+		formatString: #,0
+		lineageTag: 780fe8b6-887b-4e40-a636-dec60bd4f242
+
+	measure '% abastecimiento' = 1 - DIVIDE ( [Renglones en cero], [Renglones-mes] )
+		formatString: 0.0%
+		lineageTag: 7f9328af-eb83-483d-a67c-1064a3650997
+
+	measure 'Críticos en cero' = CALCULATE ( [Renglones en cero], medicamentos[critico] = TRUE () )
+		formatString: 0
+		lineageTag: b79b68aa-2814-4da1-a849-dad99e6f1387
+
+	measure 'Abastecimiento oficial' = DIVIDE ( AVERAGE ( kpi_mensual[pct_abastecimiento] ), 100 )
+		formatString: 0.0%
+		lineageTag: 7b17a75f-f428-424a-8e0d-bf789cc577dd
+
+	measure 'Abastecimiento último mes' = VAR u = MAX ( kpi_mensual[periodo] ) RETURN CALCULATE ( [Abastecimiento oficial], kpi_mensual[periodo] = u )
+		formatString: 0.0%
+		lineageTag: e9b2cbd2-be6b-43ac-b6bd-522465f43901
+
+	measure 'Críticos en cero último mes' = VAR u = MAX ( kpi_mensual[periodo] ) RETURN CALCULATE ( SUM ( kpi_mensual[criticos_en_cero] ), kpi_mensual[periodo] = u )
+		formatString: 0
+		lineageTag: 1486006b-c030-41e3-a1ac-9a4197b43d76
+
+	measure 'En riesgo alto' = CALCULATE ( COUNTROWS ( riesgo_medicamentos ), riesgo_medicamentos[nivel_riesgo] = "alto" )
+		formatString: 0
+		lineageTag: fdcbb669-6067-4589-83bf-032183d133a8
+
+	measure 'Críticos en riesgo alto' = CALCULATE ( [En riesgo alto], riesgo_medicamentos[critico] = TRUE () )
+		formatString: 0
+		lineageTag: 90f26a29-7cb8-444d-8600-2c41f34faf31
+
+	measure 'Traslados sugeridos' = COUNTROWS ( redistribucion )
+		formatString: 0
+		lineageTag: cb2939f1-db2f-42a9-aae6-2d1abcaa075a
+
+	measure 'Valor de traslados' = SUM ( redistribucion[valor] )
+		formatString: #,0
+		lineageTag: 9867c7cc-0442-4d0b-bfc5-019280d9b5fb
+
+	measure 'Brecha declarada (p.p.)' = AVERAGE ( p2_declaraciones[brecha_pp] )
+		formatString: 0.0
+		lineageTag: 7d496803-e9d6-44d4-b9c1-61bde192b1c5
+
+	measure 'Valor último mes' = VAR u = CALCULATE ( MAX ( existencias[Fecha] ), ALL ( existencias ) ) RETURN CALCULATE ( [Valor inventario], existencias[Fecha] = u )
+		formatString: #,0
+		lineageTag: a864011e-aaff-4f35-bd8a-ad7a1b070ad8
+
+	column periodo
+		dataType: string
+		lineageTag: cc15e844-eef3-44d4-83d0-7e5abbc4f701
+		summarizeBy: none
+		sourceColumn: periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: double
+		lineageTag: d511d7f1-9208-432e-8408-4c4307ffe925
+		summarizeBy: sum
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: double
+		lineageTag: e37310bb-2555-4bc1-ac43-a06896a23e4f
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo
+		dataType: string
+		lineageTag: 5d30c8c0-a19b-4779-ad87-982729ba1fed
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column centro
+		dataType: string
+		lineageTag: 14aef6c2-d8b0-4da8-af76-28c4c9727772
+		summarizeBy: none
+		sourceColumn: centro
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad
+		dataType: double
+		lineageTag: cc00aa98-f079-4687-8131-05dd7fbf4977
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_unitario
+		dataType: double
+		lineageTag: d41d70b9-324c-4bde-9c67-87643b3e006b
+		summarizeBy: sum
+		sourceColumn: precio_unitario
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		lineageTag: 52cc9395-846f-41b6-9d82-ece8aca3e5cf
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_imputado
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3c149f0d-b27c-4b0a-8772-0b0438872733
+		summarizeBy: none
+		sourceColumn: precio_imputado
+
+		annotation SummarizationSetBy = Automatic
+
+	column atipico
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 75e8fac5-36cf-4110-8d51-f63c57d3185e
+		summarizeBy: none
+		sourceColumn: atipico
+
+		annotation SummarizationSetBy = Automatic
+
+	column archivo
+		dataType: string
+		lineageTag: f5f02b11-408c-461f-bd3a-81a255384d7d
+		summarizeBy: none
+		sourceColumn: archivo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7aa2080a-6c8b-4874-ae39-8364f1609d97
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		variation Variation
+			isDefault
+			relationship: 251f0737-9825-4b3f-b80a-accd86c62dfa
+			defaultHierarchy: LocalDateTable_dcc4b8c9-c25b-4c8b-802d-2b0ddf99ec3e.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition existencias = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("existencias")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
