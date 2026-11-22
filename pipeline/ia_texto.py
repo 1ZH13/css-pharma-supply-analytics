@@ -24,6 +24,7 @@ import hashlib
 import json
 import logging
 import re
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -129,6 +130,13 @@ class Cache:
 
 
 def _cliente(estado: dict) -> ClienteGemini | None:
+    """Cliente de Gemini, o None si no hay clave o se agotó el presupuesto de tiempo."""
+    limite = estado.get("limite")
+    if limite and time.time() > limite:
+        if not estado.get("aviso_tiempo"):
+            log.warning("Presupuesto de tiempo agotado: lo pendiente se procesa en la próxima ejecución.")
+            estado["aviso_tiempo"] = True
+        return None
     if estado.get("cliente") is None and not estado.get("sin_cliente"):
         try:
             estado["cliente"] = ClienteGemini()
@@ -164,6 +172,7 @@ def analizar_documentos(datos: Path, cache: Cache, estado: dict, max_docs: int |
                 continue
             r["_modelo"] = cli.modelo
             cache.put(k, r)
+            cache.guardar()
             nuevos += 1
             log.info("Analizado %s con %s", d.get("id"), cli.modelo)
         salida.append({"id": d.get("id"), "tipo_documento": d.get("tipo"), "fuente": d.get("fuente"),
@@ -253,9 +262,10 @@ def cruce_fda(catalogo: pd.DataFrame, inn: pd.DataFrame, fda: pd.DataFrame) -> p
 
 
 # ------------------------------------------------------------------ main
-def ejecutar(datos: Path = PROCESSED, cache_ruta: Path | None = None, max_docs: int | None = None) -> dict:
+def ejecutar(datos: Path = PROCESSED, cache_ruta: Path | None = None, max_docs: int | None = None,
+             presupuesto_min: float | None = None) -> dict:
     cache = Cache(cache_ruta or datos / "ia_cache.json")
-    estado: dict = {}
+    estado: dict = {"limite": time.time() + presupuesto_min * 60 if presupuesto_min else None}
     catalogo = pd.read_csv(datos / "medicamentos.csv", dtype={"codigo": str})
     fda = pd.read_csv(datos / "fda_escasez.csv") if (datos / "fda_escasez.csv").exists() else pd.DataFrame()
 
@@ -275,7 +285,10 @@ def ejecutar(datos: Path = PROCESSED, cache_ruta: Path | None = None, max_docs: 
     cfda.to_csv(datos / "cruce_fda.csv", **opts)
 
     cli = estado.get("cliente")
-    return {"documentos_analizados": len(analisis), "llamadas_gemini": cli.llamadas if cli else 0,
+    total_docs = sum(1 for l in (datos / "documentos.jsonl").read_text(encoding="utf-8").splitlines()
+                     if l.strip() and len(json.loads(l).get("texto") or "") >= 300)
+    return {"documentos_analizados": len(analisis), "documentos_con_texto": total_docs,
+            "pendientes": total_docs - len(analisis), "llamadas_gemini": cli.llamadas if cli else 0,
             "modelo": cli.modelo if cli else None, "menciones": len(men),
             "menciones_con_codigo_css": int(men["codigo"].notna().sum()) if len(men) else 0,
             "principios_traducidos": int((inn["inn_en"] != "").sum()) if len(inn) else 0,
@@ -287,9 +300,11 @@ def main():
     ap.add_argument("--datos", type=Path, default=PROCESSED)
     ap.add_argument("--cache", type=Path, default=None, help="ruta de ia_cache.json (por defecto en --datos)")
     ap.add_argument("--max-docs", type=int, default=None, help="máximo de documentos nuevos a enviar a Gemini")
+    ap.add_argument("--presupuesto-min", type=float, default=None,
+                    help="minutos máximos de consultas a Gemini; lo pendiente queda para la próxima ejecución")
     a = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    print(json.dumps(ejecutar(a.datos, a.cache, a.max_docs), ensure_ascii=False, indent=2))
+    print(json.dumps(ejecutar(a.datos, a.cache, a.max_docs, a.presupuesto_min), ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

@@ -70,13 +70,19 @@ jobs:
 
       - name: IA generativa sobre noticias (Gemini)
         timeout-minutes: 15
+        continue-on-error: true          # si Gemini falla, igual se publican las tablas y se carga MongoDB
         run: |
           set -o pipefail
           if [ -z "$GEMINI_API_KEY" ]; then
             echo "::warning::No está configurado GEMINI_API_KEY; se usa solo la caché."
           fi
-          python -m pipeline.ia_texto --datos data/processed | tee ia.json
+          python -m pipeline.ia_texto --datos data/processed --presupuesto-min 10 | tee ia.json
           { echo "### IA generativa (Gemini)"; echo '```json'; cat ia.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: KPI, riesgo de desabastecimiento y redistribución
+        run: |
+          python -m pipeline.kpi --datos data/processed | tee kpi.json
+          { echo "### KPI"; echo '```json'; cat kpi.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Versionar tablas limpias en la rama data
         run: |
