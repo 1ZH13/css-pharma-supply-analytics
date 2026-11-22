@@ -35,9 +35,6 @@ i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,paracetamol (acetaminof
 i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,salbutamol,SALBUTAMOL,mencionado,103043301,"SALBUTAMOL SULFATO, 2MG/5ML, JARABE, FRASCO, 150-180ML, V.O.",parcial
 i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,salbutamol,SALBUTAMOL,mencionado,103043401,"SALBUTAMOL BASE O SULFATO, 100MCG/INHALACIÓN, SUSPENSIÓN EN AEROSOL LIBRE DE CFC, INHALADOR CON 200-250 DOSIS, VÍA BUCAL.",parcial
 i01,Instituto Gorgas (SIGMED),2013,informe_tecnico,medio,salbutamol,SALBUTAMOL,mencionado,103048901,"SALBUTAMOL SULFATO, 0.5%, SOLUCIÓN, FRASCO, 20-30ML, NEBULIZACIÓN.",parcial
-n10,TVN,,compra_o_licitacion,medio,medicamentos para enfermedades crónicas,NO ESPECIFICADO,en_compra,,,sin_coincidencia
-n10,TVN,,compra_o_licitacion,medio,antibióticos,NO ESPECIFICADO,en_compra,,,sin_coincidencia
-n10,TVN,,compra_o_licitacion,medio,tratamientos utilizados para pacientes con cáncer,NO ESPECIFICADO,en_compra,,,sin_coincidencia
 n11,TVN,,desabastecimiento,alto,ácido hialurónico,ACIDO HIALURONICO,faltante,102096001,"Derivados de Acido Hialurónico de alto peso molecular (mayor de 4 millones de Daltons), solución, uso via intra-articular.",parcial
 n16,Panamá América,,desabastecimiento,alto,acetaminofén,ACETAMINOFEN,mencionado,101001101,"PARACETAMOL (ACETAMINOFÉN), 500MG, TABLETA, V.O.",parcial
 n16,Panamá América,,desabastecimiento,alto,acetaminofén,ACETAMINOFEN,mencionado,101077501,"PARACETAMOL (ACETAMINOFEN) 300-325mg con CODEINA FOSFATO 30mg, tableta, V.O.",parcial

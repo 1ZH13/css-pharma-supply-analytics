@@ -1,0 +1,24 @@
+﻿codigo,codigo_guiones,descripcion,principio_activo,atc,grupo_terapeutico,categoria_critica,critico,precio_ultimo,ultimo_mes_con_existencia,menciones_en_prensa,escasez_eeuu
+102064701,1-02-0647-01,"ETOPÓSIDO 20mg/ml, solución, I.V.",ETOPOSIDO,L01CB00001,Antineoplásicos e inmunomoduladores,Oncológicos,True,20.03,2022-12,0,False
+101018501,1-01-0185-01,"MELFALANO 2mg, tableta, V.O.",MELFALANO,L01AA00007,Antineoplásicos e inmunomoduladores,Oncológicos,True,0.78,2024-08,0,False
+103060401,1-03-0604-01,"LAMIVUDINA 10mg/ml, solución, frasco, 240-300ml, V.O.",LAMIVUDINA,J05AF00004,Antiinfecciosos sistémicos,Antivirales (incluye VIH),True,30.0,2025-01,0,False
+101053901,1-01-0539-01,"PROPRANOLOL CLORHIDRATO, 10MG, TABLETA, V.O.",PROPRANOLOL CLORHIDRATO,C07AA00002,Sistema cardiovascular,Cardiovascular,True,0.06,2025-03,0,True
+102008901,1-02-0089-01,"DOXORUBICINA CLORHIDRATO 10mg-50mg, polvo liofilizado o solución, I.V.",DOXORUBICINA CLORHIDRATO,L01DB00001,Antineoplásicos e inmunomoduladores,Oncológicos,True,7.25,2025-04,0,False
+101070201,1-01-0702-01,"SULPIRIDA 200mg, cápsula o tableta, V.O.",SULPIRIDA,N05AL00001,Sistema nervioso,,False,0.1484,2022-08,0,False
+101100201,1-01-1002-01,"DAPSONA 100mg, tableta, V.O.",DAPSONA,J04BA00002,Antiinfecciosos sistémicos,,False,0.97,2023-07,0,False
+101097201,1-01-0972-01,"OXICODONA CLORHIDRATO 10mg, tableta de liberación prolongada, V.O.",OXICODONA CLORHIDRATO,N02AA00003,Sistema nervioso,,False,2.0,2024-05,0,False
+103002901,1-03-0029-01,"CLORANFENICOL, 0.5%, GOTAS, SOLUCIÓN, FRASCO 5-15ML, VÍA OFTÁLMICA",CLORANFENICOL,S01AA00001,Órganos de los sentidos,,False,3.7,2024-05,0,False
+102023901,1-02-0239-01,"BIPERIDENO LACTATO 5mg/ml, solución, I.M., I.V.",BIPERIDENO LACTATO,N04AA00002,Sistema nervioso,,False,2.03,2024-08,0,False
+103005501,1-03-0055-01,"METACRESOLSULFÓNICO ÁCIDO con FORMALDEHÍDO (POLICRESULENO) 36 - 41%, líquido, frasco, 10-25ml, Vía Tópica.",METACRESOLSULFONICO ACIDO CON FORMALDEHIDO,D08AE00001,Dermatológicos,,False,8.19,2024-08,0,False
+103035301,1-03-0353-01,"MULTIVITAMINAS GOTAS, FRASCO CON CUENTAGOTAS O GOTERO CALIBRADO, 15-30ML V.O.",MULTIVITAMINAS GOTAS,A11BA00002,Tracto alimentario y metabolismo,,False,5.13,2024-08,0,False
+102094901,1-02-0949-01,"LIDOCAÍNA 2%, solución sin preservativo, Vía Infiltración Local, Troncular, Peridural, I.M., I.V.",LIDOCAINA,N01BB00016,Sistema nervioso,,False,2.25,2024-09,0,True
+104016801,1-04-0168-01,"ACICLOVIR 3%, ungüento, tubo, 3-7g, Vía Oftálmica.",ACICLOVIR,S01AD00001,Órganos de los sentidos,,False,14.35,2024-10,0,False
+104017301,1-04-0173-01,"MENTOL COMPUESTO 10-20%, ungüento, tubo, Vía Tópica.",MENTOL COMPUESTO,M02AX00002,Sistema musculoesquelético,,False,1.25,2024-10,1,False
+105007201,1-05-0072-01,"DICLOFENACO SÓDICO 50mg, supositorio, Vía Rectal.",DICLOFENACO SODICO,M01AB00002,Sistema musculoesquelético,,False,0.49,2024-10,0,False
+102037201,1-02-0372-01,"KETAMINA 50mg/ml, solución, I.M., I.V.",KETAMINA,N01AX00001,Sistema nervioso,,False,3.14,2025-03,0,False
+101034401,1-01-0344-01,"PIRIDOXINA (VITAMINA B6), 50MG, TABLETA, V.O.",PIRIDOXINA,A11HA00001,Tracto alimentario y metabolismo,,False,0.04,2025-05,0,False
+103060601,1-03-0606-01,"FENTANILO, 25MCG, PARCHE TRANSDÉRMICO, VÍA TÓPICA.",FENTANILO,,,,False,4.51,2025-07,0,True
+101002701,1-01-0027-01,"CEFUROXIMA 250mg/5ml suspensión, V.O.",CEFUROXIMA,,,,False,3.4,,0,False
+101068401,1-01-0684-01,"ESPIRAMICINA 1.0-1.5 millones UI, cápsula o tableta, V.O.",ESPIRAMICINA,J01FA00008,Antiinfecciosos sistémicos,,False,0.3552,,0,False
+103057501,1-03-0575-01,"LOPINAVIR 80MG CON RITONAVIR 20MG/ML, SOLUCIÓN, FRASCO, V.O.",LOPINAVIR,,,,False,43.2,,0,False
+103064601,1-03-0646-01,"FLUCONAZOL, 50mg/5ml, suspensión o solución, V.O.",FLUCONAZOL,,,,False,10.08,,0,False

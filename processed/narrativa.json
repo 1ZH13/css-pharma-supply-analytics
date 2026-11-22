@@ -1,0 +1,51 @@
+{
+  "clave": "07e7743fb38d07f391f57fd2",
+  "origen": "gemini",
+  "modelo": "gemini-3.6-flash",
+  "periodo": "2026-09",
+  "preguntas": {
+    "P1": {
+      "pregunta": "¿Qué pasó con el inventario de la CSS en 2025?",
+      "titular": "El valor del inventario de la CSS cayó 64.3 % en 2025",
+      "hallazgo": "Entre el corte de 2024-10 a 2025-01, la cantidad de medicamentos disminuyó 45.9 % y su valor cayó 64.3 % en una canasta fija de 480 medicamentos comparados de un total de 524. Asimismo, el valor mensual promedio pasó de B/. 118.3 M en 2024 a B/. 42.5 M en 2025 y B/. 37.1 M en 2026, con B/. 12.45 M inmovilizados por más de 12 meses.",
+      "implicacion": "Permite a la gerencia de logística programar compras oportunas para evitar el desabastecimiento de insumos.",
+      "cautela": "Los datos corresponden al corte 2024-10 a 2025-01 y reflejan el inventario consolidado analizado."
+    },
+    "P2": {
+      "pregunta": "¿Es real el \"90 % de abastecimiento\" que anuncia la CSS?",
+      "titular": "El abastecimiento real alcanzó 86.3 % frente al 96.0 % declarado",
+      "hallazgo": "Los datos muestran un porcentaje de abastecimiento último del 86.3 %, mientras que las cifras oficiales declaradas alcanzaron un máximo de 96.0 %, generando una brecha promedio de 11.4 pp a lo largo de 6 declaraciones. El punto mínimo registrado en los datos fue de 78.8 %, en contraste con el 90.0 % mínimo declarado.",
+      "implicacion": "Facilita a la alta dirección conciliar la metodología de cálculo para unificar los reportes de inventario.",
+      "cautela": "Los datos miden existencias en los 3 almacenes centrales, mientras que la CSS suele medir disponibilidad en farmacias."
+    },
+    "P3": {
+      "pregunta": "¿Quiénes pagan el desabastecimiento?",
+      "titular": "Los medicamentos de Asma y EPOC registraron 27.1 % meses en cero",
+      "hallazgo": "En la ventana de 2025-10 a 2026-09, el grupo de Asma y EPOC lideró la escasez con 27.1 % de meses en cero, seguido por Terapia hormonal oncológica con 25.0 % y Oncológicos con 23.9 %. Estos grupos resultaron peores que el 18.0 % de los no críticos, contabilizando además 17 medicamentos críticos con escasez en EEUU, mientras Tiroides registró 0.0 %.",
+      "implicacion": "Ayuda a las comisiones de abastecimiento a priorizar licitaciones para grupos patológicos vulnerables.",
+      "cautela": "El análisis comprende únicamente la ventana de tiempo del 2025-10 al 2026-09."
+    },
+    "P4": {
+      "pregunta": "¿El interior del país está peor abastecido?",
+      "titular": "El almacén CDPA concentra 80.1 % del valor del inventario disponible",
+      "hallazgo": "CDPA concentra el 80.1 % del valor del inventario entre 2025-10 y 2026-09, mientras CDCH registra 10.1 % y CDDI 9.8 %. Paralelamente, CDDI tuvo 26.8 % de renglones en cero con stock disponible en otro almacén y CDCH 23.0 %, realizándose 143 transferencias (43 de medicamentos críticos) por B/. 1.69 M.",
+      "implicacion": "Permite a los encargados de redistribución redistribuir inventarios de Panamá hacia las sedes de Chiriquí y Divisa.",
+      "cautela": "Los datos corresponden al monitoreo de existencias entre los tres centros de distribución en el periodo 2025-10 a 2026-09."
+    },
+    "P5": {
+      "pregunta": "¿Funcionó la Comisión de Desabastecimiento Crítico?",
+      "titular": "El abastecimiento subió a 84.2 % tras el hito de 2025-10",
+      "hallazgo": "El abastecimiento promedio se elevó de 80.0 % (2025-04 a 2025-09) a 84.2 % (2026-04 a 2026-09) tras el hito de 2025-10, alcanzando 86.3 % al final del periodo. Adicionalmente, los medicamentos críticos en cero bajaron de un promedio de 29.7 antes del hito a 24.3 después, ubicándose en 20 en la última medición.",
+      "implicacion": "Sirve a la gerencia ejecutiva para evaluar la efectividad del plan de intervención en el suministro.",
+      "cautela": "Existe una relación temporal, pero no prueba de causa: en el mismo periodo hubo otras compras y cambios de gestión."
+    },
+    "P6": {
+      "pregunta": "¿Cuáles son los medicamentos \"fantasma\"?",
+      "titular": "Se identificaron 23 medicamentos fantasma de 555 renglones publicados oficialmente",
+      "hallazgo": "De 555 renglones publicados, se detectaron 23 medicamentos fantasma, de los cuales 5 son críticos y 4 nunca registraron existencia. La distribución por categoría incluye 18 no críticos, 3 Oncológicos, 1 Cardiovascular y 1 Antivirales (incluye VIH), citando casos como ETOPÓSIDO 20mg/ml y MELFALANO 2mg.",
+      "implicacion": "Habilita a la dirección de compras a depurar los listados oficiales eliminando renglones sin existencias reales.",
+      "cautela": "La clasificación abarca los renglones analizados en el catálogo publicado hasta el periodo de corte 2026-09."
+    }
+  },
+  "cifras_a_revisar": {}
+}

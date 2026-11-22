@@ -1,0 +1,113 @@
+{
+  "periodo": "2026-09",
+  "P1": {
+    "corte": "2024-10 → 2025-01",
+    "medicamentos_comparados": 524,
+    "cambio_cantidad_pct": -45.9,
+    "cambio_valor_pct": -64.3,
+    "cambio_precio_mediano": 1.0,
+    "valor_mensual_promedio_M": {
+      "2021": 98.1,
+      "2022": 105.5,
+      "2023": 99.1,
+      "2024": 118.3,
+      "2025": 42.5,
+      "2026": 37.1
+    },
+    "valor_ultimo_mes_M": 42.9,
+    "canasta_fija_medicamentos": 480,
+    "inmovilizado_mas_12_meses_M": 12.45,
+    "inmovilizado_medicamentos": 43,
+    "inmovilizado_pct_del_valor": 29.0
+  },
+  "P2": {
+    "declaraciones": 6,
+    "pct_declarado_min": 90.0,
+    "pct_declarado_max": 96.0,
+    "pct_datos_12m_min": 78.8,
+    "pct_datos_12m_max": 86.3,
+    "pct_datos_ultimo": 86.3,
+    "brecha_promedio_pp": 11.4,
+    "nota": "Los datos miden existencias en los 3 almacenes centrales; la CSS suele medir disponibilidad en farmacias."
+  },
+  "P3": {
+    "ventana": "2025-10 a 2026-09",
+    "pct_no_criticos": 18.0,
+    "grupos_peor_que_no_criticos": [
+      "Asma y EPOC",
+      "Terapia hormonal oncológica",
+      "Oncológicos",
+      "Antivirales (incluye VIH)"
+    ],
+    "top3": [
+      {
+        "grupo": "Asma y EPOC",
+        "pct_meses_en_cero": 27.1
+      },
+      {
+        "grupo": "Terapia hormonal oncológica",
+        "pct_meses_en_cero": 25.0
+      },
+      {
+        "grupo": "Oncológicos",
+        "pct_meses_en_cero": 23.9
+      }
+    ],
+    "mejor": [
+      {
+        "grupo": "Tiroides",
+        "pct_meses_en_cero": 0.0
+      }
+    ],
+    "criticos_con_escasez_eeuu": 17
+  },
+  "P4": {
+    "ventana": "2025-10 a 2026-09",
+    "participacion_valor_pct": {
+      "CDCH": 10.1,
+      "CDDI": 9.8,
+      "CDPA": 80.1
+    },
+    "pct_en_cero_con_stock_en_otro": {
+      "CDCH": 23.0,
+      "CDDI": 26.8,
+      "CDPA": 8.4
+    },
+    "transferencias": 143,
+    "transferencias_criticos": 43,
+    "valor_transferencias_M": 1.69
+  },
+  "P5": {
+    "hito": "2025-10",
+    "abastecimiento_antes_pct": 80.0,
+    "abastecimiento_despues_pct": 84.2,
+    "criticos_en_cero_antes": 29.7,
+    "criticos_en_cero_despues": 24.3,
+    "abastecimiento_en_hito_pct": 78.8,
+    "abastecimiento_ultimo_pct": 86.3,
+    "criticos_en_cero_en_hito": 31,
+    "criticos_en_cero_ultimo": 20,
+    "periodos_antes": "2025-04 a 2025-09",
+    "periodos_despues": "2026-04 a 2026-09",
+    "nota": "Relación temporal, no prueba de causa: en el mismo periodo hubo otras compras y cambios de gestión."
+  },
+  "P6": {
+    "fantasmas": 23,
+    "de_renglones_publicados": 555,
+    "criticos": 5,
+    "por_categoria": {
+      "No crítico": 18,
+      "Oncológicos": 3,
+      "Antivirales (incluye VIH)": 1,
+      "Cardiovascular": 1
+    },
+    "nunca_con_existencia": 4,
+    "ejemplos_criticos": [
+      "ETOPÓSIDO 20mg/ml, solución, I.V.",
+      "MELFALANO 2mg, tableta, V.O.",
+      "LAMIVUDINA 10mg/ml, solución, frasco, 240-300ml, V.O.",
+      "PROPRANOLOL CLORHIDRATO, 10MG, TABLETA, V.O.",
+      "DOXORUBICINA CLORHIDRATO 10mg-50mg, polvo liofilizado o solución, I.V."
+    ]
+  }
+}
