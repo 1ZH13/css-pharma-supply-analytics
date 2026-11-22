@@ -1,0 +1,33 @@
+# Notas internas de trabajo (no van al repo)
+CLAUDE.md
+.claude/
+CONTEXTO.md
+
+# Credenciales
+.env
+*.env
+secrets.toml
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Datos descargados (se regeneran con el pipeline)
+data/raw/**/*.csv
+data/raw/**/*.xlsx
+data/raw/**/*.pdf
+data/raw/**/*.json
+data/raw/**/*.txt
+!data/raw/texto/fuentes_texto.csv
+data/processed/*
+!data/processed/.gitkeep
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
