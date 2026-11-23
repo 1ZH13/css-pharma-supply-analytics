@@ -1,0 +1,132 @@
+table medicamentos
+	lineageTag: 8bb47ffa-5edd-4e1d-bc30-ff7dfa172a2d
+
+	column codigo
+		dataType: string
+		lineageTag: fbca5afb-d2cf-4782-a774-dc4587493969
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_guiones
+		dataType: string
+		lineageTag: c55e89d0-92b7-423c-b1cb-8fe96a8e556e
+		summarizeBy: none
+		sourceColumn: codigo_guiones
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion
+		dataType: string
+		lineageTag: 43f3845b-9f8b-4b16-b3d8-b02070ec912e
+		summarizeBy: none
+		sourceColumn: descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column principio_activo
+		dataType: string
+		lineageTag: 1b8dd4f2-7f5c-4ba4-b5d9-95487d9de691
+		summarizeBy: none
+		sourceColumn: principio_activo
+
+		annotation SummarizationSetBy = Automatic
+
+	column atc
+		dataType: string
+		lineageTag: b66c4a93-53e6-405e-9041-4494389af46a
+		summarizeBy: none
+		sourceColumn: atc
+
+		annotation SummarizationSetBy = Automatic
+
+	column atc_nivel1
+		dataType: string
+		lineageTag: d317315d-bebf-44ba-9559-43d5c3daa110
+		summarizeBy: none
+		sourceColumn: atc_nivel1
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_terapeutico
+		dataType: string
+		lineageTag: 8d4d8b80-4905-4fcc-9a9a-b5d4fa42078a
+		summarizeBy: none
+		sourceColumn: grupo_terapeutico
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria_critica
+		dataType: string
+		lineageTag: 68b0bf36-e6ce-42b7-b3fb-ddcc94a14627
+		summarizeBy: none
+		sourceColumn: categoria_critica
+
+		annotation SummarizationSetBy = Automatic
+
+	column critico
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9e925c62-1970-4894-85ee-ca3650ae5c71
+		summarizeBy: none
+		sourceColumn: critico
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_compra
+		dataType: string
+		lineageTag: 49a45bf7-695a-4ef6-b07c-757cac3566cc
+		summarizeBy: none
+		sourceColumn: tipo_compra
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_ultimo
+		dataType: double
+		lineageTag: ba90a0dd-0c49-426f-b095-21d5e13e0e26
+		summarizeBy: sum
+		sourceColumn: precio_ultimo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column primer_periodo
+		dataType: string
+		lineageTag: e5b4ea39-2983-4d9d-9476-0a478269aec3
+		summarizeBy: none
+		sourceColumn: primer_periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	column ultimo_periodo
+		dataType: string
+		lineageTag: 0d246f10-ddf6-4204-b9a2-b84e1dd1a276
+		summarizeBy: none
+		sourceColumn: ultimo_periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	column meses_con_dato
+		dataType: double
+		lineageTag: f84c74c6-8e8b-4495-bb6c-7ff6390f240e
+		summarizeBy: sum
+		sourceColumn: meses_con_dato
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition medicamentos = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("medicamentos")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

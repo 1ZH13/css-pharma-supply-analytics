@@ -1,0 +1,114 @@
+table redistribucion
+	lineageTag: 75cdb7d0-60cc-4409-91c0-9ea28ffecca7
+
+	column codigo
+		dataType: string
+		lineageTag: 97a0f637-68f8-4b8d-89ed-22d28dcd7e2a
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion
+		dataType: string
+		lineageTag: a7d9fc85-df93-469b-a457-db8b8a8c5a4a
+		summarizeBy: none
+		sourceColumn: descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column critico
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9b825669-68b5-4342-aa4c-9dced2a4bd08
+		summarizeBy: none
+		sourceColumn: critico
+
+		annotation SummarizationSetBy = Automatic
+
+	column nivel_riesgo
+		dataType: string
+		lineageTag: d8a5cd01-3683-4ab6-a364-3767a63b0368
+		summarizeBy: none
+		sourceColumn: nivel_riesgo
+
+		annotation SummarizationSetBy = Automatic
+
+	column desde
+		dataType: string
+		lineageTag: d02ceaa7-4943-4dd9-b6b2-9db2963c9c4f
+		summarizeBy: none
+		sourceColumn: desde
+
+		annotation SummarizationSetBy = Automatic
+
+	column hacia
+		dataType: string
+		lineageTag: 193c242d-cc8f-44b2-b38d-e3947206cf16
+		summarizeBy: none
+		sourceColumn: hacia
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad
+		dataType: double
+		lineageTag: 27ca386c-e152-4b4f-ab41-0f0d0af3d657
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valor
+		dataType: double
+		lineageTag: 4679c337-3efc-4d0f-803e-fbbd7fb7cc18
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cobertura_origen_antes
+		dataType: double
+		lineageTag: 6f607549-2c5f-4818-a9f8-aa42c8374049
+		summarizeBy: sum
+		sourceColumn: cobertura_origen_antes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cobertura_destino_antes
+		dataType: double
+		lineageTag: b7e145fc-8723-45ab-ac00-ba37aba7e570
+		summarizeBy: sum
+		sourceColumn: cobertura_destino_antes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cobertura_destino_despues
+		dataType: double
+		lineageTag: 183c7c65-8c71-4f5a-8815-3c4089162694
+		summarizeBy: sum
+		sourceColumn: cobertura_destino_despues
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition redistribucion = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("redistribucion")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -28,7 +28,13 @@ import requests
 from pipeline.config import CKAN_API, CSS_ORG, OPENFDA_SHORTAGES, RAW
 
 SESSION = requests.Session()
-SESSION.headers["User-Agent"] = "css-pharma-supply-analytics/1.0 (proyecto academico UTP)"
+# Algunos medios rechazan clientes que no se identifican como navegador.
+SESSION.headers.update({
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/131.0 Safari/537.36 css-pharma-supply-analytics/1.0"),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,application/pdf;q=0.8,*/*;q=0.7",
+    "Accept-Language": "es-PA,es;q=0.9,en;q=0.6",
+})
 
 
 def _now() -> str:
@@ -125,32 +131,40 @@ def extraer_openfda(pagina: int = 100) -> list[dict]:
 
 # -------------------------------------------------------------- 3. Texto
 def extraer_texto() -> list[dict]:
-    """Descarga las páginas listadas en fuentes_texto.csv y guarda su texto plano."""
-    from bs4 import BeautifulSoup
+    """Descarga las páginas listadas en fuentes_texto.csv y guarda el cuerpo de cada noticia.
+
+    El texto se obtiene con `pipeline.texto.extraer_articulo` (JSON-LD o densidad de
+    párrafos). Los PDF se guardan tal cual y se convierten a texto en la transformación.
+    Cada fuente queda en el manifiesto con su estado, aunque falle, para el reporte de calidad.
+    """
+    from pipeline.texto import extraer_articulo
 
     destino = RAW / "texto"
     lista = destino / "fuentes_texto.csv"
     manifest = []
     with lista.open(encoding="utf-8") as f:
         for fila in csv.DictReader(f):
-            nombre = f"{fila['id']}.txt"
+            reg = {**fila, "descargado": _now()}
             try:
                 r = _get(fila["url"])
             except requests.RequestException as e:
+                codigo = getattr(getattr(e, "response", None), "status_code", None)
                 print(f"   ✗ {fila['id']}: {e}")
+                manifest.append({**reg, "estado": "error", "http": codigo, "caracteres": 0})
                 continue
-            if fila["url"].lower().endswith(".pdf"):
+            reg["url_final"] = r.url
+            es_pdf = "pdf" in r.headers.get("Content-Type", "") or fila["url"].lower().endswith(".pdf")
+            if es_pdf:
                 (destino / f"{fila['id']}.pdf").write_bytes(r.content)
-                texto = ""  # el PDF se convierte a texto en la etapa de transformación
+                reg.update(estado="pdf", metodo="pdf", caracteres=None, sha256=_sha256(r.content))
             else:
-                sopa = BeautifulSoup(r.text, "html.parser")
-                for t in sopa(["script", "style", "nav", "footer", "header", "aside"]):
-                    t.decompose()
-                cuerpo = sopa.find("article") or sopa.body or sopa
-                texto = re.sub(r"\n{3,}", "\n\n", cuerpo.get_text("\n", strip=True))
-                (destino / nombre).write_text(texto, encoding="utf-8")
-            manifest.append({**fila, "caracteres": len(texto), "descargado": _now()})
-            print(f"   ↓ {fila['id']} ({len(texto)} caracteres)")
+                r.encoding = r.apparent_encoding if not r.encoding or r.encoding.lower() == "iso-8859-1" else r.encoding
+                texto, metodo = extraer_articulo(r.text)
+                (destino / f"{fila['id']}.txt").write_text(texto, encoding="utf-8")
+                reg.update(estado="ok" if len(texto) >= 500 else "corto", metodo=metodo, caracteres=len(texto))
+            reg["http"] = r.status_code
+            manifest.append(reg)
+            print(f"   ↓ {fila['id']} {reg['estado']} ({reg.get('metodo')}, {reg.get('caracteres')} caracteres)")
     _guardar_manifest(destino, manifest)
     return manifest
 

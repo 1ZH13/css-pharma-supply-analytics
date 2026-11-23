@@ -1,0 +1,65 @@
+table Calendario
+	lineageTag: 9ec35c0b-50b5-468a-879e-848280c8bdc7
+
+	column Date
+		formatString: General Date
+		lineageTag: dea5f520-d191-422a-b353-be2edf883c08
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 52de7435-2574-4e18-b137-5faa0be452e5
+			defaultHierarchy: LocalDateTable_16be14e8-c22f-4eb9-80d3-cec8d34f04fa.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		formatString: 0
+		lineageTag: ec31f82e-3015-4183-b83a-7cd09b1e9b15
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesNum
+		formatString: 0
+		lineageTag: c8b64963-fb3e-4989-83ed-5be9e1b0c2ac
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MesNum]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		lineageTag: a196591a-8280-4ff8-b3b7-0bc179874e6a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Periodo
+		lineageTag: eb6d586c-2402-47d7-892b-821024311d94
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Periodo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Etapa
+		lineageTag: e0866597-31f9-454a-956d-369fb77e52e6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Etapa]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendario = calculated
+		mode: import
+		source = ADDCOLUMNS ( CALENDAR ( DATE ( 2021, 1, 1 ), DATE ( 2026, 12, 1 ) ), "Año", YEAR ( [Date] ), "MesNum", MONTH ( [Date] ), "Mes", FORMAT ( [Date], "mmm" ), "Periodo", FORMAT ( [Date], "yyyy-mm" ), "Etapa", IF ( [Date] < DATE ( 2025, 1, 1 ), "Antes de 2025", "2025 en adelante" ) )
+
+	annotation PBI_Id = a289f175e785422290bbcce93408227c
+

@@ -1,0 +1,42 @@
+# Verificación de cada pull request antes de aceptarlo.
+name: Verificación
+
+on:
+  pull_request:
+    branches: [develop, qa, main]
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Dependencias
+        run: pip install -r requirements.txt
+      - name: Sintaxis
+        run: python -m compileall -q pipeline
+      - name: El pipeline importa y responde
+        run: |
+          python -m pipeline.extract --help
+          python -m pipeline.transform --help
+          python -m pipeline.load --help
+
+      - name: Pruebas de las reglas de limpieza
+        run: |
+          pip install pytest
+          python -m pytest -q tests
+
+      - name: Datos crudos de la rama data
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: _data
+
+      - name: Pipeline completo sobre los datos reales (sin cargar)
+        run: |
+          python -m pipeline.transform --raw _data/raw --salida _salida
+          python -m pipeline.quality --datos _salida
+          cat _salida/reporte_calidad.md >> "$GITHUB_STEP_SUMMARY"
