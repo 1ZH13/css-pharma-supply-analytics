@@ -151,9 +151,9 @@ Detalle en [`docs/fuentes.md`](docs/fuentes.md).
 
 | Rol | Integrante |
 |---|---|
-| Director(a) de Tecnología e Información (líder) | _por definir_ |
-| Ingeniero(a) de Datos | _por definir_ |
-| Analista de BI | _por definir_ |
-| Director(a) Nacional de Farmacia | _por definir_ |
-| Gerente de Logística y Cadena de Suministro | _por definir_ |
-| Gerente de Calidad y Atención al Asegurado | _por definir_ |
+| Director de Tecnología e Información (líder) | César Bazán |
+| Ingeniero de Datos | Diego Landero |
+| Analista de BI | Grace Sánchez |
+| Directora Nacional de Farmacia | Yarlenis Pimentel |
+| Gerente de Logística y Cadena de Suministro | Liliana Coronado |
+| Gerente de Calidad y Atención al Asegurado | Mónica Serrano |
