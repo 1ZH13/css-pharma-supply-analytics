@@ -6,45 +6,45 @@
   "preguntas": {
     "P1": {
       "pregunta": "¿Qué pasó con el inventario de la CSS en 2025?",
-      "titular": "El valor del inventario de la CSS se redujo 64.3 % en 2025.",
-      "hallazgo": "Entre octubre de 2024 y enero de 2025, el valor del inventario sufrió un cambio de -64.3 % y la cantidad cayó 45.9 % sobre 480 medicamentos de una canasta fija. El valor mensual promedio pasó de B/. 118.3 millones en 2024 a B/. 42.5 millones en 2025. Además, existen 43 medicamentos inmovilizados por más de 12 meses, lo que representa B/. 12.45 millones o un 29.0 % del valor total.",
-      "implicacion": "Permite a la gerencia de logística reajustar los niveles de compra y depurar el inventario inmovilizado para optimizar el capital.",
-      "cautela": "Los datos comparan únicamente una canasta fija de 480 medicamentos en el periodo de corte de octubre de 2024 a enero de 2025."
+      "titular": "El valor del inventario disminuyó 64.3 % entre 2024-10 y 2025-01.",
+      "hallazgo": "Entre el corte 2024-10 y 2025-01, la cantidad de medicamentos comparados cayó 45.9 % y el valor del inventario cayó 64.3 % en una canasta fija de 480 medicamentos. El valor mensual promedio disminuyó de B/. 118.3 millones en 2024 a B/. 42.5 millones en 2025. Además, 43 medicamentos permanecen inmovilizados por más de 12 meses, representando B/. 12.45 millones o 29.0 % del valor total.",
+      "implicacion": "Permite a la gerencia logística planificar compras prioritarias para reabastecer inventarios y depurar insumos inmovilizados.",
+      "cautela": "El análisis se limita a la comparación de 524 medicamentos entre el corte 2024-10 y 2025-01."
     },
     "P2": {
       "pregunta": "¿Es real el \"90 % de abastecimiento\" que anuncia la CSS?",
-      "titular": "El abastecimiento real en almacenes alcanzó 86.3 %, frente al 96.0 % declarado.",
-      "hallazgo": "El abastecimiento registrado en los datos tuvo un valor máximo de 86.3 % y un mínimo de 78.8 % en los últimos 12 meses, situándose el último dato en 86.3 %. En contraste, las declaraciones oficiales reportaron entre 90.0 % y 96.0 % a lo largo de 6 declaraciones. Esta discrepancia representa una brecha promedio de 11.4 puntos porcentuales.",
-      "implicacion": "Permite a los tomadores de decisión estandarizar los indicadores de disponibilidad para alinear los informes públicos con los datos operativos.",
-      "cautela": "Los datos miden existencias en los 3 almacenes centrales, mientras que la CSS suele medir disponibilidad en farmacias."
+      "titular": "Se anuncian 90–96 % de abastecimiento; los datos muestran 78.8–86.3 %",
+      "hallazgo": "En 6 declaraciones oficiales el abastecimiento reportado osciló entre 90.0 % y 96.0 %, mientras los registros mostraron un mínimo de 78.8 % y un máximo de 86.3 %. La brecha promedio entre las cifras declaradas y los datos de inventario es de 11.4 pp, situándose el último dato registrado en 86.3 %.",
+      "implicacion": "Ayuda a los directivos a homologar los criterios de medición para evitar inconsistencias entre informes públicos y datos operativos.",
+      "cautela": "Los datos miden existencias en los 3 almacenes centrales; la CSS suele medir disponibilidad en farmacias."
     },
     "P3": {
       "pregunta": "¿Quiénes pagan el desabastecimiento?",
-      "titular": "Los medicamentos para Asma y EPOC registraron 27.1 % de meses sin stock.",
-      "hallazgo": "Entre octubre de 2025 y septiembre de 2026, los grupos con mayor desabastecimiento fueron Asma y EPOC con 27.1 % de meses en cero, Terapia hormonal oncológica con 25.0 % y Oncológicos con 23.9 %. Estos rubros críticos mostraron un peor desempeño que el grupo de no críticos, que registró 18.0 % de meses en cero. Por el contrario, el grupo Tiroides registró 0.0 % de meses en cero, mientras que 17 medicamentos críticos presentan escasez reportada en EE. UU.",
-      "implicacion": "Permite a la dirección médica focalizar las compras de emergencia en las categorías terapéuticas con mayor desabastecimiento.",
-      "cautela": "La medición se limita a la ventana temporal observada de octubre de 2025 a septiembre de 2026."
+      "titular": "Asma y EPOC lideró el desabastecimiento con 27.1 % de meses en cero.",
+      "hallazgo": "Entre 2025-10 y 2026-09, el grupo de Asma y EPOC registró 27.1 % de meses en cero, seguido por Terapia hormonal oncológica con 25.0 % y Oncológicos con 23.9 %. Estos grupos críticos mostraron peores indicadores que los no críticos (18.0 %), mientras que Tiroides no presentó meses en cero (0.0 %).",
+      "implicacion": "Facilita a los gestores de salud orientar recursos y compras hacia las áreas terapéuticas más afectadas.",
+      "cautela": "El reporte se restringe al periodo de análisis comprendido entre 2025-10 y 2026-09."
     },
     "P4": {
       "pregunta": "¿El interior del país está peor abastecido?",
-      "titular": "El almacén central CDPA concentra 80.1 % del valor total de inventario.",
-      "hallazgo": "El CDPA concentra el 80.1 % del valor del inventario, en comparación con el 10.1 % del CDCH y el 9.8 % del CDDI. Asimismo, el desabastecimiento con existencia disponible en otro almacén afectó al 26.8 % de los renglones en CDDI y al 23.0 % en CDCH, frente a un 8.4 % en CDPA. Para atender estos desequilibrios se realizaron 143 transferencias por B/. 1.69 millones, de las cuales 43 correspondieron a medicamentos críticos.",
-      "implicacion": "Permite a la jefatura de distribución reequilibrar los traslados de inventario entre centros regionales para reducir el desabastecimiento local.",
-      "cautela": "El análisis corresponde al registro de transferencias y existencias en almacenes entre octubre de 2025 y septiembre de 2026."
+      "titular": "CDPA concentra el 80.1 % del valor del inventario nacional de medicamentos.",
+      "hallazgo": "CDPA concentra el 80.1 % del valor del inventario, frente al 10.1 % en CDCH y 9.8 % en CDDI. Asimismo, CDDI registró 26.8 % de renglones en cero teniendo disponibilidad en otro almacén, frente a 23.0 % en CDCH y 8.4 % en CDPA. Se realizaron 143 transferencias por B/. 1.69 millones, incluyendo 43 transferencias de medicamentos críticos.",
+      "implicacion": "Permite al equipo de logística redistribuir existencias entre almacenes regionales para reducir faltantes locales.",
+      "cautela": "La medición corresponde únicamente a la ventana observada entre 2025-10 y 2026-09."
     },
     "P5": {
       "pregunta": "¿Funcionó la Comisión de Desabastecimiento Crítico?",
-      "titular": "El abastecimiento aumentó de 80.0 % a 84.2 % tras la comisión.",
-      "hallazgo": "Antes del hito de octubre de 2025, el abastecimiento promedio era de 80.0 % y los medicamentos críticos en cero promediaban 29.7. Tras la intervención, el abastecimiento subió a 84.2 % y los críticos en cero bajaron a 24.3, alcanzando en el último periodo un 86.3 % de abastecimiento y 20 críticos en cero. Durante el hito de octubre de 2025, el abastecimiento fue de 78.8 % con 31 medicamentos críticos en cero.",
-      "implicacion": "Permite a la alta gerencia evaluar la continuidad de la comisión como mecanismo supervisorio de abastecimiento.",
-      "cautela": "Existe una relación temporal y no una prueba de causa, dado que en el mismo periodo hubo otras compras y cambios de gestión."
+      "titular": "Desde la Comisión (oct-2025) el abastecimiento subió de 78.8 % a 86.3 %",
+      "hallazgo": "Luego del hito de 2025-10, el abastecimiento promedio pasó de 80.0 % (2025-04 a 2025-09) a 84.2 % (2026-04 a 2026-09), alcanzando 86.3 % en el último periodo. Los medicamentos críticos en cero bajaron de un promedio de 29.7 a 24.3, registrando 20 en la última medición.",
+      "implicacion": "Permite a las autoridades evaluar la evolución del abastecimiento tras la creación de la comisión.",
+      "cautela": "Muestra una relación temporal, no prueba de causa: en el mismo periodo hubo otras compras y cambios de gestión."
     },
     "P6": {
       "pregunta": "¿Cuáles son los medicamentos \"fantasma\"?",
-      "titular": "Se detectaron 23 medicamentos \"fantasma\" entre 555 renglones publicados por la CSS.",
-      "hallazgo": "De un conjunto de 555 renglones publicados, se identificaron 23 medicamentos catalogados como \"fantasma\", de los cuales 5 son críticos y 4 nunca han registrado existencia. Por categoría, corresponden a 18 no críticos, 3 oncológicos, 1 cardiovascular y 1 antiviral. Entre los medicamentos críticos en esta condición están ETOPÓSIDO, MELFALANO, LAMIVUDINA, PROPRANOLOL CLORHIDRATO y DOXORUBICINA CLORHIDRATO.",
-      "implicacion": "Permite al departamento de compras depurar el catálogo oficial eliminando renglones sin oferta o sin histórico de existencia.",
-      "cautela": "La condición de medicamento \"fantasma\" se deduce de la falta de existencia registrada frente al listado publicado de 555 renglones."
+      "titular": "Se identificaron 23 medicamentos fantasma de 555 renglones publicados.",
+      "hallazgo": "De 555 renglones publicados, se identificaron 23 medicamentos fantasma, entre los cuales 5 son críticos y 4 nunca registraron existencia. En el grupo crítico figuran 3 medicamentos oncológicos, 1 antiviral y 1 cardiovascular, incluyendo ejemplos como ETOPÓSIDO 20mg/ml y MELFALANO 2mg.",
+      "implicacion": "Permite a los administradores actualizar el catálogo oficial eliminando códigos que no cuentan con oferta o inventario real.",
+      "cautela": "Los datos corresponden únicamente a los 555 renglones evaluados en el periodo acumulado a 2026-09."
     }
   },
   "cifras_a_revisar": {}

@@ -1,6 +1,6 @@
 # Reporte de calidad de datos — Inventario de medicamentos CSS
 
-_Generado automáticamente por `pipeline/quality.py` el 2026-11-22._
+_Generado automáticamente por `pipeline/quality.py` el 2026-11-23._
 
 ## Resumen
 
