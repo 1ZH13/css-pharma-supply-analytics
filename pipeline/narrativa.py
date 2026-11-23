@@ -25,6 +25,22 @@ from .ia import ClienteGemini, ErrorIA
 
 log = logging.getLogger("narrativa")
 VERSION = "v1"
+# Narrativa publicada en la rama data: en GitHub Actions la carpeta de trabajo empieza vacía,
+# así que la caché se toma de ahí para no volver a consultar a Gemini si las cifras no cambiaron.
+PUBLICADA = "https://raw.githubusercontent.com/1ZH13/css-pharma-supply-analytics/data/processed/narrativa.json"
+
+
+def _previa(salida: Path) -> dict:
+    if salida.exists():
+        return json.loads(salida.read_text(encoding="utf-8"))
+    try:
+        import requests
+        r = requests.get(PUBLICADA, timeout=20)
+        if r.ok:
+            return r.json()
+    except Exception as e:  # sin red o sin rama data: se redacta de nuevo
+        log.info("Sin narrativa publicada previa: %s", e)
+    return {}
 
 PREGUNTAS = {
     "P1": "¿Qué pasó con el inventario de la CSS en 2025?",
@@ -132,7 +148,7 @@ def ejecutar(datos: Path = PROCESSED) -> dict:
     cifras_json = json.dumps(cifras, ensure_ascii=False, sort_keys=True)
     clave = hashlib.sha256(f"{VERSION}|{cifras_json}".encode()).hexdigest()[:24]
     salida = datos / "narrativa.json"
-    previo = json.loads(salida.read_text(encoding="utf-8")) if salida.exists() else {}
+    previo = _previa(salida)
     if previo.get("clave") == clave and previo.get("origen") == "gemini":
         log.info("Narrativa en caché (cifras sin cambios).")
         previo = _fijar(previo, cifras)
@@ -142,7 +158,7 @@ def ejecutar(datos: Path = PROCESSED) -> dict:
     origen, modelo, revisar = "plantilla", None, {}
     textos = plantilla(cifras)
     try:
-        cli = ClienteGemini(pausa=0)
+        cli = ClienteGemini(pausa=0, timeout=60, reintentos=1, max_modelos=2)   # si no responde, plantilla
         preguntas = "\n".join(f"{k}: {v}" for k, v in PREGUNTAS.items())
         r = cli.json(PROMPT.format(preguntas=preguntas, cifras=cifras_json), ESQUEMA)
         for it in r.get("preguntas", []):
