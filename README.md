@@ -34,7 +34,7 @@ Noticias · texto (web)    ─┘    → IA generativa (texto)                  
 data/raw/          Datos crudos descargados (no versionados; se regeneran)
 data/processed/    Datos limpios y unificados
 pipeline/          Extracción, limpieza, transformación y carga
-notebooks/         Exploración y análisis
+notebooks/         demo_sig.ipynb: indicadores principales (se ejecuta en Colab)
 dashboard/         Streamlit y Power BI
 docs/              Fuentes, diccionario de datos y decisiones de diseño
 ```
@@ -85,6 +85,8 @@ Lee de MongoDB Atlas si encuentra `MONGODB_URI` (en `.streamlit/secrets.toml` o 
 Publicado en **https://css-medicamentos-panama.streamlit.app**.
 
 **Dashboard (Power BI):** el reporte `dashboard/powerbi/CSS_inventario_medicamentos.pbip` tiene 7 páginas: resumen y una por pregunta. Lee la rama `data` y no necesita credenciales. Ver [`dashboard/powerbi/README.md`](dashboard/powerbi/README.md).
+
+**Notebook de demostración:** [`notebooks/demo_sig.ipynb`](notebooks/demo_sig.ipynb) reproduce los KPI, el riesgo, los traslados y los fantasmas. Lee de MongoDB si existe `MONGODB_URI`; si no, de la rama `data`. [Abrir en Colab](https://colab.research.google.com/github/1ZH13/css-pharma-supply-analytics/blob/main/notebooks/demo_sig.ipynb).
 
 **Recomendaciones, riesgos y limitaciones (Etapa 6):** ver [`docs/recomendaciones.md`](docs/recomendaciones.md).
 
