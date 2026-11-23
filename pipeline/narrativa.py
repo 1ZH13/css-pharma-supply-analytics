@@ -72,6 +72,36 @@ def _validar(item: dict, cifras_json: str) -> list[str]:
     return sorted(n for n in _numeros(texto) if n not in permitidos and n.rstrip("0").rstrip(".") not in permitidos)
 
 
+def _n(x) -> str:
+    """90.0 -> '90'; 86.3 -> '86.3' (mismo formato que el documento y Power BI)."""
+    return f"{x:g}" if isinstance(x, (int, float)) else str(x)
+
+
+MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+
+
+def titulares_fijos(r: dict) -> dict:
+    """Titulares con cifras fijas para P2 y P5.
+
+    Gemini puede elegir otra cifra válida (el máximo declarado o los promedios de 6 meses);
+    estos titulares usan siempre las mismas cifras que el documento, la presentación y Power BI.
+    """
+    p2, p5 = r["P2"], r["P5"]
+    anio, mes = str(p5.get("hito", "2025-10")).split("-")
+    return {
+        "P2": f"Se anuncian {_n(p2['pct_declarado_min'])}–{_n(p2['pct_declarado_max'])} % de abastecimiento; "
+              f"los datos muestran {_n(p2['pct_datos_12m_min'])}–{_n(p2['pct_datos_12m_max'])} %",
+        "P5": f"Desde la Comisión ({MESES[int(mes) - 1]}-{anio}) el abastecimiento subió de "
+              f"{_n(p5['abastecimiento_en_hito_pct'])} % a {_n(p5['abastecimiento_ultimo_pct'])} %",
+    }
+
+
+def _fijar(out: dict, cifras: dict) -> dict:
+    for k, t in titulares_fijos(cifras).items():
+        out["preguntas"][k]["titular"] = t
+    return out
+
+
 def plantilla(r: dict) -> dict:
     """Redacción de respaldo sin IA."""
     p1, p2, p3, p4, p5, p6 = (r[k] for k in ("P1", "P2", "P3", "P4", "P5", "P6"))
@@ -105,6 +135,8 @@ def ejecutar(datos: Path = PROCESSED) -> dict:
     previo = json.loads(salida.read_text(encoding="utf-8")) if salida.exists() else {}
     if previo.get("clave") == clave and previo.get("origen") == "gemini":
         log.info("Narrativa en caché (cifras sin cambios).")
+        previo = _fijar(previo, cifras)
+        salida.write_text(json.dumps(previo, ensure_ascii=False, indent=2), encoding="utf-8")
         return previo
 
     origen, modelo, revisar = "plantilla", None, {}
@@ -126,6 +158,7 @@ def ejecutar(datos: Path = PROCESSED) -> dict:
     out = {"clave": clave, "origen": origen, "modelo": modelo, "periodo": cifras.get("periodo"),
            "preguntas": {k: {"pregunta": PREGUNTAS[k], **textos[k]} for k in PREGUNTAS},
            "cifras_a_revisar": revisar}
+    out = _fijar(out, cifras)
     salida.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     return out
 
