@@ -1,0 +1,286 @@
+"""Genera las páginas del reporte Power BI (formato PBIR) y ajusta formatos del modelo."""
+import json, re, shutil, sys, uuid
+from pathlib import Path
+
+BASE = Path(sys.argv[1])
+REP = BASE / "CSS_inventario_medicamentos.Report" / "definition"
+SEM = BASE / "CSS_inventario_medicamentos.SemanticModel" / "definition"
+VS = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json"
+PS = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json"
+VIOLETA, OSCURO, ROJO, GRIS, AMBAR, AZUL = "#5B2C83", "#3D1D5C", "#B23A48", "#8A8494", "#C98A1B", "#3A7CA5"
+
+# ------------------------------------------------------------ modelo: formatos
+tm = SEM / "tables" / "existencias.tmdl"
+t = tm.read_text(encoding="utf-8")
+t = re.sub(r"\n\t\tannotation PBI_FormatHint = .*\n", "\n", t)
+formatos = {
+    "'% abastecimiento'": "0.0%", "'Abastecimiento oficial'": "0.0%", "'Abastecimiento último mes'": "0.0%",
+    "'Variación 12 meses %'": "+0.0%;-0.0%", "'Valor inventario'": "#,0", "'Valor año anterior'": "#,0",
+    "'Valor promedio mensual'": "#,0", "'Dinero inmovilizado'": "#,0", "'Valor de traslados'": "#,0",
+    "'Valor último mes'": "#,0", "Unidades": "#,0", "Renglones-mes": "#,0", "'Renglones en cero'": "#,0",
+    "'Brecha declarada (p.p.)'": "0.0", "'Críticos en cero último mes'": "0",
+}
+lineas = t.split("\n")
+out = []
+i = 0
+while i < len(lineas):
+    l = lineas[i]
+    if l is None:
+        i += 1
+        continue
+    out.append(l)
+    m = re.match(r"\tmeasure (.+?) = ", l)
+    if m and m.group(1) in formatos:
+        # quitar formatString previo del bloque si existe
+        j = i + 1
+        while j < len(lineas) and lineas[j].startswith("\t\t"):
+            if lineas[j].strip().startswith("formatString:"):
+                lineas[j] = None
+            j += 1
+        out.append(f"\t\tformatString: {formatos[m.group(1)]}")
+    i += 1
+tm.write_text("\n".join(x for x in out if x is not None), encoding="utf-8")
+
+rel = SEM / "relationships.tmdl"
+r = rel.read_text(encoding="utf-8")
+r = r.replace("\tfromColumn: p6_fantasmas.codigo\n", "\tcrossFilteringBehavior: bothDirections\n\tfromColumn: p6_fantasmas.codigo\n", 1) \
+    if "crossFilteringBehavior: bothDirections\n\tfromColumn: p6_fantasmas.codigo" not in r else r
+rel.write_text(r, encoding="utf-8")
+
+# ------------------------------------------------------------ ayudas PBIR
+def lit(v):
+    return {"expr": {"Literal": {"Value": v}}}
+
+def s(txt):
+    return lit("'" + txt.replace("'", "''") + "'")
+
+def color(c):
+    return {"solid": {"color": s(c)}}
+
+def M(ent, prop):
+    return ({"Measure": {"Expression": {"SourceRef": {"Entity": ent}}, "Property": prop}}, f"{ent}.{prop}", prop)
+
+def C(ent, prop):
+    return ({"Column": {"Expression": {"SourceRef": {"Entity": ent}}, "Property": prop}}, f"{ent}.{prop}", prop)
+
+def SUM(ent, prop):
+    col = {"Column": {"Expression": {"SourceRef": {"Entity": ent}}, "Property": prop}}
+    return ({"Aggregation": {"Expression": col, "Function": 0}}, f"Sum({ent}.{prop})", prop)
+
+def proj(f):
+    return {"field": f[0], "queryRef": f[1], "nativeQueryRef": f[2]}
+
+def titulo(txt, tam="14"):
+    return {"title": [{"properties": {"show": lit("true"), "text": s(txt), "fontColor": color(OSCURO),
+                                      "fontSize": lit(f"{tam}D"), "bold": lit("true")}}],
+            "background": [{"properties": {"show": lit("true"), "color": color("#FFFFFF")}}],
+            "border": [{"properties": {"show": lit("true"), "color": color("#E6DDF0"), "radius": lit("8D")}}]}
+
+def visual(tipo, x, y, w, h, roles=None, title=None, objects=None, sort=None, filters=None, z=0):
+    v = {"$schema": VS, "name": uuid.uuid4().hex[:20],
+         "position": {"x": x, "y": y, "z": z, "height": h, "width": w, "tabOrder": z},
+         "visual": {"visualType": tipo, "drillFilterOtherVisuals": True}}
+    if roles:
+        q = {"queryState": {k: {"projections": [proj(f) for f in fs]} for k, fs in roles.items()}}
+        if sort:
+            q["sortDefinition"] = {"sort": [{"field": sort[0][0], "direction": sort[1]}], "isDefaultSort": False}
+        v["visual"]["query"] = q
+    if objects:
+        v["visual"]["objects"] = objects
+    if title:
+        v["visual"]["visualContainerObjects"] = titulo(title)
+    if filters:
+        v["filterConfig"] = {"filters": filters}
+    return v
+
+def texto(x, y, w, h, parrafos, z=0):
+    ps = []
+    for p in parrafos:
+        runs = []
+        for txt, estilo in p:
+            runs.append({"value": txt, "textStyle": estilo})
+        ps.append({"textRuns": runs})
+    return {"$schema": VS, "name": uuid.uuid4().hex[:20],
+            "position": {"x": x, "y": y, "z": z, "height": h, "width": w, "tabOrder": z},
+            "visual": {"visualType": "textbox", "objects": {"general": [{"properties": {"paragraphs": ps}}]},
+                       "visualContainerObjects": {"background": [{"properties": {"show": lit("false")}}]}}}
+
+def encabezado(pregunta, titular, decision):
+    return texto(40, 20, 1840, 150, [
+        [(pregunta, {"fontSize": "14pt", "color": GRIS})],
+        [(titular, {"fontSize": "30pt", "fontWeight": "bold", "color": OSCURO})],
+        [("Decisión: ", {"fontSize": "14pt", "fontWeight": "bold", "color": VIOLETA}), (decision, {"fontSize": "14pt", "color": "#1F1B24"})],
+    ])
+
+def pie(fuente):
+    return texto(40, 1030, 1840, 40, [[(f"Fuente: {fuente}. Datos abiertos de la CSS procesados por el pipeline css-pharma-supply-analytics.",
+                                        {"fontSize": "10pt", "color": GRIS})]])
+
+def tarjeta(x, y, medida, etiqueta, ent="existencias", w=430, h=150, c=VIOLETA):
+    return visual("card", x, y, w, h, {"Values": [M(ent, medida)]}, title=etiqueta,
+                  objects={"labels": [{"properties": {"color": color(c), "fontSize": lit("34D"), "labelDisplayUnits": lit("1D")}}],
+                           "categoryLabels": [{"properties": {"show": lit("false")}}]})
+
+def filtro_in(nombre, ent, prop, valores):
+    alias = ent[0]
+    return {"name": nombre, "field": C(ent, prop)[0], "type": "Categorical",
+            "filter": {"Version": 2, "From": [{"Name": alias, "Entity": ent, "Type": 0}],
+                       "Where": [{"Condition": {"In": {"Expressions": [{"Column": {"Expression": {"SourceRef": {"Source": alias}}, "Property": prop}}],
+                                                       "Values": [[{"Literal": {"Value": v}}] for v in valores]}}}]}}
+
+def filtro_mayor(nombre, ent, prop, valor):
+    alias = ent[0]
+    return {"name": nombre, "field": C(ent, prop)[0], "type": "Advanced",
+            "filter": {"Version": 2, "From": [{"Name": alias, "Entity": ent, "Type": 0}],
+                       "Where": [{"Condition": {"Comparison": {"ComparisonKind": 1,
+                                                               "Left": {"Column": {"Expression": {"SourceRef": {"Source": alias}}, "Property": prop}},
+                                                               "Right": {"Literal": {"Value": f"{valor}D"}}}}}]}}
+
+def puntos(c):
+    return {"dataPoint": [{"properties": {"fill": color(c)}}]}
+
+# ------------------------------------------------------------ páginas
+paginas = []
+
+def pagina(nombre, visuales):
+    pid = uuid.uuid4().hex[:20]
+    paginas.append((pid, nombre, visuales))
+
+pagina("Resumen", [
+    texto(40, 20, 1840, 130, [
+        [("Sistema de Información Gerencial · Inventario de medicamentos de la Caja de Seguro Social", {"fontSize": "14pt", "color": GRIS})],
+        [("¿Qué medicamentos están en riesgo y cómo redistribuirlos?", {"fontSize": "30pt", "fontWeight": "bold", "color": OSCURO})]]),
+    tarjeta(40, 170, "Abastecimiento último mes", "Abastecimiento de los almacenes (último mes)"),
+    tarjeta(500, 170, "Críticos en cero último mes", "Medicamentos críticos sin existencia", c=ROJO),
+    tarjeta(960, 170, "En riesgo alto", "Medicamentos en riesgo alto", c=ROJO),
+    tarjeta(1420, 170, "Valor último mes", "Valor del inventario (B/., último mes)", w=460),
+    visual("lineChart", 40, 350, 1100, 650, {"Category": [C("kpi_mensual", "periodo")], "Y": [M("existencias", "Abastecimiento oficial")]},
+           title="Abastecimiento mensual de los almacenes, 2021–2026", objects=puntos(VIOLETA), sort=(C("kpi_mensual", "periodo"), "Ascending")),
+    texto(1170, 350, 710, 650, [
+        [("Seis hallazgos", {"fontSize": "18pt", "fontWeight": "bold", "color": OSCURO})],
+        [("1 · El valor del inventario cayó 64.3 % al iniciar 2025.", {"fontSize": "13pt"})],
+        [("2 · Se anuncian 90–96 % de abastecimiento; los datos muestran 78.8–86.3 %.", {"fontSize": "13pt"})],
+        [("3 · Asma/EPOC, oncológicos y VIH pasan más meses sin existencia.", {"fontSize": "13pt"})],
+        [("4 · Panamá (CDPA) concentra 80.1 % del inventario; el interior se queda en cero.", {"fontSize": "13pt"})],
+        [("5 · Desde la Comisión (oct-2025) el abastecimiento subió de 78.8 % a 86.3 %.", {"fontSize": "13pt"})],
+        [("6 · 23 medicamentos publicados llevan 12 meses en cero.", {"fontSize": "13pt"})],
+        [("Titulares redactados por IA generativa (Gemini) a partir de las cifras calculadas.", {"fontSize": "10pt", "color": GRIS})]]),
+    pie("Dirección Nacional de Logística de la CSS, openFDA y prensa nacional"),
+])
+
+pagina("1 · El inventario en 2025", [
+    encabezado("P1 · ¿Qué pasó con el inventario de la CSS en 2025?",
+               "El valor del inventario cayó 64.3 % al iniciar 2025",
+               "definir si el nuevo nivel de inventario es una política de inventario ajustado o un riesgo a corregir."),
+    visual("lineChart", 40, 190, 1240, 520, {"Category": [C("p1_serie", "periodo")], "Y": [SUM("p1_serie", "valor"), SUM("p1_serie", "valor_canasta")]},
+           title="Valor del inventario (B/.): total y canasta fija de 480 medicamentos", sort=(C("p1_serie", "periodo"), "Ascending")),
+    visual("clusteredColumnChart", 1310, 190, 570, 520, {"Category": [C("Calendario", "Año")], "Y": [M("existencias", "Valor promedio mensual")]},
+           title="Valor promedio mensual por año (B/.)", objects=puntos(VIOLETA), sort=(C("Calendario", "Año"), "Ascending")),
+    tarjeta(40, 740, "Dinero inmovilizado", "Apoyo · Dinero inmovilizado (B/., > 12 meses de cobertura)", w=460, h=270, c=AMBAR),
+    visual("tableEx", 530, 740, 1350, 270, {"Values": [C("riesgo_medicamentos", "descripcion"), C("riesgo_medicamentos", "cobertura_meses"),
+                                                       C("riesgo_medicamentos", "valor_existencia")]},
+           title="Medicamentos con más de 12 meses de cobertura", sort=(C("riesgo_medicamentos", "valor_existencia"), "Descending"),
+           filters=[filtro_mayor("fCob12", "riesgo_medicamentos", "cobertura_meses", 12)]),
+    pie("Inventario mensual de la CSS 2021–2026 (misma canasta de medicamentos, precios estables)"),
+])
+
+pagina("2 · ¿90 % de abastecimiento?", [
+    encabezado("P2 · ¿Es real el “90 % de abastecimiento” que anuncia la CSS?",
+               "Se anuncian 90–96 %; los datos muestran 78.8–86.3 %",
+               "acordar un indicador único y público de abastecimiento para rendir cuentas."),
+    visual("lineChart", 40, 190, 1300, 520, {"Category": [C("kpi_mensual", "periodo")], "Y": [M("existencias", "Abastecimiento oficial")]},
+           title="Abastecimiento según los datos de la CSS (almacenes centrales)", objects=puntos(VIOLETA), sort=(C("kpi_mensual", "periodo"), "Ascending")),
+    tarjeta(1370, 190, "Brecha declarada (p.p.)", "Brecha promedio: declarado − datos (puntos porcentuales)", w=510, h=250, c=ROJO),
+    texto(1370, 460, 510, 250, [[("Cautela", {"fontSize": "14pt", "fontWeight": "bold", "color": AMBAR})],
+                                [("Los datos miden existencias en los 3 almacenes centrales; la CSS suele medir disponibilidad en farmacias. "
+                                  "La brecha no desmiente la cifra oficial, pero exige un indicador común.", {"fontSize": "12pt"})]]),
+    visual("tableEx", 40, 740, 1840, 270, {"Values": [C("p2_declaraciones", "fuente"), C("p2_declaraciones", "fecha"), C("p2_declaraciones", "pct_declarado"),
+                                                      C("p2_declaraciones", "pct_datos_mismo_mes"), C("p2_declaraciones", "brecha_pp"), C("p2_declaraciones", "titulo")]},
+           title="Declaraciones en prensa leídas por IA (Gemini)"),
+    pie("Inventario CSS; noticias de La Estrella, Telemetro, TVN y Panamá América analizadas con Gemini"),
+])
+
+pagina("3 · Quiénes pagan", [
+    encabezado("P3 · ¿Quiénes pagan el desabastecimiento?",
+               "Asma/EPOC, oncológicos y VIH pasan más meses sin existencia",
+               "priorizar compras y stock de seguridad por grupo de pacientes, no por renglón."),
+    visual("clusteredBarChart", 40, 190, 820, 820, {"Category": [C("p3_grupos", "grupo")], "Y": [SUM("p3_grupos", "pct_meses_en_cero")]},
+           title="% de meses sin existencia, últimos 12 meses", objects=puntos(ROJO), sort=(SUM("p3_grupos", "pct_meses_en_cero"), "Descending")),
+    visual("slicer", 890, 190, 990, 110, {"Values": [C("riesgo_medicamentos", "categoria_critica")]}, title="Grupo de pacientes",
+           objects={"data": [{"properties": {"mode": s("Dropdown")}}]}),
+    visual("tableEx", 890, 320, 990, 690, {"Values": [C("riesgo_medicamentos", "descripcion"), C("riesgo_medicamentos", "categoria_critica"),
+                                                      C("riesgo_medicamentos", "existencia_total"), C("riesgo_medicamentos", "cobertura_meses"),
+                                                      C("riesgo_medicamentos", "puntaje_riesgo"), C("riesgo_medicamentos", "escasez_eeuu")]},
+           title="Medicamentos críticos en riesgo alto (escasez_eeuu = también falta en EE. UU., openFDA)",
+           sort=(C("riesgo_medicamentos", "puntaje_riesgo"), "Descending"),
+           filters=[filtro_in("fAlto", "riesgo_medicamentos", "nivel_riesgo", ["'alto'"]),
+                    filtro_in("fCrit", "riesgo_medicamentos", "critico", ["true"])]),
+    pie("Inventario CSS (últimos 12 meses), clasificación ATC, openFDA Drug Shortages"),
+])
+
+pagina("4 · El interior", [
+    encabezado("P4 · ¿El interior del país está peor abastecido?",
+               "Panamá concentra 80.1 % del inventario; el interior se queda en cero",
+               "ejecutar los traslados sugeridos entre centros antes de comprar y fijar un reparto mínimo para el interior."),
+    visual("donutChart", 40, 190, 560, 420, {"Category": [C("p4_centros", "nombre")], "Y": [SUM("p4_centros", "participacion_valor_pct")]},
+           title="Participación en el valor del inventario (%)"),
+    visual("clusteredColumnChart", 630, 190, 640, 420, {"Category": [C("p4_centros", "nombre")], "Y": [SUM("p4_centros", "pct_en_cero_con_stock_en_otro")]},
+           title="% de renglones en cero aunque otro centro sí tiene", objects=puntos(ROJO)),
+    tarjeta(1300, 190, "Traslados sugeridos", "Traslados sugeridos", w=580, h=200),
+    tarjeta(1300, 410, "Valor de traslados", "Valor de los traslados (B/.)", w=580, h=200),
+    visual("slicer", 40, 640, 400, 370, {"Values": [C("redistribucion", "hacia")]}, title="Centro que recibe"),
+    visual("tableEx", 470, 640, 1410, 370, {"Values": [C("redistribucion", "descripcion"), C("redistribucion", "desde"), C("redistribucion", "hacia"),
+                                                       C("redistribucion", "cantidad"), C("redistribucion", "valor"), C("redistribucion", "critico")]},
+           title="Órdenes de traslado sugeridas (recibe < 1 mes de cobertura, cede > 4 meses, objetivo 2 meses)",
+           sort=(C("redistribucion", "valor"), "Descending")),
+    pie("Inventario CSS por centro de distribución (CDPA Panamá, CDDI Divisa, CDCH Chiriquí)"),
+])
+
+pagina("5 · La Comisión", [
+    encabezado("P5 · ¿Funcionó la Comisión de Desabastecimiento Crítico?",
+               "Desde oct-2025 el abastecimiento subió de 78.8 % a 86.3 %",
+               "evaluar mantener y ampliar la compra conjunta MINSA–CSS (relación temporal, no prueba de causa)."),
+    visual("lineClusteredColumnComboChart", 40, 190, 1300, 820,
+           {"Category": [C("kpi_mensual", "periodo")], "Y": [SUM("kpi_mensual", "criticos_en_cero")], "Y2": [M("existencias", "Abastecimiento oficial")]},
+           title="Abastecimiento (línea) y medicamentos críticos en cero (columnas). La Comisión se instaló en 2025-10",
+           objects=puntos(ROJO), sort=(C("kpi_mensual", "periodo"), "Ascending")),
+    tarjeta(1370, 190, "Abastecimiento último mes", "Abastecimiento hoy", w=510, h=180),
+    tarjeta(1370, 390, "Críticos en cero último mes", "Críticos sin existencia hoy (eran 31 en oct-2025)", w=510, h=180, c=ROJO),
+    visual("tableEx", 1370, 590, 510, 420, {"Values": [C("p5_eventos", "fecha"), C("p5_eventos", "fuente"), C("p5_eventos", "titulo")]},
+           title="Línea de tiempo (noticias leídas por IA)", sort=(C("p5_eventos", "fecha"), "Descending")),
+    pie("Inventario CSS; noticias analizadas con Gemini"),
+])
+
+pagina("6 · Fantasmas", [
+    encabezado("P6 · ¿Cuáles son los medicamentos “fantasma”?",
+               "23 medicamentos publicados llevan 12 meses en cero",
+               "reactivar su compra, buscar un sustituto o depurar el catálogo (5 son críticos)."),
+    visual("tableEx", 40, 190, 1000, 820, {"Values": [C("p6_fantasmas", "descripcion"), C("p6_fantasmas", "categoria_critica"),
+                                                      C("p6_fantasmas", "ultimo_mes_con_existencia"), C("p6_fantasmas", "precio_ultimo")]},
+           title="Medicamentos fantasma (clic en uno para ver su historia)"),
+    visual("lineChart", 1070, 190, 810, 820,
+           {"Category": [C("existencias", "periodo")], "Y": [M("existencias", "Unidades")], "Series": [C("Centro", "Nombre")]},
+           title="Existencia mensual por centro del medicamento seleccionado", sort=(C("existencias", "periodo"), "Ascending")),
+    pie("Inventario CSS: renglones publicados en el último corte con 12 meses consecutivos en cero"),
+])
+
+# ------------------------------------------------------------ escribir
+pdir = REP / "pages"
+import time
+if pdir.exists():
+    shutil.move(str(pdir), str(BASE / f"_respaldo_paginas_{int(time.time())}"))
+pdir.mkdir()
+for pid, nombre, vis in paginas:
+    d = pdir / pid
+    (d / "visuals").mkdir(parents=True)
+    (d / "page.json").write_text(json.dumps({"$schema": PS, "name": pid, "displayName": nombre, "displayOption": "FitToPage",
+                                             "height": 1080, "width": 1920,
+                                             "objects": {"background": [{"properties": {"color": color("#F7F5FA"), "transparency": lit("0D")}}]}},
+                                            ensure_ascii=False, indent=2), encoding="utf-8")
+    for v in vis:
+        vd = d / "visuals" / v["name"]
+        vd.mkdir()
+        (vd / "visual.json").write_text(json.dumps(v, ensure_ascii=False, indent=2), encoding="utf-8")
+(pdir / "pages.json").write_text(json.dumps({"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+                                             "pageOrder": [p[0] for p in paginas], "activePageName": paginas[0][0]}, indent=2), encoding="utf-8")
+print("páginas:", len(paginas), "visuales:", sum(len(p[2]) for p in paginas))

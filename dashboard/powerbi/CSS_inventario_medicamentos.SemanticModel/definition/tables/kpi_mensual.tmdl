@@ -1,0 +1,149 @@
+table kpi_mensual
+	lineageTag: 76c46afa-42b9-4d31-baf5-72003cc8459e
+
+	column periodo
+		dataType: string
+		lineageTag: d2d0e162-2f7a-47f9-8bca-136ae840f1d8
+		summarizeBy: none
+		sourceColumn: periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor_inventario
+		dataType: double
+		lineageTag: df2cc44f-92a2-4b72-abdf-5985b060b582
+		summarizeBy: sum
+		sourceColumn: valor_inventario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unidades
+		dataType: double
+		lineageTag: fdb69b4f-7ade-4c0b-842e-3271c81e3428
+		summarizeBy: sum
+		sourceColumn: unidades
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column renglones
+		dataType: double
+		lineageTag: bbc19607-81a0-4d99-97e7-49c67c21023d
+		summarizeBy: sum
+		sourceColumn: renglones
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column renglones_en_cero
+		dataType: double
+		lineageTag: 7830c79b-d3d1-49ea-a02b-fe1845308488
+		summarizeBy: sum
+		sourceColumn: renglones_en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column criticos
+		dataType: double
+		lineageTag: 54f96a41-3f52-41a2-bde1-27efafd104ff
+		summarizeBy: sum
+		sourceColumn: criticos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column criticos_en_cero
+		dataType: double
+		lineageTag: b5677688-1f29-4f44-8729-7058f7b4d1bc
+		summarizeBy: sum
+		sourceColumn: criticos_en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pct_en_cero
+		dataType: double
+		lineageTag: 03fb5468-cddf-4dc4-b150-72dee8f9d9ec
+		summarizeBy: sum
+		sourceColumn: pct_en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pct_abastecimiento
+		dataType: double
+		lineageTag: c222e81b-27de-4f6d-83df-c4460de6f123
+		summarizeBy: sum
+		sourceColumn: pct_abastecimiento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pct_criticos_en_cero
+		dataType: double
+		lineageTag: df26e022-0caa-4c9d-a0fa-02e42e7ee8e2
+		summarizeBy: sum
+		sourceColumn: pct_criticos_en_cero
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column variacion_valor_pct
+		dataType: double
+		lineageTag: ac47a9a8-e60d-4e4c-8f8c-265175ce0f05
+		summarizeBy: sum
+		sourceColumn: variacion_valor_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column anio
+		dataType: double
+		lineageTag: d92da0aa-b3fe-4037-b888-d2640a14e7dd
+		summarizeBy: sum
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 330d4d42-7168-4439-bb38-4a72f53e12ee
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		variation Variation
+			isDefault
+			relationship: b0cc059a-4966-43de-b961-9acb587bbf26
+			defaultHierarchy: LocalDateTable_91fe56ec-0a77-464e-b076-b6fa0756cf84.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition kpi_mensual = m
+		mode: import
+		source =
+				let
+				    Origen = fnCSS("kpi_mensual")
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,202 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 895.84392422550309,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 895.84392422550309,
+            "y": 151.89749292270676
+          },
+          "nodeIndex": "existencias",
+          "nodeLineageTag": "9ebd92a6-c78d-4185-b565-91402f52f788",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1258.1982722294106,
+            "y": 904.74796193831412
+          },
+          "nodeIndex": "kpi_centro",
+          "nodeLineageTag": "0f19efb5-3ef1-4b55-95c1-422ea35d5f50",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 971.64292192684638,
+            "y": 602.245071458595
+          },
+          "nodeIndex": "kpi_mensual",
+          "nodeLineageTag": "76c46afa-42b9-4d31-baf5-72003cc8459e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 336.83591270377644,
+            "y": 213.55191207121356
+          },
+          "nodeIndex": "medicamentos",
+          "nodeLineageTag": "8bb47ffa-5edd-4e1d-bc30-ff7dfa172a2d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1182.9251723924976,
+            "y": -50
+          },
+          "nodeIndex": "p1_serie",
+          "nodeLineageTag": "6c5e1a64-27e1-46d7-8e3e-ec9f11084ba1",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1826.1982722294106,
+            "y": 429.37398096915706
+          },
+          "nodeIndex": "p2_declaraciones",
+          "nodeLineageTag": "22ae9858-a177-4385-b53d-bacaee57e85b",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2060.1982722294106,
+            "y": 515.37398096915706
+          },
+          "nodeIndex": "p3_grupos",
+          "nodeLineageTag": "f22edb72-d471-4908-9d61-6c1cda7e475e",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1246.4072178442507,
+            "y": 251.44119841540021
+          },
+          "nodeIndex": "p4_centros",
+          "nodeLineageTag": "a80d9f0e-98f8-4dd4-8ecc-b545d0d53466",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1542.1982722294106,
+            "y": 441.37398096915706
+          },
+          "nodeIndex": "p5_eventos",
+          "nodeLineageTag": "900b23e3-2cce-47bc-8cc1-7b58085d6c5a",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 217.88081809839343,
+            "y": 567.28083099796174
+          },
+          "nodeIndex": "p6_fantasmas",
+          "nodeLineageTag": "128270f2-c819-4fbc-ac01-cb892375268a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 213.59441987975765
+          },
+          "nodeIndex": "redistribucion",
+          "nodeLineageTag": "75cdb7d0-60cc-4409-91c0-9ea28ffecca7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 623.35882856519788,
+            "y": 505.59624881210061
+          },
+          "nodeIndex": "riesgo_medicamentos",
+          "nodeLineageTag": "e904db00-dbc1-42a1-9fd7-96551533fabb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2294.1982722294106,
+            "y": 527.37398096915706
+          },
+          "nodeIndex": "Calendario",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2528.1982722294106,
+            "y": 527.37398096915706
+          },
+          "nodeIndex": "Centro",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

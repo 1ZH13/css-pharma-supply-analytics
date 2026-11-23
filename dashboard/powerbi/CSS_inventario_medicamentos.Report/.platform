@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "CSS_inventario_medicamentos"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "49d7e13f-1379-48f8-87b0-f6adcc5d81e5"
+  }
+}

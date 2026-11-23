@@ -1,0 +1,71 @@
+relationship 251f0737-9825-4b3f-b80a-accd86c62dfa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: existencias.Fecha
+	toColumn: LocalDateTable_dcc4b8c9-c25b-4c8b-802d-2b0ddf99ec3e.Date
+
+relationship b0cc059a-4966-43de-b961-9acb587bbf26
+	joinOnDateBehavior: datePartOnly
+	fromColumn: kpi_mensual.Fecha
+	toColumn: LocalDateTable_91fe56ec-0a77-464e-b076-b6fa0756cf84.Date
+
+relationship ec48cd2a-c645-47f3-8cf1-0e3dc259c005
+	joinOnDateBehavior: datePartOnly
+	fromColumn: kpi_centro.Fecha
+	toColumn: LocalDateTable_726a8cf9-ed44-4381-95f5-62720e7cc2ff.Date
+
+relationship 17e85f7d-ea2a-4789-9864-3aaff2a414bc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: riesgo_medicamentos.Fecha
+	toColumn: LocalDateTable_86c37b75-099e-4af3-9ffb-4c5c3aff7cbe.Date
+
+relationship 9fff37a4-a66b-4ef7-9d33-085b89d1c4f4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: p1_serie.Fecha
+	toColumn: LocalDateTable_aba82d42-c437-4a51-abae-f34869d47056.Date
+
+relationship 52de7435-2574-4e18-b137-5faa0be452e5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.Date
+	toColumn: LocalDateTable_16be14e8-c22f-4eb9-80d3-cec8d34f04fa.Date
+
+relationship existencias_medicamentos
+	fromColumn: existencias.codigo
+	toColumn: medicamentos.codigo
+
+relationship existencias_calendario
+	fromColumn: existencias.Fecha
+	toColumn: Calendario.Date
+
+relationship existencias_centro
+	fromColumn: existencias.centro
+	toColumn: Centro.centro
+
+relationship kpi_mensual_calendario
+	fromColumn: kpi_mensual.Fecha
+	toColumn: Calendario.Date
+
+relationship kpi_centro_calendario
+	fromColumn: kpi_centro.Fecha
+	toColumn: Calendario.Date
+
+relationship kpi_centro_centro
+	fromColumn: kpi_centro.centro
+	toColumn: Centro.centro
+
+relationship p1_serie_calendario
+	fromColumn: p1_serie.Fecha
+	toColumn: Calendario.Date
+
+relationship riesgo_medicamentos_medicamentos
+	fromColumn: riesgo_medicamentos.codigo
+	toColumn: medicamentos.codigo
+
+relationship redistribucion_medicamentos
+	fromColumn: redistribucion.codigo
+	toColumn: medicamentos.codigo
+
+relationship p6_fantasmas_medicamentos
+	crossFilteringBehavior: bothDirections
+	fromColumn: p6_fantasmas.codigo
+	toColumn: medicamentos.codigo
+

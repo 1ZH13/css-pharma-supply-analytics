@@ -1,0 +1,122 @@
+# Orquestación de la Etapa 2: limpieza → transformación → calidad → MongoDB Atlas.
+# Se ejecuta después de cada extracción (llamado desde extract.yml), al cambiar el pipeline en develop o a mano.
+# Toma los datos crudos de la rama `data`, publica las tablas limpias en `data/processed/`
+# de esa misma rama y, si existe el secreto MONGODB_URI, las carga en MongoDB.
+name: Pipeline de datos
+
+on:
+  workflow_call:                   # lo llama extract.yml al terminar cada extracción
+  workflow_dispatch:
+    inputs:
+      cargar:
+        description: "Cargar en MongoDB Atlas"
+        type: boolean
+        default: true
+  push:
+    branches: [develop]
+    paths:
+      - "pipeline/**"
+      - "!pipeline/extract.py"     # esos cambios disparan la extracción, que ya llama a este workflow
+      - "!pipeline/texto.py"
+      - "requirements.txt"
+      - ".github/workflows/pipeline.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  procesar:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: procesar-datos
+      cancel-in-progress: false
+    timeout-minutes: 20
+    env:
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      MONGODB_DB: css_pharma
+    steps:
+      - name: Código del pipeline
+        uses: actions/checkout@v4
+
+      - name: Rama de datos
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: _data
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Dependencias
+        run: pip install -r requirements.txt
+
+      - name: Textos de noticias (solo en este runner, no se versionan)
+        run: |
+          python -m pipeline.extract --solo texto || echo "::warning::Algunas fuentes de texto no se pudieron descargar."
+          mkdir -p _data/raw/texto
+          cp data/raw/texto/*.txt data/raw/texto/*.pdf data/raw/texto/fuentes_texto.csv _data/raw/texto/ 2>/dev/null || true
+
+      - name: Limpieza y transformación
+        run: |
+          mkdir -p data/processed
+          cp _data/processed/ia_cache.json data/processed/ 2>/dev/null || true   # respuestas previas de Gemini
+          python -m pipeline.transform --raw _data/raw --salida data/processed
+
+      - name: Reporte de calidad
+        run: python -m pipeline.quality --datos data/processed
+
+      - name: IA generativa sobre noticias (Gemini)
+        timeout-minutes: 15
+        continue-on-error: true          # si Gemini falla, igual se publican las tablas y se carga MongoDB
+        run: |
+          set -o pipefail
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::warning::No está configurado GEMINI_API_KEY; se usa solo la caché."
+          fi
+          python -m pipeline.ia_texto --datos data/processed --presupuesto-min 10 | tee ia.json
+          { echo "### IA generativa (Gemini)"; echo '```json'; cat ia.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: KPI, riesgo de desabastecimiento y redistribución
+        run: |
+          python -m pipeline.kpi --datos data/processed | tee kpi.json
+          { echo "### KPI"; echo '```json'; cat kpi.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Las 6 preguntas y hallazgos redactados por IA
+        run: |
+          python -m pipeline.preguntas --datos data/processed > /dev/null
+          python -m pipeline.narrativa --datos data/processed | tee narrativa.json
+          { echo "### Hallazgos (IA)"; echo '```json'; cat narrativa.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Versionar tablas limpias en la rama data
+        run: |
+          python -m pipeline.publicar --origen data/processed --destino _data/processed   # sin textos de terceros
+          cd _data
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A processed
+          if git diff --cached --quiet; then
+            echo "Tablas limpias sin cambios." >> "$GITHUB_STEP_SUMMARY"
+          else
+            git commit -m "data: tablas limpias $(date -u +%Y-%m-%d) (run ${{ github.run_number }})"
+            for i in 1 2 3; do git pull --rebase -q origin data && git push origin data && break; sleep 5; done
+          fi
+
+      - name: Carga en MongoDB Atlas
+        if: github.event_name != 'workflow_dispatch' || inputs.cargar
+        run: |
+          set -o pipefail
+          if [ -z "$MONGODB_URI" ]; then
+            echo "::warning::No está configurado el secreto MONGODB_URI; se omite la carga."
+            echo "⚠️ Carga en MongoDB omitida: falta el secreto \`MONGODB_URI\`." >> "$GITHUB_STEP_SUMMARY"
+          else
+            python -m pipeline.load --datos data/processed --raw _data/raw | tee carga.json
+            { echo "### Carga en MongoDB"; echo '```json'; cat carga.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Resumen de calidad
+        if: always()
+        run: |
+          [ -f data/processed/reporte_calidad.md ] && sed -n '1,40p' data/processed/reporte_calidad.md >> "$GITHUB_STEP_SUMMARY" || true

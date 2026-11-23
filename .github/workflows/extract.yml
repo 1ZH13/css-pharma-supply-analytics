@@ -1,0 +1,95 @@
+# Orquestación de la extracción: descarga las fuentes y las versiona en la rama `data`.
+name: Extracción de fuentes
+
+on:
+  schedule:
+    - cron: "0 11 3 * *"        # día 3 de cada mes, 06:00 hora de Panamá
+  workflow_dispatch:
+    inputs:
+      fuente:
+        description: "Fuente a descargar (vacío = todas)"
+        required: false
+        type: choice
+        options: ["", css, openfda, texto]
+  push:
+    branches: [develop]
+    paths: ["pipeline/extract.py", "pipeline/texto.py", "pipeline/config.py", "data/raw/texto/fuentes_texto.csv", ".github/workflows/extract.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  extraer:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: extraccion
+      cancel-in-progress: false
+    timeout-minutes: 30
+    steps:
+      - name: Código del pipeline
+        uses: actions/checkout@v4
+
+      - name: Rama de datos
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: _data
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Dependencias
+        run: pip install requests beautifulsoup4
+
+      - name: Reutilizar descargas previas
+        run: |
+          mkdir -p data/raw
+          cp -r _data/raw/. data/raw/ 2>/dev/null || true
+          git checkout -- data/raw/texto/fuentes_texto.csv
+
+      - name: Extraer
+        run: |
+          if [ -n "${{ inputs.fuente }}" ]; then
+            python -m pipeline.extract --solo "${{ inputs.fuente }}"
+          else
+            python -m pipeline.extract
+          fi
+
+      - name: Versionar en la rama data
+        run: |
+          # Los textos de noticias e informes NO se versionan (derechos de los medios):
+          # solo su manifiesto (URL, fecha, tamaño, hash). El pipeline los descarga al usarlos.
+          rsync -a --delete --delete-excluded --exclude .gitkeep \
+                --exclude 'texto/*.txt' --exclude 'texto/*.pdf' data/raw/ _data/raw/
+          cd _data
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A raw
+          if git diff --cached --quiet; then
+            echo "Sin cambios en las fuentes." >> "$GITHUB_STEP_SUMMARY"
+          else
+            git commit -m "data: extracción $(date -u +%Y-%m-%d) (run ${{ github.run_number }})"
+            for i in 1 2 3; do git pull --rebase -q origin data && git push origin data && break; sleep 5; done
+          fi
+
+      - name: Resumen
+        if: always()
+        run: |
+          {
+            echo "### Archivos en la rama data"
+            echo "| Fuente | Archivos | Tamaño |"
+            echo "|---|---|---|"
+            for d in css openfda texto; do
+              n=$(find "_data/raw/$d" -type f ! -name '.gitkeep' 2>/dev/null | wc -l)
+              s=$(du -sh "_data/raw/$d" 2>/dev/null | cut -f1)
+              echo "| $d | $n | ${s:-0} |"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # Al terminar la extracción: limpieza, calidad y carga en MongoDB con los datos nuevos.
+  procesar:
+    needs: extraer
+    uses: ./.github/workflows/pipeline.yml
+    secrets: inherit
