@@ -145,6 +145,8 @@ Commits con prefijo: `feat:`, `fix:`, `data:`, `docs:`, `ci:`.
 
 Detalle en [`docs/fuentes.md`](docs/fuentes.md).
 
+**Licencia del código:** MIT (ver [`LICENSE`](LICENSE)). La licencia MIT cubre el código del repositorio. Los datos publicados en la rama `data` conservan la licencia de su fuente: CC BY para los de la CSS, con atribución a la Caja de Seguro Social. El análisis de las noticias se publica para fines académicos, con enlace a cada medio.
+
 ## Equipo
 
 | Rol | Integrante |
