@@ -44,13 +44,13 @@ while i < len(lineas):
             j += 1
         out.append(f"\t\tformatString: {formatos[m.group(1)]}")
     i += 1
-tm.write_text("\n".join(x for x in out if x is not None), encoding="utf-8")
+tm.write_text("\n".join(x for x in out if x is not None), encoding="utf-8", newline="\r\n")
 
 rel = SEM / "relationships.tmdl"
 r = rel.read_text(encoding="utf-8")
 r = r.replace("\tfromColumn: p6_fantasmas.codigo\n", "\tcrossFilteringBehavior: bothDirections\n\tfromColumn: p6_fantasmas.codigo\n", 1) \
     if "crossFilteringBehavior: bothDirections\n\tfromColumn: p6_fantasmas.codigo" not in r else r
-rel.write_text(r, encoding="utf-8")
+rel.write_text(r, encoding="utf-8", newline="\r\n")
 
 
 # ------------------------------------------------------------ modelo: respuesta a la pregunta gerencial
@@ -70,7 +70,7 @@ for nombre, expr in COLUMNAS.items():
         bloque = (f"\tcolumn {nombre} = {expr}\n\t\tdataType: string\n\t\tlineageTag: {uuid.uuid4()}\n"
                   f"\t\tsummarizeBy: none\n\n\t\tannotation SummarizationSetBy = Automatic\n\n")
         t = t.replace("\tpartition riesgo_medicamentos = m", bloque + "\tpartition riesgo_medicamentos = m", 1)
-rt.write_text(t, encoding="utf-8")
+rt.write_text(t, encoding="utf-8", newline="\r\n")
 
 MEDIDAS = {
     "'Medicamentos en riesgo'": "COUNTROWS ( riesgo_medicamentos )",
@@ -85,7 +85,7 @@ for nombre, expr in MEDIDAS.items():
         nuevas += f"\tmeasure {nombre} = {expr}\n\t\tformatString: 0\n\t\tlineageTag: {uuid.uuid4()}\n\n"
 if nuevas:
     t = t.replace("\tcolumn periodo\n", nuevas + "\tcolumn periodo\n", 1)
-    tm.write_text(t, encoding="utf-8")
+    tm.write_text(t, encoding="utf-8", newline="\r\n")
 
 # ------------------------------------------------------------ ayudas PBIR
 def lit(v):
