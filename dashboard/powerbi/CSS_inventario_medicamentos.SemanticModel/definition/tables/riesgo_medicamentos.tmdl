@@ -297,6 +297,20 @@ table riesgo_medicamentos
 
 		annotation UnderlyingDateTimeDataType = Date
 
+	column accion = SWITCH ( TRUE (), riesgo_medicamentos[nivel_riesgo] = "alto" && riesgo_medicamentos[existencia_total] <= 0, "1 · Comprar ya", riesgo_medicamentos[nivel_riesgo] = "alto", "2 · Reforzar compra", NOT ISEMPTY ( FILTER ( ALL ( redistribucion[codigo] ), redistribucion[codigo] = riesgo_medicamentos[codigo] ) ), "3 · Trasladar", riesgo_medicamentos[nivel_riesgo] = "medio", "4 · Vigilar", "5 · Sin acción" )
+		dataType: string
+		lineageTag: 618df03f-571a-4a0b-97f5-4279045c58fb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_paciente = IF ( ISBLANK ( riesgo_medicamentos[categoria_critica] ) || riesgo_medicamentos[categoria_critica] = "", "No crítico", riesgo_medicamentos[categoria_critica] )
+		dataType: string
+		lineageTag: d5052a3d-234a-4b37-ade6-29db48357bbf
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition riesgo_medicamentos = m
 		mode: import
 		source =

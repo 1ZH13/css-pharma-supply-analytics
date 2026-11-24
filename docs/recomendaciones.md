@@ -2,6 +2,18 @@
 
 Corte de datos: **septiembre 2026**. Las cifras vienen de `preguntas_resumen.json`, `kpi_resumen.json` y de las tablas de la rama `data`. El pipeline las recalcula cada mes.
 
+## 0. Respuesta a la pregunta gerencial
+
+**¿Qué medicamentos están en riesgo de desabastecimiento y cómo redistribuir el inventario entre CDPA, CDDI y CDCH?**
+
+- **Qué medicamentos:** 81 en riesgo alto (puntaje ≥ 60); **50 son críticos**: 16 oncológicos, 11 cardiovasculares, 5 de asma/EPOC, 4 antivirales (VIH), 3 de terapia hormonal oncológica, 3 antiepilépticos, 3 antitrombóticos y 5 de otros grupos.
+- **Comprar ya (19 críticos):** no tienen existencia en ningún almacén; un traslado no es posible. 5 también escasean en EE. UU. (openFDA): proveedor alterno o sustituto.
+- **Reforzar compra (31 críticos):** menos de 1 mes de cobertura (mediana 0.23 meses) y ningún centro tiene sobrante para ceder.
+- **Trasladar (143 órdenes, B/. 1.69 M, 119 medicamentos, 38 críticos):** de centros con más de 4 meses a centros con menos de 1, hasta 2 meses: 52 hacia CDDI, 44 hacia CDCH y 47 hacia CDPA.
+- **Reparto mínimo:** 74 críticos están en cero en CDDI y 33 en CDCH aunque otro centro tiene existencia, pero sin sobrante; se propone repartir cada compra nueva con un mínimo de 2 meses por almacén.
+
+Las seis preguntas son el puente: P1 dice de dónde sale el dinero (B/. 12.45 M inmovilizados), P2 con qué indicador medir, P3 en qué orden comprar, P4 dónde trasladar, P5 qué canal de compra ya funciona y P6 qué depurar. La página **La respuesta** de Streamlit y de Power BI muestra esta clasificación por medicamento.
+
 ## 1. Resumen para la gerencia
 
 El inventario de la CSS vale **B/. 42.9 millones**. Eso es menos de la mitad del promedio mensual de 2021–2024, que fue de B/. 98–118 millones. Aun así, está mal distribuido:

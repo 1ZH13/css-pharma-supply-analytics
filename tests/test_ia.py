@@ -95,3 +95,28 @@ def test_asistente_cambia_de_modelo_si_se_agota_la_cuota(monkeypatch):
     cli = ia.ClienteGemini(pausa=0, timeout=30, reintentos=1, max_modelos=4)
     assert cli.texto("hola") == "ok"
     assert usados == ["gemini-9.0-flash", "gemini-8.0-flash"]
+
+
+def test_proveedor_alterno_prefiere_modelos_de_chat_grandes():
+    from pipeline.ia import candidatos_alternos
+    c = candidatos_alternos(["whisper-large-v3", "llama-3.1-8b-instant", "llama-3.3-70b-versatile",
+                             "meta-llama/llama-guard-4-12b", "openai/gpt-oss-120b"])
+    assert c[0] == "llama-3.3-70b-versatile"
+    assert "whisper-large-v3" not in c and not any("guard" in m for m in c)
+
+
+def test_respaldo_pasa_al_segundo_proveedor_si_el_primero_falla():
+    from pipeline.ia import ClienteConRespaldo, ErrorIA
+
+    class Falla:
+        modelo = "gemini-x"
+        def texto(self, *a, **k):
+            raise ErrorIA("429 límite de uso")
+
+    class Ok:
+        modelo = "Groq · llama"
+        def texto(self, *a, **k):
+            return "respuesta"
+
+    c = ClienteConRespaldo([Falla(), Ok()])
+    assert c.texto("hola") == "respuesta" and c.modelo == "Groq · llama"

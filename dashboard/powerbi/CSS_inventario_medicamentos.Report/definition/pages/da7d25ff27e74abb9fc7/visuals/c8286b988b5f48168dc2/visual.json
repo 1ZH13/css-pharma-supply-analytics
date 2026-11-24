@@ -1,0 +1,82 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "c8286b988b5f48168dc2",
+  "position": {
+    "x": 40,
+    "y": 20,
+    "z": 0,
+    "height": 150,
+    "width": 1840,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "P3 · ¿Quiénes pagan el desabastecimiento?",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#7F8C9A"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Asma/EPOC, oncológicos y VIH pasan más meses sin existencia",
+                    "textStyle": {
+                      "fontSize": "30pt",
+                      "fontWeight": "bold",
+                      "color": "#0A2F5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Decisión: ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "fontWeight": "bold",
+                      "color": "#0B5394"
+                    }
+                  },
+                  {
+                    "value": "priorizar compras y stock de seguridad por grupo de pacientes, no por renglón.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#14212E"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

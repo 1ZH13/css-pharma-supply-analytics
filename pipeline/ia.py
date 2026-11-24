@@ -204,6 +204,125 @@ class ClienteGemini:
         raise ErrorIA("Ningún modelo Gemini disponible respondió.")
 
 
+# ---------------------------------------------------------------------------
+# Proveedor alterno: cualquier API compatible con OpenAI (Groq por defecto).
+# Lo usa el asistente del dashboard cuando la cuota gratuita de Gemini se agota.
+ALTERNOS = {
+    "GROQ_API_KEY": ("Groq", "https://api.groq.com/openai/v1"),
+    "OPENROUTER_API_KEY": ("OpenRouter", "https://openrouter.ai/api/v1"),
+}
+# Orden de preferencia por nombre (el catálogo de modelos gratuitos cambia sin aviso,
+# por eso se consulta /models y se elige el primero que coincida).
+PREFERIDOS = ("llama-3.3-70b", "gpt-oss-120b", "llama-4-maverick", "llama-4-scout", "qwen3", "kimi-k2",
+              "gpt-oss-20b", "llama-3.1-8b")
+NO_TEXTO = ("whisper", "guard", "tts", "playai", "orpheus", "embed", "vision", "audio", "compound", "safeguard")
+
+
+def candidatos_alternos(disponibles: list[str], pedido: str | None = None) -> list[str]:
+    """Modelos de chat en orden de preferencia; `pedido` (variable ALT_MODEL) va primero."""
+    chat = [m for m in disponibles if not any(x in m.lower() for x in NO_TEXTO)]
+    orden = [m for p in PREFERIDOS for m in sorted(chat) if p in m.lower()]
+    orden = ([pedido] if pedido else []) + orden + sorted(chat)
+    return list(dict.fromkeys(orden))
+
+
+class ClienteAlterno:
+    """Cliente mínimo para APIs compatibles con OpenAI (chat/completions)."""
+
+    def __init__(self, clave: str, nombre: str, base: str, timeout: float = 30, max_modelos: int = 3,
+                 max_caracteres: int = 18000):
+        self.clave, self.nombre, self.base, self.timeout = clave, nombre, base.rstrip("/"), timeout
+        # La capa gratuita limita tokens por minuto: el contexto se recorta antes de enviarlo.
+        self.max_caracteres = max_caracteres
+        r = requests.get(f"{self.base}/models", headers=self._h(), timeout=20)
+        if r.status_code != 200:
+            raise ErrorIA(f"{nombre}: HTTP {r.status_code} al listar modelos")
+        ids = [m.get("id", "") for m in r.json().get("data", [])]
+        if nombre == "OpenRouter":
+            ids = [m for m in ids if m.endswith(":free")]
+        self.cands = candidatos_alternos(ids, os.getenv("ALT_MODEL", "").strip() or None)[:max_modelos]
+        if not self.cands:
+            raise ErrorIA(f"{nombre}: la clave no tiene modelos de chat disponibles.")
+        self.i = 0
+
+    def _h(self) -> dict:
+        return {"Authorization": f"Bearer {self.clave}"}
+
+    @property
+    def modelo(self) -> str:
+        return f"{self.nombre} · {self.cands[min(self.i, len(self.cands) - 1)]}"
+
+    def texto(self, prompt: str, temperatura: float = 0.2) -> str:
+        if len(prompt) > self.max_caracteres:
+            prompt = prompt[: self.max_caracteres - 400] + "\n[contexto recortado]\n" + prompt[-400:]
+        while self.i < len(self.cands):
+            modelo = self.cands[self.i]
+            try:
+                r = requests.post(f"{self.base}/chat/completions", headers=self._h(), timeout=(10, self.timeout),
+                                  json={"model": modelo, "temperature": temperatura, "max_tokens": 700,
+                                        "messages": [{"role": "user", "content": prompt}]})
+            except (requests.Timeout, requests.ConnectionError):
+                self.i += 1
+                continue
+            if r.status_code in (404, 413, 429, 500, 502, 503):
+                self.i += 1                  # siguiente modelo (cada uno tiene su propia cuota)
+                continue
+            if r.status_code != 200:
+                raise ErrorIA(f"{self.nombre}: HTTP {r.status_code} {r.text[:150]}")
+            msg = (r.json().get("choices") or [{}])[0].get("message", {})
+            texto = (msg.get("content") or "").strip()
+            texto = re.sub(r"<think>.*?</think>", "", texto, flags=re.S).strip()   # modelos de razonamiento
+            if texto:
+                return texto
+            self.i += 1
+        raise ErrorIA(f"Ningún modelo de {self.nombre} respondió.")
+
+
+class ClienteConRespaldo:
+    """Intenta con Gemini; si falla (cuota, saturación, sin clave), pasa a los proveedores alternos."""
+
+    def __init__(self, clientes: list):
+        if not clientes:
+            raise ErrorIA("No hay ningún proveedor de IA configurado (GEMINI_API_KEY o GROQ_API_KEY).")
+        self.clientes = clientes
+        self.actual = clientes[0]
+
+    @property
+    def modelo(self) -> str:
+        m = self.actual.modelo
+        return m if "·" in m else f"Gemini · {m}"
+
+    def texto(self, prompt: str, temperatura: float = 0.2) -> str:
+        errores = []
+        for c in self.clientes:
+            try:
+                self.actual = c
+                return c.texto(prompt, temperatura)
+            except ErrorIA as e:
+                errores.append(str(e)[:120])
+        raise ErrorIA(" | ".join(errores))
+
+
+def cliente_asistente(claves: dict, timeout: float = 30) -> ClienteConRespaldo:
+    """Arma la cadena Gemini → Groq → OpenRouter con las claves que existan."""
+    clientes, errores = [], []
+    if claves.get("GEMINI_API_KEY"):
+        os.environ["GEMINI_API_KEY"] = claves["GEMINI_API_KEY"]
+        try:
+            clientes.append(ClienteGemini(pausa=0, timeout=timeout, reintentos=1, max_modelos=4))
+        except ErrorIA as e:
+            errores.append(f"Gemini: {e}")
+    for var, (nombre, base) in ALTERNOS.items():
+        if claves.get(var):
+            try:
+                clientes.append(ClienteAlterno(claves[var], nombre, base, timeout=timeout))
+            except (ErrorIA, requests.RequestException) as e:
+                errores.append(f"{nombre}: {e}")
+    if not clientes:
+        raise ErrorIA("; ".join(errores) or "No hay claves de IA configuradas.")
+    return ClienteConRespaldo(clientes)
+
+
 def main():
     ap = argparse.ArgumentParser(description="Cliente de IA generativa (Gemini)")
     ap.add_argument("--probar", action="store_true", help="verifica la clave y el modelo")

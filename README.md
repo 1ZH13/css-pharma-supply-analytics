@@ -6,7 +6,11 @@ Integra los inventarios públicos de la CSS (2021–2026), registros internacion
 
 > **¿Qué medicamentos están en riesgo de desabastecimiento y cómo redistribuir el inventario entre los centros de distribución de Panamá, Divisa y Chiriquí?**
 
+**Respuesta (corte septiembre 2026):** 81 medicamentos están en riesgo alto y **50 son críticos**. De esos, **19 se compran ya** (sin existencia en ningún almacén) y **31 necesitan reforzar la compra** (menos de 1 mes y ningún centro con sobrante). Donde sí hay sobrante, **143 traslados (B/. 1.69 M)** redistribuyen el inventario entre CDPA, CDDI y CDCH. Detalle en [`docs/recomendaciones.md`](docs/recomendaciones.md).
+
 Proyecto final — Sistemas de Información Gerencial, Universidad Tecnológica de Panamá (2026).
+
+> ¿Vienes a revisar el proyecto? Empieza por la [guía de revisión](docs/GUIA_REVISION.md).
 
 ---
 
@@ -61,7 +65,9 @@ python -m pytest -q tests       #    pruebas de las reglas de limpieza
 
 Las tablas limpias también se publican automáticamente en la carpeta `processed/` de la rama `data`, listas para Power BI.
 
-## Las 6 preguntas y el dashboard
+## La respuesta, las 6 preguntas puente y el dashboard
+
+La pregunta gerencial se responde en la página **La respuesta** (Streamlit y Power BI): cada medicamento queda clasificado en *Comprar ya*, *Reforzar compra*, *Trasladar*, *Vigilar* o *Sin acción*. Las seis preguntas son el puente que explica esa respuesta:
 
 | # | Pregunta | Decisión que habilita |
 |---|---|---|
@@ -74,17 +80,17 @@ Las tablas limpias también se publican automáticamente en la carpeta `processe
 
 `python -m pipeline.preguntas` calcula las tablas de cada pregunta y `python -m pipeline.narrativa` hace que **Gemini redacte el titular y la interpretación usando solo las cifras calculadas** (cada número del texto se valida contra los datos).
 
-**Dashboard (Streamlit):** una página por pregunta + el asistente **"Pregúntale a los datos"** (Gemini responde con las tablas del sistema).
+**Dashboard (Streamlit):** página de inicio, página **La respuesta**, una página por pregunta y el asistente **"Pregúntale a los datos"** (Gemini responde con las tablas del sistema; si se agota su cuota, responde Groq). Filtros en la barra lateral por centro, grupo de pacientes y meses.
 
 ```bash
 streamlit run dashboard/streamlit/app.py
 ```
 
-Lee de MongoDB Atlas si encuentra `MONGODB_URI` (en `.streamlit/secrets.toml` o en el entorno); si no, usa las tablas publicadas en la rama `data`. El asistente necesita `GEMINI_API_KEY`.
+Lee de MongoDB Atlas si encuentra `MONGODB_URI` (en `.streamlit/secrets.toml` o en el entorno); si no, usa las tablas publicadas en la rama `data`. El asistente necesita `GEMINI_API_KEY` y, como respaldo opcional, `GROQ_API_KEY`.
 
 Publicado en **https://css-medicamentos-panama.streamlit.app**.
 
-**Dashboard (Power BI):** el reporte `dashboard/powerbi/CSS_inventario_medicamentos.pbip` tiene 7 páginas: resumen y una por pregunta. Lee la rama `data` y no necesita credenciales. Ver [`dashboard/powerbi/README.md`](dashboard/powerbi/README.md).
+**Dashboard (Power BI):** el reporte `dashboard/powerbi/CSS_inventario_medicamentos.pbip` tiene 8 páginas: resumen, la respuesta y una por pregunta, con segmentadores por año, centro, grupo de pacientes y acción. Lee la rama `data` y no necesita credenciales. Ver [`dashboard/powerbi/README.md`](dashboard/powerbi/README.md).
 
 **Notebook de demostración:** [`notebooks/demo_sig.ipynb`](notebooks/demo_sig.ipynb) reproduce los KPI, el riesgo, los traslados y los fantasmas. Lee de MongoDB si existe `MONGODB_URI`; si no, de la rama `data`. [Abrir en Colab](https://colab.research.google.com/github/1ZH13/css-pharma-supply-analytics/blob/main/notebooks/demo_sig.ipynb).
 
@@ -117,7 +123,7 @@ Las noticias e informes sobre desabastecimiento (21 fuentes: La Prensa, La Estre
 2. **Cruce con el inventario**: cada medicamento mencionado se enlaza con los códigos CSS por principio activo, para comparar lo que reporta la prensa con las existencias reales.
 3. **Cruce internacional**: Gemini traduce los principios activos al nombre genérico en inglés (GLIBENCLAMIDA → glyburide) y se cruzan con openFDA para saber qué medicamentos de la CSS también están en escasez en EE. UU. (causa de proveedor global frente a problema local).
 
-Las respuestas se guardan en caché por hash del texto, así cada ejecución mensual solo consulta lo nuevo y se mantiene dentro de la capa gratuita.
+Las respuestas se guardan en caché por hash del texto, así cada ejecución mensual solo consulta lo nuevo y se mantiene dentro de la capa gratuita. El asistente del dashboard usa Groq (API compatible con OpenAI) como respaldo cuando la cuota gratuita de Gemini se agota.
 
 ## Flujo de trabajo y ramas
 

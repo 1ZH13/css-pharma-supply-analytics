@@ -77,6 +77,22 @@ table existencias
 		formatString: #,0
 		lineageTag: a864011e-aaff-4f35-bd8a-ad7a1b070ad8
 
+	measure 'Medicamentos en riesgo' = COUNTROWS ( riesgo_medicamentos )
+		formatString: 0
+		lineageTag: ba9242df-d026-4b52-a510-9d702e87e41e
+
+	measure 'Comprar ya' = CALCULATE ( [Críticos en riesgo alto], riesgo_medicamentos[accion] = "1 · Comprar ya" )
+		formatString: 0
+		lineageTag: fab2b8e2-3197-4a30-a996-902b3e9deaa2
+
+	measure 'Reforzar compra' = CALCULATE ( [Críticos en riesgo alto], riesgo_medicamentos[accion] = "2 · Reforzar compra" )
+		formatString: 0
+		lineageTag: d267d49c-2d37-4031-87bd-28d04b707c42
+
+	measure 'Traslados de críticos' = CALCULATE ( COUNTROWS ( redistribucion ), redistribucion[critico] = TRUE () )
+		formatString: 0
+		lineageTag: 719410a9-8358-44f3-94a2-36a5d27eaccc
+
 	column periodo
 		dataType: string
 		lineageTag: cc15e844-eef3-44d4-83d0-7e5abbc4f701

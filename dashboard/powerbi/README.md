@@ -3,8 +3,8 @@
 Proyecto en formato **PBIP** (texto, versionable en git):
 
 - `CSS_inventario_medicamentos.pbip`: archivo que se abre con Power BI Desktop.
-- `CSS_inventario_medicamentos.SemanticModel/`: modelo (TMDL). 14 tablas, relaciones y 19 medidas DAX.
-- `CSS_inventario_medicamentos.Report/`: reporte (PBIR). Tiene 7 páginas: Resumen y P1–P6.
+- `CSS_inventario_medicamentos.SemanticModel/`: modelo (TMDL). 14 tablas, relaciones, 23 medidas DAX y 2 columnas calculadas (acción y grupo de pacientes).
+- `CSS_inventario_medicamentos.Report/`: reporte (PBIR). Tiene 8 páginas: Resumen, La respuesta y P1–P6, con segmentadores por año, centro, grupo de pacientes y acción.
 - `generar_pbir.py`: regenera las páginas del reporte y los formatos de las medidas.
 
 ## Abrir y actualizar
@@ -24,5 +24,5 @@ python dashboard/powerbi/generar_pbir.py dashboard/powerbi
 El script hace lo siguiente:
 
 - Mueve las páginas actuales a `_respaldo_paginas_<fecha>/`. Esa carpeta la ignora git.
-- Escribe las 7 páginas de nuevo.
-- Ajusta los formatos de las medidas.
+- Escribe las 8 páginas de nuevo.
+- Ajusta los formatos de las medidas y agrega (si faltan) las columnas y medidas de la respuesta.
