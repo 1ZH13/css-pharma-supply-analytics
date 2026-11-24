@@ -1,13 +1,14 @@
 """IA generativa (uso 3): asistente "Pregúntale a los datos".
 
-Gemini responde preguntas en lenguaje natural usando SOLO un contexto armado con las
-tablas del sistema (cifras de las 6 preguntas, KPI y las filas relevantes según lo que se
-pregunta). No tiene acceso a internet ni inventa cifras: si el dato no está, lo dice.
+Un modelo de lenguaje responde preguntas en lenguaje natural usando SOLO un contexto armado
+con las tablas del sistema (cifras de las 6 preguntas, KPI y las filas relevantes según lo que
+se pregunta). No tiene acceso a internet ni inventa cifras: si el dato no está, lo dice.
+Proveedor principal: Gemini. Si su cuota gratuita se agota, responde Groq (o OpenRouter) con
+el mismo contexto y las mismas reglas.
 """
 from __future__ import annotations
 
 import json
-import os
 import re
 import sys
 import unicodedata
@@ -19,7 +20,7 @@ import streamlit as st
 import datos
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from pipeline.ia import ClienteGemini, ErrorIA  # noqa: E402
+from pipeline.ia import ErrorIA, cliente_asistente  # noqa: E402
 
 SUGERENCIAS = [
     "¿Qué oncológicos están sin existencia y dónde hay para trasladar?",
@@ -93,25 +94,27 @@ def contexto(pregunta: str) -> str:
     return "\n\n".join(partes)[:60000]
 
 
+CLAVES = ("GEMINI_API_KEY", "GROQ_API_KEY", "OPENROUTER_API_KEY")
+
+
 @st.cache_resource(show_spinner=False)
 def _cliente():
-    clave = datos.secreto("GEMINI_API_KEY")
-    if not clave:
+    claves = {k: datos.secreto(k) for k in CLAVES}
+    if not any(claves.values()):
         return None
-    os.environ["GEMINI_API_KEY"] = clave
-    return ClienteGemini(pausa=0, timeout=30, reintentos=1, max_modelos=4)
+    return cliente_asistente(claves, timeout=30)
 
 
 def pagina():
-    st.caption("IA generativa · Gemini responde solo con los datos del sistema")
+    st.caption("IA generativa · Gemini (con respaldo en Groq) responde solo con los datos del sistema")
     st.title("Pregúntale a los datos")
     try:
         cli = _cliente()
     except ErrorIA as e:
         cli = None
-        st.error(f"No se pudo conectar con Gemini: {e}")
+        st.error(f"No se pudo conectar con el proveedor de IA: {e}")
     if cli is None:
-        st.warning("El asistente necesita la clave GEMINI_API_KEY en los secretos de Streamlit.")
+        st.warning("El asistente necesita GEMINI_API_KEY o GROQ_API_KEY en los secretos de Streamlit.")
         return
     if "chat" not in st.session_state:
         st.session_state.chat = []
@@ -134,7 +137,7 @@ def pagina():
                 r = cli.texto(PROMPT.format(contexto=ctx, pregunta=pregunta))
             except ErrorIA as e:
                 _cliente.clear()
-                r = f"No pude consultar a Gemini en este momento ({e}). Intenta de nuevo en un minuto."
+                r = f"No pude consultar a la IA en este momento ({e}). Intenta de nuevo en un minuto."
             except Exception as e:  # noqa: BLE001 - la demo no debe quedarse colgada
                 r = f"No pude preparar la respuesta ({type(e).__name__}). Intenta de nuevo."
         st.markdown(r)

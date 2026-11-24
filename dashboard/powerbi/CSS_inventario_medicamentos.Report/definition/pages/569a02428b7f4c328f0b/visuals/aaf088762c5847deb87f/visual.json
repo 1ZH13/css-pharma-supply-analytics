@@ -1,0 +1,313 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "aaf088762c5847deb87f",
+  "position": {
+    "x": 970,
+    "y": 350,
+    "z": 0,
+    "height": 410,
+    "width": 910,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "riesgo_medicamentos"
+                    }
+                  },
+                  "Property": "accion"
+                }
+              },
+              "queryRef": "riesgo_medicamentos.accion",
+              "nativeQueryRef": "accion"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "riesgo_medicamentos"
+                    }
+                  },
+                  "Property": "descripcion"
+                }
+              },
+              "queryRef": "riesgo_medicamentos.descripcion",
+              "nativeQueryRef": "descripcion"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "riesgo_medicamentos"
+                    }
+                  },
+                  "Property": "grupo_paciente"
+                }
+              },
+              "queryRef": "riesgo_medicamentos.grupo_paciente",
+              "nativeQueryRef": "grupo_paciente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "riesgo_medicamentos"
+                    }
+                  },
+                  "Property": "existencia_CDPA"
+                }
+              },
+              "queryRef": "riesgo_medicamentos.existencia_CDPA",
+              "nativeQueryRef": "existencia_CDPA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "riesgo_medicamentos"
+                    }
+                  },
+                  "Property": "existencia_CDDI"
+                }
+              },
+              "queryRef": "riesgo_medicamentos.existencia_CDDI",
+              "nativeQueryRef": "existencia_CDDI"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "riesgo_medicamentos"
+                    }
+                  },
+                  "Property": "existencia_CDCH"
+                }
+              },
+              "queryRef": "riesgo_medicamentos.existencia_CDCH",
+              "nativeQueryRef": "existencia_CDCH"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "riesgo_medicamentos"
+                    }
+                  },
+                  "Property": "cobertura_meses"
+                }
+              },
+              "queryRef": "riesgo_medicamentos.cobertura_meses",
+              "nativeQueryRef": "cobertura_meses"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "riesgo_medicamentos"
+                    }
+                  },
+                  "Property": "escasez_eeuu"
+                }
+              },
+              "queryRef": "riesgo_medicamentos.escasez_eeuu",
+              "nativeQueryRef": "escasez_eeuu"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "riesgo_medicamentos"
+                  }
+                },
+                "Property": "accion"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": false
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Lista de compra y refuerzo: medicamentos en riesgo alto (existencia por centro)'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0A2F5C'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D3E7F6'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fAltoT",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "riesgo_medicamentos"
+              }
+            },
+            "Property": "nivel_riesgo"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "r",
+              "Entity": "riesgo_medicamentos",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "r"
+                          }
+                        },
+                        "Property": "nivel_riesgo"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'alto'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

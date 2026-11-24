@@ -1,0 +1,210 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "b24f47830af64d7ea6bd",
+  "position": {
+    "x": 40,
+    "y": 740,
+    "z": 0,
+    "height": 270,
+    "width": 1840,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "p2_declaraciones"
+                    }
+                  },
+                  "Property": "fuente"
+                }
+              },
+              "queryRef": "p2_declaraciones.fuente",
+              "nativeQueryRef": "fuente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "p2_declaraciones"
+                    }
+                  },
+                  "Property": "fecha"
+                }
+              },
+              "queryRef": "p2_declaraciones.fecha",
+              "nativeQueryRef": "fecha"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "p2_declaraciones"
+                    }
+                  },
+                  "Property": "pct_declarado"
+                }
+              },
+              "queryRef": "p2_declaraciones.pct_declarado",
+              "nativeQueryRef": "pct_declarado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "p2_declaraciones"
+                    }
+                  },
+                  "Property": "pct_datos_mismo_mes"
+                }
+              },
+              "queryRef": "p2_declaraciones.pct_datos_mismo_mes",
+              "nativeQueryRef": "pct_datos_mismo_mes"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "p2_declaraciones"
+                    }
+                  },
+                  "Property": "brecha_pp"
+                }
+              },
+              "queryRef": "p2_declaraciones.brecha_pp",
+              "nativeQueryRef": "brecha_pp"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "p2_declaraciones"
+                    }
+                  },
+                  "Property": "titulo"
+                }
+              },
+              "queryRef": "p2_declaraciones.titulo",
+              "nativeQueryRef": "titulo"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Declaraciones en prensa leídas por IA (Gemini)'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0A2F5C'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D3E7F6'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

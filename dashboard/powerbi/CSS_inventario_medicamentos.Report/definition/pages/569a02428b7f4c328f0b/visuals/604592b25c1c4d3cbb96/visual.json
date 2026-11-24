@@ -1,0 +1,82 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "604592b25c1c4d3cbb96",
+  "position": {
+    "x": 40,
+    "y": 20,
+    "z": 0,
+    "height": 150,
+    "width": 1840,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Respuesta a la pregunta gerencial · ¿Qué medicamentos están en riesgo de desabastecimiento y cómo redistribuir el inventario?",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#7F8C9A"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "50 críticos en riesgo alto se compran; 143 traslados evitan nuevos quiebres",
+                    "textStyle": {
+                      "fontSize": "30pt",
+                      "fontWeight": "bold",
+                      "color": "#0A2F5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Respuesta: ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "fontWeight": "bold",
+                      "color": "#0B5394"
+                    }
+                  },
+                  {
+                    "value": "19 críticos no tienen existencia en ningún almacén y 31 tienen menos de un mes sin sobrante en otro centro: se compran. Los traslados redistribuyen lo que sí sobra (recibe < 1 mes, cede > 4 meses, objetivo 2 meses).",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#14212E"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
