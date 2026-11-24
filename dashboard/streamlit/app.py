@@ -3,7 +3,8 @@
 Ejecutar:  streamlit run dashboard/streamlit/app.py
 Secretos (opcionales, en .streamlit/secrets.toml o en Streamlit Community Cloud):
     MONGODB_URI = "mongodb+srv://..."     # sin él, lee las tablas publicadas en GitHub
-    GEMINI_API_KEY = "..."                # para el asistente
+    GEMINI_API_KEY = "..."                # asistente (proveedor principal)
+    GROQ_API_KEY = "..."                  # asistente (respaldo si se agota la cuota de Gemini)
 """
 import sys
 from pathlib import Path
@@ -16,13 +17,18 @@ import vistas  # noqa: E402
 
 st.set_page_config(page_title="CSS · Inventario de medicamentos", page_icon="💊", layout="wide")
 st.markdown("""<style>
-  h1 {font-size: 2.0rem !important; line-height: 1.2; color: #3D1D5C;}
-  [data-testid="stMetricValue"] {color: #5B2C83;}
+  h1 {font-size: 2.0rem !important; line-height: 1.2; color: #0A2F5C;}
+  h2, h3 {color: #0B5394;}
+  [data-testid="stMetricValue"] {color: #0B5394;}
+  [data-testid="stSidebar"] {background: #EAF3FB;}
   .block-container {padding-top: 2rem; max-width: 1250px;}
 </style>""", unsafe_allow_html=True)
 
+vistas.PAGINA_RESPUESTA = st.Page(vistas.respuesta, title="La respuesta: qué comprar y qué trasladar", icon="✅",
+                                  url_path="respuesta")
 paginas = {
-    "Resumen": [st.Page(vistas.inicio, title="Inicio", icon="🏥", default=True)],
+    "Resumen": [st.Page(vistas.inicio, title="Inicio", icon="🏥", default=True),
+                vistas.PAGINA_RESPUESTA],
     "Las 6 preguntas": [
         st.Page(vistas.p1, title="1 · El inventario en 2025", icon="📉", url_path="p1-inventario"),
         st.Page(vistas.p2, title="2 · ¿90 % de abastecimiento?", icon="📰", url_path="p2-abastecimiento"),
@@ -34,7 +40,9 @@ paginas = {
     "IA generativa": [st.Page(asistente.pagina, title="Pregúntale a los datos", icon="✨", url_path="asistente")],
 }
 try:
-    st.navigation(paginas).run()
+    nav = st.navigation(paginas)
+    vistas.filtros()
+    nav.run()
 except Exception as e:  # datos aún no publicados o fuente caída: aviso en lugar de error técnico
     st.warning("Los datos de esta página todavía se están generando o la fuente no responde. "
                 "Intenta de nuevo en unos minutos.")

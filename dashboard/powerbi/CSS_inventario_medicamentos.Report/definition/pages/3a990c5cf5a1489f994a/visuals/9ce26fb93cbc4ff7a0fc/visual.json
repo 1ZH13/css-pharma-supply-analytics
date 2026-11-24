@@ -1,0 +1,82 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "9ce26fb93cbc4ff7a0fc",
+  "position": {
+    "x": 40,
+    "y": 20,
+    "z": 0,
+    "height": 150,
+    "width": 1840,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "P4 · ¿El interior del país está peor abastecido?",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#7F8C9A"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Panamá concentra 80.1 % del inventario; el interior se queda en cero",
+                    "textStyle": {
+                      "fontSize": "30pt",
+                      "fontWeight": "bold",
+                      "color": "#0A2F5C"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Decisión: ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "fontWeight": "bold",
+                      "color": "#0B5394"
+                    }
+                  },
+                  {
+                    "value": "ejecutar los traslados sugeridos entre centros antes de comprar y fijar un reparto mínimo para el interior.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#14212E"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,9 +1,9 @@
 [theme]
 base = "light"
-primaryColor = "#5B2C83"
+primaryColor = "#0B5394"
 backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F3F0F7"
-textColor = "#1F1B24"
+secondaryBackgroundColor = "#EAF3FB"
+textColor = "#14212E"
 font = "sans serif"
 
 [server]
