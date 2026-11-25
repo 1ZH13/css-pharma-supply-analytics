@@ -98,8 +98,11 @@ CLAVES = ("GEMINI_API_KEY", "GROQ_API_KEY", "OPENROUTER_API_KEY")
 
 
 @st.cache_resource(show_spinner=False)
-def _cliente():
+def _cliente(solo: str | None = None):
+    """Cadena de proveedores. Con `solo="groq"` (o "openrouter") usa solo ese proveedor, sin tocar la cuota de Gemini."""
     claves = {k: datos.secreto(k) for k in CLAVES}
+    if solo:
+        claves = {k: v for k, v in claves.items() if k.startswith(solo.upper())}
     if not any(claves.values()):
         return None
     return cliente_asistente(claves, timeout=30)
@@ -108,8 +111,11 @@ def _cliente():
 def pagina():
     st.caption("IA generativa · Gemini (con respaldo en Groq) responde solo con los datos del sistema")
     st.title("Pregúntale a los datos")
+    solo = str(st.query_params.get("ia", "")).strip().lower() or None
+    if solo not in (None, "groq", "openrouter"):
+        solo = None
     try:
-        cli = _cliente()
+        cli = _cliente(solo)
     except ErrorIA as e:
         cli = None
         st.error(f"No se pudo conectar con el proveedor de IA: {e}")
