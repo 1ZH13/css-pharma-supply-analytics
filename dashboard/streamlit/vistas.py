@@ -102,7 +102,7 @@ def inicio():
     c[3].metric("Valor del inventario", _b(k["valor_inventario"]), f"{k['variacion_valor_12m_pct']} % en 12 meses", delta_color="off")
 
     if PAGINA_RESPUESTA is not None:
-        st.page_link(PAGINA_RESPUESTA, label="Ver la respuesta: qué comprar ya, qué reforzar y qué trasladar →", icon="✅")
+        st.page_link(PAGINA_RESPUESTA, label="Ver el plan de acción: qué comprar ya, qué reforzar y qué trasladar →", icon=":material/task_alt:")
     st.subheader("Seis hallazgos que llevan a la respuesta")
     cols = st.columns(3)
     for i, (pid, n) in enumerate(nar["preguntas"].items()):
@@ -387,14 +387,27 @@ def respuesta():
         st.caption(f"{eeuu} de estos críticos también están hoy en escasez en EE. UU. (openFDA): para ellos conviene buscar "
                    "proveedor alterno o sustituto terapéutico, porque el problema es del mercado global.")
     ver = st.radio("Lista", ["Críticos en riesgo alto", "Todos en riesgo alto"], horizontal=True, label_visibility="collapsed")
-    lista = (crit if ver.startswith("Críticos") else alto).sort_values(["accion", "puntaje_riesgo"], ascending=[True, False])
-    cols = ["accion", "descripcion", "grupo"] + [f"existencia_{x}" for x in _f_centros()] + ["cobertura_meses", "escasez_eeuu", "puntaje_riesgo"]
+    todos = not ver.startswith("Críticos")
+    lista = (alto if todos else crit).sort_values(["critico", "accion", "puntaje_riesgo"], ascending=[False, True, False])
+    if todos:
+        fantasmas = set(datos.tabla("p6_fantasmas")["codigo"].astype(str))
+        nc = lista[~lista["critico"]]
+        st.caption(f"Mostrando los {len(lista)} medicamentos en riesgo alto: {int(lista['critico'].sum())} críticos (arriba) y "
+                   f"{len(nc)} no críticos, de los cuales {int(nc['codigo'].astype(str).isin(fantasmas).sum())} son medicamentos fantasma (P6).")
+    else:
+        st.caption(f"Mostrando los {len(lista)} medicamentos críticos en riesgo alto. Elige «Todos en riesgo alto» para ver también los no críticos.")
+    cols = (["accion", "descripcion", "grupo"] + (["critico"] if todos else []) + [f"existencia_{x}" for x in _f_centros()]
+            + ["cobertura_meses", "escasez_eeuu", "puntaje_riesgo"])
     st.dataframe(lista[cols], hide_index=True, width="stretch",
-                 column_config={"accion": "Acción", "descripcion": "Medicamento", "grupo": "Grupo",
-                                **{f"existencia_{x}": st.column_config.NumberColumn(x, format="%,d") for x in CENTRO},
-                                "cobertura_meses": st.column_config.NumberColumn("Cobertura (meses)", format="%.2f"),
-                                "escasez_eeuu": st.column_config.CheckboxColumn("Escasez EE. UU."),
-                                "puntaje_riesgo": st.column_config.ProgressColumn("Riesgo", min_value=0, max_value=100, format="%d")})
+                 column_config={"accion": st.column_config.TextColumn("Acción", width="small"),
+                                "descripcion": st.column_config.TextColumn("Medicamento", width="large"),
+                                "grupo": st.column_config.TextColumn("Grupo", width="medium"),
+                                "critico": st.column_config.CheckboxColumn("Crítico", width="small"),
+                                **{f"existencia_{x}": st.column_config.NumberColumn(x, format="%,d", width="small") for x in CENTRO},
+                                "cobertura_meses": st.column_config.NumberColumn("Meses", format="%.2f", width="small",
+                                                                                 help="Cobertura en meses al consumo estimado"),
+                                "escasez_eeuu": st.column_config.CheckboxColumn("EE. UU.", width="small", help="También en escasez en EE. UU. (openFDA)"),
+                                "puntaje_riesgo": st.column_config.ProgressColumn("Riesgo", min_value=0, max_value=100, format="%d", width="small")})
     st.download_button("Descargar lista de compras y refuerzos (CSV)", lista[cols].to_csv(index=False).encode("utf-8-sig"),
                        "medicamentos_en_riesgo.csv", "text/csv")
 
@@ -423,9 +436,10 @@ def respuesta():
     # ---------------------------------------------------------- 3. Qué decidir
     st.subheader("3 · Qué decidir este mes")
     p1, p3, p6 = r["P1"], r["P3"], r["P6"]
+    eeuu_comprar = int(comprar['escasez_eeuu'].sum())
     recs = [
-        ("Comprar ya", ROJO, f"Compra urgente o conjunta (Comisión de Desabastecimiento Crítico) de los **{len(comprar)} críticos sin existencia**; "
-                             f"proveedor alterno para los {eeuu} que también escasean en EE. UU."),
+        ("Comprar ya", ROJO, f"Compra urgente o conjunta (Comisión de Desabastecimiento Crítico) de los **{len(comprar)} críticos sin existencia**"
+                             + (f"; proveedor alterno o sustituto para los {eeuu_comprar} que también escasean en EE. UU." if eeuu_comprar else ".")),
         ("Reforzar", AMBAR, f"Adelantar la compra de los **{len(reforzar)} críticos con menos de 1 mes** y fijar stock de seguridad "
                             f"por grupo de pacientes, empezando por {', '.join(x['grupo'] for x in p3['top3'][:2]).lower()}."),
         ("Trasladar", AZUL, f"Ejecutar los **{len(red)} traslados** ({_b(red['valor'].sum(), 2)}) antes de comprar, y repartir cada compra "
@@ -450,3 +464,86 @@ def respuesta():
 - **P6 · Qué depurar:** {p6['fantasmas']} medicamentos llevan 12 meses en cero → reactivar, sustituir o retirar del catálogo.
 """)
     _pie("Inventario CSS por centro (riesgo y redistribución calculados por el pipeline), openFDA")
+
+# ------------------------------------------------------- Ficha de medicamento
+def ficha():
+    """Consulta de un medicamento: existencias por centro, riesgo, acción sugerida e historia mensual."""
+    k = datos.documento("kpi_resumen")
+    rg = plan_de_accion()
+    if _f_grupos():
+        rg = rg[rg["grupo"].isin(_f_grupos())]
+    rg = rg.sort_values("puntaje_riesgo", ascending=False)
+    st.caption(f"Consulta por medicamento · corte {k['periodo']}"
+               + (f" · filtro: {_filtro_activo()}" if _filtro_activo() else ""))
+    st.title("Ficha de medicamento")
+    st.write("Busca cualquier medicamento del catálogo publicado para ver cuánto hay en cada almacén, "
+             "cuánto dura, por qué tiene ese nivel de riesgo y qué acción le corresponde.")
+    if rg.empty:
+        st.info("No hay medicamentos con el filtro de grupo elegido.")
+        return
+    opciones = rg["codigo"].tolist()
+    nombres = dict(zip(rg["codigo"], rg["descripcion"]))
+    cod = st.selectbox("Medicamento (escribe para buscar)", opciones, format_func=lambda c: f"{nombres[c]} · {c}")
+    m = rg[rg["codigo"] == cod].iloc[0]
+
+    st.subheader(m["descripcion"])
+    accion = m["accion"]
+    etiquetas = [f"<span style='background:{ACCIONES.get(accion, GRIS)};color:white;padding:3px 10px;border-radius:12px;"
+                 f"font-weight:600'>{accion}</span>",
+                 f"<span style='background:#E3F0FA;color:{AZUL};padding:3px 10px;border-radius:12px'>"
+                 f"Riesgo {m['nivel_riesgo']} · {int(m['puntaje_riesgo'])}/100</span>",
+                 f"<span style='background:#E3F0FA;color:{AZUL};padding:3px 10px;border-radius:12px'>"
+                 + (f"Crítico: {m['grupo']}" if m["critico"] else "No crítico") + "</span>"]
+    if m["escasez_eeuu"]:
+        etiquetas.append(f"<span style='background:#FBE9E7;color:{ROJO};padding:3px 10px;border-radius:12px'>"
+                         "También escasea en EE. UU.</span>")
+    fantasmas = set(datos.tabla("p6_fantasmas")["codigo"].astype(str))
+    if str(cod) in fantasmas:
+        etiquetas.append("<span style='background:#EEE;color:#333;padding:3px 10px;border-radius:12px'>"
+                         "Fantasma: 12 meses en cero</span>")
+    st.markdown(" ".join(etiquetas), unsafe_allow_html=True)
+
+    c = st.columns(4)
+    c[0].metric("Existencia total", f"{m['existencia_total']:,.0f}")
+    c[1].metric("Consumo mensual (est.)", f"{m['consumo_mensual_est']:,.0f}" if pd.notna(m["consumo_mensual_est"]) else "s/d")
+    cob = m["cobertura_meses"]
+    c[2].metric("Cobertura", f"{cob:,.1f} meses" if pd.notna(cob) and cob < 1000 else ("sin consumo" if pd.isna(cob) else "más de 1000 meses"))
+    c[3].metric("Valor en almacén", _b(m["valor_existencia"]) if pd.notna(m.get("valor_existencia")) else "s/d")
+
+    a, b = st.columns([3, 2])
+    filas = []
+    for x in _f_centros():
+        filas.append({"Centro": CENTRO[x], "Existencia": m.get(f"existencia_{x}"), "Consumo/mes (est.)": m.get(f"consumo_{x}"),
+                      "Cobertura (meses)": m.get(f"cobertura_{x}")})
+    a.markdown("**Por almacén**")
+    a.dataframe(pd.DataFrame(filas), hide_index=True, width="stretch",
+                column_config={"Existencia": st.column_config.NumberColumn(format="%,d"),
+                               "Consumo/mes (est.)": st.column_config.NumberColumn(format="%,d"),
+                               "Cobertura (meses)": st.column_config.NumberColumn(format="%.1f")})
+    b.markdown("**Por qué tiene este nivel de riesgo**")
+    motivos = str(m.get("motivos") or "").strip()
+    b.write(motivos if motivos and motivos != "nan" else "Sin señales de riesgo en este corte.")
+    b.caption(f"ATC {m.get('atc') if pd.notna(m.get('atc')) else 's/d'} · {m.get('grupo_terapeutico') if pd.notna(m.get('grupo_terapeutico')) else ''}")
+
+    red = datos.tabla("redistribucion")
+    t = red[red["codigo"].astype(str) == str(cod)]
+    if len(t):
+        st.markdown("**Traslados sugeridos**")
+        st.dataframe(t[["desde", "hacia", "cantidad", "valor", "cobertura_destino_antes", "cobertura_destino_despues"]],
+                     hide_index=True, width="stretch",
+                     column_config={"desde": "Desde", "hacia": "Hacia",
+                                    "cantidad": st.column_config.NumberColumn("Cantidad", format="%,d"),
+                                    "valor": st.column_config.NumberColumn("Valor (B/.)", format="%,.0f"),
+                                    "cobertura_destino_antes": st.column_config.NumberColumn("Cobertura destino antes", format="%.1f m"),
+                                    "cobertura_destino_despues": st.column_config.NumberColumn("después", format="%.1f m")})
+
+    h = _f_meses(datos.historia(str(cod)))
+    h = h[h["centro"].isin(_f_centros())]
+    st.markdown("**Existencia mes a mes por almacén**")
+    if len(h):
+        fig = px.line(h.sort_values("periodo"), x="periodo", y="cantidad", color="centro", markers=True,
+                      color_discrete_map=COLOR_CENTRO, labels={"cantidad": "Existencia (unidades)", "periodo": "", "centro": ""})
+        st.plotly_chart(_fig(fig, 340), width="stretch")
+    else:
+        st.info("No hay registros de este medicamento en el rango de meses elegido.")
+    _pie("Inventario CSS por centro, riesgo y traslados calculados por el pipeline, openFDA")
